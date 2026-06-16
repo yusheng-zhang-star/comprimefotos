@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="robots" content="index,follow"><title>Hacer collage de fotos online gratis é¥?Crea collages | ComprimeFotos</title><meta name="description" content="Crea collages de fotos online gratis. Combina varias imè°©genes en una sola composiciè´¸n con plantillas. Sin registro, 100% en tu navegador."><meta name="keywords" content="hacer collage de fotos online, collage de imè°©genes gratis, creador de collages, combinar fotos"><link rel="canonical" href="https://comprimefotos.com/tools/hacer-collage.html">
+  <meta property="og:title" content="Hacer collage de fotos online gratis é¥?Crea collages | ComprimeFotos">
+  <meta property="og:description" content="Crea collages de fotos online gratis. Combina varias imè°©genes en una sola composiciè´¸n con plantillas. Sin registro, 100% en tu navegador."><meta name="theme-color" content="#ff6b4a"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="stylesheet" href="../css/style.css?v=2"><link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"></head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo"><span class="logo-icon">é¦æ³</span><span class="logo-text">ComprimeFotos</span></a>
+    <nav class="main-nav"><a href="/">Inicio</a><a href="/tools/comprimir-imagenes.html">Comprimir</a><a href="/tools/comprimir-imagenes-whatsapp.html">WhatsApp</a><a href="/tools/quitar-fondo.html">Quitar Fondo</a><a href="/blog/">Blog</a><a href="/about.html">Sobre Nosotros</a></nav>
+    <div class="header-actions"><button class="mobile-menu-btn"  aria-label="Cambiar tema">é¦å¯µ</button><button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menç¤">é½?/button></div>
+  </div>
+</header>
+<main class="tool-page">
+  <div class="container">
+    <nav class="breadcrumb"><a href="/">Inicio</a> é¥?<span>Hacer collage de fotos</span></nav>
+    <div class="tool-page-header"><h1>é¦æ¤é?Hacer <span class="gradient-text">collage</span> de fotos</h1><p>Crea collages de fotos online con plantillas. Combina varias imè°©genes en una sola composiciè´¸n. Gratis, fè°©cil, rè°©pido.</p></div>
+    <div class="tool-workspace" id="collageWorkspace">
+      <div id="uploadArea">
+        <p style="text-align:center;margin-bottom:16px;font-weight:600;">Aå¸½ade tus fotos (ménimo 2, mè°©ximo 6):</p>
+        <label for="fileInput" class="dropzone" style="padding:30px;" id="dropzone">
+          <span class="dropzone-icon">é?/span>
+          <h3>Aå¸½adir fotos</h3>
+          <p>Haz clic para seleccionar varias imè°©genes</p>
+          <input type="file" id="fileInput" accept="image/*" multiple style="display:none">
+        </label>
+      </div>
+      <div id="photosList" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;"></div>
+      <div class="tool-controls">
+        <div class="control-row"><label>Plantilla:</label>
+          <select id="templateSelect" style="max-width:200px;">
+            <option value="2grid">2 fotos (rejilla)</option>
+            <option value="2side">2 fotos (lado a lado)</option>
+            <option value="3row">3 fotos (fila)</option>
+            <option value="4grid">4 fotos (cuadrécula)</option>
+            <option value="6grid">6 fotos (2x3)</option>
+          </select>
+        </div>
+        <div class="control-row"><label>Espaciado:</label>
+          <input type="range" id="spacingSlider" min="0" max="40" value="8">
+          <span id="spacingValue" style="font-weight:600;min-width:30px;">8px</span>
+        </div>
+      </div>
+      <div id="collagePreview" style="margin-top:16px;text-align:center;min-height:100px;"></div>
+      <div class="tool-actions" style="margin-top:16px;">
+        <button class="btn btn-primary" id="generateBtn">é?Generar collage</button>
+        <button class="btn btn-primary" id="downloadBtn" style="display:none;">é¦æ Descargar</button>
+        <button class="btn btn-secondary" id="resetBtn">é¦æ§ Empezar de nuevo</button>
+      </div>
+    </div>
+    <div class="how-to-section">
+      <h2>Cè´¸mo hacer un collage</h2>
+      <div class="how-to-steps">
+        <div class="how-to-step"><div class="step-number">1</div><h4>Aå¸½ade fotos</h4><p>Selecciona de 2 a 6 imè°©genes para tu collage.</p></div>
+        <div class="how-to-step"><div class="step-number">2</div><h4>Elige plantilla</h4><p>Selecciona la disposiciè´¸n que mè°©s te guste.</p></div>
+        <div class="how-to-step"><div class="step-number">3</div><h4>Genera y descarga</h4><p>Haz clic en generar y descarga tu collage.</p></div>
+      </div>
+    </div>
+    <div class="faq-section">
+      <h2>Preguntas frecuentes</h2>
+      <div class="faq-item"><button class="faq-question">é©´Cuè°©ntas fotos puedo usar?</button><div class="faq-answer"><p>Puedes usar entre 2 y 6 fotos por collage. Dependiendo de la plantilla que elijas, se distribuirè°©n automè°©ticamente.</p></div></div>
+      <div class="faq-item"><button class="faq-question">é©´Què tamaå¸½o tiene el collage?</button><div class="faq-answer"><p>El collage se genera a 1200x900 péxeles, ideal para compartir en redes sociales y WhatsApp.</p></div></div>
+      <div class="faq-item"><button class="faq-question">é©´Puedo ajustar el espaciado?</button><div class="faq-answer"><p>Sé, usa el deslizador de espaciado para ajustar la separaciè´¸n entre fotos de 0 a 40 péxeles.</p></div></div>
+    </div>
+    <div class="related-tools">
+      <h2>Herramientas relacionadas</h2>
+      <div class="related-tools-grid">
+        <a href="/tools/comprimir-imagenes.html" class="related-tool-card"><span class="tool-icon">é¦æ</span><div class="tool-info"><strong>Comprimir imè°©genes</strong><span class="tool-desc">Reduce el peso de tus fotos</span></div><span class="tool-arrow">é«?/span></a>
+        <a href="/tools/poner-marca-de-agua.html" class="related-tool-card"><span class="tool-icon">é¦æ§</span><div class="tool-info"><strong>Poner marca de agua</strong><span class="tool-desc">Protege tus fotos</span></div><span class="tool-arrow">é«?/span></a>
+        <a href="/tools/foto-a-blanco-y-negro.html" class="related-tool-card"><span class="tool-icon">é¿?/span><div class="tool-info"><strong>Foto a blanco y negro</strong><span class="tool-desc">Efecto clè°©sico</span></div><span class="tool-arrow">é«?/span></a>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="site-footer"><div class="container"><div class="footer-grid">
+  <div class="footer-brand"><a href="/" class="logo"><span class="logo-icon">é¦æ³</span><span class="logo-text">ComprimeFotos</span></a><p>Herramientas gratuitas para comprimir y editar imè°©genes online.</p></div>
+  <div class="footer-links"><h4>Herramientas</h4><a href="/tools/comprimir-imagenes.html">Comprimir imè°©genes</a><a href="/tools/comprimir-imagenes-whatsapp.html">Comprimir para WhatsApp</a><a href="/tools/comprimir-pdf.html">Comprimir PDF</a><a href="/tools/quitar-fondo.html">Quitar fondo</a></div>
+  <div class="footer-links"><h4>Legal</h4><a href="/about.html">Sobre nosotros</a><a href="/contact.html">Contacto</a><a href="/privacy.html">Privacidad</a><a href="/terms.html">Tèrminos</a><a href="/cookie-policy.html">Cookies</a><a href="/blog/">Blog</a></div>
+</div><div class="footer-bottom"><p>&copy; 2026 ComprimeFotos.com</p></div></div></footer>
+<div class="cookie-consent" id="cookieConsent"><div class="cookie-consent-inner"><div class="cookie-consent-text"><p>é¦å´» Usamos cookies esenciales. <a href="/cookie-policy.html">Mè°©s informaciè´¸n</a>.</p></div><div class="cookie-consent-actions"><button class="cookie-btn cookie-btn-decline" id="cookieDecline">Solo esenciales</button><button class="cookie-btn cookie-btn-accept" id="cookieAccept">Aceptar todas</button></div></div></div>
+<div class="toast" id="toast"></div>
+<script src="../js/main.js?v=2"></script>
+<script>
+(function() {
+  'use strict';
+  const fileInput = document.getElementById('fileInput');
+  const photosList = document.getElementById('photosList');
+  const templateSelect = document.getElementById('templateSelect');
+  const spacingSlider = document.getElementById('spacingSlider');
+  const spacingValue = document.getElementById('spacingValue');
+  const generateBtn = document.getElementById('generateBtn');
+  const downloadBtn = document.getElementById('downloadBtn');
+  const resetBtn = document.getElementById('resetBtn');
+  const collagePreview = document.getElementById('collagePreview');
+
+  let images = [];
+  let resultCanvas = null;
+
+  spacingSlider.addEventListener('input', function() { spacingValue.textContent = this.value + 'px'; });
+
+  fileInput.addEventListener('change', function() {
+    if (!this.files) return;
+    for (const file of this.files) {
+      if (images.length >= 6) break;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const img = new Image();
+        img.onload = function() {
+          images.push(img);
+          updatePhotosList();
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+  });
+
+  function updatePhotosList() {
+    photosList.innerHTML = '';
+    images.forEach(function(img, index) {
+      const div = document.createElement('div');
+      div.style.cssText = 'position:relative;width:80px;height:80px;border-radius:8px;overflow:hidden;border:2px solid var(--border-color);';
+      const thumb = document.createElement('img');
+      thumb.src = img.src;
+      thumb.style.cssText = 'width:100%;height:100%;object-fit:cover;';
+      const removeBtn = document.createElement('button');
+      removeBtn.textContent = 'é?;
+      removeBtn.style.cssText = 'position:absolute;top:2px;right:2px;width:20px;height:20px;border-radius:50%;background:rgba(0,0,0,0.6);color:white;font-size:12px;display:flex;align-items:center;justify-content:center;border:none;cursor:pointer;';
+      removeBtn.addEventListener('click', function() { images.splice(index, 1); updatePhotosList(); });
+      div.appendChild(thumb);
+      div.appendChild(removeBtn);
+      photosList.appendChild(div);
+    });
+  }
+
+  generateBtn.addEventListener('click', function() {
+    if (images.length < 2) { showToast('é¿çç¬ Necesitas al menos 2 fotos', ''); return; }
+
+    const spacing = parseInt(spacingSlider.value);
+    const template = templateSelect.value;
+    const cw = 1200, ch = 900;
+
+    const canvas = document.createElement('canvas');
+    canvas.width = cw;
+    canvas.height = ch;
+    resultCanvas = canvas;
+    const ctx = canvas.getContext('2d');
+
+    // Fondo blanco
+    ctx.fillStyle = '#FFFFFF';
+    ctx.fillRect(0, 0, cw, ch);
+
+    const layouts = {
+      '2grid': function() {
+        const w = (cw - spacing*3) / 2;
+        const h = ch - spacing*2;
+        drawImage(0, 0, 0, spacing, w, h);
+        drawImage(1, 1, w + spacing*2, spacing, w, h);
+      },
+      '2side': function() {
+        const h = (ch - spacing*3) / 2;
+        drawImage(0, 0, spacing, spacing, cw - spacing*2, h);
+        drawImage(1, 1, spacing, h + spacing*2, cw - spacing*2, h);
+      },
+      '3row': function() {
+        const w = (cw - spacing*4) / 3;
+        for (let i = 0; i < Math.min(3, images.length); i++) {
+          drawImage(i, i, spacing + i*(w+spacing), spacing, w, ch - spacing*2);
+        }
+      },
+      '4grid': function() {
+        const w = (cw - spacing*3) / 2;
+        const h = (ch - spacing*3) / 2;
+        drawImage(0, 0, spacing, spacing, w, h);
+        drawImage(1, 1, w + spacing*2, spacing, w, h);
+        drawImage(2, 2, spacing, h + spacing*2, w, h);
+        drawImage(3, 3, w + spacing*2, h + spacing*2, w, h);
+      },
+      '6grid': function() {
+        const w = (cw - spacing*4) / 3;
+        const h = (ch - spacing*3) / 2;
+        for (let i = 0; i < Math.min(6, images.length); i++) {
+          const col = i % 3;
+          const row = Math.floor(i / 3);
+          drawImage(i, i, spacing + col*(w+spacing), spacing + row*(h+spacing), w, h);
+        }
+      }
+    };
+
+    function drawImage(index, imgIndex, x, y, w, h) {
+      if (imgIndex >= images.length) return;
+      const img = images[imgIndex];
+      // Crop center
+      const aspect = img.width / img.height;
+      const targetAspect = w / h;
+      let sx, sy, sw, sh;
+      if (aspect > targetAspect) {
+        sh = img.height;
+        sw = img.height * targetAspect;
+        sx = (img.width - sw) / 2;
+        sy = 0;
+      } else {
+        sw = img.width;
+        sh = img.width / targetAspect;
+        sx = 0;
+        sy = (img.height - sh) / 2;
+      }
+      ctx.drawImage(img, sx, sy, sw, sh, x, y, w, h);
+    }
+
+    if (layouts[template]) {
+      layouts[template]();
+    }
+
+    downloadBtn.style.display = 'inline-flex';
+    // Mostrar preview en miniatura
+    const previewCanvas = document.createElement('canvas');
+    previewCanvas.width = cw;
+    previewCanvas.height = ch;
+    previewCanvas.getContext('2d').drawImage(canvas, 0, 0);
+    previewCanvas.style.cssText = 'max-width:100%;border-radius:8px;border:1px solid var(--border-color);';
+    collagePreview.innerHTML = '';
+    collagePreview.appendChild(previewCanvas);
+    showToast('é?Collage generado', 'success');
+  });
+
+  downloadBtn.addEventListener('click', function() {
+    if (!resultCanvas) return;
+    resultCanvas.toBlob(function(blob) {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'collage-comprimefotos.jpg';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast('é?Collage descargado', 'success');
+    }, 'image/jpeg', 0.95);
+  });
+
+  resetBtn.addEventListener('click', function() {
+    images = [];
+    resultCanvas = null;
+    photosList.innerHTML = '';
+    collagePreview.innerHTML = '';
+    downloadBtn.style.display = 'none';
+    fileInput.value = '';
+  });
+
+  function showToast(msg, type) {
+    const toast = document.getElementById('toast');
+    if(!toast)return;
+    toast.textContent=msg;toast.className='toast';if(type)toast.classList.add(type);
+    toast.classList.add('visible');setTimeout(function(){toast.classList.remove('visible');},3000);
+  }
+})();
+</script>
+</body>
+</html>

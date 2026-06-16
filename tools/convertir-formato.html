@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="robots" content="index,follow"><title>Convertir formato de imagen online é¥?JPG a PNG, WebP | ComprimeFotos</title><meta name="description" content="Convierte imè°©genes entre JPG, PNG y WebP online gratis. Cambia el formato de tus fotos sin perder calidad. 100% en tu navegador."><meta name="keywords" content="convertir formato imagen, JPG a PNG, PNG a JPG, WebP a PNG, JPG a WebP, conversor imè°©genes online"><link rel="canonical" href="https://comprimefotos.com/tools/convertir-formato.html">
+  <meta property="og:title" content="Convertir formato de imagen online é¥?JPG a PNG, WebP | ComprimeFotos">
+  <meta property="og:description" content="Convierte imè°©genes entre JPG, PNG y WebP online gratis. Cambia el formato de tus fotos sin perder calidad. 100% en tu navegador."><meta name="theme-color" content="#ff6b4a"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="stylesheet" href="../css/style.css?v=2"><link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"></head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo"><span class="logo-icon">é¦æ³</span><span class="logo-text">ComprimeFotos</span></a>
+    <nav class="main-nav"><a href="/">Inicio</a><a href="/tools/comprimir-imagenes.html">Comprimir</a><a href="/tools/comprimir-imagenes-whatsapp.html">WhatsApp</a><a href="/tools/quitar-fondo.html">Quitar Fondo</a><a href="/blog/">Blog</a><a href="/about.html">Sobre Nosotros</a></nav>
+    <div class="header-actions"><button class="mobile-menu-btn"  aria-label="Cambiar tema">é¦å¯µ</button><button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menç¤">é½?/button></div>
+  </div>
+</header>
+<main class="tool-page">
+  <div class="container">
+    <nav class="breadcrumb"><a href="/">Inicio</a> é¥?<span>Convertir formato</span></nav>
+    <div class="tool-page-header"><h1>é¦æ§ Convertir formato de <span class="gradient-text">imagen</span></h1><p>Convierte tus imè°©genes entre JPG, PNG y WebP online y gratis. Cambia el formato de tus fotos sin perder calidad, todo en tu navegador.</p></div>
+    <div class="tool-workspace" id="convertWorkspace">
+      <label for="fileInput" class="dropzone" id="dropzone"><span class="dropzone-icon">é¦æ¤é?/span><h3>Arrastra tu imagen aqué</h3><p>o haz clic para seleccionar un archivo</p><p style="font-size:0.8rem;color:var(--text-muted);margin-top:8px;">JPG, PNG, WebP é¥?Tamaå¸½o mè°©ximo: 20 MB</p><input type="file" id="fileInput" accept="image/*" style="display:none"></label>
+      <div class="preview-area" id="previewArea">
+        <div style="display:flex;gap:20px;flex-wrap:wrap;margin-bottom:20px;">
+          <div style="flex:1;min-width:220px;"><div class="preview-container" style="text-align:center;"><span style="font-size:0.85rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:6px;">Original</span><img id="previewImg" src="" alt="Preview original" style="max-height:280px;border-radius:var(--radius-md);border:2px solid var(--border-color);"></div></div>
+          <div style="flex:1;min-width:220px;"><div class="preview-container" style="text-align:center;"><span style="font-size:0.85rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:6px;">Resultado</span><img id="resultImg" src="" alt="Preview resultado" style="max-height:280px;border-radius:var(--radius-md);border:2px solid var(--border-color);display:none;"></div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:16px;">
+          <label for="formatSelect" style="font-weight:600;font-size:0.95rem;">Formato destino:</label>
+          <select id="formatSelect" style="flex:1;min-width:140px;max-width:200px;padding:10px 14px;border-radius:var(--radius-sm);border:2px solid var(--border-color);background:var(--bg-card);color:var(--text-primary);font-family:var(--font-main);font-size:0.95rem;cursor:pointer;"><option value="png">PNG</option><option value="jpg">JPG</option><option value="webp">WebP</option></select>
+        </div>
+        <div class="file-info" style="display:flex;gap:20px;flex-wrap:wrap;margin-bottom:14px;"><span><strong>Archivo:</strong> <span class="file-name">-</span></span><span><strong>Tamaå¸½o original:</strong> <span id="originalSize">-</span></span><span><strong>Tamaå¸½o convertido:</strong> <span id="resultSize">-</span></span></div>
+        <div class="tool-actions">
+          <button class="btn btn-primary" id="downloadBtn">ç¬å·ç¬ Descargar</button>
+          <button class="btn btn-secondary" id="resetBtn">é¦æ§ Nueva imagen</button>
+        </div>
+      </div>
+    </div>
+    <div class="how-to-section">
+      <h2>Cè´¸mo convertir el formato de una imagen</h2>
+      <div class="how-to-steps">
+        <div class="how-to-step"><div class="step-number">1</div><h4>Sube la imagen</h4><p>Arrastra o selecciona cualquier imagen desde tu dispositivo.</p></div>
+        <div class="how-to-step"><div class="step-number">2</div><h4>Elige el formato</h4><p>Selecciona entre JPG, PNG o WebP como formato de salida.</p></div>
+        <div class="how-to-step"><div class="step-number">3</div><h4>Descarga</h4><p>Descarga tu imagen convertida al instante, sin calidad.</p></div>
+      </div>
+    </div>
+    <div class="faq-section">
+      <h2>Preguntas frecuentes</h2>
+      <div class="faq-item"><button class="faq-question">é©´Pierdo calidad al convertir el formato?</button><div class="faq-answer"><p>Depende del formato. Al convertir a PNG no pierdes calidad porque es sin pèrdida. De PNG a JPG puede haber una compresiè´¸n ménima, pero ajustamos los parè°©metros para que la calidad sea è´¸ptima. WebP ofrece buena compresiè´¸n sin pèrdida apreciable de calidad visual.</p></div></div>
+      <div class="faq-item"><button class="faq-question">é©´Què formatos estè°©n disponibles?</button><div class="faq-answer"><p>Puedes convertir entre JPG, PNG y WebP. JPG es ideal para fotograféas, PNG para imè°©genes con transparencia o texto, y WebP para un equilibrio è´¸ptimo entre calidad y peso de archivo.</p></div></div>
+      <div class="faq-item"><button class="faq-question">é©´Se procesa en la nube o en mi dispositivo?</button><div class="faq-answer"><p>Todo el procesamiento ocurre localmente en tu navegador. Tus imè°©genes nunca se suben a ningç¤n servidor. La conversiè´¸n es 100% privada y segura.</p></div></div>
+      <div class="faq-item"><button class="faq-question">é©´Hay lémite de tamaå¸½o o cantidad?</button><div class="faq-answer"><p>El lémite es de 20 MB por imagen. No hay lémite en la cantidad de imè°©genes que puedes convertir, pero cada una se procesa individualmente.</p></div></div>
+      <div class="faq-item"><button class="faq-question">é©´Què formato me recomiendas para cada caso?</button><div class="faq-answer"><p>Para fotograféas usa JPG (buena compresiè´¸n). Si necesitas transparencia o texto nétido, usa PNG. Para pè°©ginas web donde quieras el mejor equilibrio calidad-peso, WebP es la mejor opciè´¸n.</p></div></div>
+    </div>
+    <div class="related-tools">
+      <h2>Herramientas relacionadas</h2>
+      <div class="related-tools-grid">
+        <a href="/tools/comprimir-imagenes.html" class="related-tool-card"><span class="tool-icon">é¦æ</span><div class="tool-info"><strong>Comprimir imè°©genes</strong><span class="tool-desc">Reduce el peso de tus fotos</span></div><span class="tool-arrow">é«?/span></a>
+        <a href="/tools/comprimir-imagenes-whatsapp.html" class="related-tool-card"><span class="tool-icon">éå¦ç¬</span><div class="tool-info"><strong>Redimensionar imè°©genes</strong><span class="tool-desc">Cambia el tamaå¸½o de tus fotos</span></div><span class="tool-arrow">é«?/span></a>
+        <a href="/tools/poner-marca-de-agua.html" class="related-tool-card"><span class="tool-icon">é¦æ§</span><div class="tool-info"><strong>Marca de agua</strong><span class="tool-desc">Protege tus imè°©genes</span></div><span class="tool-arrow">é«?/span></a>
+        <a href="/tools/quitar-fondo.html" class="related-tool-card"><span class="tool-icon">é¦å¸¹</span><div class="tool-info"><strong>Collage de fotos</strong><span class="tool-desc">Crea collages con tus imè°©genes</span></div><span class="tool-arrow">é«?/span></a>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="site-footer"><div class="container"><div class="footer-grid">
+  <div class="footer-brand"><a href="/" class="logo"><span class="logo-icon">é¦æ³</span><span class="logo-text">ComprimeFotos</span></a><p>Herramientas gratuitas para comprimir y editar imè°©genes online.</p></div>
+  <div class="footer-links"><h4>Herramientas</h4><a href="/tools/comprimir-imagenes.html">Comprimir imè°©genes</a><a href="/tools/comprimir-imagenes-whatsapp.html">Comprimir para WhatsApp</a><a href="/tools/comprimir-pdf.html">Comprimir PDF</a><a href="/tools/quitar-fondo.html">Quitar fondo</a></div>
+  <div class="footer-links"><h4>Legal</h4><a href="/about.html">Sobre nosotros</a><a href="/contact.html">Contacto</a><a href="/privacy.html">Privacidad</a><a href="/terms.html">Tèrminos</a><a href="/cookie-policy.html">Cookies</a><a href="/blog/">Blog</a></div>
+</div><div class="footer-bottom"><p>&copy; 2026 ComprimeFotos.com</p></div></div></footer>
+<div class="cookie-consent" id="cookieConsent"><div class="cookie-consent-inner"><div class="cookie-consent-text"><p>é¦å´» Usamos cookies esenciales. <a href="/cookie-policy.html">Mè°©s informaciè´¸n</a>.</p></div><div class="cookie-consent-actions"><button class="cookie-btn cookie-btn-decline" id="cookieDecline">Solo esenciales</button><button class="cookie-btn cookie-btn-accept" id="cookieAccept">Aceptar todas</button></div></div></div>
+<div class="toast" id="toast"></div>
+<script src="../js/main.js?v=2"></script>
+<script>
+(function() {
+  'use strict';
+  const workspace = document.getElementById('convertWorkspace');
+  const dropzone = document.getElementById('dropzone');
+  const fileInput = document.getElementById('fileInput');
+  const previewArea = document.getElementById('previewArea');
+  const previewImg = document.getElementById('previewImg');
+  const resultImg = document.getElementById('resultImg');
+  const formatSelect = document.getElementById('formatSelect');
+  const downloadBtn = document.getElementById('downloadBtn');
+  const resetBtn = document.getElementById('resetBtn');
+  const originalSize = document.getElementById('originalSize');
+  const resultSize = document.getElementById('resultSize');
+
+  let currentFile = null;
+  let currentDataUrl = null;
+  let currentCanvas = null;
+
+  function formatBytes(bytes) {
+    if (bytes === 0) return '0 B';
+    const k = 1024;
+    const sizes = ['B', 'KB', 'MB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+  }
+
+  workspace.addEventListener('file-selected', function(e) {
+    const file = e.detail.file;
+    currentFile = file;
+    originalSize.textContent = formatBytes(file.size);
+
+    const reader = new FileReader();
+    reader.onload = function(ev) {
+      currentDataUrl = ev.target.result;
+      previewImg.src = currentDataUrl;
+      previewArea.classList.add('active');
+      dropzone.style.display = 'none';
+      document.querySelector('.file-name').textContent = file.name;
+      convertImage();
+    };
+    reader.readAsDataURL(file);
+  });
+
+  function convertImage() {
+    if (!currentDataUrl) return;
+    const format = formatSelect.value;
+
+    const img = new Image();
+    img.onload = function() {
+      const canvas = document.createElement('canvas');
+      canvas.width = img.width;
+      canvas.height = img.height;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0);
+
+      let mimeType;
+      let ext;
+      if (format === 'jpg') {
+        mimeType = 'image/jpeg';
+        ext = 'jpg';
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0);
+      } else if (format === 'png') {
+        mimeType = 'image/png';
+        ext = 'png';
+      } else {
+        mimeType = 'image/webp';
+        ext = 'webp';
+      }
+
+      canvas.toBlob(function(blob) {
+        resultImg.src = URL.createObjectURL(blob);
+        resultImg.style.display = 'block';
+        resultSize.textContent = formatBytes(blob.size);
+        currentCanvas = canvas;
+        currentCanvas._mime = mimeType;
+        currentCanvas._ext = ext;
+        showToast('é?Conversiè´¸n completada', 'success');
+      }, mimeType, 0.92);
+    };
+    img.src = currentDataUrl;
+  }
+
+  formatSelect.addEventListener('change', function() {
+    if (currentDataUrl) convertImage();
+  });
+
+  downloadBtn.addEventListener('click', function() {
+    if (!currentCanvas) return;
+    const link = document.createElement('a');
+    link.download = 'convertida.' + currentCanvas._ext;
+    if (currentCanvas._mime === 'image/jpeg') {
+      link.href = currentCanvas.toDataURL(currentCanvas._mime, 0.92);
+    } else {
+      link.href = currentCanvas.toDataURL(currentCanvas._mime);
+    }
+    link.click();
+    showToast('ç¬å·ç¬ Imagen descargada', 'success');
+  });
+
+  resetBtn.addEventListener('click', function() {
+    currentFile = null;
+    currentDataUrl = null;
+    currentCanvas = null;
+    previewImg.src = '';
+    resultImg.src = '';
+    resultImg.style.display = 'none';
+    previewArea.classList.remove('active');
+    dropzone.style.display = 'block';
+    fileInput.value = '';
+    document.querySelector('.file-name').textContent = '-';
+    originalSize.textContent = '-';
+    resultSize.textContent = '-';
+  });
+
+  function showToast(msg, type) {
+    const toast = document.getElementById('toast');
+    if(!toast)return;
+    toast.textContent=msg;
+    toast.className='toast';
+    if(type)toast.classList.add(type);
+    toast.classList.add('visible');
+    setTimeout(function(){toast.classList.remove('visible');},3000);
+  }
+})();
+</script>
+</body>
+</html>

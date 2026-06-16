@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Procesador por lotes — Comprimir varias imágenes a la vez | ComprimeFotos</title>
+  <meta name="description" content="Comprime varias imágenes a la vez con nuestro procesador por lotes. Sube múltiples fotos, ajusta calidad global y descarga todo en ZIP. 100% gratis.">
+  <meta name="keywords" content="comprimir varias imágenes a la vez, procesador por lotes, compresión batch, lote de imágenes">
+  <link rel="canonical" href="https://comprimefotos.com/tools/procesador-por-lotes.html">
+  <meta name="theme-color" content="#1a6b52">
+  <meta property="og:title" content="Procesador por lotes — Comprimir varias imágenes a la vez | ComprimeFotos">
+  <meta property="og:description" content="Comprime varias imágenes a la vez con nuestro procesador por lotes. Sube múltiples fotos, ajusta calidad global y descarga todo en ZIP. 100% gratis.">
+  <meta property="og:url" content="https://comprimefotos.com/tools/procesador-por-lotes.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ComprimeFotos">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="../css/style.css?v=2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo"><span class="logo-icon">📳</span><span class="logo-text">ComprimeFotos</span></a>
+    <nav class="main-nav">
+      <a href="/" class="active">Inicio</a>
+      <a href="/tools/comprimir-imagenes.html">Comprimir</a>
+      <a href="/tools/comprimir-imagenes-whatsapp.html">WhatsApp</a>
+      <a href="/tools/quitar-fondo.html">Quitar fondo</a>
+      <a href="/blog/">Blog</a>
+      <a href="/about.html">Sobre</a>
+    </nav>
+    <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+  </div>
+</header><main class="tool-page">
+  <div class="container">
+    <nav class="breadcrumb"><a href="/">Inicio</a> — <span>Procesador por lotes</span></nav>
+    <div class="tool-page-header">
+      <h1>📝 Procesador por <span style="color:var(--accent);">lotes</span></h1>
+      <p>Sube varias imágenes a la vez, ajústalas con la misma configuración y descárgalas en ZIP. Ahorra tiempo procesando lotes completos de fotos.</p>
+    </div>
+    <div class="tool-workspace" id="batchWorkspace">
+      <label for="fileInput" class="dropzone" id="dropzone">
+        <span class="dropzone-icon">📦</span>
+        <h3>Arrastra tus imágenes aquí</h3>
+        <p>o haz clic para seleccionar varias fotos</p>
+        <p style="font-size:0.8rem;color:var(--text-muted);margin-top:8px;">JPG, PNG, WebP — Selecciona múltiples archivos</p>
+        <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" multiple style="display:none">
+      </label>
+      <div id="batchControls" style="display:none;">
+        <div class="tool-controls" style="margin-top:24px;">
+          <div class="control-row"><label>Calidad global:</label><input type="range" id="batchQuality" min="10" max="100" value="75"><span id="batchQualityValue" style="font-weight:600;min-width:40px;">75%</span></div>
+          <div class="control-row"><label>Formato salida:</label><select id="batchFormat" style="max-width:120px;"><option value="jpeg">JPG</option><option value="png">PNG</option><option value="webp">WebP</option></select></div>
+          <div class="control-row"><label>Redimensionar:</label><select id="batchResize" style="max-width:220px;"><option value="none">No redimensionar</option><option value="1600">Máx. 1600 px (WhatsApp)</option><option value="1200">Máx. 1200 px (web)</option><option value="800">Máx. 800 px (miniaturas)</option></select></div>
+        </div>
+        <div id="fileList" style="margin-top:20px;"></div>
+        <div class="tool-actions" style="margin-top:16px;">
+          <button class="btn btn-primary" id="processAllBtn">▶ Procesar todas</button>
+          <button class="btn btn-primary" id="downloadZipBtn" style="display:none;">📥 Descargar ZIP</button>
+          <button class="btn btn-secondary" id="resetBtn">🔄 Empezar de nuevo</button>
+        </div>
+      </div>
+    </div>
+    <div class="how-to-section">
+      <h2>Cómo usar el procesador por lotes</h2>
+      <div class="how-to-steps">
+        <div class="how-to-step"><div class="step-number">1</div><h4>Añade imágenes</h4><p>Selecciona todas las fotos que quieres procesar a la vez.</p></div>
+        <div class="how-to-step"><div class="step-number">2</div><h4>Configura el lote</h4><p>Ajusta calidad, formato y redimensionado global para todas.</p></div>
+        <div class="how-to-step"><div class="step-number">3</div><h4>Procesa y descarga</h4><p>Procesa todas las imágenes y descárgalas juntas en un ZIP.</p></div>
+      </div>
+    </div>
+    <div class="faq-section">
+      <h2>Preguntas frecuentes</h2>
+      <div class="faq-item"><button class="faq-question">¿Cuántas imágenes puedo procesar a la vez?</button><div class="faq-answer"><p>Puedes procesar todas las que quieras, pero recomendamos no superar las 50 imágenes por lote para evitar problemas de memoria en el navegador.</p></div></div>
+      <div class="faq-item"><button class="faq-question">¿Puedo redimensionar y comprimir a la vez?</button><div class="faq-answer"><p>Sí, puedes redimensionar y comprimir al mismo tiempo. Es la forma más eficiente de optimizar muchas imágenes.</p></div></div>
+      <div class="faq-item"><button class="faq-question">¿Las imágenes se suben a algún servidor?</button><div class="faq-answer"><p>No, todo el procesamiento ocurre localmente en tu navegador. Tus imágenes nunca salen de tu dispositivo.</p></div></div>
+    </div>
+    <div class="related-tools">
+      <h2>Herramientas relacionadas</h2>
+      <div class="related-tools-grid">
+        <a href="/tools/comprimir-imagenes.html" class="related-tool-card"><span class="tool-icon">📝</span><div class="tool-info"><strong>Comprimir imágenes</strong><span class="tool-desc">Individual</span></div><span class="tool-arrow">→</span></a>
+        <a href="/tools/redimensionar-imagen.html" class="related-tool-card"><span class="tool-icon">📐</span><div class="tool-info"><strong>Redimensionar</strong><span class="tool-desc">Cambia tamaño</span></div><span class="tool-arrow">→</span></a>
+        <a href="/tools/convertir-formato.html" class="related-tool-card"><span class="tool-icon">🔄</span><div class="tool-info"><strong>Convertir formato</strong><span class="tool-desc">Cambia formato</span></div><span class="tool-arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</main><footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo"><span class="logo-icon">📳</span><span class="logo-text">ComprimeFotos</span></a>
+        <p>Herramientas gratuitas para comprimir y editar im&aacute;genes online. Todo el procesamiento se realiza en tu navegador: tus archivos nunca salen de tu dispositivo.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Herramientas</h4>
+        <a href="/tools/comprimir-imagenes.html">Comprimir im&aacute;genes</a>
+        <a href="/tools/comprimir-imagenes-whatsapp.html">Comprimir para WhatsApp</a>
+        <a href="/tools/comprimir-pdf.html">Comprimir PDF</a>
+        <a href="/tools/quitar-fondo.html">Quitar fondo</a>
+        <a href="/tools/pdf-a-imagen.html">PDF a imagen</a>
+        <a href="/tools/imagen-a-texto.html">Imagen a texto</a>
+      </div>
+      <div class="footer-links">
+        <h4>M&aacute;s herramientas</h4>
+        <a href="/tools/redimensionar-imagen.html">Redimensionar</a>
+        <a href="/tools/convertir-formato.html">Convertir formato</a>
+        <a href="/tools/poner-marca-de-agua.html">Marca de agua</a>
+        <a href="/tools/hacer-collage.html">Hacer collage</a>
+        <a href="/tools/firma-electronica.html">Firma electr&oacute;nica</a>
+        <a href="/tools/foto-a-blanco-y-negro.html">Blanco y negro</a>
+      </div>
+      <div class="footer-links">
+        <h4>Legal</h4>
+        <a href="/about.html">Sobre nosotros</a>
+        <a href="/contact.html">Contacto</a>
+        <a href="/privacy.html">Pol&iacute;tica de privacidad</a>
+        <a href="/terms.html">T&eacute;rminos de uso</a>
+        <a href="/cookie-policy.html">Pol&iacute;tica de cookies</a>
+        <a href="/blog/">Blog</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 ComprimeFotos.com &mdash; Todos los derechos reservados.</p>
+      <p style="margin-top: 4px; font-size: 0.8rem;">Hecho con &hearts; para la comunidad hispanohablante.</p>
+    </div>
+  </div>
+</footer>
+<div class="cookie-consent" id="cookieConsent">
+  <div class="cookie-consent-inner">
+    <div class="cookie-consent-text">
+      <p>🍻 Usamos cookies esenciales para el funcionamiento de la web. <a href="/cookie-policy.html">M&aacute;s informaci&oacute;n</a>.</p>
+    </div>
+    <div class="cookie-consent-actions">
+      <button class="cookie-btn cookie-btn-decline" id="cookieDecline">Solo esenciales</button>
+      <button class="cookie-btn cookie-btn-accept" id="cookieAccept">Aceptar todas</button>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+<script src="../js/main.js?v=2"></script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="robots" content="index,follow"><title>Poner marca de agua a fotos online gratis | ComprimeFotos</title><meta name="description" content="Aå¸½ade marca de agua a tus imè°©genes online gratis. Protege tus fotos con texto o logo. Sin registro, 100% en tu navegador."><meta name="keywords" content="marca de agua, watermark fotos, proteger imè°©genes, poner texto en foto, copyright imagen"><link rel="canonical" href="https://comprimefotos.com/tools/poner-marca-de-agua.html">
+  <meta property="og:title" content="Poner marca de agua a fotos online gratis | ComprimeFotos">
+  <meta property="og:description" content="Aå¸½ade marca de agua a tus imè°©genes online gratis. Protege tus fotos con texto o logo. Sin registro, 100% en tu navegador."><meta name="theme-color" content="#ff6b4a"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="stylesheet" href="../css/style.css?v=2"><link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"></head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo"><span class="logo-icon">é¦æ³</span><span class="logo-text">ComprimeFotos</span></a>
+    <nav class="main-nav"><a href="/">Inicio</a><a href="/tools/comprimir-imagenes.html">Comprimir</a><a href="/tools/comprimir-imagenes-whatsapp.html">WhatsApp</a><a href="/tools/quitar-fondo.html">Quitar Fondo</a><a href="/blog/">Blog</a><a href="/about.html">Sobre Nosotros</a></nav>
+    <div class="header-actions"><button class="mobile-menu-btn"  aria-label="Cambiar tema">é¦å¯µ</button><button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menç¤">é½?/button></div>
+  </div>
+</header>
+<main class="tool-page">
+  <div class="container">
+    <nav class="breadcrumb"><a href="/">Inicio</a> é¥?<span>Marca de agua</span></nav>
+    <div class="tool-page-header"><h1>é¦æ§ Poner marca de <span class="gradient-text">agua</span></h1><p>Aå¸½ade una marca de agua personalizada a tus imè°©genes para proteger tu trabajo. Elige texto, opacidad y posiciè´¸n. 100% gratis y sin registro.</p></div>
+    <div class="tool-workspace" id="watermarkWorkspace">
+      <label for="fileInput" class="dropzone" id="dropzone"><span class="dropzone-icon">é¦æ¤é?/span><h3>Arrastra tu imagen aqué</h3><p>o haz clic para seleccionar un archivo</p><p style="font-size:0.8rem;color:var(--text-muted);margin-top:8px;">JPG, PNG, WebP é¥?Tamaå¸½o mè°©ximo: 20 MB</p><input type="file" id="fileInput" accept="image/*" style="display:none"></label>
+      <div class="preview-area" id="previewArea">
+        <div style="display:flex;gap:20px;flex-wrap:wrap;margin-bottom:20px;">
+          <div style="flex:1;min-width:240px;"><div class="preview-container" style="text-align:center;"><span style="font-size:0.85rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:6px;">Vista previa</span><img id="previewImg" src="" alt="Preview" style="max-height:300px;border-radius:var(--radius-md);border:2px solid var(--border-color);"></div></div>
+        </div>
+        <div class="controls-panel" style="background:var(--bg-secondary);border-radius:var(--radius-md);padding:20px;margin-bottom:20px;border:1px solid var(--border-color);">
+          <h4 style="font-weight:600;margin-bottom:14px;">é¿æ¬ç¬ Configurar marca de agua</h4>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <div><label for="watermarkText" style="font-weight:600;font-size:0.9rem;display:block;margin-bottom:4px;">Texto de la marca de agua:</label><input type="text" id="watermarkText" value="æ¼ ComprimeFotos" style="width:100%;max-width:360px;padding:10px 14px;border-radius:var(--radius-sm);border:2px solid var(--border-color);background:var(--bg-card);color:var(--text-primary);font-family:var(--font-main);font-size:0.95rem;"></div>
+            <div style="display:flex;gap:20px;flex-wrap:wrap;">
+              <div style="flex:1;min-width:160px;"><label for="opacitySlider" style="font-weight:600;font-size:0.9rem;display:block;margin-bottom:4px;">Opacidad: <span id="opacityValue">0.5</span></label><input type="range" id="opacitySlider" min="0.1" max="1" step="0.05" value="0.5" style="width:100%;"></div>
+              <div style="flex:1;min-width:160px;"><label for="fontSizeSlider" style="font-weight:600;font-size:0.9rem;display:block;margin-bottom:4px;">Tamaå¸½o: <span id="fontSizeValue">36</span> px</label><input type="range" id="fontSizeSlider" min="16" max="120" step="2" value="36" style="width:100%;"></div>
+            </div>
+            <div><label for="positionSelect" style="font-weight:600;font-size:0.9rem;display:block;margin-bottom:4px;">Posiciè´¸n:</label><select id="positionSelect" style="max-width:200px;padding:10px 14px;border-radius:var(--radius-sm);border:2px solid var(--border-color);background:var(--bg-card);color:var(--text-primary);font-family:var(--font-main);font-size:0.95rem;cursor:pointer;">
+              <option value="top-left">Esquina superior izquierda</option>
+              <option value="top-right" selected>Esquina superior derecha</option>
+              <option value="center">Centro</option>
+              <option value="bottom-left">Esquina inferior izquierda</option>
+              <option value="bottom-right">Esquina inferior derecha</option>
+            </select></div>
+          </div>
+        </div>
+        <div class="file-info" style="margin-bottom:14px;"><span><strong>Archivo:</strong> <span class="file-name">-</span></span></div>
+        <div class="tool-actions">
+          <button class="btn btn-primary" id="downloadBtn">ç¬å·ç¬ Descargar como PNG</button>
+          <button class="btn btn-secondary" id="resetBtn">é¦æ§ Nueva imagen</button>
+        </div>
+      </div>
+    </div>
+    <div class="how-to-section">
+      <h2>Cè´¸mo poner marca de agua a una imagen</h2>
+      <div class="how-to-steps">
+        <div class="how-to-step"><div class="step-number">1</div><h4>Sube la imagen</h4><p>Arrastra o selecciona la foto que quieres proteger.</p></div>
+        <div class="how-to-step"><div class="step-number">2</div><h4>Personaliza la marca</h4><p>Escribe tu texto, ajusta opacidad, tamaå¸½o y posiciè´¸n.</p></div>
+        <div class="how-to-step"><div class="step-number">3</div><h4>Descarga</h4><p>Guarda la imagen con tu marca de agua en PNG.</p></div>
+      </div>
+    </div>
+    <div class="faq-section">
+      <h2>Preguntas frecuentes</h2>
+      <div class="faq-item"><button class="faq-question">é©´Què es una marca de agua y para què sirve?</button><div class="faq-answer"><p>Una marca de agua es un texto o logotipo que se superpone a una imagen para identificar al autor o propietario. Sirve para proteger tus fotos contra el uso no autorizado, promocionar tu marca y disuadir a quienes podréan copiar tu trabajo sin permiso.</p></div></div>
+      <div class="faq-item"><button class="faq-question">é©´Por què se descarga en PNG y no en otro formato?</button><div class="faq-answer"><p>Descargamos en PNG porque este formato no comprime la imagen y conserva la transparencia de la marca de agua con la mè°©xima calidad. Si descargaras en JPG, se perderéa la suavidad de la marca y podréa aparecer un fondo blanco no deseado.</p></div></div>
+      <div class="faq-item"><button class="faq-question">é©´Puedo usar un logo en lugar de texto?</button><div class="faq-answer"><p>Actualmente la herramienta permite aå¸½adir marcas de agua con texto. Si necesitas aå¸½adir un logotipo como imagen, puedes superponerlo de forma manual o usar otra herramienta de ediciè´¸n. Estamos trabajando para incluir esta funcionalidad prè´¸ximamente.</p></div></div>
+      <div class="faq-item"><button class="faq-question">é©´Què opacidad me recomiendas?</button><div class="faq-answer"><p>Para proteger tus imè°©genes sin que la marca arruine la visualizaciè´¸n, te recomendamos una opacidad entre 0.4 y 0.6. Si quieres que sea muy visible, usa 0.8 o mè°©s. Las marcas demasiado tenues (menos de 0.3) son fè°©ciles de eliminar con herramientas de ediciè´¸n.</p></div></div>
+      <div class="faq-item"><button class="faq-question">é©´Mis imè°©genes se almacenan en sus servidores?</button><div class="faq-answer"><p>No. Todo el procesamiento ocurre localmente en tu navegador. Tus imè°©genes nunca se suben a ningç¤n servidor. La marca de agua se aplica directamente en tu dispositivo, garantizando tu privacidad total.</p></div></div>
+    </div>
+    <div class="related-tools">
+      <h2>Herramientas relacionadas</h2>
+      <div class="related-tools-grid">
+        <a href="/tools/comprimir-imagenes.html" class="related-tool-card"><span class="tool-icon">é¦æ</span><div class="tool-info"><strong>Comprimir imè°©genes</strong><span class="tool-desc">Reduce el peso de tus fotos</span></div><span class="tool-arrow">é«?/span></a>
+        <a href="/tools/comprimir-imagenes-whatsapp.html" class="related-tool-card"><span class="tool-icon">éå¦ç¬</span><div class="tool-info"><strong>Redimensionar imè°©genes</strong><span class="tool-desc">Cambia el tamaå¸½o de tus fotos</span></div><span class="tool-arrow">é«?/span></a>
+        <a href="/tools/quitar-fondo.html" class="related-tool-card"><span class="tool-icon">é¦æ</span><div class="tool-info"><strong>Quitar fondo</strong><span class="tool-desc">Elimina el fondo de tus fotos</span></div><span class="tool-arrow">é«?/span></a>
+        <a href="/tools/comprimir-imagenes-whatsapp.html" class="related-tool-card"><span class="tool-icon">é¦å¸¹</span><div class="tool-info"><strong>Collage de fotos</strong><span class="tool-desc">Crea collages con tus imè°©genes</span></div><span class="tool-arrow">é«?/span></a>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="site-footer"><div class="container"><div class="footer-grid">
+  <div class="footer-brand"><a href="/" class="logo"><span class="logo-icon">é¦æ³</span><span class="logo-text">ComprimeFotos</span></a><p>Herramientas gratuitas para comprimir y editar imè°©genes online.</p></div>
+  <div class="footer-links"><h4>Herramientas</h4><a href="/tools/comprimir-imagenes.html">Comprimir imè°©genes</a><a href="/tools/comprimir-imagenes-whatsapp.html">Comprimir para WhatsApp</a><a href="/tools/comprimir-pdf.html">Comprimir PDF</a><a href="/tools/quitar-fondo.html">Quitar fondo</a></div>
+  <div class="footer-links"><h4>Legal</h4><a href="/about.html">Sobre nosotros</a><a href="/contact.html">Contacto</a><a href="/privacy.html">Privacidad</a><a href="/terms.html">Tèrminos</a><a href="/cookie-policy.html">Cookies</a><a href="/blog/">Blog</a></div>
+</div><div class="footer-bottom"><p>&copy; 2026 ComprimeFotos.com</p></div></div></footer>
+<div class="cookie-consent" id="cookieConsent"><div class="cookie-consent-inner"><div class="cookie-consent-text"><p>é¦å´» Usamos cookies esenciales. <a href="/cookie-policy.html">Mè°©s informaciè´¸n</a>.</p></div><div class="cookie-consent-actions"><button class="cookie-btn cookie-btn-decline" id="cookieDecline">Solo esenciales</button><button class="cookie-btn cookie-btn-accept" id="cookieAccept">Aceptar todas</button></div></div></div>
+<div class="toast" id="toast"></div>
+<script src="../js/main.js?v=2"></script>
+<script>
+(function() {
+  'use strict';
+  const workspace = document.getElementById('watermarkWorkspace');
+  const dropzone = document.getElementById('dropzone');
+  const fileInput = document.getElementById('fileInput');
+  const previewArea = document.getElementById('previewArea');
+  const previewImg = document.getElementById('previewImg');
+  const watermarkText = document.getElementById('watermarkText');
+  const opacitySlider = document.getElementById('opacitySlider');
+  const opacityValue = document.getElementById('opacityValue');
+  const fontSizeSlider = document.getElementById('fontSizeSlider');
+  const fontSizeValue = document.getElementById('fontSizeValue');
+  const positionSelect = document.getElementById('positionSelect');
+  const downloadBtn = document.getElementById('downloadBtn');
+  const resetBtn = document.getElementById('resetBtn');
+
+  let currentFile = null;
+  let currentDataUrl = null;
+  let currentCanvas = null;
+
+  workspace.addEventListener('file-selected', function(e) {
+    const file = e.detail.file;
+    currentFile = file;
+
+    const reader = new FileReader();
+    reader.onload = function(ev) {
+      currentDataUrl = ev.target.result;
+      previewImg.src = currentDataUrl;
+      previewArea.classList.add('active');
+      dropzone.style.display = 'none';
+      document.querySelector('.file-name').textContent = file.name;
+      drawWatermark();
+    };
+    reader.readAsDataURL(file);
+  });
+
+  function drawWatermark() {
+    if (!currentDataUrl) return;
+
+    const img = new Image();
+    img.onload = function() {
+      const canvas = document.createElement('canvas');
+      canvas.width = img.width;
+      canvas.height = img.height;
+      const ctx = canvas.getContext('2d');
+
+      // Draw original image
+      ctx.drawImage(img, 0, 0);
+
+      // Apply watermark text
+      const text = watermarkText.value || 'æ¼ ComprimeFotos';
+      const opacity = parseFloat(opacitySlider.value);
+      const fontSize = parseInt(fontSizeSlider.value);
+      const position = positionSelect.value;
+
+      ctx.font = 'bold ' + fontSize + 'px Nunito, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillStyle = 'rgba(255,255,255,' + opacity + ')';
+      ctx.shadowColor = 'rgba(0,0,0,0.3)';
+      ctx.shadowBlur = 4;
+
+      // Calculate position
+      const padding = 30;
+      let x, y;
+      const w = canvas.width;
+      const h = canvas.height;
+
+      switch (position) {
+        case 'top-left':
+          x = padding + ctx.measureText(text).width / 2;
+          y = padding + fontSize / 2;
+          break;
+        case 'top-right':
+          x = w - padding - ctx.measureText(text).width / 2;
+          y = padding + fontSize / 2;
+          break;
+        case 'center':
+          x = w / 2;
+          y = h / 2;
+          break;
+        case 'bottom-left':
+          x = padding + ctx.measureText(text).width / 2;
+          y = h - padding - fontSize / 2;
+          break;
+        case 'bottom-right':
+          x = w - padding - ctx.measureText(text).width / 2;
+          y = h - padding - fontSize / 2;
+          break;
+      }
+
+      ctx.fillText(text, x, y);
+      // Second pass for more visibility
+      ctx.fillStyle = 'rgba(0,0,0,' + (opacity * 0.3) + ')';
+      ctx.shadowBlur = 0;
+      ctx.fillText(text, x + 1, y + 1);
+
+      // Update preview
+      currentCanvas = canvas;
+      previewImg.src = canvas.toDataURL('image/png');
+    };
+    img.src = currentDataUrl;
+  }
+
+  watermarkText.addEventListener('input', drawWatermark);
+  opacitySlider.addEventListener('input', function() {
+    opacityValue.textContent = parseFloat(this.value).toFixed(2);
+    drawWatermark();
+  });
+  fontSizeSlider.addEventListener('input', function() {
+    fontSizeValue.textContent = this.value;
+    drawWatermark();
+  });
+  positionSelect.addEventListener('change', drawWatermark);
+
+  downloadBtn.addEventListener('click', function() {
+    if (!currentCanvas) return;
+    const link = document.createElement('a');
+    link.download = 'marca-de-agua.png';
+    link.href = currentCanvas.toDataURL('image/png');
+    link.click();
+    showToast('ç¬å·ç¬ Imagen con marca de agua descargada', 'success');
+  });
+
+  resetBtn.addEventListener('click', function() {
+    currentFile = null;
+    currentDataUrl = null;
+    currentCanvas = null;
+    previewImg.src = '';
+    previewArea.classList.remove('active');
+    dropzone.style.display = 'block';
+    fileInput.value = '';
+    document.querySelector('.file-name').textContent = '-';
+    watermarkText.value = 'æ¼ ComprimeFotos';
+    opacitySlider.value = '0.5';
+    opacityValue.textContent = '0.5';
+    fontSizeSlider.value = '36';
+    fontSizeValue.textContent = '36';
+    positionSelect.value = 'top-right';
+  });
+
+  function showToast(msg, type) {
+    const toast = document.getElementById('toast');
+    if(!toast)return;
+    toast.textContent=msg;
+    toast.className='toast';
+    if(type)toast.classList.add(type);
+    toast.classList.add('visible');
+    setTimeout(function(){toast.classList.remove('visible');},3000);
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="robots" content="index,follow"><title>Firma electrè´¸nica online gratis é¥?Crea y aå¸½ade firma | ComprimeFotos</title><meta name="description" content="Crea tu firma electrè´¸nica online gratis. Dibuja, escribe o sube tu firma digital. Aå¸½è°©dela a documentos e imè°©genes. Sin registro."><meta name="keywords" content="firma electrè´¸nica gratis, crear firma digital online, firma para documentos, generador de firma"><link rel="canonical" href="https://comprimefotos.com/tools/firma-electronica.html">
+  <meta property="og:title" content="Firma electrè´¸nica online gratis é¥?Crea y aå¸½ade firma | ComprimeFotos">
+  <meta property="og:description" content="Crea tu firma electrè´¸nica online gratis. Dibuja, escribe o sube tu firma digital. Aå¸½è°©dela a documentos e imè°©genes. Sin registro."><meta name="theme-color" content="#ff6b4a"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="stylesheet" href="../css/style.css?v=2"><link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"></head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo"><span class="logo-icon">é¦æ³</span><span class="logo-text">ComprimeFotos</span></a>
+    <nav class="main-nav"><a href="/">Inicio</a><a href="/tools/comprimir-imagenes.html">Comprimir</a><a href="/tools/comprimir-imagenes-whatsapp.html">WhatsApp</a><a href="/tools/quitar-fondo.html">Quitar Fondo</a><a href="/blog/">Blog</a><a href="/about.html">Sobre Nosotros</a></nav>
+    <div class="header-actions"><button class="mobile-menu-btn"  aria-label="Cambiar tema">é¦å¯µ</button><button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menç¤">é½?/button></div>
+  </div>
+</header>
+<main class="tool-page">
+  <div class="container">
+    <nav class="breadcrumb"><a href="/">Inicio</a> é¥?<span>Firma electrè´¸nica</span></nav>
+    <div class="tool-page-header"><h1>éå¶ç¬ Firma <span class="gradient-text">electrè´¸nica</span></h1><p>Crea y aå¸½ade tu firma digital a documentos e imè°©genes. Firma electrè´¸nica gratuita, segura y sin registro.</p></div>
+    <div class="tool-workspace" id="signatureWorkspace">
+      <div style="display:flex;gap:24px;flex-wrap:wrap;">
+        <div style="flex:1;min-width:280px;">
+          <h4 style="font-weight:600;margin-bottom:12px;">Dibuja tu firma:</h4>
+          <canvas id="signaturePad" width="400" height="200" style="width:100%;height:auto;border:2px solid var(--border-color);border-radius:8px;background:white;cursor:crosshair;touch-action:none;"></canvas>
+          <div style="display:flex;gap:8px;margin-top:8px;">
+            <button class="btn btn-secondary" id="clearSignatureBtn">é¦æ£é?Limpiar</button>
+            <button class="btn btn-secondary" id="undoStrokeBtn">é«âç¬ Deshacer</button>
+          </div>
+        </div>
+        <div style="flex:1;min-width:200px;">
+          <h4 style="font-weight:600;margin-bottom:12px;">O escribe tu nombre:</h4>
+          <input type="text" id="nameInput" placeholder="Escribe tu nombre completo" style="margin-bottom:8px;">
+          <select id="fontSelect" style="margin-bottom:8px;">
+            <option value="cursive">Cursiva elegante</option>
+            <option value="handwriting">Escritura a mano</option>
+            <option value="classic">Clè°©sica formal</option>
+            <option value="modern">Moderna limpia</option>
+          </select>
+          <button class="btn btn-primary" id="generateNameBtn">éå¶ç¬ Generar firma</button>
+        </div>
+      </div>
+      <div id="signaturePreview" style="margin-top:20px;text-align:center;"></div>
+      <div class="tool-actions" style="margin-top:16px;">
+        <button class="btn btn-primary" id="downloadSignatureBtn">é¦æ Descargar firma PNG</button>
+        <button class="btn btn-secondary" id="resetBtn">é¦æ§ Empezar de nuevo</button>
+      </div>
+    </div>
+    <div class="how-to-section">
+      <h2>Cè´¸mo crear tu firma electrè´¸nica</h2>
+      <div class="how-to-steps">
+        <div class="how-to-step"><div class="step-number">1</div><h4>Dibuja o escribe</h4><p>Dibuja tu firma con el ratè´¸n/tè°©ctil o escribe tu nombre y elige un estilo.</p></div>
+        <div class="how-to-step"><div class="step-number">2</div><h4>Personaliza</h4><p>Revisa cè´¸mo queda y ajç¤stalo hasta que te guste.</p></div>
+        <div class="how-to-step"><div class="step-number">3</div><h4>Descarga</h4><p>Descarga tu firma como PNG con fondo transparente para usarla donde quieras.</p></div>
+      </div>
+    </div>
+    <div class="faq-section">
+      <h2>Preguntas frecuentes</h2>
+      <div class="faq-item"><button class="faq-question">é©´Esta firma tiene validez legal?</button><div class="faq-answer"><p>Esta herramienta genera una firma digitalizada (imagen de tu firma manuscrita). Para documentos que requieran validez legal, necesitarè°©s una firma electrè´¸nica avanzada o cualificada segç¤n la normativa eIDAS. Esta herramienta es ideal para usos informales y documentos internos.</p></div></div>
+      <div class="faq-item"><button class="faq-question">é©´En què formato se descarga?</button><div class="faq-answer"><p>La firma se descarga en formato PNG con fondo transparente, para que puedas insertarla fè°©cilmente en documentos, PDFs e imè°©genes.</p></div></div>
+      <div class="faq-item"><button class="faq-question">é©´Puedo usar la firma en documentos PDF?</button><div class="faq-answer"><p>Sé, puedes descargar la firma como PNG y luego insertarla en cualquier documento PDF usando un editor de PDF o insertè°©ndola como imagen.</p></div></div>
+      <div class="faq-item"><button class="faq-question">é©´Se guarda mi firma en algç¤n servidor?</button><div class="faq-answer"><p>No, tu firma se genera y procesa completamente en tu navegador. Nunca se envéa a ningç¤n servidor. 100% privada.</p></div></div>
+    </div>
+    <div class="related-tools">
+      <h2>Herramientas relacionadas</h2>
+      <div class="related-tools-grid">
+        <a href="/tools/poner-marca-de-agua.html" class="related-tool-card"><span class="tool-icon">é¦æ§</span><div class="tool-info"><strong>Poner marca de agua</strong><span class="tool-desc">Protege tus fotos</span></div><span class="tool-arrow">é«?/span></a>
+        <a href="/tools/quitar-fondo.html" class="related-tool-card"><span class="tool-icon">éå¦ç¬</span><div class="tool-info"><strong>Quitar fondo</strong><span class="tool-desc">Elimina fondos de imè°©genes</span></div><span class="tool-arrow">é«?/span></a>
+        <a href="/tools/comprimir-pdf.html" class="related-tool-card"><span class="tool-icon">é¦æ«</span><div class="tool-info"><strong>Comprimir PDF</strong><span class="tool-desc">Reduce documentos PDF</span></div><span class="tool-arrow">é«?/span></a>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="site-footer"><div class="container"><div class="footer-grid">
+  <div class="footer-brand"><a href="/" class="logo"><span class="logo-icon">é¦æ³</span><span class="logo-text">ComprimeFotos</span></a><p>Herramientas gratuitas para comprimir y editar imè°©genes online.</p></div>
+  <div class="footer-links"><h4>Herramientas</h4><a href="/tools/comprimir-imagenes.html">Comprimir imè°©genes</a><a href="/tools/comprimir-imagenes-whatsapp.html">Comprimir para WhatsApp</a><a href="/tools/comprimir-pdf.html">Comprimir PDF</a><a href="/tools/quitar-fondo.html">Quitar fondo</a></div>
+  <div class="footer-links"><h4>Legal</h4><a href="/about.html">Sobre nosotros</a><a href="/contact.html">Contacto</a><a href="/privacy.html">Privacidad</a><a href="/terms.html">Tèrminos</a><a href="/cookie-policy.html">Cookies</a><a href="/blog/">Blog</a></div>
+</div><div class="footer-bottom"><p>&copy; 2026 ComprimeFotos.com</p></div></div></footer>
+<div class="cookie-consent" id="cookieConsent"><div class="cookie-consent-inner"><div class="cookie-consent-text"><p>é¦å´» Usamos cookies esenciales. <a href="/cookie-policy.html">Mè°©s informaciè´¸n</a>.</p></div><div class="cookie-consent-actions"><button class="cookie-btn cookie-btn-decline" id="cookieDecline">Solo esenciales</button><button class="cookie-btn cookie-btn-accept" id="cookieAccept">Aceptar todas</button></div></div></div>
+<div class="toast" id="toast"></div>
+<script src="../js/main.js?v=2"></script>
+<script>
+(function() {
+  'use strict';
+  const canvas = document.getElementById('signaturePad');
+  const ctx = canvas.getContext('2d');
+  const clearBtn = document.getElementById('clearSignatureBtn');
+  const undoBtn = document.getElementById('undoStrokeBtn');
+  const nameInput = document.getElementById('nameInput');
+  const fontSelect = document.getElementById('fontSelect');
+  const generateNameBtn = document.getElementById('generateNameBtn');
+  const downloadBtn = document.getElementById('downloadSignatureBtn');
+  const resetBtn = document.getElementById('resetBtn');
+  const preview = document.getElementById('signaturePreview');
+
+  let isDrawing = false;
+  let lastX = 0, lastY = 0;
+  let strokes = [];
+
+  ctx.strokeStyle = '#1a120e';
+  ctx.lineWidth = 2.5;
+  ctx.lineCap = 'round';
+  ctx.lineJoin = 'round';
+
+  function getPos(e) {
+    const rect = canvas.getBoundingClientRect();
+    const x = (e.clientX || (e.touches && e.touches[0].clientX)) - rect.left;
+    const y = (e.clientY || (e.touches && e.touches[0].clientY)) - rect.top;
+    return { x: x * (canvas.width / rect.width), y: y * (canvas.height / rect.height) };
+  }
+
+  function startDraw(e) {
+    e.preventDefault();
+    isDrawing = true;
+    const pos = getPos(e);
+    lastX = pos.x; lastY = pos.y;
+    strokes.push([]);
+  }
+
+  function draw(e) {
+    e.preventDefault();
+    if (!isDrawing) return;
+    const pos = getPos(e);
+    ctx.beginPath();
+    ctx.moveTo(lastX, lastY);
+    ctx.lineTo(pos.x, pos.y);
+    ctx.stroke();
+    strokes[strokes.length-1].push({x:lastX, y:lastY, x2:pos.x, y2:pos.y});
+    lastX = pos.x; lastY = pos.y;
+  }
+
+  function endDraw(e) {
+    e.preventDefault();
+    isDrawing = false;
+  }
+
+  canvas.addEventListener('mousedown', startDraw);
+  canvas.addEventListener('mousemove', draw);
+  canvas.addEventListener('mouseup', endDraw);
+  canvas.addEventListener('mouseleave', endDraw);
+  canvas.addEventListener('touchstart', startDraw, {passive:false});
+  canvas.addEventListener('touchmove', draw, {passive:false});
+  canvas.addEventListener('touchend', endDraw, {passive:false});
+
+  clearBtn.addEventListener('click', function() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    strokes = [];
+    preview.innerHTML = '';
+  });
+
+  undoBtn.addEventListener('click', function() {
+    if (strokes.length === 0) return;
+    strokes.pop();
+    redrawAll();
+  });
+
+  function redrawAll() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (const stroke of strokes) {
+      for (const seg of stroke) {
+        ctx.beginPath();
+        ctx.moveTo(seg.x, seg.y);
+        ctx.lineTo(seg.x2, seg.y2);
+        ctx.stroke();
+      }
+    }
+  }
+
+  const fontMap = {
+    'cursive': "'Brush Script MT', 'Segoe Script', cursive",
+    'handwriting': "'Comic Sans MS', 'Segoe Print', cursive",
+    'classic': "'Times New Roman', Georgia, serif",
+    'modern': "Nunito, Arial, sans-serif"
+  };
+
+  generateNameBtn.addEventListener('click', function() {
+    const name = nameInput.value.trim();
+    if (!name) { showToast('éå¶ç¬ Escribe tu nombre primero', ''); return; }
+    const font = fontMap[fontSelect.value] || fontMap.cursive;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    strokes = [];
+
+    ctx.fillStyle = '#1a120e';
+    ctx.font = 'bold 48px ' + font;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(name, canvas.width/2, canvas.height/2);
+
+    // Guardar como trazo de "escritura"
+    strokes.push([{x:0,y:0,x2:0,y2:0}]);
+
+    // Mostrar preview
+    showSignaturePreview();
+    showToast('é?Firma generada', 'success');
+  });
+
+  function showSignaturePreview() {
+    canvas.toBlob(function(blob) {
+      const url = URL.createObjectURL(blob);
+      preview.innerHTML = '';
+      const img = document.createElement('img');
+      img.src = url;
+      img.style.cssText = 'max-width:300px;border:1px solid var(--border-color);border-radius:8px;';
+      preview.appendChild(img);
+    }, 'image/png');
+  }
+
+  downloadBtn.addEventListener('click', function() {
+    // Verificar si hay algo dibujado
+    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    let hasContent = false;
+    for (let i = 0; i < imageData.data.length; i += 4) {
+      if (imageData.data[i+3] > 0) { hasContent = true; break; }
+    }
+    if (!hasContent) { showToast('éå¶ç¬ Dibuja o genera una firma primero', ''); return; }
+
+    // Crear versiè´¸n con fondo transparente
+    const exportCanvas = document.createElement('canvas');
+    exportCanvas.width = canvas.width;
+    exportCanvas.height = canvas.height;
+    const ectx = exportCanvas.getContext('2d');
+    // Recortar espacio en blanco
+    ectx.drawImage(canvas, 0, 0);
+
+    exportCanvas.toBlob(function(blob) {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'firma-electronica.png';
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast('é?Firma descargada', 'success');
+    }, 'image/png');
+  });
+
+  resetBtn.addEventListener('click', function() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    strokes = [];
+    preview.innerHTML = '';
+    nameInput.value = '';
+  });
+
+  function showToast(msg, type) {
+    const toast = document.getElementById('toast');
+    if(!toast)return;
+    toast.textContent=msg;toast.className='toast';if(type)toast.classList.add(type);
+    toast.classList.add('visible');setTimeout(function(){toast.classList.remove('visible');},3000);
+  }
+})();
+</script>
+</body>
+</html>

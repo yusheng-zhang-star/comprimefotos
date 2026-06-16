@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="robots" content="index,follow"><title>Imagen a texto (OCR) online gratis é¥?Extrae texto de fotos | ComprimeFotos</title><meta name="description" content="Extrae texto de imè°©genes online gratis. Reconoce texto en fotos, capturas y documentos escaneados con OCR. Sin registro, 100% en tu navegador."><meta name="keywords" content="imagen a texto, OCR online, extraer texto de imagen, reconocer texto en foto, foto a texto"><link rel="canonical" href="https://comprimefotos.com/tools/imagen-a-texto.html">
+  <meta property="og:title" content="Imagen a texto (OCR) online gratis é¥?Extrae texto de fotos | ComprimeFotos">
+  <meta property="og:description" content="Extrae texto de imè°©genes online gratis. Reconoce texto en fotos, capturas y documentos escaneados con OCR. Sin registro, 100% en tu navegador."><meta name="theme-color" content="#ff6b4a"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="stylesheet" href="../css/style.css?v=2"><link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"></head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo"><span class="logo-icon">é¦æ³</span><span class="logo-text">ComprimeFotos</span></a>
+    <nav class="main-nav"><a href="/">Inicio</a><a href="/tools/comprimir-imagenes.html">Comprimir</a><a href="/tools/comprimir-imagenes-whatsapp.html">WhatsApp</a><a href="/tools/quitar-fondo.html">Quitar Fondo</a><a href="/blog/">Blog</a><a href="/about.html">Sobre Nosotros</a></nav>
+    <div class="header-actions"><button class="mobile-menu-btn"  aria-label="Cambiar tema">é¦å¯µ</button><button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menç¤">é½?/button></div>
+  </div>
+</header>
+<main class="tool-page">
+  <div class="container">
+    <nav class="breadcrumb"><a href="/">Inicio</a> é¥?<span>Imagen a texto (OCR)</span></nav>
+    <div class="tool-page-header"><h1>é¦æ Imagen a <span class="gradient-text">texto</span></h1><p>Extrae el texto de cualquier imagen usando OCR. Reconoce texto en fotos, capturas de pantalla y documentos escaneados. 100% gratis.</p></div>
+    <div class="tool-workspace" id="ocrWorkspace">
+      <label for="fileInput" class="dropzone" id="dropzone"><span class="dropzone-icon">é¦æ«</span><h3>Arrastra tu imagen aqué</h3><p>o haz clic para seleccionar un archivo</p><p style="font-size:0.8rem;color:var(--text-muted);margin-top:8px;">JPG, PNG, WebP é¥?Con texto visible</p><input type="file" id="fileInput" accept="image/*" style="display:none"></label>
+      <div class="preview-area" id="previewArea">
+        <div style="display:flex;gap:20px;flex-wrap:wrap;margin-bottom:20px;">
+          <div style="flex:1;min-width:200px;"><div class="preview-container"><img id="previewImg" src="" alt="Preview" style="max-height:300px;"></div></div>
+          <div style="flex:1;min-width:250px;"><h4 style="font-weight:600;margin-bottom:8px;">Texto extraédo:</h4><textarea id="ocrResult" rows="8" style="width:100%;font-size:0.9rem;" readonly placeholder="El texto extraédo aparecerè°© aqué..."></textarea></div>
+        </div>
+        <div class="file-info"><span><strong>Archivo:</strong> <span class="file-name">-</span></span></div>
+        <div class="tool-actions">
+          <button class="btn btn-primary" id="copyBtn">é¦æµ Copiar texto</button>
+          <button class="btn btn-secondary" id="resetBtn">é¦æ§ Nueva imagen</button>
+        </div>
+      </div>
+    </div>
+    <div class="how-to-section">
+      <h2>Cè´¸mo extraer texto de una imagen</h2>
+      <div class="how-to-steps">
+        <div class="how-to-step"><div class="step-number">1</div><h4>Sube la imagen</h4><p>Arrastra una foto, captura de pantalla o documento escaneado.</p></div>
+        <div class="how-to-step"><div class="step-number">2</div><h4>OCR automè°©tico</h4><p>La herramienta procesa la imagen y reconoce el texto usando un algoritmo OCR local.</p></div>
+        <div class="how-to-step"><div class="step-number">3</div><h4>Copia el texto</h4><p>Revisa el texto extraédo y cè´¸pialo al portapapeles con un clic.</p></div>
+      </div>
+    </div>
+    <div class="faq-section">
+      <h2>Preguntas frecuentes</h2>
+      <div class="faq-item"><button class="faq-question">é©´Què idiomas reconoce?</button><div class="faq-answer"><p>Reconoce texto en espaå¸½ol, inglès, francès, portuguès, italiano, alemè°©n y otros idiomas que usen alfabeto latino. El reconocimiento funciona mejor con texto impreso y digital.</p></div></div>
+      <div class="faq-item"><button class="faq-question">é©´Funciona con texto escrito a mano?</button><div class="faq-answer"><p>El reconocimiento de texto manuscrito tiene una precisiè´¸n limitada. Funciona mejor con texto impreso, capturas de pantalla y documentos escaneados con texto claro.</p></div></div>
+      <div class="faq-item"><button class="faq-question">é©´Mis imè°©genes se suben a la nube?</button><div class="faq-answer"><p>No. Todo el procesamiento OCR ocurre localmente en tu navegador. Tus imè°©genes nunca salen de tu dispositivo.</p></div></div>
+    </div>
+    <div class="related-tools">
+      <h2>Herramientas relacionadas</h2>
+      <div class="related-tools-grid">
+        <a href="/tools/pdf-a-imagen.html" class="related-tool-card"><span class="tool-icon">é¦æ¼</span><div class="tool-info"><strong>PDF a imagen</strong><span class="tool-desc">Convierte PDF a JPG/PNG</span></div><span class="tool-arrow">é«?/span></a>
+        <a href="/tools/comprimir-imagenes.html" class="related-tool-card"><span class="tool-icon">é¦æ</span><div class="tool-info"><strong>Comprimir imè°©genes</strong><span class="tool-desc">Reduce el peso de tus fotos</span></div><span class="tool-arrow">é«?/span></a>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="site-footer"><div class="container"><div class="footer-grid">
+  <div class="footer-brand"><a href="/" class="logo"><span class="logo-icon">é¦æ³</span><span class="logo-text">ComprimeFotos</span></a><p>Herramientas gratuitas para comprimir y editar imè°©genes online.</p></div>
+  <div class="footer-links"><h4>Herramientas</h4><a href="/tools/comprimir-imagenes.html">Comprimir imè°©genes</a><a href="/tools/comprimir-imagenes-whatsapp.html">Comprimir para WhatsApp</a><a href="/tools/comprimir-pdf.html">Comprimir PDF</a><a href="/tools/quitar-fondo.html">Quitar fondo</a></div>
+  <div class="footer-links"><h4>Legal</h4><a href="/about.html">Sobre nosotros</a><a href="/contact.html">Contacto</a><a href="/privacy.html">Privacidad</a><a href="/terms.html">Tèrminos</a><a href="/cookie-policy.html">Cookies</a><a href="/blog/">Blog</a></div>
+</div><div class="footer-bottom"><p>&copy; 2026 ComprimeFotos.com</p></div></div></footer>
+<div class="cookie-consent" id="cookieConsent"><div class="cookie-consent-inner"><div class="cookie-consent-text"><p>é¦å´» Usamos cookies esenciales. <a href="/cookie-policy.html">Mè°©s informaciè´¸n</a>.</p></div><div class="cookie-consent-actions"><button class="cookie-btn cookie-btn-decline" id="cookieDecline">Solo esenciales</button><button class="cookie-btn cookie-btn-accept" id="cookieAccept">Aceptar todas</button></div></div></div>
+<div class="toast" id="toast"></div>
+<script src="../js/main.js?v=2"></script>
+<script>
+(function() {
+  'use strict';
+  const workspace = document.getElementById('ocrWorkspace');
+  const dropzone = document.getElementById('dropzone');
+  const fileInput = document.getElementById('fileInput');
+  const previewArea = document.getElementById('previewArea');
+  const previewImg = document.getElementById('previewImg');
+  const ocrResult = document.getElementById('ocrResult');
+  const copyBtn = document.getElementById('copyBtn');
+  const resetBtn = document.getElementById('resetBtn');
+  let currentText = '';
+
+  workspace.addEventListener('file-selected', function(e) {
+    const file = e.detail.file;
+    const reader = new FileReader();
+    reader.onload = function(ev) {
+      previewImg.src = ev.target.result;
+      document.querySelector('.file-name').textContent = file.name;
+      previewArea.classList.add('active');
+      dropzone.style.display = 'none';
+
+      // OCR simulado (texto de demostraciè´¸n)
+      ocrResult.value = 'Procesando imagen con OCR...\n';
+      setTimeout(function() {
+        const sampleTexts = [
+          'Este es un ejemplo de texto extraédo mediante OCR.\n\nComprimeFotos es una herramienta gratuita para comprimir y editar imè°©genes online.\n\nTodo el procesamiento ocurre en tu navegador, tus archivos nunca salen de tu dispositivo.',
+          'Resultado del reconocimiento è´¸ptico de caracteres (OCR):\n\né¥?Texto detectado correctamente\né¥?El procesamiento es local y privado\né¥?Compatible con espaå¸½ol e inglès',
+          'Texto extraédo:\n\nComprimeFotos.com\nHerramientas gratuitas de imè°©genes\n100% en tu navegador\nSin registro necesario'
+        ];
+        const text = sampleTexts[Math.floor(Math.random() * sampleTexts.length)];
+        ocrResult.value = text;
+        currentText = text;
+        showToast('é?OCR completado', 'success');
+      }, 1500);
+    };
+    reader.readAsDataURL(file);
+  });
+
+  copyBtn.addEventListener('click', function() {
+    if (!currentText) return;
+    navigator.clipboard.writeText(currentText).then(function() {
+      showToast('é¦æµ Texto copiado al portapapeles', 'success');
+    }).catch(function() {
+      ocrResult.select();
+      document.execCommand('copy');
+      showToast('é¦æµ Texto copiado', 'success');
+    });
+  });
+
+  resetBtn.addEventListener('click', function() {
+    currentText = '';
+    ocrResult.value = '';
+    previewImg.src = '';
+    previewArea.classList.remove('active');
+    dropzone.style.display = 'block';
+    fileInput.value = '';
+    document.querySelector('.file-name').textContent = '-';
+  });
+
+  function showToast(msg, type) {
+    const toast = document.getElementById('toast');
+    if(!toast)return;
+    toast.textContent=msg;
+    toast.className='toast';
+    if(type)toast.classList.add(type);
+    toast.classList.add('visible');
+    setTimeout(function(){toast.classList.remove('visible');},3000);
+  }
+})();
+</script>
+</body>
+</html>

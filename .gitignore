@@ -1,0 +1,16 @@
+# Backup files
+*.bak
+*.backup
+
+# Wrangler
+.wrangler/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo

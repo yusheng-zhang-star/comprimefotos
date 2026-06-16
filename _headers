@@ -1,0 +1,60 @@
+# Cabeceras personalizadas para Cloudflare Pages
+# Cache-Control y Content-Type para cada tipo de recurso
+
+# ── Sitemaps: no cache ──
+/sitemap.xml
+  Cache-Control: no-cache, no-store, must-revalidate
+  CDN-Cache-Control: no-cache
+  Content-Type: application/xml; charset=utf-8
+
+/*.xml*
+  Cache-Control: no-cache, no-store, must-revalidate
+  CDN-Cache-Control: no-cache
+  Content-Type: application/xml; charset=utf-8
+
+# ── 404: no cache ──
+/404.html
+  Cache-Control: no-cache, no-store, must-revalidate
+  CDN-Cache-Control: no-cache
+
+# ── HTML: revalidación rápida ──
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+  CDN-Cache-Control: public, max-age=7200
+  Content-Type: text/html; charset=utf-8
+
+# ── Páginas con URL limpia (sin .html) ──
+/tools/*
+  Cache-Control: public, max-age=0, must-revalidate
+  CDN-Cache-Control: public, max-age=0, must-revalidate
+  Content-Type: text/html; charset=utf-8
+
+/blog/*
+  Cache-Control: public, max-age=0, must-revalidate
+  CDN-Cache-Control: public, max-age=0, must-revalidate
+  Content-Type: text/html; charset=utf-8
+
+/
+  Cache-Control: public, max-age=0, must-revalidate
+  CDN-Cache-Control: public, max-age=0, must-revalidate
+  Content-Type: text/html; charset=utf-8
+
+# ── CSS: 7 días ──
+/css/*
+  Cache-Control: public, max-age=604800, must-revalidate
+  CDN-Cache-Control: public, max-age=604800
+
+# ── JS: 7 días ──
+/js/*
+  Cache-Control: public, max-age=604800, immutable
+  CDN-Cache-Control: public, max-age=604800
+
+# ── Imágenes: 30 días ──
+/images/*
+  Cache-Control: public, max-age=2592000, immutable
+  CDN-Cache-Control: public, max-age=2592000
+
+# ── Todo lo demás: 7 días ──
+/*
+  Cache-Control: public, max-age=604800, s-maxage=604800
+  CDN-Cache-Control: public, max-age=604800

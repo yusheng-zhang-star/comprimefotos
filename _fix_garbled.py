@@ -85,6 +85,33 @@ FIXES = [
     # redimensionar 损坏的预设按钮
     ('é»è®¹ç¬ YouTube (1280èx720)', 'YouTube (1280×720)'),
     ('è«Mantener proporciónç»', '«Mantener proporción»'),
+    
+    # === 第三轮：quitar-fondo-fixed.html 重度损坏修复 ===
+    # 特殊字符损坏（猫掳漏=á, 猫麓赂=ó, 猫聦聟=é, 茅漏麓=¿, 莽聟陇=ú）
+    ("autom猫掳漏ticamente", "automáticamente"),
+    ("猫掳漏", "á"),
+    ("猫麓赂", "ó"),
+    ("猫聦聟", "é"),
+    ("茅漏麓", "¿"),
+    ("莽聟陇", "ú"),
+    ("detecci猫麓赂n", "detección"),
+    ("informaci猫麓赂n", "información"),
+    ("Men莽聟陇", "Menú"),
+    ("im猫掳漏genes", "imágenes"),
+    # quitar-fondo 专属图标损坏（茅娄聝=图标前缀, 茅聣聛=emoji前缀）
+    ("茅娄聝忙聭鲁", "📷"),
+    ("茅娄聝氓炉碌", "☰"),
+    ("茅娄聝📷", "📷"),
+    ("茅娄聝忙聧聭", "📥"),
+    ("茅娄聝忙聰搂", "🔄"),
+    ("茅娄聝氓麓禄", "🍪"),
+    ("茅娄聝忙聼陇茅聰聰", "🖼️"),
+    ("茅聣聛氓聜娄莽卢聧", "🎨"),
+    ("茅聣聛?", "✅"),
+    # 通用图标前缀残留
+    ("茅娄聝", ""),
+    # how-to 标题损坏
+    ("C猫麓赂mo quitar el fondo", "Cómo quitar el fondo"),
 ]
 
 def fix_file(filepath):

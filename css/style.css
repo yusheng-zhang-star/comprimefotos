@@ -376,6 +376,9 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--a
 .blog-post-content p { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 12px; }
 .blog-post-content ul, .blog-post-content ol { margin: 8px 0 12px 20px; font-size: 0.92rem; color: var(--text-secondary); }
 .blog-post-content li { margin-bottom: 4px; }
+.blog-figure { margin: 20px 0 24px; text-align: center; }
+.blog-figure img { max-width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border-light); box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.blog-figure figcaption { font-size: 0.8rem; color: var(--text-muted); margin-top: 8px; font-style: italic; }
 .compact-table { border: 1px solid var(--border-light); border-radius: var(--radius-sm); overflow: hidden; margin: 16px 0; font-size: 0.85rem; }
 .compact-row { display: grid; grid-template-columns: 1fr 1fr 1fr; border-bottom: 1px solid var(--border-light); }
 .compact-row:last-child { border-bottom: none; }

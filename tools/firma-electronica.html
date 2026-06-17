@@ -7,7 +7,7 @@
   <div class="container header-inner">
     <a href="/" class="logo"><span class="logo-icon">📷</span><span class="logo-text">ComprimeFotos</span></a>
     <nav class="main-nav"><a href="/">Inicio</a><a href="/tools/comprimir-imagenes.html">Comprimir</a><a href="/tools/comprimir-imagenes-whatsapp.html">WhatsApp</a><a href="/tools/quitar-fondo.html">Quitar Fondo</a><a href="/blog/">Blog</a><a href="/about.html">Sobre Nosotros</a></nav>
-    <div class="header-actions"><button class="mobile-menu-btn"  aria-label="Cambiar tema">🖼️</button><button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menú">é??/button></div>
+    <div class="header-actions"><button class="mobile-menu-btn"  aria-label="Cambiar tema">🖼️</button><button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menú">☰</button></div>
   </div>
 </header>
 <main class="tool-page">
@@ -20,7 +20,7 @@
           <h4 style="font-weight:600;margin-bottom:12px;">Dibuja tu firma:</h4>
           <canvas id="signaturePad" width="400" height="200" style="width:100%;height:auto;border:2px solid var(--border-color);border-radius:8px;background:white;cursor:crosshair;touch-action:none;"></canvas>
           <div style="display:flex;gap:8px;margin-top:8px;">
-            <button class="btn btn-secondary" id="clearSignatureBtn">é¦æ£é?Limpiar</button>
+            <button class="btn btn-secondary" id="clearSignatureBtn">🧹 Limpiar</button>
             <button class="btn btn-secondary" id="undoStrokeBtn">— âç¬ Deshacer</button>
           </div>
         </div>
@@ -60,9 +60,9 @@
     <div class="related-tools">
       <h2>Herramientas relacionadas</h2>
       <div class="related-tools-grid">
-        <a href="/tools/poner-marca-de-agua.html" class="related-tool-card"><span class="tool-icon">é¦æ§</span><div class="tool-info"><strong>Poner marca de agua</strong><span class="tool-desc">Protege tus fotos</span></div><span class="tool-arrow">— ?/span></a>
-        <a href="/tools/quitar-fondo.html" class="related-tool-card"><span class="tool-icon">éå¦ç¬</span><div class="tool-info"><strong>Quitar fondo</strong><span class="tool-desc">Elimina fondos de imágenes</span></div><span class="tool-arrow">— ?/span></a>
-        <a href="/tools/comprimir-pdf.html" class="related-tool-card"><span class="tool-icon">é¦æ«</span><div class="tool-info"><strong>Comprimir PDF</strong><span class="tool-desc">Reduce documentos PDF</span></div><span class="tool-arrow">— ?/span></a>
+        <a href="/tools/poner-marca-de-agua.html" class="related-tool-card"><span class="tool-icon">💧</span><div class="tool-info"><strong>Poner marca de agua</strong><span class="tool-desc">Protege tus fotos</span></div><span class="tool-arrow">→</span></a>
+        <a href="/tools/quitar-fondo.html" class="related-tool-card"><span class="tool-icon">✂️</span><div class="tool-info"><strong>Quitar fondo</strong><span class="tool-desc">Elimina fondos de imágenes</span></div><span class="tool-arrow">→</span></a>
+        <a href="/tools/comprimir-pdf.html" class="related-tool-card"><span class="tool-icon">📄</span><div class="tool-info"><strong>Comprimir PDF</strong><span class="tool-desc">Reduce documentos PDF</span></div><span class="tool-arrow">→</span></a>
       </div>
     </div>
   </div>
@@ -187,7 +187,7 @@
 
     // Mostrar preview
     showSignaturePreview();
-    showToast('é?Firma generada', 'success');
+    showToast('✅ Firma generada', 'success');
   });
 
   function showSignaturePreview() {
@@ -225,7 +225,7 @@
       a.download = 'firma-electronica.png';
       document.body.appendChild(a); a.click(); document.body.removeChild(a);
       URL.revokeObjectURL(url);
-      showToast('é?Firma descargada', 'success');
+      showToast('✅ Firma descargada', 'success');
     }, 'image/png');
   });
 

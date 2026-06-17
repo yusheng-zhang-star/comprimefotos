@@ -55,7 +55,7 @@
     </nav>
     <div class="header-actions">
       <button class="mobile-menu-btn"  aria-label="Cambiar tema">🖼️</button>
-      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menú">é??/button>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menú">☰</button>
     </div>
   </div>
 </header>
@@ -75,7 +75,7 @@
     <div class="tool-workspace" id="pdfCompressorWorkspace">
       <!-- Drop Zone -->
       <label for="pdfFileInput" class="dropzone" id="pdfDropzone">
-        <span class="dropzone-icon">é¦æ«</span>
+        <span class="dropzone-icon">📄</span>
         <h3>Arrastra tu PDF aquí</h3>
         <p>o haz clic para seleccionar un archivo</p>
         <p style="font-size:0.8rem;color:var(--text-muted);margin-top:8px;">PDF — Hasta 50 MB</p>
@@ -88,13 +88,13 @@
           <div class="before-after-images" style="grid-template-columns:1fr 1fr;gap:12px;">
             <div class="before-after-item">
               <div style="background:var(--surface);border-radius:12px;padding:20px;text-align:center;min-height:140px;display:flex;flex-direction:column;align-items:center;justify-content:center;">
-                <span style="font-size:3rem;">é¦æ«</span>
+                <span style="font-size:3rem;">📄</span>
                 <div class="before-after-item-caption before" style="position:static;margin-top:8px;">Original</div>
               </div>
             </div>
             <div class="before-after-item">
               <div style="background:var(--surface);border-radius:12px;padding:20px;text-align:center;min-height:140px;display:flex;flex-direction:column;align-items:center;justify-content:center;">
-                <span style="font-size:3rem;">é🖼️</span>
+                <span style="font-size:3rem;">🗜️</span>
                 <div class="before-after-item-caption after" style="position:static;margin-top:8px;">Comprimido</div>
               </div>
             </div>
@@ -123,7 +123,7 @@
         </div>
 
         <div id="pdfSimulationNotice" style="display:none;margin-top:16px;padding:12px 16px;border-radius:8px;background:rgba(255,107,74,0.08);border:1px solid rgba(255,107,74,0.2);font-size:0.9rem;">
-          <p style="color:var(--text-muted);margin:0;">é©ç¸ç¬ <strong>Nota:</strong> La compresión en el navegador aplica optimización al contenido de imágenes del PDF. Para documentos mayormente textuales, la reducción puede ser menor. Los resultados son simulados de forma proporcional a la calidad seleccionada.</p>
+          <p style="color:var(--text-muted);margin:0;">⚠️ <strong>Nota:</strong> La compresión en el navegador aplica optimización al contenido de imágenes del PDF. Para documentos mayormente textuales, la reducción puede ser menor. Los resultados son simulados de forma proporcional a la calidad seleccionada.</p>
         </div>
       </div>
     </div>
@@ -180,20 +180,20 @@
       <h2>Herramientas relacionadas</h2>
       <div class="related-tools-grid">
         <a href="/tools/comprimir-imagenes.html" class="related-tool-card">
-          <span class="tool-icon">📷?/span>
+          <span class="tool-icon">📷</span>
           <div class="tool-info">
             <strong>Comprimir imágenes</strong>
             <span class="tool-desc">JPG, PNG, WebP</span>
           </div>
-          <span class="tool-arrow">— ?/span>
+          <span class="tool-arrow">→</span>
         </a>
         <a href="/tools/comprimir-imagenes-whatsapp.html" class="related-tool-card">
-          <span class="tool-icon">é¦æ«</span>
+          <span class="tool-icon">📄</span>
           <div class="tool-info">
             <strong>Comprimir para WhatsApp</strong>
             <span class="tool-desc">Tamaño perfecto para compartir</span>
           </div>
-          <span class="tool-arrow">— ?/span>
+          <span class="tool-arrow">→</span>
         </a>
         <a href="/tools/pdf-a-imagen.html" class="related-tool-card">
           <span class="tool-icon">🔄</span>
@@ -201,7 +201,7 @@
             <strong>PDF a imagen</strong>
             <span class="tool-desc">Convierte páginas a JPG/PNG</span>
           </div>
-          <span class="tool-arrow">— ?/span>
+          <span class="tool-arrow">→</span>
         </a>
       </div>
     </div>
@@ -280,7 +280,7 @@
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
-    showToast('é?PDF descargado correctamente', 'success');
+    showToast('✅ PDF descargado correctamente', 'success');
   });
 
   resetBtn.addEventListener('click', function() {
@@ -353,7 +353,7 @@
     const scale = Math.min(1.5, 0.5 + quality * 1.2); // Escala según calidad
 
     // Mostrar progreso básico (sin barra, pero impedimos interacción)
-    downloadBtn.textContent = 'é´?Comprimiendo...';
+    downloadBtn.textContent = '⏳ Comprimiendo...';
     downloadBtn.disabled = true;
 
     const canvases = [];
@@ -407,7 +407,7 @@
     // Mostrar aviso si la compresión es mínima (documento mayormente textual)
     if (savings < 5) {
       simulationNotice.style.display = 'block';
-      simulationNotice.querySelector('p').textContent = 'é©ç¸ç¬ Este documento parece ser principalmente texto. La compresión mediante canvas reduce sobre todo el peso de imágenes incrustadas. Para PDFs textuales, otras técnicas como optimización de fuentes pueden ser más efectivas.';
+      simulationNotice.querySelector('p').textContent = '⚠️ Este documento parece ser principalmente texto. La compresión mediante canvas reduce sobre todo el peso de imágenes incrustadas. Para PDFs textuales, otras técnicas como optimización de fuentes pueden ser más efectivas.';
     }
   }
 

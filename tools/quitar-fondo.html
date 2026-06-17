@@ -41,7 +41,7 @@
     </nav>
     <div class="header-actions">
       <button class="mobile-menu-btn"  aria-label="Cambiar tema">🖼️</button>
-      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menú">é??/button>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menú">☰</button>
     </div>
   </div>
 </header>
@@ -59,7 +59,7 @@
 
     <div class="tool-workspace" id="bgRemoverWorkspace">
       <label for="fileInput" class="dropzone" id="dropzone">
-        <span class="dropzone-icon">📷?/span>
+        <span class="dropzone-icon">📷</span>
         <h3>Arrastra tu imagen aquí</h3>
         <p>o haz clic para seleccionar</p>
         <p style="font-size:0.8rem;color:var(--text-muted);margin-top:8px;">JPG, PNG, WebP — Sin límite de tamaño</p>
@@ -149,10 +149,10 @@
     <div class="related-tools">
       <h2>Herramientas relacionadas</h2>
       <div class="related-tools-grid">
-        <a href="/tools/comprimir-imagenes.html" class="related-tool-card"><span class="tool-icon">é🖼️</span><div class="tool-info"><strong>Comprimir imágenes</strong><span class="tool-desc">Reduce el peso de tus fotos</span></div><span class="tool-arrow">— ?/span></a>
-        <a href="/tools/imagen-a-texto.html" class="related-tool-card"><span class="tool-icon">📤</span><div class="tool-info"><strong>Imagen a texto (OCR)</strong><span class="tool-desc">Extrae texto de imágenes</span></div><span class="tool-arrow">— ?/span></a>
-        <a href="/tools/pdf-a-imagen.html" class="related-tool-card"><span class="tool-icon">é📁</span><div class="tool-info"><strong>PDF a imagen</strong><span class="tool-desc">Convierte PDF a JPG/PNG</span></div><span class="tool-arrow">— ?/span></a>
-        <a href="/tools/hacer-collage.html" class="related-tool-card"><span class="tool-icon">📷?/span><div class="tool-info"><strong>Hacer collage</strong><span class="tool-desc">Combina fotos en collage</span></div><span class="tool-arrow">— ?/span></a>
+        <a href="/tools/comprimir-imagenes.html" class="related-tool-card"><span class="tool-icon">🗜️</span><div class="tool-info"><strong>Comprimir imágenes</strong><span class="tool-desc">Reduce el peso de tus fotos</span></div><span class="tool-arrow">→</span></a>
+        <a href="/tools/imagen-a-texto.html" class="related-tool-card"><span class="tool-icon">📤</span><div class="tool-info"><strong>Imagen a texto (OCR)</strong><span class="tool-desc">Extrae texto de imágenes</span></div><span class="tool-arrow">→</span></a>
+        <a href="/tools/pdf-a-imagen.html" class="related-tool-card"><span class="tool-icon">📁</span><div class="tool-info"><strong>PDF a imagen</strong><span class="tool-desc">Convierte PDF a JPG/PNG</span></div><span class="tool-arrow">→</span></a>
+        <a href="/tools/hacer-collage.html" class="related-tool-card"><span class="tool-icon">📷</span><div class="tool-info"><strong>Hacer collage</strong><span class="tool-desc">Combina fotos en collage</span></div><span class="tool-arrow">→</span></a>
       </div>
     </div>
   </div>
@@ -214,7 +214,7 @@
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
-    showToast('é?Imagen descargada correctamente', 'success');
+    showToast('✅ Imagen descargada correctamente', 'success');
   });
 
   resetBtn.addEventListener('click', function() { resetTool(); });

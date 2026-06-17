@@ -55,7 +55,7 @@
     </nav>
     <div class="header-actions">
       <button class="mobile-menu-btn"  aria-label="Cambiar tema">🖼️</button>
-      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menú">é??/button>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menú">☰</button>
     </div>
   </div>
 </header>
@@ -75,7 +75,7 @@
     <div class="tool-workspace" id="whatsappWorkspace">
       <!-- Drop Zone -->
       <label for="fileInput" class="dropzone" id="dropzone">
-        <span class="dropzone-icon">é¦æ§</span>
+        <span class="dropzone-icon">💧</span>
         <h3>Arrastra tu imagen aquí</h3>
         <p>o haz clic para seleccionar un archivo</p>
         <p style="font-size:0.8rem;color:var(--text-muted);margin-top:8px;">JPG, PNG, WebP — Hasta 50 MB</p>
@@ -181,20 +181,20 @@
       <h2>Herramientas relacionadas</h2>
       <div class="related-tools-grid">
         <a href="/tools/comprimir-imagenes.html" class="related-tool-card">
-          <span class="tool-icon">é🖼️</span>
+          <span class="tool-icon">🗜️</span>
           <div class="tool-info">
             <strong>Comprimir imágenes</strong>
             <span class="tool-desc">Reduce JPG, PNG y WebP</span>
           </div>
-          <span class="tool-arrow">— ?/span>
+          <span class="tool-arrow">→</span>
         </a>
         <a href="/tools/comprimir-pdf.html" class="related-tool-card">
-          <span class="tool-icon">é¦æ«</span>
+          <span class="tool-icon">📄</span>
           <div class="tool-info">
             <strong>Comprimir PDF</strong>
             <span class="tool-desc">Reduce documentos PDF</span>
           </div>
-          <span class="tool-arrow">— ?/span>
+          <span class="tool-arrow">→</span>
         </a>
         <a href="/tools/convertir-formato.html" class="related-tool-card">
           <span class="tool-icon">🔄</span>
@@ -202,15 +202,15 @@
             <strong>Convertir formato</strong>
             <span class="tool-desc">JPG — ?PNG — ?WebP</span>
           </div>
-          <span class="tool-arrow">— ?/span>
+          <span class="tool-arrow">→</span>
         </a>
         <a href="/tools/redimensionar-imagen.html" class="related-tool-card">
-          <span class="tool-icon">é¦æ»</span>
+          <span class="tool-icon">📐</span>
           <div class="tool-info">
             <strong>Redimensionar imagen</strong>
             <span class="tool-desc">Cambia el tamaño de tus fotos</span>
           </div>
-          <span class="tool-arrow">— ?/span>
+          <span class="tool-arrow">→</span>
         </a>
       </div>
     </div>
@@ -291,7 +291,7 @@
   // Botón "Tamaño WhatsApp" — ajusta automáticamente a calidad 70% y formato JPG
   whatsappOptBtn.addEventListener('click', function() {
     if (!currentFile) {
-      showToast('é¦æ§ Primero sube una imagen', 'warning');
+      showToast('💧 Primero sube una imagen', 'warning');
       return;
     }
     qualitySlider.value = 70;
@@ -311,7 +311,7 @@
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
-    showToast('é?Imagen descargada — lista para enviar por WhatsApp', 'success');
+    showToast('✅ Imagen descargada — lista para enviar por WhatsApp', 'success');
   });
 
   resetBtn.addEventListener('click', function() {
@@ -385,11 +385,11 @@
   function updateWhatsAppStatus(size) {
     if (size <= WHATSAPP_MAX_SIZE) {
       const sizeMB = (size / (1024 * 1024)).toFixed(2);
-      whatsappStatus.textContent = 'é?' + sizeMB + ' MB (apto para WhatsApp)';
+      whatsappStatus.textContent = '✅ ' + sizeMB + ' MB (apto para WhatsApp)';
       whatsappStatus.style.color = 'var(--success)';
     } else {
       const sizeMB = (size / (1024 * 1024)).toFixed(2);
-      whatsappStatus.textContent = 'é?' + sizeMB + ' MB (supera el límite de 16 MB)';
+      whatsappStatus.textContent = '✅ ' + sizeMB + ' MB (supera el límite de 16 MB)';
       whatsappStatus.style.color = 'var(--danger)';
     }
   }

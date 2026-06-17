@@ -49,7 +49,19 @@
   Cache-Control: public, max-age=2592000, immutable
   CDN-Cache-Control: public, max-age=2592000
 
-# ── Everything else: 7 days ──
-/*
-  Cache-Control: public, max-age=604800, s-maxage=604800
-  CDN-Cache-Control: public, max-age=604800
+# ── Images (by extension): 30 days ──
+/*.png
+/*.jpg
+/*.jpeg
+/*.gif
+/*.webp
+/*.svg
+/*.ico
+  Cache-Control: public, max-age=2592000, immutable
+  CDN-Cache-Control: public, max-age=2592000
+
+# ── Fonts: 1 year ──
+/*.woff
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+  CDN-Cache-Control: public, max-age=31536000

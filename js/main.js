@@ -182,26 +182,48 @@ function handleMultipleFiles(files, dropzone) {
 
 /* ===== Contact Form ===== */
 function initContactForm() {
-  const form = document.querySelector('.contact-form form');
+  var form = document.querySelector('.contact-form form');
   if (!form) return;
 
   form.addEventListener('submit', function(e) {
     e.preventDefault();
-    const status = form.querySelector('.form-status');
-    const submitBtn = form.querySelector('.form-submit');
-    const original = submitBtn ? submitBtn.textContent : '';
+    var status = form.querySelector('.form-status');
+    var submitBtn = form.querySelector('.form-submit');
+    var original = submitBtn ? submitBtn.textContent : '';
 
     if (submitBtn) { submitBtn.textContent = 'Enviando...'; submitBtn.disabled = true; }
+    if (status) { status.className = 'form-status'; status.textContent = ''; status.style.display = 'none'; }
 
-    setTimeout(function() {
-      if (status) {
-        status.className = 'form-status success';
-        status.textContent = '¡Gracias! Te responderemos pronto.';
-        status.style.display = 'block';
-      }
-      form.reset();
-      if (submitBtn) { submitBtn.textContent = original; submitBtn.disabled = false; }
-    }, 1500);
+    var formData = new FormData(form);
+
+    fetch('/api/contact', { method: 'POST', body: formData })
+      .then(function(resp) { return resp.json(); })
+      .then(function(data) {
+        if (data.success) {
+          if (status) {
+            status.className = 'form-status success';
+            status.textContent = '¡Gracias! Te responderemos pronto.';
+            status.style.display = 'block';
+          }
+          form.reset();
+        } else {
+          if (status) {
+            status.className = 'form-status error';
+            status.textContent = data.message || 'Error al enviar. Intenta de nuevo.';
+            status.style.display = 'block';
+          }
+        }
+      })
+      .catch(function() {
+        if (status) {
+          status.className = 'form-status error';
+          status.textContent = 'Error de conexión. Intenta de nuevo más tarde.';
+          status.style.display = 'block';
+        }
+      })
+      .then(function() {
+        if (submitBtn) { submitBtn.textContent = original; submitBtn.disabled = false; }
+      });
   });
 }
 

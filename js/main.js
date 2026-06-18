@@ -194,11 +194,33 @@ function initContactForm() {
     if (submitBtn) { submitBtn.textContent = 'Enviando...'; submitBtn.disabled = true; }
     if (status) { status.className = 'form-status'; status.textContent = ''; status.style.display = 'none'; }
 
+    // Build message body for FormSubmit
     var formData = new FormData(form);
+    var body = new URLSearchParams();
+    body.append('name', formData.get('name') || '');
+    body.append('email', formData.get('email') || '');
+    body.append('_subject', '[ComprimeFotos] ' + (formData.get('subject') || 'General'));
+    body.append('message', [
+      'Nombre: ' + (formData.get('name') || ''),
+      'Correo: ' + (formData.get('email') || ''),
+      'Asunto: ' + (formData.get('subject') || 'General'),
+      '',
+      '--- Mensaje ---',
+      formData.get('message') || '',
+      '',
+      '---',
+      'Enviado desde: https://comprimefotos.com/contacto'
+    ].join('\n'));
+    body.append('_captcha', 'false');
+    body.append('_template', 'table');
 
-    fetch(form.action, { method: 'POST', body: formData })
+    fetch('https://formsubmit.co/ajax/331728525@qq.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body.toString()
+    })
       .then(function(resp) {
-        if (resp.ok || resp.redirected) {
+        if (resp.ok) {
           if (status) {
             status.className = 'form-status success';
             status.textContent = '¡Gracias! Te responderemos pronto.';

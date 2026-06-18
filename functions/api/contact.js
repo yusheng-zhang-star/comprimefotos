@@ -5,69 +5,24 @@ export async function onRequest(context) {
     'Access-Control-Allow-Headers': 'Content-Type',
     'Content-Type': 'application/json'
   };
-
-  if (context.request.method === 'OPTIONS') {
-    return new Response(null, { status: 204, headers: h });
-  }
-
-  let name, email, subject, message;
-
+  if (context.request.method === 'OPTIONS') return new Response(null, { status: 204, headers: h });
   try {
-    const ct = context.request.headers.get('Content-Type') || '';
-    if (ct.includes('application/json')) {
-      const json = await context.request.json();
-      name = json.name || ''; email = json.email || ''; subject = json.subject || ''; message = json.message || '';
-    } else {
-      const fd = await context.request.formData();
-      name = fd.get('name') || ''; email = fd.get('email') || ''; subject = fd.get('subject') || ''; message = fd.get('message') || '';
-    }
-
+    const fd = await context.request.formData();
+    const name = fd.get('name') || '';
+    const email = fd.get('email') || '';
+    const subject = fd.get('subject') || '';
+    const message = fd.get('message') || '';
     if (!name || !email || !message) {
-      return new Response(JSON.stringify({ ok: false, error: 'missing_fields' }), {
-        status: 400, headers: h
-      });
+      return new Response(JSON.stringify({ ok: false, s: 'validation' }), { status: 400, headers: h });
     }
-  } catch (e) {
-    return new Response(JSON.stringify({ ok: false, error: 'parse: ' + e.message }), {
-      status: 400, headers: h
-    });
-  }
-
-  // Send via URLSearchParams (safe in Workers)
-  const params = new URLSearchParams();
-  params.append('name', name);
-  params.append('email', email);
-  params.append('_subject', '[ComprimeFotos] ' + (subject || 'General'));
-  params.append('message', message);
-  params.append('_captcha', 'false');
-  params.append('_template', 'table');
-
-  try {
-    const fsResp = await fetch('https://formsubmit.co/331728525@qq.com', {
+    const resp = await fetch('https://httpbin.org/post', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: params.toString(),
+      body: 'test=1'
     });
-
-    const fsBody = await fsResp.text();
-
-    if (fsResp.ok) {
-      return new Response(JSON.stringify({ ok: true }), {
-        status: 200, headers: h
-      });
-    }
-
-    return new Response(JSON.stringify({
-      ok: false,
-      error: 'fs_error',
-      status: fsResp.status,
-      body: fsBody.substring(0, 200)
-    }), { status: 502, headers: h });
-
+    const text = await resp.text();
+    return new Response(JSON.stringify({ ok: true, s: 'fetch_worked', status: resp.status, len: text.length }), { status: 200, headers: h });
   } catch (e) {
-    return new Response(JSON.stringify({
-      ok: false,
-      error: 'fetch_err: ' + (e.message || 'unknown')
-    }), { status: 500, headers: h });
+    return new Response(JSON.stringify({ ok: false, s: 'crash', error: String(e.message || e).substring(0, 300) }), { status: 500, headers: h });
   }
 }

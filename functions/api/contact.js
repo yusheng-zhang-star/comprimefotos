@@ -66,7 +66,7 @@ export async function onRequest(context) {
     payload.append('_template', 'table');
 
     // Try AJAX endpoint first (better for server-side)
-    let resp = await fetch('https://formsubmit.co/ajax/331728525@qq.com', {
+    let resp = await fetch('https://formsubmit.co/ajax/d883d989bf68baafb5035a56d155b9ab', {
       method: 'POST',
       headers: { 
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -77,7 +77,7 @@ export async function onRequest(context) {
 
     // If AJAX fails, try regular endpoint as fallback
     if (!resp.ok) {
-      resp = await fetch('https://formsubmit.co/331728525@qq.com', {
+      resp = await fetch('https://formsubmit.co/d883d989bf68baafb5035a56d155b9ab', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: payload.toString(),

@@ -316,6 +316,7 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--a
 .guide-section { margin-top: 40px; }
 .guide-section h2 { font-size: 1.2rem; font-weight: 600; margin-bottom: 16px; }
 .guide-block { background: #fff; border: 1px solid var(--border-light); border-radius: var(--radius-sm); padding: 20px; margin-bottom: 12px; }
+.guide-block a { word-break: break-all; overflow-wrap: break-word; }
 .guide-block h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 8px; color: var(--accent); }
 .guide-block p { color: var(--text-secondary); font-size: 0.88rem; line-height: 1.7; margin-bottom: 6px; }
 .guide-block ul { margin: 6px 0 6px 16px; color: var(--text-secondary); font-size: 0.88rem; }
@@ -358,6 +359,21 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--a
 .toast { position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%) translateY(20px); background: #1a1614; color: #e8e0d8; padding: 10px 20px; border-radius: var(--radius-sm); font-size: 0.85rem; z-index: 99999; opacity: 0; visibility: hidden; transition: all 0.3s ease; white-space: nowrap; }
 .toast.visible { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
 .toast.success { background: var(--accent); color: #fff; }
+
+/* ===== Contact Form ===== */
+.contact-form { background: #fff; border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 32px; }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; font-size: 0.89rem; font-weight: 600; margin-bottom: 6px; color: var(--text); }
+.form-group input,
+.form-group select,
+.form-group textarea { width: 100%; padding: 12px 14px; border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 0.93rem; font-family: inherit; color: var(--text); background: #fff; transition: border-color 0.2s; box-sizing: border-box; }
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-bg); }
+.form-group textarea { min-height: 120px; resize: vertical; }
+.form-submit { display: block; width: 100%; padding: 14px 24px; background: var(--accent); color: #fff; border: none; border-radius: var(--radius-sm); font-size: 1rem; font-weight: 600; cursor: pointer; transition: background 0.2s, transform 0.1s; font-family: inherit; }
+.form-submit:hover { background: #155a41; }
+.form-submit:active { transform: scale(0.98); }
 
 /* ===== Contact Form Status ===== */
 .form-status { margin-top: 16px; padding: 12px 16px; border-radius: var(--radius-sm); font-size: 0.9rem; font-weight: 500; display: none; }

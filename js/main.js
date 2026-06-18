@@ -214,7 +214,7 @@ function initContactForm() {
     body.append('_captcha', 'false');
     body.append('_template', 'table');
 
-    fetch('https://formsubmit.co/ajax/331728525@qq.com', {
+    fetch('https://formsubmit.co/ajax/d883d989bf68baafb5035a56d155b9ab', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: body.toString()

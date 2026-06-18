@@ -22,10 +22,16 @@ export async function onRequest(context) {
     const ct = context.request.headers.get('Content-Type') || '';
     if (ct.includes('application/json')) {
       const json = await context.request.json();
-      name = json.name || ''; email = json.email || ''; subject = json.subject || ''; message = json.message || '';
+      name = json.name || '';
+      email = json.email || '';
+      subject = json.subject || '';
+      message = json.message || '';
     } else {
       const fd = await context.request.formData();
-      name = fd.get('name') || ''; email = fd.get('email') || ''; subject = fd.get('subject') || ''; message = fd.get('message') || '';
+      name = fd.get('name') || '';
+      email = fd.get('email') || '';
+      subject = fd.get('subject') || '';
+      message = fd.get('message') || '';
     }
 
     if (!name || !email || !message) {
@@ -39,30 +45,44 @@ export async function onRequest(context) {
     });
   }
 
-  // Enviar via FormSubmit.co (server-side relay)
-  const params = new URLSearchParams();
-  params.append('name', name);
-  params.append('email', email);
-  params.append('_subject', '[ComprimeFotos] ' + (subject || 'General'));
-  params.append('message', [
-    'Nombre: ' + name,
-    'Correo: ' + email,
-    'Asunto: ' + (subject || 'General'),
-    '',
-    '--- Mensaje ---',
-    message,
-    '',
-    '---',
-    'Enviado desde: https://comprimefotos.com/contacto'
-  ].join('\n'));
-  params.append('_captcha', 'false');
-
+  // Send via FormSubmit.co AJAX endpoint (better Workers compatibility)
   try {
-    const resp = await fetch('https://formsubmit.co/331728525@qq.com', {
+    const payload = new URLSearchParams();
+    payload.append('name', name);
+    payload.append('email', email);
+    payload.append('_subject', '[ComprimeFotos] ' + (subject || 'General'));
+    payload.append('message', [
+      'Nombre: ' + name,
+      'Correo: ' + email,
+      'Asunto: ' + (subject || 'General'),
+      '',
+      '--- Mensaje ---',
+      message,
+      '',
+      '---',
+      'Enviado desde: https://comprimefotos.com/contacto'
+    ].join('\n'));
+    payload.append('_captcha', 'false');
+    payload.append('_template', 'table');
+
+    // Try AJAX endpoint first (better for server-side)
+    let resp = await fetch('https://formsubmit.co/ajax/331728525@qq.com', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: params.toString(),
+      headers: { 
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Accept': 'application/json'
+      },
+      body: payload.toString(),
     });
+
+    // If AJAX fails, try regular endpoint as fallback
+    if (!resp.ok) {
+      resp = await fetch('https://formsubmit.co/331728525@qq.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: payload.toString(),
+      });
+    }
 
     if (resp.ok) {
       return new Response(JSON.stringify({ ok: true }), {
@@ -70,12 +90,17 @@ export async function onRequest(context) {
       });
     }
 
+    // Log the response for debugging
+    const respText = await resp.text();
+    console.error('FormSubmit error:', resp.status, respText.substring(0, 200));
+
     return new Response(JSON.stringify({
       ok: false,
       error: 'Error al enviar. Intenta de nuevo mas tarde.'
     }), { status: 500, headers: h });
 
   } catch (e) {
+    console.error('FormSubmit exception:', e.message);
     return new Response(JSON.stringify({
       ok: false,
       error: 'Error de conexion. Intenta de nuevo mas tarde.'

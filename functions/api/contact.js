@@ -68,19 +68,23 @@ export async function onRequest(context) {
       `Fecha: ${new Date().toISOString()}`,
     ].join('\n');
 
-    // Send via MailChannels
+    // Send via MailChannels → Cloudflare Email Routing forwards to QQ
     const mcResp = await fetch('https://api.mailchannels.net/tx/v1/send', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         personalizations: [
-          { to: [{ email: '331728525@qq.com', name: 'Admin ComprimeFotos' }] },
+          { to: [{ email: 'contact@comprimefotos.com', name: 'ComprimeFotos' }] },
         ],
         from: {
           email: 'noreply@comprimefotos.com',
-          name: 'ComprimeFotos Contacto',
+          name: 'ComprimeFotos Formulario',
         },
-        subject: `[Formulario] ${subject} — ${name}`,
+        reply_to: {
+          email: email,
+          name: name,
+        },
+        subject: `[Formulario] ${subject || 'Sin asunto'} — ${name}`,
         content: [
           { type: 'text/plain', value: plainText },
         ],

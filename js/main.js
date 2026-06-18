@@ -196,10 +196,9 @@ function initContactForm() {
 
     var formData = new FormData(form);
 
-    fetch('/api/contact', { method: 'POST', body: formData })
-      .then(function(resp) { return resp.json(); })
-      .then(function(data) {
-        if (data.success) {
+    fetch(form.action, { method: 'POST', body: formData })
+      .then(function(resp) {
+        if (resp.ok || resp.redirected) {
           if (status) {
             status.className = 'form-status success';
             status.textContent = '¡Gracias! Te responderemos pronto.';
@@ -207,11 +206,7 @@ function initContactForm() {
           }
           form.reset();
         } else {
-          if (status) {
-            status.className = 'form-status error';
-            status.textContent = data.message || 'Error al enviar. Intenta de nuevo.';
-            status.style.display = 'block';
-          }
+          throw new Error('Error ' + resp.status);
         }
       })
       .catch(function() {

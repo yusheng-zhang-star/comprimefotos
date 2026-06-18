@@ -45,14 +45,14 @@
       </p>
 
       <div class="contact-form">
-        <form id="contactForm">
+        <form id="contactForm" autocomplete="off">
           <div class="form-group">
             <label for="name">Nombre</label>
-            <input type="text" id="name" name="name" autocomplete="off" placeholder="Tu nombre" required>
+            <input type="text" id="name" name="name" autocomplete="off" placeholder="Tu nombre" required readonly onfocus="this.removeAttribute('readonly')">
           </div>
           <div class="form-group">
             <label for="email">Correo electrónico</label>
-            <input type="email" id="email" name="email" autocomplete="off" placeholder="tu@email.com" required>
+            <input type="email" id="email" name="email" autocomplete="off" placeholder="tu@email.com" required readonly onfocus="this.removeAttribute('readonly')">
           </div>
           <div class="form-group">
             <label for="subject">Asunto</label>
@@ -147,6 +147,15 @@
     </div>
   </div>
 </div><div class="toast" id="toast"></div>
+<script>
+(function(){
+  var n=document.getElementById('name'),e=document.getElementById('email');
+  setTimeout(function(){
+    if(n&&n.value)n.value='';
+    if(e&&e.value)e.value='';
+  },100);
+})();
+</script>
 <script src="js/main.js?v=2"></script>
 </body>
 </html>

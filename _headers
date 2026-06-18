@@ -27,18 +27,18 @@
 # ── Clean URLs (no .html extension) ──
 /tools/*
   Cache-Control: public, max-age=0, must-revalidate
-  CDN-Cache-Control: public, max-age=0, must-revalidate
+  CDN-Cache-Control: public, max-age=3600
   Content-Type: text/html; charset=utf-8
 
 /blog/*
   Cache-Control: public, max-age=0, must-revalidate
-  CDN-Cache-Control: public, max-age=0, must-revalidate
+  CDN-Cache-Control: public, max-age=3600
   Content-Type: text/html; charset=utf-8
 
 # ── Homepage (clean URL root) ──
 /
   Cache-Control: public, max-age=0, must-revalidate
-  CDN-Cache-Control: public, max-age=0, must-revalidate
+  CDN-Cache-Control: public, max-age=3600
   Content-Type: text/html; charset=utf-8
 
 # ── CSS: 7 days ──

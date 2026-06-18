@@ -287,7 +287,7 @@ h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 600; line-height
 .before-after-item .preview-img { min-height: 100px; object-fit: contain; }
 .before-after-item .preview-img[src=""], .before-after-item .preview-img:not([src]) { min-height: 100px; background: var(--bg-section); border-radius: 2px; }
 .before-after-label { font-size: 0.78rem; color: var(--text-secondary); margin-top: 8px; font-weight: 500; letter-spacing: 0.3px; text-transform: uppercase; }
-.before-after-item-caption { font-size: 0.78rem; color: var(--text-secondary); margin-top: 8px; font-weight: 500; letter-spacing: 0.3px; text-transform: uppercase; }
+.before-after-item-caption { font-size: 0.82rem; color: var(--text-secondary); margin-top: 8px; font-weight: 600; letter-spacing: 0; }
 .before-after-item-caption.before { color: var(--text-secondary); }
 .before-after-item-caption.after { color: var(--accent); }
 .file-info { display: flex; gap: 20px; flex-wrap: wrap; padding: 10px 14px; background: var(--bg); border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 16px; }

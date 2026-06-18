@@ -1,152 +1,146 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://comprimefotos.com/</loc>
-    <lastmod>2026-06-16</lastmod>
+    <lastmod>2026-06-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://comprimefotos.com/404.html</loc>
-    <lastmod>2026-06-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.1</priority>
-  </url>
-  <url>
-    <loc>https://comprimefotos.com/about.html</loc>
-    <lastmod>2026-06-16</lastmod>
+    <loc>https://comprimefotos.com/about</loc>
+    <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://comprimefotos.com/blog/</loc>
-    <lastmod>2026-06-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://comprimefotos.com/blog/como-comprimir-imagenes-para-whatsapp.html</loc>
-    <lastmod>2026-06-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://comprimefotos.com/blog/guia-completa-compresion-imagenes.html</loc>
-    <lastmod>2026-06-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://comprimefotos.com/blog/como-quitar-fondo-imagenes-online.html</loc>
-    <lastmod>2026-06-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://comprimefotos.com/blog/jpg-vs-png-vs-webp-formatos-imagen.html</loc>
-    <lastmod>2026-06-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://comprimefotos.com/contacto</loc>
-    <lastmod>2026-06-16</lastmod>
+    <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://comprimefotos.com/cookie-policy.html</loc>
-    <lastmod>2026-06-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://comprimefotos.com/privacy.html</loc>
-    <lastmod>2026-06-16</lastmod>
+    <loc>https://comprimefotos.com/privacy</loc>
+    <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://comprimefotos.com/terms.html</loc>
-    <lastmod>2026-06-16</lastmod>
+    <loc>https://comprimefotos.com/terms</loc>
+    <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://comprimefotos.com/tools/comprimir-imagenes.html</loc>
-    <lastmod>2026-06-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://comprimefotos.com/tools/comprimir-imagenes-whatsapp.html</loc>
-    <lastmod>2026-06-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://comprimefotos.com/tools/comprimir-pdf.html</loc>
-    <lastmod>2026-06-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://comprimefotos.com/tools/convertir-formato.html</loc>
-    <lastmod>2026-06-16</lastmod>
+    <loc>https://comprimefotos.com/cookie-policy</loc>
+    <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://comprimefotos.com/blog/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://comprimefotos.com/tools/firma-electronica.html</loc>
-    <lastmod>2026-06-16</lastmod>
+    <loc>https://comprimefotos.com/blog/como-comprimir-imagenes-para-whatsapp</loc>
+    <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://comprimefotos.com/tools/foto-a-blanco-y-negro.html</loc>
-    <lastmod>2026-06-16</lastmod>
+    <loc>https://comprimefotos.com/blog/guia-completa-compresion-imagenes</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://comprimefotos.com/blog/como-quitar-fondo-imagenes-online</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://comprimefotos.com/blog/jpg-vs-png-vs-webp-formatos-imagen</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://comprimefotos.com/tools/comprimir-imagenes</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://comprimefotos.com/tools/comprimir-imagenes-whatsapp</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://comprimefotos.com/tools/comprimir-pdf</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://comprimefotos.com/tools/convertir-formato</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://comprimefotos.com/tools/firma-electronica</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://comprimefotos.com/tools/foto-a-blanco-y-negro</loc>
+    <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://comprimefotos.com/tools/hacer-collage.html</loc>
-    <lastmod>2026-06-16</lastmod>
+    <loc>https://comprimefotos.com/tools/hacer-collage</loc>
+    <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://comprimefotos.com/tools/imagen-a-texto.html</loc>
-    <lastmod>2026-06-16</lastmod>
+    <loc>https://comprimefotos.com/tools/imagen-a-texto</loc>
+    <lastmod>2026-06-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://comprimefotos.com/tools/pdf-a-imagen.html</loc>
-    <lastmod>2026-06-16</lastmod>
+    <loc>https://comprimefotos.com/tools/pdf-a-imagen</loc>
+    <lastmod>2026-06-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://comprimefotos.com/tools/poner-marca-de-agua.html</loc>
-    <lastmod>2026-06-16</lastmod>
+    <loc>https://comprimefotos.com/tools/poner-marca-de-agua</loc>
+    <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://comprimefotos.com/tools/quitar-fondo.html</loc>
-    <lastmod>2026-06-16</lastmod>
+    <loc>https://comprimefotos.com/tools/quitar-fondo</loc>
+    <lastmod>2026-06-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://comprimefotos.com/tools/redimensionar-imagen.html</loc>
-    <lastmod>2026-06-16</lastmod>
+    <loc>https://comprimefotos.com/tools/redimensionar-imagen</loc>
+    <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://comprimefotos.com/tools/procesador-por-lotes.html</loc>
-    <lastmod>2026-06-16</lastmod>
+    <loc>https://comprimefotos.com/tools/procesador-por-lotes</loc>
+    <lastmod>2026-06-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

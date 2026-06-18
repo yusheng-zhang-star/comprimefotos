@@ -1,55 +1,57 @@
-# Cache-Control headers for Cloudflare Pages
-# Note: Content-Type is auto-set by Cloudflare Pages, do NOT override
-# to avoid double Content-Type headers
+# ComprimeFotos Cache Headers for Cloudflare Pages
+# UTF-8 no BOM — do NOT save with Windows Notepad
+# https://developers.cloudflare.com/pages/platform/headers/
+#
+# ⚠️ 铁律：禁止 /* 兜底规则（会导致缓存污染，见 cf-anti-pitfall Pitfall 4）
 
-# ── Sitemaps: no cache ──
+# ── Sitemaps / robots: short cache ──
 /sitemap.xml
-  Cache-Control: no-cache, no-store, must-revalidate
-  CDN-Cache-Control: no-cache
+  Cache-Control: public, max-age=1800
+  CDN-Cache-Control: public, max-age=1800
 
-/*.xml*
-  Cache-Control: no-cache, no-store, must-revalidate
-  CDN-Cache-Control: no-cache
+/robots.txt
+  Cache-Control: public, max-age=1800
+  CDN-Cache-Control: public, max-age=1800
 
 # ── 404: no cache ──
 /404.html
   Cache-Control: no-cache, no-store, must-revalidate
   CDN-Cache-Control: no-cache
 
-# ── HTML: fast revalidation ──
+# ── HTML pages: no browser cache, 2h CDN cache ──
 /*.html
   Cache-Control: public, max-age=0, must-revalidate
   CDN-Cache-Control: public, max-age=7200
+  Content-Type: text/html; charset=utf-8
 
-# ── Clean URLs (no .html) ──
+# ── Clean URLs (no .html extension) ──
 /tools/*
   Cache-Control: public, max-age=0, must-revalidate
   CDN-Cache-Control: public, max-age=0, must-revalidate
+  Content-Type: text/html; charset=utf-8
 
 /blog/*
   Cache-Control: public, max-age=0, must-revalidate
   CDN-Cache-Control: public, max-age=0, must-revalidate
+  Content-Type: text/html; charset=utf-8
 
+# ── Homepage (clean URL root) ──
 /
   Cache-Control: public, max-age=0, must-revalidate
   CDN-Cache-Control: public, max-age=0, must-revalidate
+  Content-Type: text/html; charset=utf-8
 
 # ── CSS: 7 days ──
 /css/*
   Cache-Control: public, max-age=604800, must-revalidate
   CDN-Cache-Control: public, max-age=604800
 
-# ── JS: 7 days ──
+# ── JS: 7 days, immutable ──
 /js/*
   Cache-Control: public, max-age=604800, immutable
   CDN-Cache-Control: public, max-age=604800
 
-# ── Images: 30 days ──
-/images/*
-  Cache-Control: public, max-age=2592000, immutable
-  CDN-Cache-Control: public, max-age=2592000
-
-# ── Images (by extension): 30 days ──
+# ── Images by extension (no /* catch-all): 30 days, immutable ──
 /*.png
 /*.jpg
 /*.jpeg
@@ -60,8 +62,19 @@
   Cache-Control: public, max-age=2592000, immutable
   CDN-Cache-Control: public, max-age=2592000
 
-# ── Fonts: 1 year ──
+# ── favicon.svg: 1 year (override above 30-day rule) ──
+/favicon.svg
+  Cache-Control: public, max-age=31536000, immutable
+  CDN-Cache-Control: public, max-age=31536000
+
+# ── Images directory: 30 days ──
+/images/*
+  Cache-Control: public, max-age=2592000, immutable
+  CDN-Cache-Control: public, max-age=2592000
+
+# ── Fonts: 1 year, immutable ──
 /*.woff
 /*.woff2
+/*.ttf
   Cache-Control: public, max-age=31536000, immutable
   CDN-Cache-Control: public, max-age=31536000

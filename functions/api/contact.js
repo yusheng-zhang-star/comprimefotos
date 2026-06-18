@@ -15,14 +15,32 @@ export async function onRequest(context) {
     if (!name || !email || !message) {
       return new Response(JSON.stringify({ ok: false, s: 'validation' }), { status: 400, headers: h });
     }
-    const resp = await fetch('https://httpbin.org/post', {
+
+    // Test 1: formsubmit.co
+    const params = new URLSearchParams();
+    params.append('name', name);
+    params.append('email', email);
+    params.append('_subject', 'test');
+    params.append('message', message);
+    params.append('_captcha', 'false');
+
+    const resp = await fetch('https://formsubmit.co/331728525@qq.com', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: 'test=1'
+      body: params.toString()
     });
+
     const text = await resp.text();
-    return new Response(JSON.stringify({ ok: true, s: 'fetch_worked', status: resp.status, len: text.length }), { status: 200, headers: h });
+    return new Response(JSON.stringify({
+      ok: true, s: 'formsubmit',
+      status: resp.status,
+      text: text.substring(0, 200)
+    }), { status: 200, headers: h });
+
   } catch (e) {
-    return new Response(JSON.stringify({ ok: false, s: 'crash', error: String(e.message || e).substring(0, 300) }), { status: 500, headers: h });
+    return new Response(JSON.stringify({
+      ok: false, s: 'crash',
+      error: String(e.message || e).substring(0, 300)
+    }), { status: 500, headers: h });
   }
 }

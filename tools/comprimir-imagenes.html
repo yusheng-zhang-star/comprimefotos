@@ -51,11 +51,11 @@
         <div class="before-after-preview">
           <div class="before-after-images">
             <div class="before-after-item">
-              <img id="originalPreview" src="" alt="Original">
+              <img id="originalPreview" class="preview-img" src="" alt="">
               <div class="before-after-item-caption before">Original</div>
             </div>
             <div class="before-after-item">
-              <img id="compressedPreview" src="" alt="Comprimida">
+              <img id="compressedPreview" class="preview-img" src="" alt="">
               <div class="before-after-item-caption after">Comprimida</div>
             </div>
           </div>
@@ -166,5 +166,196 @@
   </div>
 </div><div class="toast" id="toast"></div>
 <script src="../js/main.js?v=2"></script>
+<script>
+(function() {
+  'use strict';
+
+  var workspace = document.getElementById('compressorWorkspace');
+  if (!workspace) return;
+
+  var fileInput = document.getElementById('fileInput');
+  var dropzone = document.getElementById('dropzone');
+  var previewArea = document.getElementById('previewArea');
+  var originalPreview = document.getElementById('originalPreview');
+  var compressedPreview = document.getElementById('compressedPreview');
+  var compressedSize = document.getElementById('compressedSize');
+  var savingsPercentage = document.getElementById('savingsPercentage');
+  var qualitySlider = document.getElementById('qualitySlider');
+  var qualityValue = document.getElementById('qualityValue');
+  var outputFormat = document.getElementById('outputFormat');
+  var downloadBtn = document.getElementById('downloadBtn');
+  var resetBtn = document.getElementById('resetBtn');
+
+  var currentFile = null;
+  var resultBlob = null;
+  var originalImgDataUrl = '';
+
+  // Quality slider display
+  if (qualitySlider && qualityValue) {
+    qualitySlider.addEventListener('input', function() {
+      qualityValue.textContent = this.value + '%';
+    });
+  }
+
+  // Listen for file-selected custom event from main.js
+  if (workspace) {
+    workspace.addEventListener('file-selected', function(e) {
+      var file = e.detail.file;
+      if (!file || !file.type.match(/^image\/(jpeg|png|webp)$/)) return;
+      currentFile = file;
+      // Store the data URL for compression (main.js already sets originalPreview.src)
+      originalImgDataUrl = originalPreview ? originalPreview.src : '';
+      // Reset compression results
+      if (compressedPreview) compressedPreview.src = '';
+      if (compressedSize) compressedSize.textContent = '-';
+      if (savingsPercentage) savingsPercentage.textContent = '-';
+      resultBlob = null;
+      if (downloadBtn) {
+        downloadBtn.disabled = true;
+        downloadBtn.style.opacity = '0.5';
+      }
+    });
+  }
+
+  // === Compression ===
+  function compressImage() {
+    if (!currentFile || !originalImgDataUrl) {
+      // Wait for file to load, retry
+      if (originalPreview && originalPreview.src && originalPreview.src !== '') {
+        originalImgDataUrl = originalPreview.src;
+      } else {
+        return;
+      }
+    }
+
+    var quality = qualitySlider ? parseInt(qualitySlider.value) / 100 : 0.8;
+    var format = outputFormat ? outputFormat.value : 'jpeg';
+    var mimeType = format === 'png' ? 'image/png' : format === 'webp' ? 'image/webp' : 'image/jpeg';
+
+    // Use originalPreview.src since main.js already loaded it
+    var src = originalPreview && originalPreview.src ? originalPreview.src : originalImgDataUrl;
+    if (!src) return;
+
+    var img = new Image();
+    img.onload = function() {
+      var canvas = document.createElement('canvas');
+      canvas.width = img.naturalWidth;
+      canvas.height = img.naturalHeight;
+      var ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0);
+
+      canvas.toBlob(function(blob) {
+        if (!blob) return;
+        resultBlob = blob;
+        var url = URL.createObjectURL(blob);
+        if (compressedPreview) {
+          // Revoke old URL
+          if (compressedPreview.src && compressedPreview.src.startsWith('blob:')) {
+            URL.revokeObjectURL(compressedPreview.src);
+          }
+          compressedPreview.src = url;
+        }
+        if (compressedSize) {
+          compressedSize.textContent = formatBytes(blob.size);
+        }
+        if (savingsPercentage && currentFile) {
+          var saved = Math.round((1 - blob.size / currentFile.size) * 100);
+          savingsPercentage.textContent = saved + '%';
+          savingsPercentage.style.color = saved > 0 ? 'var(--success)' : 'var(--secondary)';
+        }
+        if (downloadBtn) {
+          downloadBtn.disabled = false;
+          downloadBtn.style.opacity = '1';
+        }
+        showToast('¡Imagen comprimida!', 'success');
+      }, mimeType, quality);
+    };
+    img.onerror = function() {
+      showToast('Error al comprimir la imagen', '');
+    };
+    img.src = src;
+  }
+
+  // Auto-compress on quality/format change (with debounce)
+  var compressTimer = null;
+  function scheduleCompress() {
+    if (compressTimer) clearTimeout(compressTimer);
+    compressTimer = setTimeout(function() {
+      compressImage();
+    }, 400);
+  }
+
+  if (qualitySlider) qualitySlider.addEventListener('input', scheduleCompress);
+  if (outputFormat) outputFormat.addEventListener('change', scheduleCompress);
+
+  // Also compress immediately when file loaded (after a short delay for main.js to set src)
+  if (workspace) {
+    workspace.addEventListener('file-selected', function() {
+      // Delay to ensure main.js has set originalPreview.src
+      setTimeout(compressImage, 300);
+    });
+  }
+
+  // Download
+  if (downloadBtn) {
+    downloadBtn.disabled = true;
+    downloadBtn.style.opacity = '0.5';
+    downloadBtn.addEventListener('click', function() {
+      if (!resultBlob || !currentFile) return;
+      var ext = outputFormat ? outputFormat.value : 'jpeg';
+      var base = currentFile.name.replace(/\.[^.]+$/, '');
+      var url = URL.createObjectURL(resultBlob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = base + '-comprimido.' + ext;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(function() { URL.revokeObjectURL(url); }, 1000);
+    });
+  }
+
+  // Reset
+  if (resetBtn) {
+    resetBtn.addEventListener('click', function() {
+      currentFile = null;
+      resultBlob = null;
+      originalImgDataUrl = '';
+      if (originalPreview) originalPreview.src = '';
+      if (compressedPreview) {
+        if (compressedPreview.src && compressedPreview.src.startsWith('blob:')) {
+          URL.revokeObjectURL(compressedPreview.src);
+        }
+        compressedPreview.src = '';
+      }
+      if (compressedSize) compressedSize.textContent = '-';
+      if (savingsPercentage) {
+        savingsPercentage.textContent = '-';
+        savingsPercentage.style.color = '';
+      }
+      if (previewArea) previewArea.classList.remove('active');
+      if (dropzone) dropzone.style.display = '';
+      if (fileInput) fileInput.value = '';
+      if (downloadBtn) {
+        downloadBtn.disabled = true;
+        downloadBtn.style.opacity = '0.5';
+      }
+      // Reset file-info too
+      var fileName = workspace.querySelector('.file-name');
+      var fileSize = workspace.querySelector('.file-size');
+      if (fileName) fileName.textContent = '-';
+      if (fileSize) fileSize.textContent = '-';
+    });
+  }
+
+  function formatBytes(bytes) {
+    if (bytes === 0) return '0 Bytes';
+    var k = 1024;
+    var sizes = ['Bytes', 'KB', 'MB', 'GB'];
+    var i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+  }
+})();
+</script>
 </body>
 </html>

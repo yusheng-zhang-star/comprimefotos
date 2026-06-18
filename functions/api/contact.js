@@ -1,12 +1,8 @@
 /**
- * ComprimeFotos Contact Form Handler
- * Cloudflare Pages Function — handles POST /api/contact
- * Sends form submissions via MailChannels to admin email.
+ * ComprimeFotos Contact Form Handler (DIAGNOSTIC v2)
+ * Catches all errors and returns them for debugging.
  */
-
 export async function onRequest(context) {
-  const { request } = context;
-
   const corsHeaders = {
     'Access-Control-Allow-Origin': 'https://comprimefotos.com',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
@@ -14,104 +10,86 @@ export async function onRequest(context) {
     'Access-Control-Max-Age': '86400',
   };
 
-  // Handle CORS preflight
-  if (request.method === 'OPTIONS') {
+  if (context.request.method === 'OPTIONS') {
     return new Response(null, { status: 204, headers: corsHeaders });
   }
 
-  // Only accept POST
-  if (request.method !== 'POST') {
-    return new Response(
-      JSON.stringify({ success: false, message: 'Método no permitido' }),
-      { status: 405, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-    );
+  if (context.request.method !== 'POST') {
+    return new Response(JSON.stringify({ ok: false, stage: 'method_check', error: 'not POST' }), {
+      status: 405, headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+    });
   }
 
+  let name, email, subject, message;
+
   try {
-    let name, email, subject, message;
-
-    // Try JSON first, then FormData
-    const contentType = request.headers.get('Content-Type') || '';
-    if (contentType.includes('application/json')) {
-      const json = await request.json();
-      name = json.name || '';
-      email = json.email || '';
-      subject = json.subject || '';
-      message = json.message || '';
+    const ct = context.request.headers.get('Content-Type') || '';
+    if (ct.includes('application/json')) {
+      const json = await context.request.json();
+      name = json.name || ''; email = json.email || ''; subject = json.subject || ''; message = json.message || '';
     } else {
-      const formData = await request.formData();
-      name = formData.get('name') || '';
-      email = formData.get('email') || '';
-      subject = formData.get('subject') || '';
-      message = formData.get('message') || '';
+      const fd = await context.request.formData();
+      name = fd.get('name') || ''; email = fd.get('email') || ''; subject = fd.get('subject') || ''; message = fd.get('message') || '';
     }
 
-    // Basic validation
     if (!name || !email || !message) {
-      return new Response(
-        JSON.stringify({ success: false, message: 'Faltan campos obligatorios' }),
-        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-      );
+      return new Response(JSON.stringify({ ok: false, stage: 'validation', error: 'missing fields' }), {
+        status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+      });
     }
+  } catch (e) {
+    return new Response(JSON.stringify({ ok: false, stage: 'parse_body', error: e.message }), {
+      status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+    });
+  }
 
-    // Build plain text email
-    const plainText = [
-      `Nombre: ${name}`,
-      `Correo electrónico: ${email}`,
-      `Asunto: ${subject}`,
-      '',
-      '--- Mensaje ---',
-      message,
-      '',
-      '---',
-      `Enviado desde: https://comprimefotos.com/contact`,
-      `Fecha: ${new Date().toISOString()}`,
-    ].join('\n');
-
-    // Send via MailChannels → Cloudflare Email Routing forwards to QQ
+  // Step 2: Try MailChannels
+  try {
     const mcResp = await fetch('https://api.mailchannels.net/tx/v1/send', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        personalizations: [
-          { to: [{ email: 'contact@comprimefotos.com', name: 'ComprimeFotos' }] },
-        ],
-        from: {
-          email: 'noreply@comprimefotos.com',
-          name: 'ComprimeFotos Formulario',
-        },
-        reply_to: {
-          email: email,
-          name: name,
-        },
-        subject: `[Formulario] ${subject || 'Sin asunto'} — ${name}`,
-        content: [
-          { type: 'text/plain', value: plainText },
-        ],
+        personalizations: [{ to: [{ email: '331728525@qq.com', name: 'Admin' }] }],
+        from: { email: 'noreply@comprimefotos.com', name: 'ComprimeFotos' },
+        reply_to: { email: email, name: name },
+        subject: '[Formulario] ' + (subject || 'Sin asunto') + ' — ' + name,
+        content: [{
+          type: 'text/plain',
+          value: [
+            'Nombre: ' + name,
+            'Correo: ' + email,
+            'Asunto: ' + subject,
+            '',
+            '--- Mensaje ---',
+            message,
+            '',
+            '---',
+            'Enviado desde: https://comprimefotos.com/contacto',
+            'Fecha: ' + new Date().toISOString()
+          ].join('\n')
+        }],
       }),
     });
 
+    const mcText = await mcResp.text();
+
     if (mcResp.ok) {
-      return new Response(
-        JSON.stringify({ success: true, message: 'Mensaje enviado correctamente' }),
-        { status: 200, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-      );
+      return new Response(JSON.stringify({ ok: true, message: 'sent' }), {
+        status: 200, headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+      });
     }
 
-    // MailChannels error
-    const mcError = await mcResp.text();
-    console.error('MailChannels error:', mcResp.status, mcError.substring(0, 500));
+    // MailChannels returned error
+    return new Response(JSON.stringify({
+      ok: false, stage: 'mailchannels',
+      error: 'MC returned ' + mcResp.status,
+      detail: mcText.substring(0, 500)
+    }), { status: 502, headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
 
-    return new Response(
-      JSON.stringify({ success: false, message: 'Error al enviar el mensaje. Intenta de nuevo más tarde.' }),
-      { status: 502, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-    );
-
-  } catch (err) {
-    console.error('Contact handler error:', err.message);
-    return new Response(
-      JSON.stringify({ success: false, message: 'Error del servidor. Intenta de nuevo más tarde.' }),
-      { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-    );
+  } catch (e) {
+    return new Response(JSON.stringify({
+      ok: false, stage: 'mailchannels_call',
+      error: e.message || 'Unknown fetch error'
+    }), { status: 502, headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
   }
 }

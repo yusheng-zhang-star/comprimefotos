@@ -45,7 +45,7 @@
       </p>
 
       <div class="contact-form">
-        <form id="contactForm" autocomplete="off" action="https://formsubmit.co/331728525@qq.com" method="POST">
+        <form id="contactForm" action="/api/contact" method="POST" autocomplete="off">
           <div class="form-group">
             <label for="name">Nombre</label>
             <input type="text" id="name" name="name" autocomplete="off" placeholder="Tu nombre" required readonly onfocus="this.removeAttribute('readonly')">
@@ -67,7 +67,8 @@
           <div class="form-group">
             <label for="message">Mensaje</label>
             <textarea id="message" name="message" placeholder="Escribe tu mensaje aquí..." required></textarea>
-          </div>          <button type="submit" class="form-submit">Enviar mensaje</button>
+          </div>
+          <button type="submit" class="form-submit">Enviar mensaje</button>
           <div class="form-status" id="formStatus"></div>
         </form>
       </div>

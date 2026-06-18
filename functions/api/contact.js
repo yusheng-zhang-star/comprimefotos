@@ -5,42 +5,80 @@ export async function onRequest(context) {
     'Access-Control-Allow-Headers': 'Content-Type',
     'Content-Type': 'application/json'
   };
-  if (context.request.method === 'OPTIONS') return new Response(null, { status: 204, headers: h });
+
+  if (context.request.method === 'OPTIONS') {
+    return new Response(null, { status: 204, headers: h });
+  }
+
+  if (context.request.method !== 'POST') {
+    return new Response(JSON.stringify({ ok: false, error: 'Method not allowed' }), {
+      status: 405, headers: h
+    });
+  }
+
+  let name, email, subject, message;
+
   try {
-    const fd = await context.request.formData();
-    const name = fd.get('name') || '';
-    const email = fd.get('email') || '';
-    const subject = fd.get('subject') || '';
-    const message = fd.get('message') || '';
-    if (!name || !email || !message) {
-      return new Response(JSON.stringify({ ok: false, s: 'validation' }), { status: 400, headers: h });
+    const ct = context.request.headers.get('Content-Type') || '';
+    if (ct.includes('application/json')) {
+      const json = await context.request.json();
+      name = json.name || ''; email = json.email || ''; subject = json.subject || ''; message = json.message || '';
+    } else {
+      const fd = await context.request.formData();
+      name = fd.get('name') || ''; email = fd.get('email') || ''; subject = fd.get('subject') || ''; message = fd.get('message') || '';
     }
 
-    // Test 1: formsubmit.co
-    const params = new URLSearchParams();
-    params.append('name', name);
-    params.append('email', email);
-    params.append('_subject', 'test');
-    params.append('message', message);
-    params.append('_captcha', 'false');
+    if (!name || !email || !message) {
+      return new Response(JSON.stringify({ ok: false, error: 'Faltan campos obligatorios' }), {
+        status: 400, headers: h
+      });
+    }
+  } catch (e) {
+    return new Response(JSON.stringify({ ok: false, error: 'Error al procesar los datos' }), {
+      status: 400, headers: h
+    });
+  }
 
+  // Enviar via FormSubmit.co (server-side relay)
+  const params = new URLSearchParams();
+  params.append('name', name);
+  params.append('email', email);
+  params.append('_subject', '[ComprimeFotos] ' + (subject || 'General'));
+  params.append('message', [
+    'Nombre: ' + name,
+    'Correo: ' + email,
+    'Asunto: ' + (subject || 'General'),
+    '',
+    '--- Mensaje ---',
+    message,
+    '',
+    '---',
+    'Enviado desde: https://comprimefotos.com/contacto'
+  ].join('\n'));
+  params.append('_captcha', 'false');
+
+  try {
     const resp = await fetch('https://formsubmit.co/331728525@qq.com', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: params.toString()
+      body: params.toString(),
     });
 
-    const text = await resp.text();
+    if (resp.ok) {
+      return new Response(JSON.stringify({ ok: true }), {
+        status: 200, headers: h
+      });
+    }
+
     return new Response(JSON.stringify({
-      ok: true, s: 'formsubmit',
-      status: resp.status,
-      text: text.substring(0, 200)
-    }), { status: 200, headers: h });
+      ok: false,
+      error: 'Error al enviar. Intenta de nuevo mas tarde.'
+    }), { status: 500, headers: h });
 
   } catch (e) {
     return new Response(JSON.stringify({
-      ok: false, s: 'crash',
-      error: String(e.message || e).substring(0, 300)
+      ok: false,
+      error: 'Error de conexion. Intenta de nuevo mas tarde.'
     }), { status: 500, headers: h });
   }
 }

@@ -105,9 +105,9 @@ function initDropzones() {
     const fileInput = dropzone.querySelector('input[type="file"]');
     if (!fileInput) return;
 
-    dropzone.addEventListener('click', function(e) {
-      fileInput.click();
-    });
+    // No need for manual click() — <label for="fileInput"> handles this natively.
+    // Adding fileInput.click() here causes double-triggering, requiring users
+    // to click twice before the file picker actually opens.
 
     dropzone.addEventListener('dragover', function(e) {
       e.preventDefault();

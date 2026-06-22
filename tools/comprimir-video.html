@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Comprimir video online gratis — Reduce el tamaño de tus vídeos | ComprimeFotos</title>
+  <meta name="description" content="Comprime vídeos online gratis. Reduce resolución, calidad y FPS para enviar por WhatsApp o email. Sin registro, 100% en tu navegador.">
+  <meta name="keywords" content="comprimir video, reducir tamaño video online, compresor de video, comprimir video gratis, reducir video para WhatsApp">
+  <link rel="canonical" href="https://comprimefotos.com/tools/comprimir-video.html">
+  <meta name="theme-color" content="#ff6b4a">
+  <meta property="og:title" content="Comprimir video online gratis — Reduce el tamaño de tus vídeos | ComprimeFotos">
+  <meta property="og:description" content="Comprime vídeos online gratis. Reduce resolución, calidad y FPS para enviar por WhatsApp o email. Sin registro, 100% en tu navegador.">
+  <meta property="og:url" content="https://comprimefotos.com/tools/comprimir-video.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ComprimeFotos">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="../css/style.css?v=2">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Comprimir video",
+    "url": "https://comprimefotos.com/tools/comprimir-video.html",
+    "description": "Comprime vídeos online gratis reduciendo resolución, calidad y FPS. Ideal para WhatsApp, correo y redes sociales.",
+    "browserRequirements": "Requiere JavaScript moderno con soporte MediaRecorder",
+    "applicationCategory": "Multimedia",
+    "operatingSystem": "All"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"Inicio","item":"https://comprimefotos.com/"},
+      {"@type":"ListItem","position":2,"name":"Herramientas","item":"https://comprimefotos.com/tools/comprimir-imagenes.html"},
+      {"@type":"ListItem","position":3,"name":"Comprimir video"}
+    ]
+  }
+  </script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo"><span class="logo-icon">📷</span><span class="logo-text">ComprimeFotos</span></a>
+    <nav class="main-nav">
+      <a href="/">Inicio</a>
+      <a href="/tools/comprimir-imagenes.html">Comprimir</a>
+      <a href="/tools/comprimir-imagenes-whatsapp.html">WhatsApp</a>
+      <a href="/tools/quitar-fondo.html">Quitar Fondo</a>
+      <a href="/blog/">Blog</a>
+      <a href="/about.html">Sobre Nosotros</a>
+    </nav>
+    <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+  </div>
+</header>
+<main class="tool-page">
+  <div class="container">
+    <nav class="breadcrumb"><a href="/">Inicio</a> — <a href="/tools/comprimir-imagenes.html">Herramientas</a> — <span>Comprimir video</span></nav>
+    <div class="tool-page-header">
+      <h1>🎬 Comprimir <span class="gradient-text">video</span></h1>
+      <p>Reduce el tamaño de tus vídeos online gratis. Elige la resolución, calidad y FPS para comprimir sin perder más de lo necesario. Perfecto para WhatsApp, correo y redes sociales. Sin registro, en tu navegador.</p>
+    </div>
+    <div class="tool-workspace" id="videoCompressorWorkspace">
+      <label for="fileInput" class="dropzone" id="dropzone">
+        <span class="dropzone-icon">🎥</span>
+        <h3>Arrastra tu video aquí</h3>
+        <p>o haz clic para seleccionar un archivo</p>
+        <p style="font-size:0.8rem;color:var(--text-muted);margin-top:8px;">MP4, WebM, MOV — Hasta 500 MB</p>
+        <input type="file" id="fileInput" accept="video/mp4,video/webm,video/quicktime" style="display:none">
+      </label>
+      <div class="preview-area" id="previewArea">
+        <div class="file-info">
+          <span><strong>Archivo:</strong> <span class="file-name">-</span></span>
+          <span><strong>Tamaño:</strong> <span class="file-size">-</span></span>
+          <span><strong>Duración:</strong> <span id="videoDuration">-</span></span>
+          <span><strong>Resolución:</strong> <span id="videoResolution">-</span></span>
+        </div>
+        <div style="background:var(--bg-section);border:1px solid var(--border-light);border-radius:var(--radius-sm);margin-bottom:16px;padding:16px;text-align:center;">
+          <video id="videoPreview" controls muted style="max-width:100%;max-height:360px;border-radius:2px;margin:0 auto;display:none;"></video>
+        </div>
+        <div class="tool-controls">
+          <div class="control-row">
+            <label for="resolutionSelect">Resolución:</label>
+            <select id="resolutionSelect" style="max-width:150px;">
+              <option value="original">Original</option>
+              <option value="1080p">1080p (Full HD)</option>
+              <option value="720p" selected>720p (HD)</option>
+              <option value="480p">480p (SD)</option>
+              <option value="360p">360p (Baja)</option>
+            </select>
+          </div>
+          <div class="control-row">
+            <label for="qualitySlider">Calidad:</label>
+            <input type="range" id="qualitySlider" min="1" max="100" value="70">
+            <span id="qualityValue" style="font-weight:600;min-width:40px;">70%</span>
+          </div>
+          <div class="control-row">
+            <label for="fpsSelect">FPS:</label>
+            <select id="fpsSelect" style="max-width:150px;">
+              <option value="0">Original</option>
+              <option value="30">30</option>
+              <option value="24" selected>24</option>
+              <option value="15">15</option>
+            </select>
+          </div>
+          <div class="control-row" id="progressRow" style="display:none;">
+            <label>Progreso:</label>
+            <div style="flex:1;">
+              <div style="background:var(--border);border-radius:2px;height:8px;overflow:hidden;max-width:300px;">
+                <div id="progressBar" style="background:var(--accent);height:100%;width:0%;border-radius:2px;transition:width 0.3s ease;"></div>
+              </div>
+              <span id="progressText" style="font-size:0.8rem;color:var(--text-secondary);margin-left:8px;">0%</span>
+            </div>
+          </div>
+        </div>
+        <div class="tool-actions">
+          <button class="btn btn-primary" id="compressBtn">🎬 Comprimir video</button>
+          <button class="btn btn-secondary" id="resetBtn">🔄 Nuevo video</button>
+          <button class="btn btn-primary hidden" id="downloadBtn">📥 Descargar video comprimido</button>
+        </div>
+        <div id="resultInfo" class="hidden" style="margin-top:16px;padding:12px 16px;background:var(--accent-bg);border:1px solid var(--accent);border-radius:var(--radius-sm);font-size:0.85rem;color:var(--text-secondary);">
+          <strong style="color:var(--accent);">✅ Video comprimido</strong>
+          <span id="resultSizeInfo" style="display:block;margin-top:4px;"></span>
+        </div>
+      </div>
+    </div>
+    <div class="how-to-section">
+      <h2>Cómo comprimir un video</h2>
+      <div class="how-to-steps">
+        <div class="how-to-step"><div class="step-number">1</div><h4>Sube tu video</h4><p>Arrastra cualquier archivo MP4, WebM o MOV, o haz clic para seleccionarlo desde tu dispositivo.</p></div>
+        <div class="how-to-step"><div class="step-number">2</div><h4>Ajusta la compresión</h4><p>Elige la resolución, la calidad y los FPS. Menos resolución y FPS = archivo mucho más pequeño.</p></div>
+        <div class="how-to-step"><div class="step-number">3</div><h4>Comprime y descarga</h4><p>Pulsa "Comprimir video" y espera a que termine. Descarga el resultado en formato WebM comprimido.</p></div>
+      </div>
+    </div>
+    <div class="guide-section">
+      <h2>Guía de compresión de vídeos</h2>
+      <div class="guide-block">
+        <h3>📱 Comprimir para WhatsApp y mensajería</h3>
+        <p>WhatsApp comprime automáticamente los vídeos, pero si el archivo original es muy grande, la compresión de la app puede dejarlo borroso. Comprímelo antes a 720p con calidad 60% y FPS 24. Así llegará más nítido porque WhatsApp hará menos compresión forzada.</p>
+        <div class="tip">💡 Para WhatsApp, 480p con calidad 70% da un excelente equilibrio entre nitidez y tamaño.</div>
+      </div>
+      <div class="guide-block">
+        <h3>📧 Enviar vídeos por correo electrónico</h3>
+        <p>La mayoría de servidores de correo limitan los archivos adjuntos a 25 MB. Con nuestra herramienta puedes comprimir vídeos largos para que quepan en un email. El preset 480p con calidad 50% y 15 FPS funciona bien para vídeos de hasta 5 minutos.</p>
+      </div>
+      <div class="guide-block">
+        <h3>🌐 Vídeos para web y redes sociales</h3>
+        <p>Para subir vídeos a sitios web o redes como Twitter/X o LinkedIn, usa 720p con calidad 80%. Es el punto óptimo donde el archivo pesa poco pero se ve bien en cualquier pantalla. Para Instagram Reels o TikTok, 1080p con calidad alta conserva la nitidez que exigen estas plataformas.</p>
+      </div>
+      <div class="guide-block">
+        <h3>🎞️ Reducir FPS: más ahorro del que imaginas</h3>
+        <p>Bajar los FPS de 30 a 24 reduce el tamaño entre un 15-20% sin que el ojo note la diferencia. Para vídeos de screencasts o presentaciones, 15 FPS es más que suficiente y reduce el archivo a la mitad. El movimiento sigue viéndose fluido para contenidos estáticos.</p>
+      </div>
+      <div class="guide-block">
+        <h3>🔒 Privacidad total: el video nunca sale de tu dispositivo</h3>
+        <p>Como todas las herramientas de ComprimeFotos, la compresión de vídeo se realiza completamente en tu navegador. Tus vídeos nunca se suben a ningún servidor. Esto garantiza tu privacidad y hace que el proceso sea rápido, sin límites de tamaño ni esperas.</p>
+      </div>
+      <div class="guide-block">
+        <h3>⚠️ Limitaciones de la compresión en navegador</h3>
+        <p>Al procesarse en el navegador, la compresión usa Canvas + MediaRecorder, que genera vídeo en formato WebM. La compresión no es tan potente como la de un programa profesional (HandBrake, FFmpeg), pero es más que suficiente para compartir vídeos en mensajería, email y redes sociales sin instalar nada.</p>
+      </div>
+    </div>
+    <div class="faq-section">
+      <h2>Preguntas frecuentes</h2>
+      <div class="faq-item"><button class="faq-question">¿En qué formato se descarga el video comprimido?</button><div class="faq-answer"><p>El video comprimido se descarga en formato <strong>WebM</strong>, un formato moderno compatible con Chrome, Firefox, Edge, WhatsApp Web y la mayoría de plataformas. WebM ofrece buena compresión manteniendo una calidad aceptable.</p></div></div>
+      <div class="faq-item"><button class="faq-question">¿Por qué no puedo elegir MP4 como salida?</button><div class="faq-answer"><p>La API de navegador (MediaRecorder) solo garantiza compatibilidad con WebM. MP4 requiere códecs con licencia que no están disponibles en todos los navegadores. WebM se reproduce sin problemas en Chrome, Firefox, Edge y la mayoría de dispositivos modernos.</p></div></div>
+      <div class="faq-item"><button class="faq-question">¿Cuánto se reduce el tamaño del video?</button><div class="faq-answer"><p>Depende de los ajustes. Con 720p, calidad 70% y 24 FPS puedes esperar una reducción del 50-70%. Con 480p, calidad 50% y 15 FPS, la reducción puede llegar al 80-90%. El ahorro real varía según el contenido del video.</p></div></div>
+      <div class="faq-item"><button class="faq-question">¿Puedo comprimir vídeos muy largos?</button><div class="faq-answer"><p>Sí, pero los vídeos muy largos (más de 10 minutos) pueden tardar varios minutos en procesarse. El límite práctico depende de la memoria RAM de tu dispositivo. Recomendamos vídeos de hasta 500 MB y 15 minutos de duración para una experiencia óptima.</p></div></div>
+      <div class="faq-item"><button class="faq-question">¿Funciona en móvil?</button><div class="faq-answer"><p>Sí, funciona en Chrome y Firefox para Android. En iPhone, Safari tiene soporte limitado para MediaRecorder; recomendamos usar Chrome o Edge en iOS para mejores resultados.</p></div></div>
+      <div class="faq-item"><button class="faq-question">¿El video se sube a algún servidor?</button><div class="faq-answer"><p><strong>No, nunca.</strong> Todo el procesamiento ocurre en tu navegador usando Canvas y MediaRecorder. Tu video nunca sale de tu dispositivo. Ni siquiera nosotros podemos verlo.</p></div></div>
+      <div class="faq-item"><button class="faq-question">¿Qué es mejor, bajar resolución o calidad?</button><div class="faq-answer"><p>Bajar la resolución (por ejemplo de 1080p a 720p) reduce el tamaño drásticamente sin apenas pérdida perceptible en móviles. Bajar la calidad afecta más a la nitidez. Recomendación: primero baja la resolución, luego ajusta la calidad y los FPS según necesites.</p></div></div>
+    </div>
+    <div class="related-tools">
+      <h2>Herramientas relacionadas</h2>
+      <div class="related-tools-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;">
+        <a href="/tools/comprimir-imagenes.html" class="related-tool-card" style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:#fff;border:1px solid var(--border-light);border-radius:var(--radius-sm);color:var(--text)!important;text-decoration:none!important;">
+          <span class="tool-icon" style="font-size:1.1rem;flex-shrink:0;">📝</span>
+          <div class="tool-info" style="flex:1;min-width:0;"><strong style="font-size:0.83rem;font-weight:600;display:block;">Comprimir imagen</strong><span class="tool-desc" style="font-size:0.75rem;color:var(--text-secondary);">Reduce el peso de tus fotos</span></div>
+          <span class="tool-arrow" style="color:var(--text-muted);font-size:1.1rem;flex-shrink:0;">→</span>
+        </a>
+        <a href="/tools/comprimir-imagenes-whatsapp.html" class="related-tool-card" style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:#fff;border:1px solid var(--border-light);border-radius:var(--radius-sm);color:var(--text)!important;text-decoration:none!important;">
+          <span class="tool-icon" style="font-size:1.1rem;flex-shrink:0;">📫</span>
+          <div class="tool-info" style="flex:1;min-width:0;"><strong style="font-size:0.83rem;font-weight:600;display:block;">Comprimir para WhatsApp</strong><span class="tool-desc" style="font-size:0.75rem;color:var(--text-secondary);">Tamaño óptimo para compartir</span></div>
+          <span class="tool-arrow" style="color:var(--text-muted);font-size:1.1rem;flex-shrink:0;">→</span>
+        </a>
+        <a href="/tools/redimensionar-imagen.html" class="related-tool-card" style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:#fff;border:1px solid var(--border-light);border-radius:var(--radius-sm);color:var(--text)!important;text-decoration:none!important;">
+          <span class="tool-icon" style="font-size:1.1rem;flex-shrink:0;">📐</span>
+          <div class="tool-info" style="flex:1;min-width:0;"><strong style="font-size:0.83rem;font-weight:600;display:block;">Redimensionar imagen</strong><span class="tool-desc" style="font-size:0.75rem;color:var(--text-secondary);">Cambia el tamaño</span></div>
+          <span class="tool-arrow" style="color:var(--text-muted);font-size:1.1rem;flex-shrink:0;">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="site-footer"><div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><a href="/" class="logo"><span class="logo-icon">📷</span><span class="logo-text">ComprimeFotos</span></a><p>Herramientas gratuitas para comprimir y editar imágenes online.</p>
+          <a href="mailto:contact@comprimefotos.com" style="color: var(--accent); font-weight: 500; font-size: 0.95rem;">📧 contact@comprimefotos.com</a></div>
+      <div class="footer-links"><h4>Herramientas</h4><a href="/tools/comprimir-imagenes.html">Comprimir imágenes</a><a href="/tools/comprimir-imagenes-whatsapp.html">Comprimir para WhatsApp</a><a href="/tools/comprimir-pdf.html">Comprimir PDF</a><a href="/tools/quitar-fondo.html">Quitar fondo</a></div>
+      <div class="footer-links"><h4>Más herramientas</h4><a href="/tools/redimensionar-imagen.html">Redimensionar</a><a href="/tools/convertir-formato.html">Convertir formato</a><a href="/tools/poner-marca-de-agua.html">Marca de agua</a><a href="/tools/hacer-collage.html">Hacer collage</a></div>
+      <div class="footer-links"><h4>Legal</h4><a href="/about.html">Sobre nosotros</a><a href="/contacto">Contacto</a><a href="/privacy.html">Privacidad</a><a href="/terms.html">Términos</a><a href="/cookie-policy.html">Cookies</a><a href="/blog/">Blog</a></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2026 ComprimeFotos.com | <a href="https://smartimgkit.com/" style="color: var(--accent); font-weight: 500;">English: SmartImgKit — Free Image Tools</a></p></div>
+  </div></footer>
+<div class="cookie-consent" id="cookieConsent">
+  <div class="cookie-consent-inner">
+    <div class="cookie-consent-text"><p>🍻 Usamos cookies esenciales. <a href="/cookie-policy.html">Más información</a>.</p></div>
+    <div class="cookie-consent-actions">
+      <button class="cookie-btn cookie-btn-decline" id="cookieDecline">Solo esenciales</button>
+      <button class="cookie-btn cookie-btn-accept" id="cookieAccept">Aceptar todas</button>
+    </div>
+  </div></div>
+<div class="toast" id="toast"></div>
+<script src="../js/main.js?v=2"></script>
+<script>
+(function(){
+  'use strict';
+
+  var workspace = document.getElementById('videoCompressorWorkspace');
+  var dropzone = document.getElementById('dropzone');
+  var fileInput = document.getElementById('fileInput');
+  var previewArea = document.getElementById('previewArea');
+  var videoPreview = document.getElementById('videoPreview');
+  var durationSpan = document.getElementById('videoDuration');
+  var resolutionSpan = document.getElementById('videoResolution');
+  var resolutionSelect = document.getElementById('resolutionSelect');
+  var qualitySlider = document.getElementById('qualitySlider');
+  var qualityValue = document.getElementById('qualityValue');
+  var fpsSelect = document.getElementById('fpsSelect');
+  var compressBtn = document.getElementById('compressBtn');
+  var resetBtn = document.getElementById('resetBtn');
+  var downloadBtn = document.getElementById('downloadBtn');
+  var progressRow = document.getElementById('progressRow');
+  var progressBar = document.getElementById('progressBar');
+  var progressText = document.getElementById('progressText');
+  var resultInfo = document.getElementById('resultInfo');
+  var resultSizeInfo = document.getElementById('resultSizeInfo');
+
+  var currentFile = null;
+  var videoUrl = '';
+  var resultBlob = null;
+  var isProcessing = false;
+
+  // Quality display
+  qualitySlider.addEventListener('input', function() {
+    qualityValue.textContent = this.value + '%';
+  });
+
+  // File selected via main.js
+  workspace.addEventListener('file-selected', function(e) {
+    currentFile = e.detail.file;
+    // main.js sets the first .preview-img; we use our own video element
+    setTimeout(function() {
+      if (videoUrl) URL.revokeObjectURL(videoUrl);
+      videoUrl = URL.createObjectURL(currentFile);
+      videoPreview.src = videoUrl;
+      videoPreview.style.display = 'block';
+      videoPreview.onloadedmetadata = function() {
+        var dur = videoPreview.duration;
+        var mins = Math.floor(dur / 60);
+        var secs = Math.floor(dur % 60);
+        durationSpan.textContent = mins + ':' + (secs < 10 ? '0' : '') + secs;
+        resolutionSpan.textContent = videoPreview.videoWidth + 'x' + videoPreview.videoHeight;
+      };
+      // Reset result state
+      resultBlob = null;
+      downloadBtn.classList.add('hidden');
+      resultInfo.classList.add('hidden');
+      compressBtn.textContent = '🎬 Comprimir video';
+      compressBtn.disabled = false;
+    }, 200);
+  });
+
+  compressBtn.addEventListener('click', function() {
+    if (isProcessing || !currentFile || !videoPreview.src) return;
+    if (!videoPreview.videoWidth) {
+      showToast('⚠️ El video no se ha cargado correctamente', '');
+      return;
+    }
+
+    isProcessing = true;
+    compressBtn.disabled = true;
+    compressBtn.textContent = '⏳ Comprimiendo...';
+    progressRow.style.display = 'flex';
+    progressBar.style.width = '0%';
+    progressText.textContent = '0%';
+    downloadBtn.classList.add('hidden');
+    resultInfo.classList.add('hidden');
+    resultBlob = null;
+
+    var origW = videoPreview.videoWidth;
+    var origH = videoPreview.videoHeight;
+    var targetRes = resolutionSelect.value;
+    var quality = parseInt(qualitySlider.value) / 100;
+    var fpsVal = parseInt(fpsSelect.value);
+
+    var outW = origW, outH = origH;
+    if (targetRes === '1080p') { outW = 1920; outH = 1080; }
+    else if (targetRes === '720p') { outW = 1280; outH = 720; }
+    else if (targetRes === '480p') { outW = 854; outH = 480; }
+    else if (targetRes === '360p') { outW = 640; outH = 360; }
+
+    // Maintain aspect ratio
+    if (targetRes !== 'original') {
+      var ar = origW / origH;
+      if (ar > 16/9) {
+        outH = Math.round(outW / ar);
+      } else {
+        outW = Math.round(outH * ar);
+      }
+    }
+
+    var targetFps = fpsVal > 0 ? fpsVal : (videoPreview.played && videoPreview.playbackRate ? 30 : 30);
+
+    var canvas = document.createElement('canvas');
+    canvas.width = outW;
+    canvas.height = outH;
+    var ctx = canvas.getContext('2d');
+
+    // Estimate total frames
+    var duration = videoPreview.duration;
+    var totalFrames = Math.ceil(duration * targetFps);
+    var framesDone = 0;
+
+    // Try to get MediaRecorder with desired quality
+    var mimeTypes = [
+      'video/webm;codecs=vp9,opus',
+      'video/webm;codecs=vp8,opus',
+      'video/webm;codecs=vp8',
+      'video/webm'
+    ];
+    var selectedMime = '';
+    for (var i = 0; i < mimeTypes.length; i++) {
+      if (MediaRecorder.isTypeSupported(mimeTypes[i])) {
+        selectedMime = mimeTypes[i];
+        break;
+      }
+    }
+    if (!selectedMime) {
+      showToast('⚠️ Tu navegador no soporta la compresión de video', '');
+      isProcessing = false;
+      compressBtn.textContent = '🎬 Comprimir video';
+      compressBtn.disabled = false;
+      progressRow.style.display = 'none';
+      return;
+    }
+
+    // Calculate bitrate from quality
+    var bitrate = Math.round(2.5 * 1000000 * quality); // 2.5 Mbps @ 100% quality
+    bitrate = Math.max(bitrate, 100000); // At least 100 kbps
+
+    var stream = canvas.captureStream(targetFps);
+    var recorder = new MediaRecorder(stream, {
+      mimeType: selectedMime,
+      videoBitsPerSecond: bitrate
+    });
+
+    var chunks = [];
+    recorder.ondataavailable = function(e) {
+      if (e.data && e.data.size > 0) chunks.push(e.data);
+    };
+
+    recorder.onstop = function() {
+      var blob = new Blob(chunks, { type: selectedMime });
+      // Show result
+      resultBlob = blob;
+      var origSize = currentFile.size;
+      var newSize = blob.size;
+      var saved = origSize - newSize;
+      var savedPercent = Math.round((saved / origSize) * 100);
+
+      resultSizeInfo.textContent = 'Original: ' + formatBytes(origSize) + ' → Comprimido: ' + formatBytes(newSize) + ' (ahorro ' + savedPercent + '%)';
+      resultInfo.classList.remove('hidden');
+      downloadBtn.classList.remove('hidden');
+      progressBar.style.width = '100%';
+      progressText.textContent = '100%';
+
+      showToast('✅ Video comprimido correctamente', 'success');
+      isProcessing = false;
+      compressBtn.textContent = '🎬 Comprimir video';
+      compressBtn.disabled = false;
+    };
+
+    recorder.onerror = function() {
+      showToast('⚠️ Error al comprimir el video', '');
+      isProcessing = false;
+      compressBtn.textContent = '🎬 Comprimir video';
+      compressBtn.disabled = false;
+      progressRow.style.display = 'none';
+    };
+
+    // Start recording
+    recorder.start(1000 / targetFps);
+
+    // Frame capture loop
+    var frameInterval = 1 / targetFps;
+    var currentTime = 0;
+
+    function captureFrames() {
+      if (currentTime >= duration || recorder.state === 'inactive') {
+        if (recorder.state === 'recording') {
+          recorder.stop();
+        }
+        return;
+      }
+
+      videoPreview.currentTime = currentTime;
+      videoPreview.onseeked = function() {
+        // Fix for offscreen canvas when video not visible
+        ctx.drawImage(videoPreview, 0, 0, outW, outH);
+        framesDone++;
+        var pct = Math.min(Math.round((currentTime / duration) * 100), 99);
+        progressBar.style.width = pct + '%';
+        progressText.textContent = pct + '%';
+        currentTime += frameInterval;
+        setTimeout(captureFrames, 0);
+      };
+      // Fallback if seek takes too long
+      // If seeked already fired
+      if (videoPreview.readyState >= 2) {
+        ctx.drawImage(videoPreview, 0, 0, outW, outH);
+        framesDone++;
+        var pct = Math.min(Math.round((currentTime / duration) * 100), 99);
+        progressBar.style.width = pct + '%';
+        progressText.textContent = pct + '%';
+        currentTime += frameInterval;
+        setTimeout(captureFrames, 0);
+      }
+    }
+
+    // Start playback to enable frame capture
+    videoPreview.play();
+    // Alternate approach: use timeupdate to capture frames
+    var frameCount = 0;
+    var timeListener = function() {
+      if (recorder.state === 'inactive') {
+        videoPreview.removeEventListener('timeupdate', timeListener);
+        videoPreview.pause();
+        return;
+      }
+      ctx.drawImage(videoPreview, 0, 0, outW, outH);
+      frameCount++;
+      var pct = Math.min(Math.round((videoPreview.currentTime / duration) * 100), 99);
+      progressBar.style.width = pct + '%';
+      progressText.textContent = pct + '%';
+    };
+    videoPreview.addEventListener('timeupdate', timeListener);
+
+    videoPreview.onended = function() {
+      if (recorder.state === 'recording') {
+        setTimeout(function() { recorder.stop(); }, 500);
+      }
+      videoPreview.pause();
+    };
+
+    // Ensure we stop after duration
+    setTimeout(function() {
+      if (recorder.state === 'recording') {
+        recorder.stop();
+        videoPreview.pause();
+      }
+    }, duration * 1000 + 2000);
+  });
+
+  downloadBtn.addEventListener('click', function() {
+    if (!resultBlob || !currentFile) return;
+    var base = currentFile.name.replace(/\.[^.]+$/, '');
+    var url = URL.createObjectURL(resultBlob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = base + '-comprimido.webm';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function() { URL.revokeObjectURL(url); }, 1000);
+    showToast('✅ Video descargado correctamente', 'success');
+  });
+
+  resetBtn.addEventListener('click', function() {
+    if (isProcessing) return;
+    currentFile = null;
+    if (videoUrl) { URL.revokeObjectURL(videoUrl); videoUrl = ''; }
+    resultBlob = null;
+    videoPreview.src = '';
+    videoPreview.style.display = 'none';
+    durationSpan.textContent = '-';
+    resolutionSpan.textContent = '-';
+    previewArea.classList.remove('active');
+    dropzone.style.display = 'block';
+    fileInput.value = '';
+    progressRow.style.display = 'none';
+    progressBar.style.width = '0%';
+    progressText.textContent = '0%';
+    downloadBtn.classList.add('hidden');
+    resultInfo.classList.add('hidden');
+    compressBtn.textContent = '🎬 Comprimir video';
+    compressBtn.disabled = false;
+    isProcessing = false;
+    var fn = workspace.querySelector('.file-name');
+    var fs = workspace.querySelector('.file-size');
+    if (fn) fn.textContent = '-';
+    if (fs) fs.textContent = '-';
+    showToast('🔄 Herramienta reiniciada', '');
+  });
+
+  function formatBytes(bytes) {
+    if (bytes === 0) return '0 Bytes';
+    var k = 1024;
+    var sizes = ['Bytes', 'KB', 'MB', 'GB'];
+    var i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+  }
+
+  function showToast(msg, type) {
+    var t = document.getElementById('toast');
+    if (!t) return;
+    t.textContent = msg;
+    t.className = 'toast';
+    if (type) t.classList.add(type);
+    t.classList.add('visible');
+    setTimeout(function() { t.classList.remove('visible'); }, 3000);
+  }
+})();
+</script>
+</body>
+</html>

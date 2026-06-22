@@ -3,16 +3,8 @@
 # https://developers.cloudflare.com/pages/platform/headers/
 #
 # KEY RULE: CF Pages _headers merges ALL matching paths' same-name headers.
-# So / matches BOTH / AND /* — two values get comma-merged!
-# Fix: catch-all /* must NOT set CDN-Cache-Control (to avoid merging with HTML rules).
-#
-# Strategy:
-#   - HTML pages: CDN cache 1h, browser revalidate every time
-#   - CSS/JS: CDN cache 7d, browser cache 7d
-#   - Images: CDN cache 30d, browser cache 30d
-#   - Sitemap/robots/feed: CDN cache 30min
-#   - 404: no CDN cache (Negative Cache R0 handles 4xx)
-#   - Fonts: CDN cache 1y, browser cache 1y
+# Setting ANY header on /* catch-all would merge with /, /tools/*, /blog/*, etc.
+# Fix: /* catch-all must NOT set ANY header — let unmatched files use defaults.
 
 # ── 404: no cache ──
 /404.html
@@ -37,9 +29,9 @@
   CDN-Cache-Control: public, max-age=3600
   Content-Type: text/html; charset=utf-8
 
-# ── Clean URL pages (CRITICAL: CF Pages _headers matches URL path, NOT file path) ──
-# Users visit /about, NOT /about.html — so /*.html rule does NOT match clean URLs!
-# Each clean URL must have its own explicit rule.
+# ── Clean URL pages ──
+# CRITICAL: CF Pages _headers matches URL path, NOT internal file path.
+# Users visit /about, NOT /about.html — /*.html rule does NOT match clean URLs!
 /about
   Cache-Control: public, max-age=0, must-revalidate
   CDN-Cache-Control: public, max-age=3600
@@ -118,12 +110,12 @@
   Cache-Control: public, max-age=604800, immutable
   CDN-Cache-Control: public, max-age=604800
 
-# ── Images: CDN cache 30d ──
+# ── Images directory: 30d ──
 /images/*
   Cache-Control: public, max-age=2592000, immutable
   CDN-Cache-Control: public, max-age=2592000
 
-# ── Individual image extensions ──
+# ── Image extensions ──
 /*.png
 /*.jpg
 /*.jpeg
@@ -146,7 +138,6 @@
   Cache-Control: public, max-age=31536000, immutable
   CDN-Cache-Control: public, max-age=31536000
 
-# ── Catch-all: browser cache 7d ONLY ──
-# NO CDN-Cache-Control here! Otherwise it merges with / rules above.
-/*
-  Cache-Control: public, max-age=604800
+# ── Catch-all: NO headers ──
+# Cannot set ANY header here — merges with all paths above, breaking cache logic.
+# Files not matched by specific rules (ads.txt, google verification, etc.) use defaults.

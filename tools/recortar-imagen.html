@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Recortar imagen online gratis — Recorta fotos en segundos | ComprimeFotos</title>
+  <meta name="description" content="Recorta imágenes online gratis. Elige entre recorte libre o presets 1:1, 4:3, 16:9. Perfecto para redes sociales. Sin registro, 100% en tu navegador.">
+  <meta name="keywords" content="recortar imagen, recortar foto online, cortar imagen, recortar fotos gratis, recortador de imágenes">
+  <link rel="canonical" href="https://comprimefotos.com/tools/recortar-imagen.html">
+  <meta name="theme-color" content="#ff6b4a">
+  <meta property="og:title" content="Recortar imagen online gratis — Recorta fotos en segundos | ComprimeFotos">
+  <meta property="og:description" content="Recorta imágenes online gratis. Elige entre recorte libre o presets 1:1, 4:3, 16:9. Perfecto para redes sociales. Sin registro, 100% en tu navegador.">
+  <meta property="og:url" content="https://comprimefotos.com/tools/recortar-imagen.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ComprimeFotos">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="../css/style.css?v=2">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Recortar imagen",
+    "url": "https://comprimefotos.com/tools/recortar-imagen.html",
+    "description": "Recorta imágenes online gratis con recorte libre o presets de proporción 1:1, 4:3, 16:9. Ideal para redes sociales.",
+    "browserRequirements": "Requiere JavaScript moderno",
+    "applicationCategory": "Multimedia",
+    "operatingSystem": "All"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"Inicio","item":"https://comprimefotos.com/"},
+      {"@type":"ListItem","position":2,"name":"Herramientas","item":"https://comprimefotos.com/tools/comprimir-imagenes.html"},
+      {"@type":"ListItem","position":3,"name":"Recortar imagen"}
+    ]
+  }
+  </script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo"><span class="logo-icon">📷</span><span class="logo-text">ComprimeFotos</span></a>
+    <nav class="main-nav">
+      <a href="/">Inicio</a>
+      <a href="/tools/comprimir-imagenes.html">Comprimir</a>
+      <a href="/tools/comprimir-imagenes-whatsapp.html">WhatsApp</a>
+      <a href="/tools/quitar-fondo.html">Quitar Fondo</a>
+      <a href="/blog/">Blog</a>
+      <a href="/about.html">Sobre Nosotros</a>
+    </nav>
+    <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+  </div>
+</header>
+<main class="tool-page">
+  <div class="container">
+    <nav class="breadcrumb"><a href="/">Inicio</a> — <a href="/tools/comprimir-imagenes.html">Herramientas</a> — <span>Recortar imagen</span></nav>
+    <div class="tool-page-header">
+      <h1>✂️ Recortar <span class="gradient-text">imagen</span></h1>
+      <p>Recorta cualquier imagen online gratis. Elige entre recorte libre o presets de proporción 1:1, 4:3, 16:9 y más. Perfecto para redes sociales, fotos de perfil y composiciones. Sin registro, en tu navegador.</p>
+    </div>
+    <div class="tool-workspace" id="cropWorkspace">
+      <label for="fileInput" class="dropzone" id="dropzone">
+        <span class="dropzone-icon">📸</span>
+        <h3>Arrastra tu imagen aquí</h3>
+        <p>o haz clic para seleccionar un archivo</p>
+        <p style="font-size:0.8rem;color:var(--text-muted);margin-top:8px;">JPG, PNG, WebP — Hasta 50 MB</p>
+        <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" style="display:none">
+      </label>
+      <div class="preview-area" id="previewArea">
+        <div class="file-info" id="fileInfo">
+          <span><strong>Archivo:</strong> <span class="file-name">-</span></span>
+          <span><strong>Tamaño:</strong> <span class="file-size">-</span></span>
+        </div>
+        <div style="position:relative;overflow:hidden;background:var(--bg-section);border:1px solid var(--border-light);border-radius:var(--radius-sm);margin-bottom:16px;min-height:200px;display:flex;align-items:center;justify-content:center;" id="imageWrapper">
+          <img id="cropImage" style="display:none;max-width:100%;max-height:500px;user-select:none;" alt="Imagen a recortar">
+          <div id="cropOverlay" style="display:none;position:absolute;border:2px dashed var(--accent);background:rgba(26,107,82,0.08);cursor:move;box-sizing:border-box;z-index:10;">
+            <div id="handleNw" style="position:absolute;top:-6px;left:-6px;width:12px;height:12px;background:var(--accent);cursor:nw-resize;z-index:20;"></div>
+            <div id="handleNe" style="position:absolute;top:-6px;right:-6px;width:12px;height:12px;background:var(--accent);cursor:ne-resize;z-index:20;"></div>
+            <div id="handleSw" style="position:absolute;bottom:-6px;left:-6px;width:12px;height:12px;background:var(--accent);cursor:sw-resize;z-index:20;"></div>
+            <div id="handleSe" style="position:absolute;bottom:-6px;right:-6px;width:12px;height:12px;background:var(--accent);cursor:se-resize;z-index:20;"></div>
+          </div>
+        </div>
+        <div class="tool-controls">
+          <div class="control-row">
+            <label for="aspectRatio">Proporción:</label>
+            <select id="aspectRatio" style="max-width:150px;">
+              <option value="free">Libre</option>
+              <option value="1:1">1:1 (Cuadrado)</option>
+              <option value="4:3">4:3</option>
+              <option value="16:9">16:9</option>
+              <option value="3:2">3:2</option>
+              <option value="9:16">9:16 (Historia)</option>
+            </select>
+          </div>
+        </div>
+        <div class="tool-actions">
+          <button class="btn btn-primary" id="cropBtn">✂️ Recortar</button>
+          <button class="btn btn-secondary" id="resetBtn">🔄 Nueva imagen</button>
+          <button class="btn btn-primary hidden" id="downloadBtn">📥 Descargar (PNG)</button>
+        </div>
+        <div class="before-after-preview hidden" id="resultPreviewBlock" style="margin-top:16px;">
+          <div class="before-after-images">
+            <div class="before-after-item" style="text-align:center;">
+              <p style="font-size:0.78rem;color:var(--text-secondary);margin-bottom:8px;font-weight:600;text-transform:uppercase;letter-spacing:0.3px;">Vista previa original</p>
+              <img id="originalResult" class="preview-img" src="" alt="" style="max-height:250px;display:block;margin:0 auto;object-fit:contain;">
+            </div>
+            <div class="before-after-item" style="text-align:center;">
+              <p class="before-after-item-caption after" style="margin-bottom:8px;">Recortado</p>
+              <img id="croppedResult" class="preview-img" src="" alt="" style="max-height:250px;display:block;margin:0 auto;object-fit:contain;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="how-to-section">
+      <h2>Cómo recortar una imagen</h2>
+      <div class="how-to-steps">
+        <div class="how-to-step"><div class="step-number">1</div><h4>Sube tu imagen</h4><p>Arrastra cualquier foto JPG, PNG o WebP, o haz clic para seleccionarla desde tu dispositivo.</p></div>
+        <div class="how-to-step"><div class="step-number">2</div><h4>Ajusta el recorte</h4><p>Arrastra el área de recorte para moverla y usa las esquinas para redimensionarla. Elige una proporción predefinida o recorte libre.</p></div>
+        <div class="how-to-step"><div class="step-number">3</div><h4>Recorta y descarga</h4><p>Pulsa "Recortar" para aplicar el corte. Si te gusta el resultado, descárgalo como PNG con un solo clic.</p></div>
+      </div>
+    </div>
+    <div class="guide-section">
+      <h2>Guía de recorte de imágenes</h2>
+      <div class="guide-block">
+        <h3>🎯 Recortar para redes sociales</h3>
+        <p>Cada plataforma social tiene sus proporciones ideales. Con esta herramienta puedes aplicar presets rápidos: 1:1 para Instagram, 16:9 para YouTube o 9:16 para TikTok e historias de Instagram. Ahorra tiempo y logra un encuadre perfecto sin necesidad de programas complicados.</p>
+        <div class="tip">💡 Consejo: Usa la proporción 1:1 para fotos de perfil en cualquier red social. Es la más versátil.</div>
+      </div>
+      <div class="guide-block">
+        <h3>📱 Fotos de perfil y avatares</h3>
+        <p>Las fotos de perfil suelen mostrarse en formato cuadrado. Con el preset 1:1 puedes centrar tu rostro o el elemento principal y recortar exactamente lo que necesitas. Asegúrate de dejar algo de espacio alrededor del sujeto para que no quede demasiado ajustado.</p>
+        <div class="tip">💡 Para LinkedIn y Facebook, el recorte cuadrado funciona mejor si el rostro ocupa aproximadamente el 60% del encuadre.</div>
+      </div>
+      <div class="guide-block">
+        <h3>🖼️ Composiciones y collages</h3>
+        <p>Cuando preparas varias imágenes para un collage, es importante que todas tengan la misma proporción. Usa el preset 4:3 —es el formato clásico de fotografía— para mantener consistencia visual en tus composiciones.</p>
+      </div>
+      <div class="guide-block">
+        <h3>📹 Miniaturas para YouTube y vídeos</h3>
+        <p>Las miniaturas de YouTube se ven mejor en 16:9. Recorta tus imágenes a esta proporción antes de añadir texto o superposiciones. El encuadre horizontal destaca mejor los paisajes, productos o composiciones con texto.</p>
+        <div class="tip">💡 Al recortar para miniatura, deja espacio en los bordes para que el texto sea legible incluso en vista reducida.</div>
+      </div>
+      <div class="guide-block">
+        <h3>🌅 Recorte libre para máxima flexibilidad</h3>
+        <p>El modo "Libre" te permite recortar con cualquier proporción que necesites. Ideal para composiciones creativas, recortes irregulares o cuando necesitas eliminar bordes no deseados sin restricciones. Arrastra las esquinas hasta lograr el encuadre deseado.</p>
+      </div>
+      <div class="guide-block">
+        <h3>🔒 Privacidad y velocidad: todo en tu navegador</h3>
+        <p>Como todas las herramientas de ComprimeFotos, el recorte se procesa íntegramente en tu navegador. Tus imágenes nunca se suben a ningún servidor. Esto no solo garantiza tu privacidad —también hace que el proceso sea instantáneo, sin tiempos de espera ni límites de uso.</p>
+      </div>
+    </div>
+    <div class="faq-section">
+      <h2>Preguntas frecuentes</h2>
+      <div class="faq-item"><button class="faq-question">¿Qué significa recorte libre?</button><div class="faq-answer"><p>El recorte libre te permite seleccionar cualquier área de la imagen sin restricciones de proporción. Puedes mover y redimensionar el recuadro como quieras, ideal cuando no necesitas un formato específico.</p></div></div>
+      <div class="faq-item"><button class="faq-question">¿Cuál es la mejor proporción para Instagram?</button><div class="faq-answer"><p>Para el feed de Instagram, la proporción cuadrada 1:1 es la más clásica. También puedes usar 4:5 (retrato) o 16:9 (paisaje). Para stories y Reels, usa 9:16. Con esta herramienta puedes aplicar estos presets al instante.</p></div></div>
+      <div class="faq-item"><button class="faq-question">¿Recortar reduce la calidad de la imagen?</button><div class="faq-answer"><p>No, recortar una imagen no reduce su calidad. Simplemente eliminas las áreas que no necesitas. La zona que conservas mantiene la resolución original. Si necesitas reducir el peso, usa nuestra herramienta de compresión después del recorte.</p></div></div>
+      <div class="faq-item"><button class="faq-question">¿Puedo recortar imágenes muy grandes?</button><div class="faq-answer"><p>Sí, siempre que tu navegador pueda manejar la imagen. El límite práctico es de unos 50 MB. Para imágenes extremadamente grandes (como fotos RAW), te recomendamos convertirlas a JPG o PNG antes de recortar.</p></div></div>
+      <div class="faq-item"><button class="faq-question">¿En qué formato se descarga la imagen recortada?</button><div class="faq-answer"><p>La imagen recortada se descarga en formato PNG, que mantiene la máxima calidad y soporta transparencia si la imagen original la tuviera. PNG es ideal para redes sociales y uso web donde la calidad es prioritaria.</p></div></div>
+      <div class="faq-item"><button class="faq-question">¿Funciona en móvil y tablet?</button><div class="faq-answer"><p>Sí, la herramienta funciona en cualquier dispositivo con un navegador moderno: Android, iPhone, iPad, tablet y ordenador. El recorte por arrastre se adapta a pantallas táctiles.</p></div></div>
+      <div class="faq-item"><button class="faq-question">¿Necesito registrarme para usar esta herramienta?</button><div class="faq-answer"><p>No, ninguna herramienta de ComprimeFotos requiere registro. Puedes recortar todas las imágenes que quieras, gratis, sin límites y sin compartir tu correo electrónico.</p></div></div>
+    </div>
+    <div class="related-tools">
+      <h2>Herramientas relacionadas</h2>
+      <div class="related-tools-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;">
+        <a href="/tools/comprimir-imagenes.html" class="related-tool-card" style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:#fff;border:1px solid var(--border-light);border-radius:var(--radius-sm);color:var(--text)!important;text-decoration:none!important;">
+          <span class="tool-icon" style="font-size:1.1rem;flex-shrink:0;">📝</span>
+          <div class="tool-info" style="flex:1;min-width:0;"><strong style="font-size:0.83rem;font-weight:600;display:block;">Comprimir imagen</strong><span class="tool-desc" style="font-size:0.75rem;color:var(--text-secondary);">Reduce el peso de tus fotos</span></div>
+          <span class="tool-arrow" style="color:var(--text-muted);font-size:1.1rem;flex-shrink:0;">→</span>
+        </a>
+        <a href="/tools/redimensionar-redes-sociales.html" class="related-tool-card" style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:#fff;border:1px solid var(--border-light);border-radius:var(--radius-sm);color:var(--text)!important;text-decoration:none!important;">
+          <span class="tool-icon" style="font-size:1.1rem;flex-shrink:0;">📱</span>
+          <div class="tool-info" style="flex:1;min-width:0;"><strong style="font-size:0.83rem;font-weight:600;display:block;">Redimensionar redes sociales</strong><span class="tool-desc" style="font-size:0.75rem;color:var(--text-secondary);">Tamaños para cada plataforma</span></div>
+          <span class="tool-arrow" style="color:var(--text-muted);font-size:1.1rem;flex-shrink:0;">→</span>
+        </a>
+        <a href="/tools/redimensionar-imagen.html" class="related-tool-card" style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:#fff;border:1px solid var(--border-light);border-radius:var(--radius-sm);color:var(--text)!important;text-decoration:none!important;">
+          <span class="tool-icon" style="font-size:1.1rem;flex-shrink:0;">📐</span>
+          <div class="tool-info" style="flex:1;min-width:0;"><strong style="font-size:0.83rem;font-weight:600;display:block;">Redimensionar imagen</strong><span class="tool-desc" style="font-size:0.75rem;color:var(--text-secondary);">Cambia el tamaño de la foto</span></div>
+          <span class="tool-arrow" style="color:var(--text-muted);font-size:1.1rem;flex-shrink:0;">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="site-footer"><div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><a href="/" class="logo"><span class="logo-icon">📷</span><span class="logo-text">ComprimeFotos</span></a><p>Herramientas gratuitas para comprimir y editar imágenes online.</p>
+          <a href="mailto:contact@comprimefotos.com" style="color: var(--accent); font-weight: 500; font-size: 0.95rem;">📧 contact@comprimefotos.com</a></div>
+      <div class="footer-links"><h4>Herramientas</h4><a href="/tools/comprimir-imagenes.html">Comprimir imágenes</a><a href="/tools/comprimir-imagenes-whatsapp.html">Comprimir para WhatsApp</a><a href="/tools/comprimir-pdf.html">Comprimir PDF</a><a href="/tools/quitar-fondo.html">Quitar fondo</a></div>
+      <div class="footer-links"><h4>Más herramientas</h4><a href="/tools/redimensionar-imagen.html">Redimensionar</a><a href="/tools/convertir-formato.html">Convertir formato</a><a href="/tools/poner-marca-de-agua.html">Marca de agua</a><a href="/tools/hacer-collage.html">Hacer collage</a></div>
+      <div class="footer-links"><h4>Legal</h4><a href="/about.html">Sobre nosotros</a><a href="/contacto">Contacto</a><a href="/privacy.html">Privacidad</a><a href="/terms.html">Términos</a><a href="/cookie-policy.html">Cookies</a><a href="/blog/">Blog</a></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2026 ComprimeFotos.com | <a href="https://smartimgkit.com/" style="color: var(--accent); font-weight: 500;">English: SmartImgKit — Free Image Tools</a></p></div>
+  </div></footer>
+<div class="cookie-consent" id="cookieConsent">
+  <div class="cookie-consent-inner">
+    <div class="cookie-consent-text"><p>🍻 Usamos cookies esenciales. <a href="/cookie-policy.html">Más información</a>.</p></div>
+    <div class="cookie-consent-actions">
+      <button class="cookie-btn cookie-btn-decline" id="cookieDecline">Solo esenciales</button>
+      <button class="cookie-btn cookie-btn-accept" id="cookieAccept">Aceptar todas</button>
+    </div>
+  </div></div>
+<div class="toast" id="toast"></div>
+<script src="../js/main.js?v=2"></script>
+<script>
+(function(){
+  'use strict';
+
+  var workspace = document.getElementById('cropWorkspace');
+  var dropzone = document.getElementById('dropzone');
+  var fileInput = document.getElementById('fileInput');
+  var previewArea = document.getElementById('previewArea');
+  var imageWrapper = document.getElementById('imageWrapper');
+  var cropImage = document.getElementById('cropImage');
+  var overlay = document.getElementById('cropOverlay');
+  var aspectSelect = document.getElementById('aspectRatio');
+  var cropBtn = document.getElementById('cropBtn');
+  var resetBtn = document.getElementById('resetBtn');
+  var downloadBtn = document.getElementById('downloadBtn');
+  var resultBlock = document.getElementById('resultPreviewBlock');
+  var originalResult = document.getElementById('originalResult');
+  var croppedResult = document.getElementById('croppedResult');
+
+  var currentFile = null;
+  var imgNaturalW = 0, imgNaturalH = 0;
+  var imgDisplayW = 0, imgDisplayH = 0;
+  var imgOffsetX = 0, imgOffsetY = 0;
+  var hasResult = false;
+  var cropResultBlob = null;
+
+  // Overlay state in display coordinates
+  var ox = 0, oy = 0, ow = 0, oh = 0;
+  var isDragging = false, isResizing = false;
+  var dragStartX = 0, dragStartY = 0;
+  var dragOrigX = 0, dragOrigY = 0, dragOrigW = 0, dragOrigH = 0;
+  var currentHandle = null;
+
+  function getAspectRatio(val) {
+    if (val === 'free') return 0;
+    var parts = val.split(':');
+    return parseInt(parts[0]) / parseInt(parts[1]);
+  }
+
+  function clamp(v, min, max) { return Math.min(Math.max(v, min), max); }
+
+  function updateOverlayDisplay() {
+    overlay.style.left = ox + 'px';
+    overlay.style.top = oy + 'px';
+    overlay.style.width = ow + 'px';
+    overlay.style.height = oh + 'px';
+  }
+
+  function fitOverlayToImage() {
+    var ratio = getAspectRatio(aspectSelect.value);
+    if (ow === 0 || oh === 0) {
+      ow = Math.round(imgDisplayW * 0.6);
+      oh = Math.round(imgDisplayH * 0.6);
+    }
+    if (ratio > 0) {
+      var hFromW = ow / ratio;
+      if (hFromW > imgDisplayH) {
+        oh = imgDisplayH;
+        ow = Math.round(oh * ratio);
+      } else {
+        oh = hFromW;
+      }
+    }
+    ow = Math.min(ow, imgDisplayW);
+    oh = Math.min(oh, imgDisplayH);
+    ox = Math.round((imgDisplayW - ow) / 2);
+    oy = Math.round((imgDisplayH - oh) / 2);
+    updateOverlayDisplay();
+  }
+
+  function computeOverlayNatural() {
+    var scaleX = imgNaturalW / imgDisplayW;
+    var scaleY = imgNaturalH / imgDisplayH;
+    var sx = Math.round(ox * scaleX);
+    var sy = Math.round(oy * scaleY);
+    var sw = Math.round(ow * scaleX);
+    var sh = Math.round(oh * scaleY);
+    // Clamp to image bounds
+    sx = clamp(sx, 0, imgNaturalW - 1);
+    sy = clamp(sy, 0, imgNaturalH - 1);
+    sw = clamp(sw, 1, imgNaturalW - sx);
+    sh = clamp(sh, 1, imgNaturalH - sy);
+    return { sx: sx, sy: sy, sw: sw, sh: sh };
+  }
+
+  function doCrop() {
+    if (!cropImage.src) return;
+    var n = computeOverlayNatural();
+    var canvas = document.createElement('canvas');
+    canvas.width = n.sw;
+    canvas.height = n.sh;
+    var ctx = canvas.getContext('2d');
+    ctx.drawImage(cropImage, n.sx, n.sy, n.sw, n.sh, 0, 0, n.sw, n.sh);
+    canvas.toBlob(function(blob) {
+      if (!blob) return;
+      cropResultBlob = blob;
+      var url = URL.createObjectURL(blob);
+      originalResult.src = cropImage.src;
+      croppedResult.src = url;
+      resultBlock.classList.remove('hidden');
+      downloadBtn.classList.remove('hidden');
+      hasResult = true;
+      showToast('✅ Imagen recortada correctamente', 'success');
+    }, 'image/png');
+  }
+
+  // --- Mouse events ---
+  function onMouseDown(e) {
+    if (!overlay.style.display || overlay.style.display === 'none') return;
+    var target = e.target;
+    if (target.id && target.id.startsWith('handle')) {
+      isResizing = true;
+      currentHandle = target.id.replace('handle', '').toLowerCase();
+      dragStartX = e.clientX;
+      dragStartY = e.clientY;
+      dragOrigX = ox; dragOrigY = oy;
+      dragOrigW = ow; dragOrigH = oh;
+      e.preventDefault();
+    } else if (target === overlay) {
+      isDragging = true;
+      dragStartX = e.clientX;
+      dragStartY = e.clientY;
+      dragOrigX = ox; dragOrigY = oy;
+      e.preventDefault();
+    }
+  }
+
+  function onMouseMove(e) {
+    if (!isDragging && !isResizing) return;
+    var dx = e.clientX - dragStartX;
+    var dy = e.clientY - dragStartY;
+
+    if (isDragging) {
+      var nx = clamp(dragOrigX + dx, 0, imgDisplayW - ow);
+      var ny = clamp(dragOrigY + dy, 0, imgDisplayH - oh);
+      ox = nx; oy = ny;
+      updateOverlayDisplay();
+    } else if (isResizing) {
+      var ratio = getAspectRatio(aspectSelect.value);
+      var minSize = 20;
+
+      if (currentHandle === 'se') {
+        var nw = clamp(dragOrigW + dx, minSize, imgDisplayW - dragOrigX);
+        var nh = ratio > 0 ? nw / ratio : clamp(dragOrigH + dy, minSize, imgDisplayH - dragOrigY);
+        if (ratio > 0) {
+          nw = nh * ratio;
+          nw = clamp(nw, minSize, imgDisplayW - dragOrigX);
+          nh = nw / ratio;
+        }
+        ow = Math.round(nw); oh = Math.round(nh);
+      } else if (currentHandle === 'ne') {
+        var nw = clamp(dragOrigW - dx, minSize, dragOrigX + dragOrigW);
+        var nh = ratio > 0 ? nw / ratio : clamp(dragOrigH + dy, minSize, imgDisplayH - dragOrigY);
+        if (ratio > 0) {
+          nw = nh * ratio;
+          nw = clamp(nw, minSize, dragOrigX + dragOrigW);
+          nh = nw / ratio;
+        }
+        ow = Math.round(nw); oh = Math.round(nh);
+        ox = dragOrigX + dragOrigW - ow;
+      } else if (currentHandle === 'sw') {
+        var nw = clamp(dragOrigW + dx, minSize, imgDisplayW - dragOrigX);
+        var nh = ratio > 0 ? nw / ratio : clamp(dragOrigH - dy, minSize, dragOrigY + dragOrigH);
+        if (ratio > 0) {
+          nw = nh * ratio;
+          nw = clamp(nw, minSize, imgDisplayW - dragOrigX);
+          nh = nw / ratio;
+        }
+        ow = Math.round(nw); oh = Math.round(nh);
+        oy = dragOrigY + dragOrigH - oh;
+      } else if (currentHandle === 'nw') {
+        var nw = clamp(dragOrigW - dx, minSize, dragOrigX + dragOrigW);
+        var nh = ratio > 0 ? nw / ratio : clamp(dragOrigH - dy, minSize, dragOrigY + dragOrigH);
+        if (ratio > 0) {
+          nw = nh * ratio;
+          nw = clamp(nw, minSize, dragOrigX + dragOrigW);
+          nh = nw / ratio;
+        }
+        ow = Math.round(nw); oh = Math.round(nh);
+        ox = dragOrigX + dragOrigW - ow;
+        oy = dragOrigY + dragOrigH - oh;
+      }
+      updateOverlayDisplay();
+    }
+  }
+
+  function onMouseUp(e) {
+    isDragging = false;
+    isResizing = false;
+    currentHandle = null;
+  }
+
+  workspace.addEventListener('file-selected', function(e) {
+    currentFile = e.detail.file;
+    // Wait for main.js to set the preview-img src on the first preview-img in the workspace
+    setTimeout(function() {
+      var img = workspace.querySelector('.preview-img');
+      if (img && img.src && img.src !== '') {
+        cropImage.src = img.src;
+        cropImage.onload = function() {
+          imgNaturalW = cropImage.naturalWidth;
+          imgNaturalH = cropImage.naturalHeight;
+          // Calculate display dimensions fitting in wrapper
+          var wrapperRect = imageWrapper.getBoundingClientRect();
+          var wrapperW = wrapperRect.width - 4;
+          var wrapperH = wrapperRect.height || 500;
+          var scale = Math.min(wrapperW / imgNaturalW, wrapperH / imgNaturalH, 1);
+          imgDisplayW = Math.round(imgNaturalW * scale);
+          imgDisplayH = Math.round(imgNaturalH * scale);
+          cropImage.style.maxWidth = imgDisplayW + 'px';
+          cropImage.style.maxHeight = imgDisplayH + 'px';
+          cropImage.style.width = imgDisplayW + 'px';
+          cropImage.style.height = imgDisplayH + 'px';
+          cropImage.style.display = 'block';
+          cropImage.style.margin = '0 auto';
+
+          // Recalculate with actual rendered size
+          var renderedW = cropImage.offsetWidth;
+          var renderedH = cropImage.offsetHeight;
+          imgDisplayW = renderedW;
+          imgDisplayH = renderedH;
+
+          overlay.style.display = 'block';
+          ow = Math.round(imgDisplayW * 0.6);
+          oh = Math.round(imgDisplayH * 0.6);
+          fitOverlayToImage();
+        };
+        if (cropImage.complete) {
+          cropImage.onload();
+        }
+      }
+    }, 200);
+  });
+
+  // Aspect ratio change → refit overlay
+  aspectSelect.addEventListener('change', function() {
+    if (imgDisplayW > 0 && imgDisplayH > 0) {
+      fitOverlayToImage();
+    }
+  });
+
+  // Mouse events
+  imageWrapper.addEventListener('mousedown', onMouseDown);
+  document.addEventListener('mousemove', onMouseMove);
+  document.addEventListener('mouseup', onMouseUp);
+
+  // Crop button
+  cropBtn.addEventListener('click', doCrop);
+
+  // Download
+  downloadBtn.addEventListener('click', function() {
+    if (!cropResultBlob || !currentFile) return;
+    var base = currentFile.name.replace(/\.[^.]+$/, '');
+    var url = URL.createObjectURL(cropResultBlob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = base + '-recortado.png';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function() { URL.revokeObjectURL(url); }, 1000);
+    showToast('✅ Imagen descargada correctamente', 'success');
+  });
+
+  // Reset
+  resetBtn.addEventListener('click', function() {
+    currentFile = null;
+    cropResultBlob = null;
+    hasResult = false;
+    cropImage.style.display = 'none';
+    cropImage.src = '';
+    overlay.style.display = 'none';
+    ox = oy = ow = oh = 0;
+    resultBlock.classList.add('hidden');
+    downloadBtn.classList.add('hidden');
+    originalResult.src = '';
+    croppedResult.src = '';
+    previewArea.classList.remove('active');
+    dropzone.style.display = 'block';
+    fileInput.value = '';
+    var fn = workspace.querySelector('.file-name');
+    var fs = workspace.querySelector('.file-size');
+    if (fn) fn.textContent = '-';
+    if (fs) fs.textContent = '-';
+    showToast('🔄 Herramienta reiniciada', '');
+  });
+
+  function showToast(msg, type) {
+    var t = document.getElementById('toast');
+    if (!t) return;
+    t.textContent = msg;
+    t.className = 'toast';
+    if (type) t.classList.add(type);
+    t.classList.add('visible');
+    setTimeout(function() { t.classList.remove('visible'); }, 3000);
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Redimensionar imagen para redes sociales online gratis | ComprimeFotos</title>
+  <meta name="description" content="Redimensiona imágenes para redes sociales online gratis. Presets oficiales para Instagram, TikTok, Facebook, YouTube, Twitter y LinkedIn. Sin registro, 100% en tu navegador.">
+  <meta name="keywords" content="redimensionar imagen redes sociales, tamaño Instagram, medidas TikTok, formato Facebook, redimensionar foto online">
+  <link rel="canonical" href="https://comprimefotos.com/tools/redimensionar-redes-sociales.html">
+  <meta name="theme-color" content="#ff6b4a">
+  <meta property="og:title" content="Redimensionar para redes sociales online gratis | ComprimeFotos">
+  <meta property="og:description" content="Redimensiona imágenes para redes sociales online gratis. Presets oficiales para Instagram, TikTok, Facebook, YouTube, Twitter y LinkedIn. Sin registro, en tu navegador.">
+  <meta property="og:url" content="https://comprimefotos.com/tools/redimensionar-redes-sociales.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ComprimeFotos">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="../css/style.css?v=2">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Redimensionar para redes sociales",
+    "url": "https://comprimefotos.com/tools/redimensionar-redes-sociales.html",
+    "description": "Redimensiona imágenes para redes sociales con presets de tamaño oficiales para Instagram, TikTok, Facebook, YouTube, Twitter y LinkedIn.",
+    "browserRequirements": "Requiere JavaScript moderno",
+    "applicationCategory": "Multimedia",
+    "operatingSystem": "All"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"Inicio","item":"https://comprimefotos.com/"},
+      {"@type":"ListItem","position":2,"name":"Herramientas","item":"https://comprimefotos.com/tools/comprimir-imagenes.html"},
+      {"@type":"ListItem","position":3,"name":"Redimensionar para redes sociales"}
+    ]
+  }
+  </script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo"><span class="logo-icon">📷</span><span class="logo-text">ComprimeFotos</span></a>
+    <nav class="main-nav">
+      <a href="/">Inicio</a>
+      <a href="/tools/comprimir-imagenes.html">Comprimir</a>
+      <a href="/tools/comprimir-imagenes-whatsapp.html">WhatsApp</a>
+      <a href="/tools/quitar-fondo.html">Quitar Fondo</a>
+      <a href="/blog/">Blog</a>
+      <a href="/about.html">Sobre Nosotros</a>
+    </nav>
+    <div class="header-actions">
+      <button class="mobile-menu-btn" aria-label="Cambiar tema">🖼️</button>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menú">☰</button>
+    </div>
+  </div>
+</header>
+
+<main class="tool-page">
+  <div class="container">
+    <nav class="breadcrumb">
+      <a href="/">Inicio</a> — <a href="/tools/comprimir-imagenes.html">Herramientas</a> — <span>Redimensionar para redes sociales</span>
+    </nav>
+
+    <div class="tool-page-header">
+      <h1>📱 Redimensionar para <span class="gradient-text">redes sociales</span></h1>
+      <p>Cambia el tamaño de tus fotos al formato perfecto para cada red social. Elige entre presets oficiales de Instagram, TikTok, Facebook, YouTube, Twitter y LinkedIn. Sin registro, en tu navegador.</p>
+    </div>
+
+    <!-- Tool Workspace -->
+    <div class="tool-workspace" id="socialResizerWorkspace">
+      <!-- Drop Zone -->
+      <label for="fileInput" class="dropzone" id="dropzone">
+        <span class="dropzone-icon">📐</span>
+        <h3>Arrastra tu imagen aquí</h3>
+        <p>o haz clic para seleccionar un archivo</p>
+        <p style="font-size:0.8rem;color:var(--text-muted);margin-top:8px;">JPG, PNG, WebP</p>
+        <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" style="display:none">
+      </label>
+
+      <!-- Preview Area -->
+      <div class="preview-area" id="previewArea">
+        <div class="file-info" style="margin-bottom:16px;">
+          <span><strong>Archivo:</strong> <span class="file-name">-</span></span>
+          <span><strong>Original:</strong> <span id="originalDims">-</span></span>
+        </div>
+
+        <!-- Social Presets -->
+        <div style="margin-bottom:16px;">
+          <label style="font-weight:600;font-size:0.9rem;display:block;margin-bottom:10px;">Presets por red social</label>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;">
+            <button class="preset-btn social-tab" data-platform="instagram" style="padding:7px 14px;border:1px solid var(--border-light);border-radius:var(--radius-sm);font-size:0.82rem;font-weight:500;background:var(--bg);cursor:pointer;transition:var(--transition);color:var(--text-secondary);">📸 Instagram</button>
+            <button class="preset-btn social-tab" data-platform="tiktok" style="padding:7px 14px;border:1px solid var(--border-light);border-radius:var(--radius-sm);font-size:0.82rem;font-weight:500;background:var(--bg);cursor:pointer;transition:var(--transition);color:var(--text-secondary);">🎵 TikTok</button>
+            <button class="preset-btn social-tab" data-platform="facebook" style="padding:7px 14px;border:1px solid var(--border-light);border-radius:var(--radius-sm);font-size:0.82rem;font-weight:500;background:var(--bg);cursor:pointer;transition:var(--transition);color:var(--text-secondary);">👍 Facebook</button>
+            <button class="preset-btn social-tab" data-platform="youtube" style="padding:7px 14px;border:1px solid var(--border-light);border-radius:var(--radius-sm);font-size:0.82rem;font-weight:500;background:var(--bg);cursor:pointer;transition:var(--transition);color:var(--text-secondary);">▶️ YouTube</button>
+            <button class="preset-btn social-tab" data-platform="twitter" style="padding:7px 14px;border:1px solid var(--border-light);border-radius:var(--radius-sm);font-size:0.82rem;font-weight:500;background:var(--bg);cursor:pointer;transition:var(--transition);color:var(--text-secondary);">🐦 Twitter/X</button>
+            <button class="preset-btn social-tab" data-platform="linkedin" style="padding:7px 14px;border:1px solid var(--border-light);border-radius:var(--radius-sm);font-size:0.82rem;font-weight:500;background:var(--bg);cursor:pointer;transition:var(--transition);color:var(--text-secondary);">💼 LinkedIn</button>
+          </div>
+        </div>
+
+        <!-- Size Options (shown when preset selected) -->
+        <div id="sizeOptions" style="display:none;margin-bottom:16px;">
+          <label style="font-weight:600;font-size:0.85rem;display:block;margin-bottom:8px;color:var(--text-secondary);">Elige el tipo de imagen:</label>
+          <div id="sizeOptionBtns" style="display:flex;flex-wrap:wrap;gap:4px;"></div>
+        </div>
+
+        <div class="preview-container" style="text-align:center;margin-bottom:16px;">
+          <canvas id="canvasResult" style="max-width:100%;max-height:300px;border-radius:var(--radius-sm);border:1px solid var(--border-light);"></canvas>
+          <p style="margin-top:8px;font-size:0.82rem;color:var(--text-muted);">
+            <strong>Nuevo tamaño:</strong> <span id="newDims">-</span>
+          </p>
+        </div>
+
+        <div class="tool-actions" style="margin-top:12px;">
+          <button class="btn btn-primary" id="downloadBtn">📥 Descargar imagen</button>
+          <button class="btn btn-secondary" id="resetBtn">🔄 Nueva imagen</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- How to Use -->
+    <div class="how-to-section">
+      <h2>Cómo redimensionar para redes sociales en 3 pasos</h2>
+      <div class="how-to-steps">
+        <div class="how-to-step">
+          <div class="step-number">1</div>
+          <h4>Sube tu imagen</h4>
+          <p>Arrastra cualquier foto JPG, PNG o WebP o haz clic para seleccionarla desde tu ordenador, móvil o tablet.</p>
+        </div>
+        <div class="how-to-step">
+          <div class="step-number">2</div>
+          <h4>Elige tu red social</h4>
+          <p>Selecciona la plataforma (Instagram, TikTok, Facebook, YouTube, Twitter o LinkedIn) y el tipo de imagen que necesitas (perfil, publicación, historia, portada, etc.).</p>
+        </div>
+        <div class="how-to-step">
+          <div class="step-number">3</div>
+          <h4>Descarga el resultado</h4>
+          <p>La imagen se redimensiona automáticamente al tamaño exacto. Previsualiza el resultado y descárgalo con un clic. ¡Listo para publicar!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Guide: Presets Table -->
+    <div class="guide-section">
+      <h2>Guía de tamaños recomendados para redes sociales</h2>
+      <div class="guide-block">
+        <h3>📸 Instagram</h3>
+        <p>Los tamaños más usados en Instagram. Publica en la resolución correcta para que tus fotos se vean nítidas en todas las pantallas.</p>
+        <ul>
+          <li><strong>Publicación cuadrada:</strong> 1080 × 1080 px — El formato clásico de Instagram</li>
+          <li><strong>Publicación vertical:</strong> 1080 × 1350 px — Relación 4:5, la más recomendada actualmente</li>
+          <li><strong>Publicación horizontal:</strong> 1080 × 566 px — Relación 1.91:1, para paisajes</li>
+          <li><strong>Historia / Reel:</strong> 1080 × 1920 px — Full screen vertical</li>
+          <li><strong>Foto de perfil:</strong> 320 × 320 px — Se muestra circular</li>
+        </ul>
+      </div>
+      <div class="guide-block">
+        <h3>🎵 TikTok</h3>
+        <p>TikTok es vertical nativo. Usa estos tamaños para que tu contenido se vea perfecto.</p>
+        <ul>
+          <li><strong>Video / Publicación:</strong> 1080 × 1920 px — 9:16, full screen vertical</li>
+          <li><strong>Foto de perfil:</strong> 200 × 200 px</li>
+        </ul>
+      </div>
+      <div class="guide-block">
+        <h3>👍 Facebook</h3>
+        <p>Facebook tiene varios formatos según la ubicación. Elige el que necesites.</p>
+        <ul>
+          <li><strong>Publicación en muro:</strong> 1200 × 630 px</li>
+          <li><strong>Foto de perfil:</strong> 180 × 180 px</li>
+          <li><strong>Portada (cover):</strong> 1640 × 624 px</li>
+          <li><strong>Historia:</strong> 1080 × 1920 px</li>
+          <li><strong>Imagen de evento:</strong> 1200 × 675 px</li>
+        </ul>
+      </div>
+      <div class="guide-block">
+        <h3>▶️ YouTube</h3>
+        <p>Cada elemento de tu canal tiene un tamaño específico. Usa los recomendados por YouTube.</p>
+        <ul>
+          <li><strong>Miniatura (thumbnail):</strong> 1280 × 720 px</li>
+          <li><strong>Foto de perfil:</strong> 800 × 800 px</li>
+          <li><strong>Portada de canal (banner):</strong> 2560 × 1440 px</li>
+        </ul>
+      </div>
+      <div class="guide-block">
+        <h3>🐦 Twitter / X</h3>
+        <p>Tamaños optimizados para publicar en Twitter.</p>
+        <ul>
+          <li><strong>Publicación (tweet):</strong> 1200 × 675 px</li>
+          <li><strong>Foto de perfil:</strong> 400 × 400 px</li>
+          <li><strong>Header (portada):</strong> 1500 × 500 px</li>
+        </ul>
+      </div>
+      <div class="guide-block">
+        <h3>💼 LinkedIn</h3>
+        <p>LinkedIn tiene requisitos específicos para cada sección del perfil.</p>
+        <ul>
+          <li><strong>Publicación:</strong> 1200 × 627 px</li>
+          <li><strong>Foto de perfil:</strong> 400 × 400 px</li>
+          <li><strong>Portada (banner):</strong> 1584 × 396 px</li>
+          <li><strong>Logo de empresa:</strong> 300 × 300 px</li>
+        </ul>
+      </div>
+      <div class="guide-block">
+        <h3>💡 Consejos profesionales</h3>
+        <ul>
+          <li>Siempre usa la resolución más alta disponible. Reducir tamaño es mejor que agrandar.</li>
+          <li>Para publicaciones con texto, evita los bordes — cada red social puede recortar tu imagen de forma distinta.</li>
+          <li>Instagram ahora recomienda formato vertical (4:5) en lugar de cuadrado para más alcance.</li>
+          <li>Antes de publicar, comprime tu imagen con nuestra <a href="/tools/comprimir-imagenes.html">herramienta de compresión</a> para que cargue más rápido.</li>
+          <li>Guarda siempre una copia de la imagen original por si necesitas redimensionarla de nuevo.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="faq-section">
+      <h2>Preguntas frecuentes</h2>
+      <div class="faq-item">
+        <button class="faq-question">¿Qué red social tiene el tamaño más grande?</button>
+        <div class="faq-answer"><p>La portada de canal de YouTube (2560 × 1440 px) es el formato más grande, seguido de la portada de Facebook (1640 × 624 px) y el banner de LinkedIn (1584 × 396 px). Para publicaciones normales, las historias de Instagram y TikTok (1080 × 1920 px) tienen la mayor resolución.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Se pierde calidad al redimensionar?</button>
+        <div class="faq-answer"><p>Al reducir el tamaño de una imagen más grande al preset elegido, la calidad visual se mantiene excelente. Si tu imagen original es más pequeña que el preset, se ampliará y podría verse pixelada. Recomendamos usar imágenes de al menos la resolución del preset que elijas.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Puedo personalizar el tamaño si no encuentro el preset que necesito?</button>
+        <div class="faq-answer"><p>Si necesitas un tamaño que no está en los presets, usa nuestra herramienta <a href="/tools/redimensionar-imagen.html">Redimensionar imagen</a>, donde puedes ingresar cualquier ancho y alto en píxeles de forma manual.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Mis imágenes se suben a algún servidor?</button>
+        <div class="faq-answer"><p><strong>No, absolutamente no.</strong> Todo el procesamiento ocurre 100% en tu navegador usando JavaScript. Tus imágenes nunca salen de tu dispositivo. Es totalmente privado y seguro.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Qué formatos de imagen puedo subir?</button>
+        <div class="faq-answer"><p>Aceptamos JPG, PNG y WebP. La imagen redimensionada se descarga en el mismo formato que subiste (excepto WebP que se descarga como PNG por compatibilidad con todas las redes sociales). Para la mayoría de casos, JPG es la mejor opción por su equilibrio entre calidad y tamaño.</p></div>
+      </div>
+    </div>
+
+    <!-- Related Tools -->
+    <div class="related-tools">
+      <h2>Herramientas relacionadas</h2>
+      <div class="related-tools-grid">
+        <a href="/tools/redimensionar-imagen.html" class="related-tool-card">
+          <span class="tool-icon">📐</span>
+          <div class="tool-info">
+            <strong>Redimensionar imagen</strong>
+            <span class="tool-desc">Tamaño personalizado en píxeles</span>
+          </div>
+          <span class="tool-arrow">→</span>
+        </a>
+        <a href="/tools/comprimir-imagenes.html" class="related-tool-card">
+          <span class="tool-icon">🗜️</span>
+          <div class="tool-info">
+            <strong>Comprimir imágenes</strong>
+            <span class="tool-desc">Reduce el peso para redes</span>
+          </div>
+          <span class="tool-arrow">→</span>
+        </a>
+        <a href="/tools/comprimir-imagenes-whatsapp.html" class="related-tool-card">
+          <span class="tool-icon">📫</span>
+          <div class="tool-info">
+            <strong>Comprimir para WhatsApp</strong>
+            <span class="tool-desc">Tamaño perfecto para compartir</span>
+          </div>
+          <span class="tool-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo"><span class="logo-icon">📷</span><span class="logo-text">ComprimeFotos</span></a>
+        <p>Herramientas gratuitas para comprimir y editar imágenes online. Todo en tu navegador.</p>
+          <a href="mailto:contact@comprimefotos.com" style="color: var(--accent); font-weight: 500; font-size: 0.95rem;">&#x1f4e7; contact@comprimefotos.com</a>
+      </div>
+      <div class="footer-links"><h4>Herramientas</h4><a href="/tools/comprimir-imagenes.html">Comprimir imágenes</a><a href="/tools/comprimir-imagenes-whatsapp.html">Comprimir para WhatsApp</a><a href="/tools/comprimir-pdf.html">Comprimir PDF</a><a href="/tools/quitar-fondo.html">Quitar fondo</a></div>
+      <div class="footer-links"><h4>Más herramientas</h4><a href="/tools/redimensionar-imagen.html">Redimensionar</a><a href="/tools/redimensionar-redes-sociales.html">Redes sociales</a><a href="/tools/convertir-formato.html">Convertir formato</a><a href="/tools/poner-marca-de-agua.html">Marca de agua</a><a href="/tools/hacer-collage.html">Hacer collage</a></div>
+      <div class="footer-links"><h4>Legal</h4><a href="/about.html">Sobre nosotros</a><a href="/contacto">Contacto</a><a href="/privacy.html">Privacidad</a><a href="/terms.html">Términos</a><a href="/cookie-policy.html">Cookies</a><a href="/blog/">Blog</a></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2026 ComprimeFotos.com — Todos los derechos reservados. | <a href="https://smartimgkit.com/" style="color: var(--accent); font-weight: 500;">English: SmartImgKit — Free Image Tools</a></p></div>
+  </div>
+</footer>
+
+<div class="cookie-consent" id="cookieConsent">
+  <div class="cookie-consent-inner">
+    <div class="cookie-consent-text"><p>🍪 Usamos cookies esenciales. <a href="/cookie-policy.html">Más información</a>.</p></div>
+    <div class="cookie-consent-actions">
+      <button class="cookie-btn cookie-btn-decline" id="cookieDecline">Solo esenciales</button>
+      <button class="cookie-btn cookie-btn-accept" id="cookieAccept">Aceptar todas</button>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script src="../js/main.js?v=2"></script>
+<script>
+(function() {
+  'use strict';
+
+  const workspace = document.getElementById('socialResizerWorkspace');
+  const dropzone = document.getElementById('dropzone');
+  const fileInput = document.getElementById('fileInput');
+  const previewArea = document.getElementById('previewArea');
+  const canvas = document.getElementById('canvasResult');
+  const ctx = canvas.getContext('2d');
+  const originalDims = document.getElementById('originalDims');
+  const newDims = document.getElementById('newDims');
+  const downloadBtn = document.getElementById('downloadBtn');
+  const resetBtn = document.getElementById('resetBtn');
+  const sizeOptions = document.getElementById('sizeOptions');
+  const sizeOptionBtns = document.getElementById('sizeOptionBtns');
+
+  // Presets por plataforma
+  const PRESETS = {
+    instagram: [
+      { label: 'Publicación cuadrada', w: 1080, h: 1080, desc: '1080 × 1080 px' },
+      { label: 'Publicación vertical', w: 1080, h: 1350, desc: '1080 × 1350 px (4:5)' },
+      { label: 'Publicación horizontal', w: 1080, h: 566, desc: '1080 × 566 px' },
+      { label: 'Historia / Reel', w: 1080, h: 1920, desc: '1080 × 1920 px' },
+      { label: 'Foto de perfil', w: 320, h: 320, desc: '320 × 320 px' }
+    ],
+    tiktok: [
+      { label: 'Video / Publicación', w: 1080, h: 1920, desc: '1080 × 1920 px (9:16)' },
+      { label: 'Foto de perfil', w: 200, h: 200, desc: '200 × 200 px' }
+    ],
+    facebook: [
+      { label: 'Publicación en muro', w: 1200, h: 630, desc: '1200 × 630 px' },
+      { label: 'Foto de perfil', w: 180, h: 180, desc: '180 × 180 px' },
+      { label: 'Portada (cover)', w: 1640, h: 624, desc: '1640 × 624 px' },
+      { label: 'Historia', w: 1080, h: 1920, desc: '1080 × 1920 px' },
+      { label: 'Imagen de evento', w: 1200, h: 675, desc: '1200 × 675 px' }
+    ],
+    youtube: [
+      { label: 'Miniatura (thumbnail)', w: 1280, h: 720, desc: '1280 × 720 px' },
+      { label: 'Foto de perfil', w: 800, h: 800, desc: '800 × 800 px' },
+      { label: 'Portada de canal', w: 2560, h: 1440, desc: '2560 × 1440 px' }
+    ],
+    twitter: [
+      { label: 'Publicación (tweet)', w: 1200, h: 675, desc: '1200 × 675 px' },
+      { label: 'Foto de perfil', w: 400, h: 400, desc: '400 × 400 px' },
+      { label: 'Header (portada)', w: 1500, h: 500, desc: '1500 × 500 px' }
+    ],
+    linkedin: [
+      { label: 'Publicación', w: 1200, h: 627, desc: '1200 × 627 px' },
+      { label: 'Foto de perfil', w: 400, h: 400, desc: '400 × 400 px' },
+      { label: 'Portada (banner)', w: 1584, h: 396, desc: '1584 × 396 px' },
+      { label: 'Logo de empresa', w: 300, h: 300, desc: '300 × 300 px' }
+    ]
+  };
+
+  let originalImg = null;
+  let currentFile = null;
+  let currentFileType = 'image/png';
+  let selectedW = 0;
+  let selectedH = 0;
+
+  // Tab styling
+  const tabActiveStyle = 'background:var(--accent);color:#fff;border-color:var(--accent);';
+
+  // Escuchar evento personalizado de main.js
+  workspace.addEventListener('file-selected', function(e) {
+    loadImage(e.detail.file);
+  });
+
+  // También manejar clic directo en dropzone
+  fileInput.addEventListener('change', function() {
+    if (this.files && this.files[0]) {
+      loadImage(this.files[0]);
+    }
+  });
+
+  function loadImage(file) {
+    if (!file || !file.type.match(/^image\/(jpeg|png|webp)$/)) {
+      showToast('Solo se admiten imágenes JPG, PNG y WebP', '');
+      return;
+    }
+
+    currentFile = file;
+    currentFileType = file.type;
+
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const img = new Image();
+      img.onload = function() {
+        originalImg = img;
+        document.querySelector('.file-name').textContent = file.name;
+        originalDims.textContent = img.width + ' × ' + img.height + ' px';
+        dropzone.style.display = 'none';
+        previewArea.classList.add('active');
+        showToast('✅ Imagen cargada. Elige una red social.', 'success');
+      };
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+
+  // Social tab buttons
+  document.querySelectorAll('.social-tab').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      // Reset all tabs
+      document.querySelectorAll('.social-tab').forEach(function(b) {
+        b.style.cssText = 'padding:7px 14px;border:1px solid var(--border-light);border-radius:var(--radius-sm);font-size:0.82rem;font-weight:500;background:var(--bg);cursor:pointer;transition:var(--transition);color:var(--text-secondary);';
+      });
+      // Activate this tab
+      this.style.cssText = 'padding:7px 14px;border:1px solid var(--accent);border-radius:var(--radius-sm);font-size:0.82rem;font-weight:600;background:var(--accent);cursor:pointer;transition:var(--transition);color:#fff;';
+
+      const platform = this.getAttribute('data-platform');
+      const presets = PRESETS[platform];
+      if (!presets) return;
+
+      sizeOptions.style.display = 'block';
+      let html = '';
+      presets.forEach(function(p, idx) {
+        html += '<button class="size-option-btn" data-w="' + p.w + '" data-h="' + p.h + '" style="padding:7px 14px;border:1px solid var(--border-light);border-radius:var(--radius-sm);font-size:0.8rem;font-weight:500;background:var(--bg);cursor:pointer;transition:var(--transition);color:var(--text-secondary);">' + p.label + ' — ' + p.desc + '</button>';
+      });
+      sizeOptionBtns.innerHTML = html;
+
+      // Size option click
+      sizeOptionBtns.querySelectorAll('.size-option-btn').forEach(function(optBtn) {
+        optBtn.addEventListener('click', function() {
+          // Reset all size option styles
+          sizeOptionBtns.querySelectorAll('.size-option-btn').forEach(function(b) {
+            b.style.cssText = 'padding:7px 14px;border:1px solid var(--border-light);border-radius:var(--radius-sm);font-size:0.8rem;font-weight:500;background:var(--bg);cursor:pointer;transition:var(--transition);color:var(--text-secondary);';
+          });
+          // Activate this one
+          this.style.cssText = 'padding:7px 14px;border:1px solid var(--accent);border-radius:var(--radius-sm);font-size:0.8rem;font-weight:600;background:var(--accent-bg);cursor:pointer;transition:var(--transition);color:var(--accent);';
+
+          selectedW = parseInt(this.getAttribute('data-w'));
+          selectedH = parseInt(this.getAttribute('data-h'));
+          renderPreview();
+        });
+      });
+    });
+  });
+
+  function renderPreview() {
+    if (!originalImg || !selectedW || !selectedH) return;
+
+    canvas.width = selectedW;
+    canvas.height = selectedH;
+
+    // Fondo blanco
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, selectedW, selectedH);
+
+    // Dibujar imagen centrada y ajustada
+    const ratio = Math.min(selectedW / originalImg.width, selectedH / originalImg.height);
+    const drawW = Math.round(originalImg.width * ratio);
+    const drawH = Math.round(originalImg.height * ratio);
+    const offX = Math.round((selectedW - drawW) / 2);
+    const offY = Math.round((selectedH - drawH) / 2);
+
+    ctx.drawImage(originalImg, offX, offY, drawW, drawH);
+
+    newDims.textContent = selectedW + ' × ' + selectedH + ' px';
+  }
+
+  // Download
+  downloadBtn.addEventListener('click', function() {
+    if (!originalImg || !selectedW || !selectedH) {
+      showToast('Primero elige una red social y un tamaño', '');
+      return;
+    }
+
+    let mimeType = currentFileType;
+    if (mimeType === 'image/webp') mimeType = 'image/png';
+    const ext = mimeType === 'image/png' ? 'png' : 'jpg';
+
+    const tempCanvas = document.createElement('canvas');
+    tempCanvas.width = selectedW;
+    tempCanvas.height = selectedH;
+    const tempCtx = tempCanvas.getContext('2d');
+    tempCtx.fillStyle = '#ffffff';
+    tempCtx.fillRect(0, 0, selectedW, selectedH);
+
+    const ratio = Math.min(selectedW / originalImg.width, selectedH / originalImg.height);
+    const drawW = Math.round(originalImg.width * ratio);
+    const drawH = Math.round(originalImg.height * ratio);
+    const offX = Math.round((selectedW - drawW) / 2);
+    const offY = Math.round((selectedH - drawH) / 2);
+    tempCtx.drawImage(originalImg, offX, offY, drawW, drawH);
+
+    const link = document.createElement('a');
+    link.download = 'redes-sociales-' + selectedW + 'x' + selectedH + '.' + ext;
+    link.href = tempCanvas.toDataURL(mimeType, 0.92);
+    link.click();
+    showToast('✅ Imagen descargada', 'success');
+  });
+
+  // Reset
+  resetBtn.addEventListener('click', function() {
+    originalImg = null;
+    currentFile = null;
+    selectedW = 0;
+    selectedH = 0;
+    canvas.width = 0;
+    canvas.height = 0;
+    ctx.clearRect(0, 0, 0, 0);
+    newDims.textContent = '-';
+    originalDims.textContent = '-';
+    sizeOptions.style.display = 'none';
+    sizeOptionBtns.innerHTML = '';
+    previewArea.classList.remove('active');
+    dropzone.style.display = 'block';
+    fileInput.value = '';
+    document.querySelector('.file-name').textContent = '-';
+
+    // Reset tab styles
+    document.querySelectorAll('.social-tab').forEach(function(b) {
+      b.style.cssText = 'padding:7px 14px;border:1px solid var(--border-light);border-radius:var(--radius-sm);font-size:0.82rem;font-weight:500;background:var(--bg);cursor:pointer;transition:var(--transition);color:var(--text-secondary);';
+    });
+  });
+
+  function showToast(msg, type) {
+    const toast = document.getElementById('toast');
+    if (!toast) return;
+    toast.textContent = msg;
+    toast.className = 'toast';
+    if (type) toast.classList.add(type);
+    toast.classList.add('visible');
+    setTimeout(function() { toast.classList.remove('visible'); }, 3000);
+  }
+})();
+</script>
+</body>
+</html>

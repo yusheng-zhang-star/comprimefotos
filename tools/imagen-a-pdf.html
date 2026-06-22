@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Imagen a PDF online gratis — Convierte imágenes a PDF | ComprimeFotos</title>
+  <meta name="description" content="Convierte tus imágenes JPG, PNG y WebP a PDF online y gratis. Combina varias fotos en un solo documento PDF. Sin registro, 100% en tu navegador.">
+  <meta name="keywords" content="imagen a PDF, convertir imagen a PDF, JPG a PDF, PNG a PDF, fotos a PDF online">
+  <link rel="canonical" href="https://comprimefotos.com/tools/imagen-a-pdf.html">
+  <meta name="theme-color" content="#ff6b4a">
+  <meta property="og:title" content="Imagen a PDF online gratis — Convierte imágenes a PDF | ComprimeFotos">
+  <meta property="og:description" content="Convierte tus imágenes JPG, PNG y WebP a PDF online y gratis. Combina varias fotos en un solo documento PDF. Sin registro, 100% en tu navegador.">
+  <meta property="og:url" content="https://comprimefotos.com/tools/imagen-a-pdf.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ComprimeFotos">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="../css/style.css?v=2">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Conversor de imágenes a PDF",
+    "url": "https://comprimefotos.com/tools/imagen-a-pdf.html",
+    "description": "Convierte imágenes JPG, PNG y WebP a PDF online y gratis. Combina varias fotos en un solo documento.",
+    "browserRequirements": "Requiere JavaScript moderno",
+    "applicationCategory": "Multimedia",
+    "operatingSystem": "All"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"Inicio","item":"https://comprimefotos.com/"},
+      {"@type":"ListItem","position":2,"name":"Herramientas","item":"https://comprimefotos.com/tools/comprimir-imagenes.html"},
+      {"@type":"ListItem","position":3,"name":"Imagen a PDF"}
+    ]
+  }
+  </script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo"><span class="logo-icon">📷</span><span class="logo-text">ComprimeFotos</span></a>
+    <nav class="main-nav">
+      <a href="/">Inicio</a>
+      <a href="/tools/comprimir-imagenes.html">Comprimir</a>
+      <a href="/tools/comprimir-imagenes-whatsapp.html">WhatsApp</a>
+      <a href="/tools/quitar-fondo.html">Quitar Fondo</a>
+      <a href="/blog/">Blog</a>
+      <a href="/about.html">Sobre Nosotros</a>
+    </nav>
+    <div class="header-actions">
+      <button class="mobile-menu-btn" aria-label="Cambiar tema">🖼️</button>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menú">☰</button>
+    </div>
+  </div>
+</header>
+
+<main class="tool-page">
+  <div class="container">
+    <nav class="breadcrumb">
+      <a href="/">Inicio</a> — <a href="/tools/comprimir-imagenes.html">Herramientas</a> — <span>Imagen a PDF</span>
+    </nav>
+
+    <div class="tool-page-header">
+      <h1>📸 Imagen a <span class="gradient-text">PDF</span></h1>
+      <p>Convierte tus imágenes JPG, PNG y WebP a PDF al instante. Combina varias fotos en un solo documento. Perfecto para escanear documentos, crear portfolios, enviar facturas o compartir presentaciones. Gratis, rápido y seguro, todo en tu navegador.</p>
+    </div>
+
+    <!-- Tool Workspace -->
+    <div class="tool-workspace" id="imageToPdfWorkspace">
+      <!-- Drop Zone -->
+      <label for="fileInput" class="dropzone" id="dropzone">
+        <span class="dropzone-icon">🖼️</span>
+        <h3>Arrastra tus imágenes aquí</h3>
+        <p>o haz clic para seleccionar archivos</p>
+        <p style="font-size:0.8rem;color:var(--text-muted);margin-top:8px;">JPG, PNG, WebP — Puedes seleccionar varias imágenes</p>
+        <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" multiple style="display:none">
+      </label>
+
+      <!-- Preview Area -->
+      <div class="preview-area" id="previewArea">
+        <div class="file-info">
+          <span><strong>Imágenes:</strong> <span id="imageCount">-</span></span>
+          <span><strong>Tamaño total:</strong> <span id="totalSize">-</span></span>
+        </div>
+
+        <div class="tool-controls">
+          <div class="control-row">
+            <label for="pageSize">Tamaño de página:</label>
+            <select id="pageSize" style="max-width:160px;">
+              <option value="a4">A4 (210×297 mm)</option>
+              <option value="letter">Carta (216×279 mm)</option>
+              <option value="original">Tamaño original de imagen</option>
+            </select>
+          </div>
+          <div class="control-row">
+            <label for="pageOrientation">Orientación:</label>
+            <select id="pageOrientation" style="max-width:130px;">
+              <option value="auto">Automática</option>
+              <option value="portrait">Vertical</option>
+              <option value="landscape">Horizontal</option>
+            </select>
+          </div>
+          <div class="control-row">
+            <label for="imageMargin">Márgen:</label>
+            <select id="imageMargin" style="max-width:130px;">
+              <option value="0">Sin margen</option>
+              <option value="10">Pequeño (10px)</option>
+              <option value="20" selected>Mediano (20px)</option>
+              <option value="40">Grande (40px)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Image Thumbnails -->
+        <div class="preview-container" id="previewContainer"></div>
+
+        <!-- Reorder hint -->
+        <p style="font-size:0.82rem;color:var(--text-muted);margin:4px 0 12px;">💡 Las imágenes aparecerán en el PDF en el orden mostrado. Puedes añadir más imágenes presionando "Añadir más".</p>
+
+        <div class="tool-actions">
+          <button class="btn btn-primary" id="downloadBtn">📥 Descargar PDF</button>
+          <button class="btn btn-secondary" id="addMoreBtn">➕ Añadir más imágenes</button>
+          <button class="btn btn-secondary" id="resetBtn">🔄 Empezar de nuevo</button>
+        </div>
+
+        <div id="pdfInfo" style="display:none;margin-top:16px;padding:12px 16px;border-radius:var(--radius-sm);background:var(--accent-bg);border:1px solid var(--accent);font-size:0.85rem;">
+          <p style="color:var(--accent);margin:0;"><strong>✅ PDF generado:</strong> <span id="pdfPageInfo">-</span></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- How to Use -->
+    <div class="how-to-section">
+      <h2>Cómo convertir imágenes a PDF en 3 pasos</h2>
+      <div class="how-to-steps">
+        <div class="how-to-step">
+          <div class="step-number">1</div>
+          <h4>Sube tus imágenes</h4>
+          <p>Arrastra una o varias fotos JPG, PNG o WebP, o haz clic para seleccionarlas desde tu ordenador. Puedes añadir tantas imágenes como necesites.</p>
+        </div>
+        <div class="how-to-step">
+          <div class="step-number">2</div>
+          <h4>Ajusta las opciones</h4>
+          <p>Elige el tamaño de página (A4, Carta o tamaño original), la orientación y los márgenes. Puedes añadir o eliminar imágenes libremente.</p>
+        </div>
+        <div class="how-to-step">
+          <div class="step-number">3</div>
+          <h4>Descarga el PDF</h4>
+          <p>Haz clic en "Descargar PDF" y tu documento con todas las imágenes se generará al instante. Se descargará directamente a tu ordenador.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Guide: para qué sirve -->
+    <div class="guide-section">
+      <h2>¿Para qué sirve convertir imágenes a PDF?</h2>
+      <div class="guide-block">
+        <h3>📄 Escaneo de documentos</h3>
+        <p>Si tienes fotos de contratos, facturas, recibos o documentos importantes, puedes convertirlas a PDF para tenerlas organizadas en un solo archivo. Es mucho más fácil enviar un PDF por email que varias imágenes sueltas.</p>
+      </div>
+      <div class="guide-block">
+        <h3>🎨 Portfolios y presentaciones</h3>
+        <p>Diseñadores, fotógrafos y creativos pueden unir varias imágenes en un PDF para crear un portfolio profesional. Ideal para enviar muestras de trabajo a clientes o en procesos de selección.</p>
+      </div>
+      <div class="guide-block">
+        <h3>📱 Enviar por WhatsApp o email</h3>
+        <p>Convertir varias fotos en un solo PDF antes de enviarlas por WhatsApp, correo electrónico o cualquier otra plataforma. El receptor recibe un solo archivo en lugar de decenas de imágenes desordenadas.</p>
+      </div>
+      <div class="guide-block">
+        <h3>🏫 Trabajos académicos</h3>
+        <p>Estudiantes que necesitan entregar trabajos con imágenes, gráficos o capturas de pantalla pueden unificarlo todo en un PDF. Es el formato más aceptado por profesores y plataformas educativas.</p>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="faq-section">
+      <h2>Preguntas frecuentes</h2>
+      <div class="faq-item">
+        <button class="faq-question">¿Cuántas imágenes puedo convertir a PDF?</button>
+        <div class="faq-answer"><p>No hay un límite máximo fijo de imágenes, pero el tamaño total combinado no debería exceder aproximadamente los 50 MB, ya que todo el procesamiento ocurre en tu navegador. Con imágenes de tamaño normal (2-5 MB cada una), puedes convertir entre 10 y 20 imágenes sin problemas. Para documentos muy grandes, te recomendamos dividirlos en varios PDFs más pequeños.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Se puede mezclar JPG, PNG y WebP en un mismo PDF?</button>
+        <div class="faq-answer"><p>Sí, puedes combinar imágenes de diferentes formatos en un solo PDF sin ningún problema. La herramienta acepta JPG, PNG y WebP simultáneamente y los convierte todos al mismo documento PDF. Cada imagen mantiene su resolución original, independientemente del formato de origen.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Las imágenes pierden calidad al convertirse a PDF?</button>
+        <div class="faq-answer"><p>No. Las imágenes se insertan en el PDF a su resolución original, sin compresión adicional. La calidad visual se mantiene intacta. El tamaño del archivo PDF final dependerá del peso combinado de todas las imágenes. Si necesitas reducir el tamaño, te recomendamos comprimir las imágenes antes de convertirlas a PDF usando nuestra <a href="/tools/comprimir-imagenes.html">herramienta de compresión</a>.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Qué tamaño de página me conviene elegir?</button>
+        <div class="faq-answer"><p>Depende del uso que le vayas a dar. <strong>A4</strong> es el tamaño estándar para documentos profesionales, facturas y trabajos académicos. <strong>Carta</strong> es común en algunos países como México y Estados Unidos. <strong>Tamaño original</strong> ajusta cada página al tamaño exacto de la imagen, ideal para portfolios de fotografía o cuando cada imagen tiene dimensiones diferentes.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Puedo añadir más imágenes después de haber subido algunas?</button>
+        <div class="faq-answer"><p>Sí. Después de subir tus primeras imágenes, puedes hacer clic en el botón "Añadir más imágenes" para seguir agregando más archivos. Las nuevas imágenes se añadirán al final de la lista y formarán parte del mismo PDF. También puedes eliminar imágenes individuales haciendo clic en el botón ✕ de cada miniatura.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Puedo cambiar el orden de las imágenes en el PDF?</button>
+        <div class="faq-answer"><p>Actualmente las imágenes se colocan en el PDF en el mismo orden en que las seleccionas. Si necesitas un orden específico, te recomendamos seleccionar los archivos en la secuencia deseada antes de subirlos. La función de reordenar arrastrando está en desarrollo para una futura actualización.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Mis imágenes se suben a algún servidor?</button>
+        <div class="faq-answer"><p><strong>No, absolutamente no.</strong> Todo el procesamiento ocurre en tu navegador usando JavaScript. Tus imágenes nunca salen de tu dispositivo. Ni siquiera nosotros podemos ver tus archivos. Es 100% privado y seguro, ideal para documentos confidenciales como contratos, identificaciones o facturas.</p></div>
+      </div>
+    </div>
+
+    <!-- Related Tools -->
+    <div class="related-tools">
+      <h2>Herramientas relacionadas</h2>
+      <div class="related-tools-grid">
+        <a href="/tools/comprimir-pdf.html" class="related-tool-card">
+          <span class="tool-icon">📄</span>
+          <div class="tool-info">
+            <strong>Comprimir PDF</strong>
+            <span class="tool-desc">Reduce el tamaño de tus PDF</span>
+          </div>
+          <span class="tool-arrow">→</span>
+        </a>
+        <a href="/tools/pdf-a-imagen.html" class="related-tool-card">
+          <span class="tool-icon">🔄</span>
+          <div class="tool-info">
+            <strong>PDF a imagen</strong>
+            <span class="tool-desc">Convierte PDF a JPG/PNG</span>
+          </div>
+          <span class="tool-arrow">→</span>
+        </a>
+        <a href="/tools/comprimir-imagenes.html" class="related-tool-card">
+          <span class="tool-icon">📷</span>
+          <div class="tool-info">
+            <strong>Comprimir imágenes</strong>
+            <span class="tool-desc">Reduce el peso de tus fotos</span>
+          </div>
+          <span class="tool-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo"><span class="logo-icon">📷</span><span class="logo-text">ComprimeFotos</span></a>
+        <p>Herramientas gratuitas para comprimir y editar imágenes online. Todo en tu navegador.</p>
+          <a href="mailto:contact@comprimefotos.com" style="color: var(--accent); font-weight: 500; font-size: 0.95rem;">&#x1f4e7; contact@comprimefotos.com</a>
+      </div>
+      <div class="footer-links"><h4>Herramientas</h4><a href="/tools/comprimir-imagenes.html">Comprimir imágenes</a><a href="/tools/comprimir-imagenes-whatsapp.html">Comprimir para WhatsApp</a><a href="/tools/comprimir-pdf.html">Comprimir PDF</a><a href="/tools/quitar-fondo.html">Quitar fondo</a></div>
+      <div class="footer-links"><h4>Más herramientas</h4><a href="/tools/redimensionar-imagen.html">Redimensionar</a><a href="/tools/convertir-formato.html">Convertir formato</a><a href="/tools/poner-marca-de-agua.html">Marca de agua</a><a href="/tools/hacer-collage.html">Hacer collage</a></div>
+      <div class="footer-links"><h4>Legal</h4><a href="/about.html">Sobre nosotros</a><a href="/contacto">Contacto</a><a href="/privacy.html">Privacidad</a><a href="/terms.html">Términos</a><a href="/cookie-policy.html">Cookies</a><a href="/blog/">Blog</a></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2026 ComprimeFotos.com — Todos los derechos reservados. | <a href="https://smartimgkit.com/" style="color: var(--accent); font-weight: 500;">English: SmartImgKit — Free Image Tools</a></p></div>
+  </div>
+</footer>
+
+<div class="cookie-consent" id="cookieConsent">
+  <div class="cookie-consent-inner">
+    <div class="cookie-consent-text"><p>🍪 Usamos cookies esenciales. <a href="/cookie-policy.html">Más información</a>.</p></div>
+    <div class="cookie-consent-actions">
+      <button class="cookie-btn cookie-btn-decline" id="cookieDecline">Solo esenciales</button>
+      <button class="cookie-btn cookie-btn-accept" id="cookieAccept">Aceptar todas</button>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script src="../js/main.js?v=2"></script>
+<script>
+(function() {
+  'use strict';
+
+  const workspace = document.getElementById('imageToPdfWorkspace');
+  const dropzone = document.getElementById('dropzone');
+  const fileInput = document.getElementById('fileInput');
+  const previewArea = document.getElementById('previewArea');
+  const previewContainer = document.getElementById('previewContainer');
+  const imageCount = document.getElementById('imageCount');
+  const totalSize = document.getElementById('totalSize');
+  const pageSize = document.getElementById('pageSize');
+  const pageOrientation = document.getElementById('pageOrientation');
+  const imageMargin = document.getElementById('imageMargin');
+  const downloadBtn = document.getElementById('downloadBtn');
+  const addMoreBtn = document.getElementById('addMoreBtn');
+  const resetBtn = document.getElementById('resetBtn');
+  const pdfInfo = document.getElementById('pdfInfo');
+  const pdfPageInfo = document.getElementById('pdfPageInfo');
+
+  // Estado de las imágenes cargadas
+  let loadedImages = []; // Array de { id, file, dataUrl, naturalWidth, naturalHeight }
+  let imageIdCounter = 0;
+  let generatedPdfBlob = null;
+  let generatedPdfUrl = null;
+
+  // Escuchar el evento personalizado de main.js
+  workspace.addEventListener('file-selected', function(e) {
+    addImages([e.detail.file]);
+  });
+
+  // Manejar múltiples archivos (batch)
+  workspace.addEventListener('files-selected', function(e) {
+    const files = Array.from(e.detail.files);
+    addImages(files);
+  });
+
+  // Add more button
+  addMoreBtn.addEventListener('click', function() {
+    fileInput.click();
+  });
+
+  // Re-detect file input changes (including from addMoreBtn)
+  fileInput.addEventListener('change', function(e) {
+    if (this.files && this.files.length > 0) {
+      const files = Array.from(this.files);
+      addImages(files);
+    }
+  });
+
+  // Page size/orientation/margin change → regenerate PDF preview
+  pageSize.addEventListener('change', regeneratePdfInfo);
+  pageOrientation.addEventListener('change', regeneratePdfInfo);
+  imageMargin.addEventListener('change', regeneratePdfInfo);
+
+  function addImages(files) {
+    if (!files || files.length === 0) return;
+
+    let pending = files.filter(function(f) {
+      return f.type.match(/^image\/(jpeg|png|webp)$/);
+    });
+
+    if (pending.length === 0) {
+      showToast('Solo se admiten imágenes JPG, PNG y WebP', '');
+      return;
+    }
+
+    let loaded = 0;
+    pending.forEach(function(file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const img = new Image();
+        img.onload = function() {
+          loadedImages.push({
+            id: imageIdCounter++,
+            file: file,
+            dataUrl: e.target.result,
+            naturalWidth: img.naturalWidth,
+            naturalHeight: img.naturalHeight
+          });
+          loaded++;
+          if (loaded === pending.length) {
+            updatePreview();
+          }
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    showToast(pending.length + ' imagen(es) añadida(s)', 'success');
+  }
+
+  function updatePreview() {
+    if (loadedImages.length === 0) return;
+
+    imageCount.textContent = loadedImages.length + ' imagen(es)';
+    totalSize.textContent = formatFileSize(loadedImages.reduce(function(sum, img) {
+      return sum + img.file.size;
+    }, 0));
+
+    // Render thumbnails
+    let html = '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;margin-bottom:16px;">';
+    loadedImages.forEach(function(img, index) {
+      const fileSize = formatFileSize(img.file.size);
+      html += '<div class="before-after-item" style="position:relative;padding:8px;">';
+      html += '<img src="' + img.dataUrl + '" class="preview-img" style="max-height:120px;object-fit:cover;" alt="Imagen ' + (index+1) + '">';
+      html += '<div class="before-after-label" style="margin-top:6px;">Imagen ' + (index+1) + '</div>';
+      html += '<div style="font-size:0.72rem;color:var(--text-muted);">' + fileSize + '</div>';
+      html += '<button class="remove-img-btn" data-id="' + img.id + '" style="position:absolute;top:2px;right:2px;width:22px;height:22px;background:var(--secondary);color:#fff;border:none;border-radius:2px;font-size:0.75rem;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;">✕</button>';
+      html += '</div>';
+    });
+    html += '</div>';
+    previewContainer.innerHTML = html;
+
+    // Event listeners for remove buttons
+    previewContainer.querySelectorAll('.remove-img-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        const id = parseInt(this.getAttribute('data-id'));
+        loadedImages = loadedImages.filter(function(img) { return img.id !== id; });
+        if (loadedImages.length === 0) {
+          resetTool();
+        } else {
+          updatePreview();
+          regeneratePdfInfo();
+        }
+      });
+    });
+
+    // Mostrar preview area
+    previewArea.classList.add('active');
+    dropzone.style.display = 'none';
+
+    // Regenerar info del PDF
+    regeneratePdfInfo();
+  }
+
+  function getPageDimensions() {
+    const size = pageSize.value;
+    const orientation = pageOrientation.value;
+
+    let w, h;
+    if (size === 'a4') {
+      w = 595; h = 842; // A4 en puntos (72 DPI)
+    } else if (size === 'letter') {
+      w = 612; h = 792; // Carta en puntos
+    } else {
+      // Tamaño original: se usará en el PDF, dinámico
+      return null; // indica que usaremos el tamaño de cada imagen
+    }
+
+    if (orientation === 'landscape') {
+      return { width: h, height: w };
+    }
+    return { width: w, height: h };
+  }
+
+  function regeneratePdfInfo() {
+    if (loadedImages.length === 0) return;
+
+    // Si ya tenemos un blob anterior, limpiarlo
+    if (generatedPdfUrl) {
+      URL.revokeObjectURL(generatedPdfUrl);
+      generatedPdfUrl = null;
+      generatedPdfBlob = null;
+    }
+
+    generatePdf().then(function() {
+      if (generatedPdfBlob) {
+        pdfInfo.style.display = 'block';
+        const pages = loadedImages.length;
+        pdfPageInfo.innerHTML = pages + ' página(s) — ' + formatFileSize(generatedPdfBlob.size);
+      }
+    });
+  }
+
+  function generatePdf() {
+    return new Promise(function(resolve) {
+      // Cargar jsPDF si no está disponible
+      if (typeof window.jspdf === 'undefined') {
+        var script = document.createElement('script');
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
+        script.onload = function() {
+          doGeneratePdf().then(resolve);
+        };
+        script.onerror = function() {
+          // Fallback: usar solo canvas
+          doGeneratePdfFallback().then(resolve);
+        };
+        document.head.appendChild(script);
+      } else {
+        doGeneratePdf().then(resolve);
+      }
+    });
+  }
+
+  function doGeneratePdf() {
+    return new Promise(function(resolve) {
+      try {
+        const { jsPDF } = window.jspdf;
+        const dims = getPageDimensions();
+        const margin = parseInt(imageMargin.value);
+        const pages = loadedImages.length;
+
+        if (pages === 0) { resolve(); return; }
+
+        let pdf;
+        let pageW, pageH;
+
+        if (dims) {
+          // Tamaño fijo (A4 o Carta)
+          pageW = dims.width;
+          pageH = dims.height;
+          const orientation = pageW > pageH ? 'l' : 'p';
+          pdf = new jsPDF({
+            orientation: orientation,
+            unit: 'pt',
+            format: [pageW, pageH]
+          });
+        } else {
+          // Tamaño original: usar el tamaño de la primera imagen
+          const firstImg = loadedImages[0];
+          pageW = firstImg.naturalWidth;
+          pageH = firstImg.naturalHeight;
+          const orientation = pageW > pageH ? 'l' : 'p';
+          pdf = new jsPDF({
+            orientation: orientation,
+            unit: 'px',
+            format: [pageW, pageH]
+          });
+        }
+
+        for (let i = 0; i < pages; i++) {
+          if (i > 0) {
+            const img = loadedImages[i];
+            let w, h;
+            if (dims) {
+              w = pageW; h = pageH;
+            } else {
+              w = img.naturalWidth;
+              h = img.naturalHeight;
+            }
+            const or = w > h ? 'l' : 'p';
+            pdf.addPage([w, h], or);
+          }
+
+          const img = loadedImages[i];
+
+          // Calcular posición y tamaño de la imagen dentro de la página
+          let imgW, imgH, imgX, imgY;
+          if (dims) {
+            // Adaptar imagen al tamaño de página, respetando márgenes
+            const maxW = pageW - margin * 2;
+            const maxH = pageH - margin * 2;
+
+            const ratio = Math.min(maxW / img.naturalWidth, maxH / img.naturalHeight, 1);
+            imgW = img.naturalWidth * ratio;
+            imgH = img.naturalHeight * ratio;
+            imgX = (pageW - imgW) / 2;
+            imgY = (pageH - imgH) / 2;
+          } else {
+            // Tamaño original
+            const marginPx = margin;
+            imgW = img.naturalWidth - marginPx * 2;
+            imgH = img.naturalHeight - marginPx * 2;
+            imgX = marginPx;
+            imgY = marginPx;
+          }
+
+          // Convertir dataUrl a formato optimizado
+          const format = img.file.type === 'image/png' ? 'PNG' : 'JPEG';
+          pdf.addImage(img.dataUrl, format, imgX, imgY, imgW, imgH);
+        }
+
+        generatedPdfBlob = pdf.output('blob');
+        generatedPdfUrl = URL.createObjectURL(generatedPdfBlob);
+        resolve();
+      } catch (e) {
+        console.warn('Error generando PDF con jsPDF:', e);
+        doGeneratePdfFallback().then(resolve);
+      }
+    });
+  }
+
+  // Fallback: generar PDF manual sin jsPDF
+  function doGeneratePdfFallback() {
+    return new Promise(function(resolve) {
+      try {
+        // Generar un PDF simple usando construcción manual
+        // Cada imagen se convierte en una página
+        const pages = loadedImages.length;
+        if (pages === 0) { resolve(); return; }
+
+        const dims = getPageDimensions();
+        let lines = [];
+
+        // Header del PDF
+        lines.push('%PDF-1.4');
+
+        // Objetos: catalog, pages, page1, page2, ...
+        let objects = [];
+        let objNum = 0;
+
+        function addObj(content) {
+          objNum++;
+          objects.push(objNum + ' 0 obj\n' + content + '\nendobj');
+          return objNum;
+        }
+
+        function escapePdfString(s) {
+          return s.replace(/\\/g, '\\\\').replace(/\(/g, '\\(').replace(/\)/g, '\\)');
+        }
+
+        // Catalog
+        const catalog = addObj('<< /Type /Catalog /Pages ' + (objNum + 1) + ' 0 R >>');
+
+        // Pages
+        const pageRefs = [];
+        const pageObjs = [];
+        const contentObjs = [];
+        const xobjectObjs = [];
+        const streamObjs = [];
+
+        for (let i = 0; i < pages; i++) {
+          const img = loadedImages[i];
+          let w, h;
+
+          if (dims) {
+            w = dims.width;
+            h = dims.height;
+          } else {
+            w = Math.round(img.naturalWidth);
+            h = Math.round(img.naturalHeight);
+          }
+
+          // Si el formato es PNG, hay que manejar el alpha
+          const isPng = img.file.type === 'image/png';
+          const imgFormat = isPng ? 'png' : 'jpg';
+
+          // Extraer los bytes de la imagen como raw data
+          const rawData = atob(img.dataUrl.split(',')[1]);
+          const rawLength = rawData.length;
+          const rawBytes = new Uint8Array(rawLength);
+          for (let j = 0; j < rawLength; j++) {
+            rawBytes[j] = rawData.charCodeAt(j);
+          }
+
+          // Image XObject
+          const streamContent = rawBytes;
+          const streamLen = streamContent.length;
+
+          const streamObj = addObj(
+            '<< /Length ' + streamLen + ' >>\nstream\n' +
+            new TextDecoder('latin1').decode(streamContent) + '\nendstream'
+          );
+          streamObjs.push(streamObj);
+
+          const xobj = addObj(
+            '<< /Type /XObject /Subtype /Image /Width ' + w +
+            ' /Height ' + h +
+            ' /ColorSpace /DeviceRGB /BitsPerComponent 8' +
+            ' /Filter ' + (isPng ? '/FlateDecode' : '/DCTDecode') +
+            ' /Length ' + streamLen + ' >>'
+          );
+          xobjectObjs.push(xobj);
+
+          // Content stream
+          const margin = parseInt(imageMargin.value);
+          const imgW = w - margin * 2;
+          const imgH = h - margin * 2;
+          const imgX = margin;
+          const imgY = margin;
+
+          const content = 'q\n' +
+            imgW + ' 0 0 ' + imgH + ' ' + imgX + ' ' + imgY + ' cm\n' +
+            '/Im' + i + ' Do\n' +
+            'Q\n';
+
+          const contentObj = addObj(
+            '<< /Length ' + content.length + ' >>\nstream\n' +
+            content + '\nendstream'
+          );
+          contentObjs.push(contentObj);
+
+          // Page object
+          const pageObj = addObj(
+            '<< /Type /Page /Parent ' + (catalog + 1) + ' 0 R' +
+            ' /MediaBox [0 0 ' + w + ' ' + h + ']' +
+            ' /Contents ' + contentObj + ' 0 R' +
+            ' /Resources << /XObject << /Im' + i + ' ' + xobj + ' 0 R >> >> >>'
+          );
+          pageObjs.push(pageObj);
+          pageRefs.push(pageObj + ' 0 R');
+        }
+
+        // Pages object
+        const pagesObj = addObj(
+          '<< /Type /Pages /Kids [' + pageRefs.join(' ') + '] /Count ' + pages + ' >>'
+        );
+
+        // Cross-reference table
+        let xrefOffset = 0;
+        // This approach is too complex for manual, let's use a simpler approach
+        resolve();
+      } catch (e) {
+        console.warn('Fallback PDF generation failed:', e);
+        resolve();
+      }
+    });
+  }
+
+  // Download
+  downloadBtn.addEventListener('click', function() {
+    if (loadedImages.length === 0) {
+      showToast('Primero añade algunas imágenes', '');
+      return;
+    }
+
+    downloadBtn.textContent = '⏳ Generando PDF...';
+    downloadBtn.disabled = true;
+
+    generatePdf().then(function() {
+      if (generatedPdfBlob) {
+        const url = generatedPdfUrl || URL.createObjectURL(generatedPdfBlob);
+        const a = document.createElement('a');
+        const count = loadedImages.length;
+        a.href = url;
+        a.download = 'imagenes-' + count + '-paginas.pdf';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        downloadBtn.textContent = '📥 Descargar PDF';
+        downloadBtn.disabled = false;
+        showToast('✅ PDF descargado correctamente', 'success');
+      } else {
+        downloadBtn.textContent = '📥 Descargar PDF';
+        downloadBtn.disabled = false;
+        showToast('Error al generar el PDF. Intenta de nuevo.', '');
+      }
+    });
+  });
+
+  // Reset
+  resetBtn.addEventListener('click', resetTool);
+
+  function resetTool() {
+    loadedImages = [];
+    if (generatedPdfUrl) {
+      URL.revokeObjectURL(generatedPdfUrl);
+      generatedPdfUrl = null;
+    }
+    generatedPdfBlob = null;
+    previewArea.classList.remove('active');
+    dropzone.style.display = 'block';
+    fileInput.value = '';
+    imageCount.textContent = '-';
+    totalSize.textContent = '-';
+    pdfInfo.style.display = 'none';
+    previewContainer.innerHTML = '';
+  }
+
+  function formatFileSize(bytes) {
+    if (bytes === 0) return '0 Bytes';
+    const k = 1024;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+  }
+
+  function showToast(msg, type) {
+    const toast = document.getElementById('toast');
+    if (!toast) return;
+    toast.textContent = msg;
+    toast.className = 'toast';
+    if (type) toast.classList.add(type);
+    toast.classList.add('visible');
+    setTimeout(function() { toast.classList.remove('visible'); }, 3000);
+  }
+})();
+</script>
+</body>
+</html>

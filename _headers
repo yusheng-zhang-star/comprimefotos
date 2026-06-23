@@ -29,6 +29,12 @@
   CDN-Cache-Control: public, max-age=43200
   Content-Type: text/html; charset=utf-8
 
+# ── City pages (ciudades) ──
+/ciudades/*
+  Cache-Control: public, max-age=0, must-revalidate
+  CDN-Cache-Control: public, max-age=43200
+  Content-Type: text/html; charset=utf-8
+
 # ── Clean URL pages ──
 # CRITICAL: CF Pages _headers matches URL path, NOT internal file path.
 # Users visit /about, NOT /about.html — /*.html rule does NOT match clean URLs!

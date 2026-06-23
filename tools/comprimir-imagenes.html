@@ -1,365 +1,369 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="index, follow">
-  <title>Comprimir imágenes online gratis — Comprime JPG, PNG, WebP | ComprimeFotos</title>
-  <meta name="description" content="Comprime tus imágenes JPG, PNG y WebP online y gratis. Reduce el peso de tus fotos sin perder calidad. 100% en tu navegador, sin registro.">
-  <meta name="keywords" content="comprimir imágenes gratis, compresor de imágenes online, reducir peso foto JPG, optimizar imagen para web">
-  <link rel="canonical" href="https://comprimefotos.com/tools/comprimir-imagenes.html">
-  <meta name="theme-color" content="#1a6b52">
-  <meta property="og:title" content="Comprimir imágenes online gratis — Comprime JPG, PNG, WebP | ComprimeFotos">
-  <meta property="og:description" content="Comprime tus imágenes JPG, PNG y WebP online y gratis. Reduce el peso de tus fotos sin perder calidad. 100% en tu navegador, sin registro.">
-  <meta property="og:url" content="https://comprimefotos.com/tools/comprimir-imagenes.html">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="ComprimeFotos">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#10b981">
-  <link rel="stylesheet" href="../css/style.css?v=2">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
-</head>
-<body><header class="site-header">
-  <div class="container header-inner">
-    <a href="/" class="logo"><span class="logo-icon">📳</span><span class="logo-text">ComprimeFotos</span></a>
-    <nav class="main-nav">
-      <a href="/">Inicio</a>
-      <a href="/tools/comprimir-imagenes.html" class="active">Comprimir</a>
-      <a href="/tools/comprimir-imagenes-whatsapp.html">WhatsApp</a>
-      <a href="/tools/quitar-fondo.html">Quitar fondo</a>
-      <a href="/blog/">Blog</a>
-      <a href="/about.html">Sobre</a>
-    </nav>
-    <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
-  </div>
-</header><main class="tool-page">
-  <div class="container">
-    <nav class="breadcrumb"><a href="/">Inicio</a> — <span>Comprimir imágenes</span></nav>
-    <div class="tool-page-header">
-      <h1>📝 Comprimir <span style="color:var(--accent);">imágenes</span></h1>
-      <p>Reduce el peso de tus fotos JPG, PNG y WebP sin perder calidad visible. 100% gratis, sin registro, en tu navegador.</p>
-    </div>
-    <div class="tool-workspace" id="compressorWorkspace">
-      <label for="fileInput" class="dropzone" id="dropzone">
-        <span class="dropzone-icon">📥</span>
-        <h3>Arrastra tu imagen aquí</h3>
-        <p>o haz clic para seleccionar un archivo</p>
-        <p style="font-size:0.8rem;color:var(--text-muted);margin-top:8px;">JPG, PNG, WebP — Hasta 50 MB</p>
-        <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" style="display:none">
-      </label>
-      <div class="preview-area" id="previewArea">
-        <div class="before-after-preview">
-          <div class="before-after-images">
-            <div class="before-after-item">
-              <img id="originalPreview" class="preview-img" src="" alt="">
-              <div class="before-after-item-caption before">Antes</div>
-            </div>
-            <div class="before-after-item">
-              <img id="compressedPreview" class="preview-img" src="" alt="">
-              <div class="before-after-item-caption after">Después</div>
-            </div>
-          </div>
-        </div>
-        <div class="file-info">
-          <span><strong>Archivo:</strong> <span class="file-name">-</span></span>
-          <span><strong>Tamaño original:</strong> <span class="file-size">-</span></span>
-          <span><strong>Tamaño comprimido:</strong> <span id="compressedSize">-</span></span>
-          <span><strong>Ahorro:</strong> <span id="savingsPercentage">-</span></span>
-        </div>
-        <div class="tool-controls">
-          <div class="control-row">
-            <label for="qualitySlider">Calidad:</label>
-            <input type="range" id="qualitySlider" min="10" max="100" value="80">
-            <span id="qualityValue" style="font-weight:600;min-width:40px;">80%</span>
-          </div>
-          <div class="control-row">
-            <label for="outputFormat">Formato:</label>
-            <select id="outputFormat" style="max-width:120px;">
-              <option value="jpeg">JPG</option>
-              <option value="png">PNG</option>
-              <option value="webp">WebP</option>
-            </select>
-          </div>
-        </div>
-        <div class="tool-actions">
-          <button class="btn btn-primary" id="downloadBtn">📥 Descargar imagen</button>
-          <button class="btn btn-secondary" id="resetBtn">🔄 Nueva imagen</button>
-        </div>
-      </div>
-    </div>
-    <div class="how-to-section">
-      <h2>Cómo usar el compresor</h2>
-      <div class="how-to-steps">
-        <div class="how-to-step"><div class="step-number">1</div><h4>Sube tu imagen</h4><p>Arrastra y suelta cualquier foto JPG, PNG o WebP, o haz clic para seleccionarla.</p></div>
-        <div class="how-to-step"><div class="step-number">2</div><h4>Ajusta la calidad</h4><p>Usa el deslizador para elegir la calidad. Menos calidad = archivo más pequeño.</p></div>
-        <div class="how-to-step"><div class="step-number">3</div><h4>Elige formato</h4><p>Selecciona si quieres JPG, PNG o WebP. WebP suele dar el mejor equilibrio.</p></div>
-        <div class="how-to-step"><div class="step-number">4</div><h4>Descarga</h4><p>Haz clic en descargar y tu imagen comprimida estará lista en segundos.</p></div>
-      </div>
-    </div>
-    <div class="faq-section">
-      <h2>Preguntas frecuentes</h2>
-      <div class="faq-item"><button class="faq-question">¿Comprimir una imagen reduce su calidad?</button><div class="faq-answer"><p>Sí, la compresión con pérdida (lossy) reduce la calidad, pero con los ajustes adecuados (80% calidad) la pérdida es apenas perceptible para el ojo humano.</p></div></div>
-      <div class="faq-item"><button class="faq-question">¿Qué formato da el archivo más pequeño?</button><div class="faq-answer"><p>Normalmente <strong>WebP</strong> da los archivos más pequeños con la misma calidad, entre un 25-35% más pequeño que JPG.</p></div></div>
-      <div class="faq-item"><button class="faq-question">¿Mis imágenes se suben a algún servidor?</button><div class="faq-answer"><p><strong>No, nunca.</strong> Todo el procesamiento ocurre en tu navegador usando JavaScript. Tus imágenes nunca salen de tu dispositivo.</p></div></div>
-      <div class="faq-item"><button class="faq-question">¿Cuál es el tamaño máximo de archivo?</button><div class="faq-answer"><p>El límite práctico es de unos <strong>50 MB</strong>, aunque depende de la memoria disponible en tu navegador.</p></div></div>
-    </div>
-    <div class="related-tools">
-      <h2>Herramientas relacionadas</h2>
-      <div class="related-tools-grid">
-        <a href="/tools/comprimir-imagenes-whatsapp.html" class="related-tool-card"><span class="tool-icon">📫</span><div class="tool-info"><strong>Comprimir para WhatsApp</strong><span class="tool-desc">Tamaño perfecto para compartir</span></div><span class="tool-arrow">→</span></a>
-        <a href="/tools/comprimir-pdf.html" class="related-tool-card"><span class="tool-icon">📫</span><div class="tool-info"><strong>Comprimir PDF</strong><span class="tool-desc">Reduce documentos PDF</span></div><span class="tool-arrow">→</span></a>
-        <a href="/tools/convertir-formato.html" class="related-tool-card"><span class="tool-icon">🔄</span><div class="tool-info"><strong>Convertir formato</strong><span class="tool-desc">JPG ↔ PNG ↔ WebP</span></div><span class="tool-arrow">→</span></a>
-        <a href="/tools/redimensionar-imagen.html" class="related-tool-card"><span class="tool-icon">📐</span><div class="tool-info"><strong>Redimensionar imagen</strong><span class="tool-desc">Cambia el tamaño</span></div><span class="tool-arrow">→</span></a>
-      </div>
-    </div>
-  </div>
-</main><footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="/" class="logo"><span class="logo-icon">📳</span><span class="logo-text">ComprimeFotos</span></a>
-        <p>Herramientas gratuitas para comprimir y editar imágenes online. Todo el procesamiento se realiza en tu navegador: tus archivos nunca salen de tu dispositivo.</p>
-          <a href="mailto:contact@comprimefotos.com" style="color: var(--accent); font-weight: 500; font-size: 0.95rem;">📧 contact@comprimefotos.com</a>
-      </div>
-      <div class="footer-links">
-        <h4>Herramientas</h4>
-        <a href="/tools/comprimir-imagenes.html">Comprimir imágenes</a>
-        <a href="/tools/comprimir-imagenes-whatsapp.html">Comprimir para WhatsApp</a>
-        <a href="/tools/comprimir-pdf.html">Comprimir PDF</a>
-        <a href="/tools/quitar-fondo.html">Quitar fondo</a>
-        <a href="/tools/pdf-a-imagen.html">PDF a imagen</a>
-        <a href="/tools/imagen-a-texto.html">Imagen a texto</a>
-      </div>
-      <div class="footer-links">
-        <h4>Más herramientas</h4>
-        <a href="/tools/redimensionar-imagen.html">Redimensionar</a>
-        <a href="/tools/convertir-formato.html">Convertir formato</a>
-        <a href="/tools/poner-marca-de-agua.html">Marca de agua</a>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Comprimir imágenes online gratis — Comprime JPG, PNG, WebP | ComprimeFotos</title>
+  <meta name="description" content="Comprime tus imágenes JPG, PNG y WebP online y gratis. Reduce el peso de tus fotos sin perder calidad. 100% en tu navegador, sin registro.">
+  <meta name="keywords" content="comprimir imágenes gratis, compresor de imágenes online, reducir peso foto JPG, optimizar imagen para web">
+  <link rel="canonical" href="https://comprimefotos.com/tools/comprimir-imagenes.html">
+  <meta name="theme-color" content="#1a6b52">
+  <meta property="og:title" content="Comprimir imágenes online gratis — Comprime JPG, PNG, WebP | ComprimeFotos">
+  <meta property="og:description" content="Comprime tus imágenes JPG, PNG y WebP online y gratis. Reduce el peso de tus fotos sin perder calidad. 100% en tu navegador, sin registro.">
+  <meta property="og:url" content="https://comprimefotos.com/tools/comprimir-imagenes.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ComprimeFotos">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#10b981">
+  <link rel="stylesheet" href="../css/style.css?v=2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+</head>
+<body><header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo"><span class="logo-icon">📳</span><span class="logo-text">ComprimeFotos</span></a>
+    <nav class="main-nav">
+      <a href="/">Inicio</a>
+      <a href="/tools/comprimir-imagenes.html" class="active">Comprimir</a>
+      <a href="/tools/comprimir-imagenes-whatsapp.html">WhatsApp</a>
+      <a href="/tools/quitar-fondo.html">Quitar fondo</a>
+      <a href="/blog/">Blog</a>
+      <a href="/about.html">Sobre</a>
+    </nav>
+    <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+  </div>
+</header><main class="tool-page">
+  <div class="container">
+    <nav class="breadcrumb"><a href="/">Inicio</a> — <span>Comprimir imágenes</span></nav>
+    <div class="tool-page-header">
+      <h1>📝 Comprimir <span style="color:var(--accent);">imágenes</span></h1>
+      <p>Reduce el peso de tus fotos JPG, PNG y WebP sin perder calidad visible. 100% gratis, sin registro, en tu navegador.</p>
+    </div>
+    <div class="tool-workspace" id="compressorWorkspace">
+      <label for="fileInput" class="dropzone" id="dropzone">
+        <span class="dropzone-icon">📥</span>
+        <h3>Arrastra tu imagen aquí</h3>
+        <p>o haz clic para seleccionar un archivo</p>
+        <p style="font-size:0.8rem;color:var(--text-muted);margin-top:8px;">JPG, PNG, WebP — Hasta 50 MB</p>
+        <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" style="display:none">
+      </label>
+      <div class="preview-area" id="previewArea">
+        <div class="before-after-preview">
+          <div class="before-after-images">
+            <div class="before-after-item">
+              <img id="originalPreview" class="preview-img" src="" alt="">
+              <div class="before-after-item-caption before">Antes</div>
+            </div>
+            <div class="before-after-item">
+              <img id="compressedPreview" class="preview-img" src="" alt="">
+              <div class="before-after-item-caption after">Después</div>
+            </div>
+          </div>
+        </div>
+        <div class="file-info">
+          <span><strong>Archivo:</strong> <span class="file-name">-</span></span>
+          <span><strong>Tamaño original:</strong> <span class="file-size">-</span></span>
+          <span><strong>Tamaño comprimido:</strong> <span id="compressedSize">-</span></span>
+          <span><strong>Ahorro:</strong> <span id="savingsPercentage">-</span></span>
+        </div>
+        <div class="tool-controls">
+          <div class="control-row">
+            <label for="qualitySlider">Calidad:</label>
+            <input type="range" id="qualitySlider" min="10" max="100" value="80">
+            <span id="qualityValue" style="font-weight:600;min-width:40px;">80%</span>
+          </div>
+          <div class="control-row">
+            <label for="outputFormat">Formato:</label>
+            <select id="outputFormat" style="max-width:120px;">
+              <option value="jpeg">JPG</option>
+              <option value="png">PNG</option>
+              <option value="webp">WebP</option>
+            </select>
+          </div>
+        </div>
+        <div class="tool-actions">
+          <button class="btn btn-primary" id="downloadBtn">📥 Descargar imagen</button>
+          <button class="btn btn-secondary" id="resetBtn">🔄 Nueva imagen</button>
+        </div>
+      </div>
+    </div>
+    <div class="how-to-section">
+      <h2>Cómo usar el compresor</h2>
+      <div class="how-to-steps">
+        <div class="how-to-step"><div class="step-number">1</div><h4>Sube tu imagen</h4><p>Arrastra y suelta cualquier foto JPG, PNG o WebP, o haz clic para seleccionarla.</p></div>
+        <div class="how-to-step"><div class="step-number">2</div><h4>Ajusta la calidad</h4><p>Usa el deslizador para elegir la calidad. Menos calidad = archivo más pequeño.</p></div>
+        <div class="how-to-step"><div class="step-number">3</div><h4>Elige formato</h4><p>Selecciona si quieres JPG, PNG o WebP. WebP suele dar el mejor equilibrio.</p></div>
+        <div class="how-to-step"><div class="step-number">4</div><h4>Descarga</h4><p>Haz clic en descargar y tu imagen comprimida estará lista en segundos.</p></div>
+      </div>
+    </div>
+    <div class="faq-section">
+      <h2>Preguntas frecuentes</h2>
+      <div class="faq-item"><button class="faq-question">¿Comprimir una imagen reduce su calidad?</button><div class="faq-answer"><p>Sí, la compresión con pérdida (lossy) reduce la calidad, pero con los ajustes adecuados (80% calidad) la pérdida es apenas perceptible para el ojo humano.</p></div></div>
+      <div class="faq-item"><button class="faq-question">¿Qué formato da el archivo más pequeño?</button><div class="faq-answer"><p>Normalmente <strong>WebP</strong> da los archivos más pequeños con la misma calidad, entre un 25-35% más pequeño que JPG.</p></div></div>
+      <div class="faq-item"><button class="faq-question">¿Mis imágenes se suben a algún servidor?</button><div class="faq-answer"><p><strong>No, nunca.</strong> Todo el procesamiento ocurre en tu navegador usando JavaScript. Tus imágenes nunca salen de tu dispositivo.</p></div></div>
+      <div class="faq-item"><button class="faq-question">¿Cuál es el tamaño máximo de archivo?</button><div class="faq-answer"><p>El límite práctico es de unos <strong>50 MB</strong>, aunque depende de la memoria disponible en tu navegador.</p></div></div>
+    </div>
+    <div class="related-tools">
+      <h2>Herramientas relacionadas</h2>
+      <div class="related-tools-grid">
+        <a href="/tools/comprimir-imagenes-whatsapp.html" class="related-tool-card"><span class="tool-icon">📫</span><div class="tool-info"><strong>Comprimir para WhatsApp</strong><span class="tool-desc">Tamaño perfecto para compartir</span></div><span class="tool-arrow">→</span></a>
+        <a href="/tools/comprimir-pdf.html" class="related-tool-card"><span class="tool-icon">📫</span><div class="tool-info"><strong>Comprimir PDF</strong><span class="tool-desc">Reduce documentos PDF</span></div><span class="tool-arrow">→</span></a>
+        <a href="/tools/convertir-formato.html" class="related-tool-card"><span class="tool-icon">🔄</span><div class="tool-info"><strong>Convertir formato</strong><span class="tool-desc">JPG ↔ PNG ↔ WebP</span></div><span class="tool-arrow">→</span></a>
+        <a href="/tools/redimensionar-imagen.html" class="related-tool-card"><span class="tool-icon">📐</span><div class="tool-info"><strong>Redimensionar imagen</strong><span class="tool-desc">Cambia el tamaño</span></div><span class="tool-arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</main><footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo"><span class="logo-icon">📳</span><span class="logo-text">ComprimeFotos</span></a>
+        <p>Herramientas gratuitas para comprimir y editar imágenes online. Todo el procesamiento se realiza en tu navegador: tus archivos nunca salen de tu dispositivo.</p>
+          <a href="mailto:contact@comprimefotos.com" style="color: var(--accent); font-weight: 500; font-size: 0.95rem;">📧 contact@comprimefotos.com</a>
+      </div>
+      <div class="footer-links">
+        <h4>Herramientas</h4>
+        <a href="/tools/comprimir-imagenes.html">Comprimir imágenes</a>
+        <a href="/tools/comprimir-imagenes-whatsapp.html">Comprimir para WhatsApp</a>
+        <a href="/tools/comprimir-pdf.html">Comprimir PDF</a>
+        <a href="/tools/quitar-fondo.html">Quitar fondo</a>
+        <a href="/tools/pdf-a-imagen.html">PDF a imagen</a>
+        <a href="/tools/imagen-a-texto.html">Imagen a texto</a>
+      </div>
+      <div class="footer-links">
+        <h4>Más herramientas</h4>
+        <a href="/tools/redimensionar-imagen.html">Redimensionar</a>
+        <a href="/tools/convertir-formato.html">Convertir formato</a>
+        <a href="/tools/poner-marca-de-agua.html">Marca de agua</a>
         <a href="/tools/hacer-collage.html">Hacer collage</a>
-        <a href="/tools/firma-electronica.html">Firma electrónica</a>
-        <a href="/tools/foto-a-blanco-y-negro.html">Blanco y negro</a>
-      </div>
-      <div class="footer-links">
-        <h4>Legal</h4>
-        <a href="/about.html">Sobre nosotros</a>
-        <a href="/contacto">Contacto</a>
-        <a href="/privacy.html">Política de privacidad</a>
-        <a href="/terms.html">Términos de uso</a>
-        <a href="/cookie-policy.html">Política de cookies</a>
-        <a href="/blog/">Blog</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 ComprimeFotos.com — Todos los derechos reservados.</p>
-      <p style="margin-top: 4px; font-size: 0.8rem;">Hecho con ❤️ para la comunidad hispanohablante. | <a href="https://smartimgkit.com/" style="color: var(--accent); font-weight: 500;">English: SmartImgKit — Free Image Tools</a></p>
-    </div>
-  </div>
-</footer><div class="cookie-consent" id="cookieConsent">
-  <div class="cookie-consent-inner">
-    <div class="cookie-consent-text">
-      <p>🍻 Usamos cookies esenciales para el funcionamiento de la web. <a href="/cookie-policy.html">Más información</a>.</p>
-    </div>
-    <div class="cookie-consent-actions">
-      <button class="cookie-btn cookie-btn-decline" id="cookieDecline">Solo esenciales</button>
-      <button class="cookie-btn cookie-btn-accept" id="cookieAccept">Aceptar todas</button>
-    </div>
-  </div>
-</div><div class="toast" id="toast"></div>
-<script src="../js/main.js?v=2"></script>
-<script>
-(function() {
-  'use strict';
-
-  var workspace = document.getElementById('compressorWorkspace');
-  if (!workspace) return;
-
-  var fileInput = document.getElementById('fileInput');
-  var dropzone = document.getElementById('dropzone');
-  var previewArea = document.getElementById('previewArea');
-  var originalPreview = document.getElementById('originalPreview');
-  var compressedPreview = document.getElementById('compressedPreview');
-  var compressedSize = document.getElementById('compressedSize');
-  var savingsPercentage = document.getElementById('savingsPercentage');
-  var qualitySlider = document.getElementById('qualitySlider');
-  var qualityValue = document.getElementById('qualityValue');
-  var outputFormat = document.getElementById('outputFormat');
-  var downloadBtn = document.getElementById('downloadBtn');
-  var resetBtn = document.getElementById('resetBtn');
-
-  var currentFile = null;
-  var resultBlob = null;
-  var originalImgDataUrl = '';
-
-  // Quality slider display
-  if (qualitySlider && qualityValue) {
-    qualitySlider.addEventListener('input', function() {
-      qualityValue.textContent = this.value + '%';
-    });
-  }
-
-  // Listen for file-selected custom event from main.js
-  if (workspace) {
-    workspace.addEventListener('file-selected', function(e) {
-      var file = e.detail.file;
-      if (!file || !file.type.match(/^image\/(jpeg|png|webp)$/)) return;
-      currentFile = file;
-      // Store the data URL for compression (main.js already sets originalPreview.src)
-      originalImgDataUrl = originalPreview ? originalPreview.src : '';
-      // Reset compression results
-      if (compressedPreview) compressedPreview.src = '';
-      if (compressedSize) compressedSize.textContent = '-';
-      if (savingsPercentage) savingsPercentage.textContent = '-';
-      resultBlob = null;
-      if (downloadBtn) {
-        downloadBtn.disabled = true;
-        downloadBtn.style.opacity = '0.5';
-      }
-    });
-  }
-
-  // === Compression ===
-  function compressImage() {
-    if (!currentFile || !originalImgDataUrl) {
-      // Wait for file to load, retry
-      if (originalPreview && originalPreview.src && originalPreview.src !== '') {
-        originalImgDataUrl = originalPreview.src;
-      } else {
-        return;
-      }
-    }
-
-    var quality = qualitySlider ? parseInt(qualitySlider.value) / 100 : 0.8;
-    var format = outputFormat ? outputFormat.value : 'jpeg';
-    var mimeType = format === 'png' ? 'image/png' : format === 'webp' ? 'image/webp' : 'image/jpeg';
-
-    // Use originalPreview.src since main.js already loaded it
-    var src = originalPreview && originalPreview.src ? originalPreview.src : originalImgDataUrl;
-    if (!src) return;
-
-    var img = new Image();
-    img.onload = function() {
-      var canvas = document.createElement('canvas');
-      canvas.width = img.naturalWidth;
-      canvas.height = img.naturalHeight;
-      var ctx = canvas.getContext('2d');
-      ctx.drawImage(img, 0, 0);
-
-      canvas.toBlob(function(blob) {
-        if (!blob) return;
-        resultBlob = blob;
-        var url = URL.createObjectURL(blob);
-        if (compressedPreview) {
-          // Revoke old URL
-          if (compressedPreview.src && compressedPreview.src.startsWith('blob:')) {
-            URL.revokeObjectURL(compressedPreview.src);
-          }
-          compressedPreview.src = url;
-        }
-        if (compressedSize) {
-          compressedSize.textContent = formatBytes(blob.size);
-        }
-        if (savingsPercentage && currentFile) {
-          var saved = Math.round((1 - blob.size / currentFile.size) * 100);
-          savingsPercentage.textContent = saved + '%';
-          savingsPercentage.style.color = saved > 0 ? 'var(--success)' : 'var(--secondary)';
-        }
-        if (downloadBtn) {
-          downloadBtn.disabled = false;
-          downloadBtn.style.opacity = '1';
-        }
-        showToast('¡Imagen comprimida!', 'success');
-      }, mimeType, quality);
-    };
-    img.onerror = function() {
-      showToast('Error al comprimir la imagen', '');
-    };
-    img.src = src;
-  }
-
-  // Auto-compress on quality/format change (with debounce)
-  var compressTimer = null;
-  function scheduleCompress() {
-    if (compressTimer) clearTimeout(compressTimer);
-    compressTimer = setTimeout(function() {
-      compressImage();
-    }, 400);
-  }
-
-  if (qualitySlider) qualitySlider.addEventListener('input', scheduleCompress);
-  if (outputFormat) outputFormat.addEventListener('change', scheduleCompress);
-
-  // Also compress immediately when file loaded (after a short delay for main.js to set src)
-  if (workspace) {
-    workspace.addEventListener('file-selected', function() {
-      // Delay to ensure main.js has set originalPreview.src
-      setTimeout(compressImage, 300);
-    });
-  }
-
-  // Download
-  if (downloadBtn) {
-    downloadBtn.disabled = true;
-    downloadBtn.style.opacity = '0.5';
-    downloadBtn.addEventListener('click', function() {
-      if (!resultBlob || !currentFile) return;
-      var ext = outputFormat ? outputFormat.value : 'jpeg';
-      var base = currentFile.name.replace(/\.[^.]+$/, '');
-      var url = URL.createObjectURL(resultBlob);
-      var a = document.createElement('a');
-      a.href = url;
-      a.download = base + '-comprimido.' + ext;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      setTimeout(function() { URL.revokeObjectURL(url); }, 1000);
-    });
-  }
-
-  // Reset
-  if (resetBtn) {
-    resetBtn.addEventListener('click', function() {
-      currentFile = null;
-      resultBlob = null;
-      originalImgDataUrl = '';
-      if (originalPreview) originalPreview.src = '';
-      if (compressedPreview) {
-        if (compressedPreview.src && compressedPreview.src.startsWith('blob:')) {
-          URL.revokeObjectURL(compressedPreview.src);
-        }
-        compressedPreview.src = '';
-      }
-      if (compressedSize) compressedSize.textContent = '-';
-      if (savingsPercentage) {
-        savingsPercentage.textContent = '-';
-        savingsPercentage.style.color = '';
-      }
-      if (previewArea) previewArea.classList.remove('active');
-      if (dropzone) dropzone.style.display = '';
-      if (fileInput) fileInput.value = '';
-      if (downloadBtn) {
-        downloadBtn.disabled = true;
-        downloadBtn.style.opacity = '0.5';
-      }
-      // Reset file-info too
-      var fileName = workspace.querySelector('.file-name');
-      var fileSize = workspace.querySelector('.file-size');
-      if (fileName) fileName.textContent = '-';
-      if (fileSize) fileSize.textContent = '-';
-    });
-  }
-
-  function formatBytes(bytes) {
-    if (bytes === 0) return '0 Bytes';
-    var k = 1024;
-    var sizes = ['Bytes', 'KB', 'MB', 'GB'];
-    var i = Math.floor(Math.log(bytes) / Math.log(k));
-    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
-  }
-})();
-</script>
-</body>
+        <a href="/tools/foto-carnet.html">Foto carnet</a>
+        <a href="/tools/anadir-texto-foto.html">Texto en foto</a>
+        <a href="/tools/fondo-blanco-producto.html">Fondo blanco producto</a>
+        <a href="/tools/filtros-para-fotos.html">Filtros para fotos</a>
+        <a href="/tools/restaurar-fotos-antiguas.html">Restaurar fotos</a>
+      
+      </div>
+      <div class="footer-links">
+        <h4>Legal</h4>
+        <a href="/about.html">Sobre nosotros</a>
+        <a href="/contacto">Contacto</a>
+        <a href="/privacy.html">Política de privacidad</a>
+        <a href="/terms.html">Términos de uso</a>
+        <a href="/cookie-policy.html">Política de cookies</a>
+        <a href="/blog/">Blog</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 ComprimeFotos.com — Todos los derechos reservados.</p>
+      <p style="margin-top: 4px; font-size: 0.8rem;">Hecho con ❤️ para la comunidad hispanohablante. | <a href="https://smartimgkit.com/" style="color: var(--accent); font-weight: 500;">English: SmartImgKit — Free Image Tools</a></p>
+    </div>
+  </div>
+</footer><div class="cookie-consent" id="cookieConsent">
+  <div class="cookie-consent-inner">
+    <div class="cookie-consent-text">
+      <p>🍻 Usamos cookies esenciales para el funcionamiento de la web. <a href="/cookie-policy.html">Más información</a>.</p>
+    </div>
+    <div class="cookie-consent-actions">
+      <button class="cookie-btn cookie-btn-decline" id="cookieDecline">Solo esenciales</button>
+      <button class="cookie-btn cookie-btn-accept" id="cookieAccept">Aceptar todas</button>
+    </div>
+  </div>
+</div><div class="toast" id="toast"></div>
+<script src="../js/main.js?v=2"></script>
+<script>
+(function() {
+  'use strict';
+
+  var workspace = document.getElementById('compressorWorkspace');
+  if (!workspace) return;
+
+  var fileInput = document.getElementById('fileInput');
+  var dropzone = document.getElementById('dropzone');
+  var previewArea = document.getElementById('previewArea');
+  var originalPreview = document.getElementById('originalPreview');
+  var compressedPreview = document.getElementById('compressedPreview');
+  var compressedSize = document.getElementById('compressedSize');
+  var savingsPercentage = document.getElementById('savingsPercentage');
+  var qualitySlider = document.getElementById('qualitySlider');
+  var qualityValue = document.getElementById('qualityValue');
+  var outputFormat = document.getElementById('outputFormat');
+  var downloadBtn = document.getElementById('downloadBtn');
+  var resetBtn = document.getElementById('resetBtn');
+
+  var currentFile = null;
+  var resultBlob = null;
+  var originalImgDataUrl = '';
+
+  // Quality slider display
+  if (qualitySlider && qualityValue) {
+    qualitySlider.addEventListener('input', function() {
+      qualityValue.textContent = this.value + '%';
+    });
+  }
+
+  // Listen for file-selected custom event from main.js
+  if (workspace) {
+    workspace.addEventListener('file-selected', function(e) {
+      var file = e.detail.file;
+      if (!file || !file.type.match(/^image\/(jpeg|png|webp)$/)) return;
+      currentFile = file;
+      // Store the data URL for compression (main.js already sets originalPreview.src)
+      originalImgDataUrl = originalPreview ? originalPreview.src : '';
+      // Reset compression results
+      if (compressedPreview) compressedPreview.src = '';
+      if (compressedSize) compressedSize.textContent = '-';
+      if (savingsPercentage) savingsPercentage.textContent = '-';
+      resultBlob = null;
+      if (downloadBtn) {
+        downloadBtn.disabled = true;
+        downloadBtn.style.opacity = '0.5';
+      }
+    });
+  }
+
+  // === Compression ===
+  function compressImage() {
+    if (!currentFile || !originalImgDataUrl) {
+      // Wait for file to load, retry
+      if (originalPreview && originalPreview.src && originalPreview.src !== '') {
+        originalImgDataUrl = originalPreview.src;
+      } else {
+        return;
+      }
+    }
+
+    var quality = qualitySlider ? parseInt(qualitySlider.value) / 100 : 0.8;
+    var format = outputFormat ? outputFormat.value : 'jpeg';
+    var mimeType = format === 'png' ? 'image/png' : format === 'webp' ? 'image/webp' : 'image/jpeg';
+
+    // Use originalPreview.src since main.js already loaded it
+    var src = originalPreview && originalPreview.src ? originalPreview.src : originalImgDataUrl;
+    if (!src) return;
+
+    var img = new Image();
+    img.onload = function() {
+      var canvas = document.createElement('canvas');
+      canvas.width = img.naturalWidth;
+      canvas.height = img.naturalHeight;
+      var ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0);
+
+      canvas.toBlob(function(blob) {
+        if (!blob) return;
+        resultBlob = blob;
+        var url = URL.createObjectURL(blob);
+        if (compressedPreview) {
+          // Revoke old URL
+          if (compressedPreview.src && compressedPreview.src.startsWith('blob:')) {
+            URL.revokeObjectURL(compressedPreview.src);
+          }
+          compressedPreview.src = url;
+        }
+        if (compressedSize) {
+          compressedSize.textContent = formatBytes(blob.size);
+        }
+        if (savingsPercentage && currentFile) {
+          var saved = Math.round((1 - blob.size / currentFile.size) * 100);
+          savingsPercentage.textContent = saved + '%';
+          savingsPercentage.style.color = saved > 0 ? 'var(--success)' : 'var(--secondary)';
+        }
+        if (downloadBtn) {
+          downloadBtn.disabled = false;
+          downloadBtn.style.opacity = '1';
+        }
+        showToast('¡Imagen comprimida!', 'success');
+      }, mimeType, quality);
+    };
+    img.onerror = function() {
+      showToast('Error al comprimir la imagen', '');
+    };
+    img.src = src;
+  }
+
+  // Auto-compress on quality/format change (with debounce)
+  var compressTimer = null;
+  function scheduleCompress() {
+    if (compressTimer) clearTimeout(compressTimer);
+    compressTimer = setTimeout(function() {
+      compressImage();
+    }, 400);
+  }
+
+  if (qualitySlider) qualitySlider.addEventListener('input', scheduleCompress);
+  if (outputFormat) outputFormat.addEventListener('change', scheduleCompress);
+
+  // Also compress immediately when file loaded (after a short delay for main.js to set src)
+  if (workspace) {
+    workspace.addEventListener('file-selected', function() {
+      // Delay to ensure main.js has set originalPreview.src
+      setTimeout(compressImage, 300);
+    });
+  }
+
+  // Download
+  if (downloadBtn) {
+    downloadBtn.disabled = true;
+    downloadBtn.style.opacity = '0.5';
+    downloadBtn.addEventListener('click', function() {
+      if (!resultBlob || !currentFile) return;
+      var ext = outputFormat ? outputFormat.value : 'jpeg';
+      var base = currentFile.name.replace(/\.[^.]+$/, '');
+      var url = URL.createObjectURL(resultBlob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = base + '-comprimido.' + ext;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(function() { URL.revokeObjectURL(url); }, 1000);
+    });
+  }
+
+  // Reset
+  if (resetBtn) {
+    resetBtn.addEventListener('click', function() {
+      currentFile = null;
+      resultBlob = null;
+      originalImgDataUrl = '';
+      if (originalPreview) originalPreview.src = '';
+      if (compressedPreview) {
+        if (compressedPreview.src && compressedPreview.src.startsWith('blob:')) {
+          URL.revokeObjectURL(compressedPreview.src);
+        }
+        compressedPreview.src = '';
+      }
+      if (compressedSize) compressedSize.textContent = '-';
+      if (savingsPercentage) {
+        savingsPercentage.textContent = '-';
+        savingsPercentage.style.color = '';
+      }
+      if (previewArea) previewArea.classList.remove('active');
+      if (dropzone) dropzone.style.display = '';
+      if (fileInput) fileInput.value = '';
+      if (downloadBtn) {
+        downloadBtn.disabled = true;
+        downloadBtn.style.opacity = '0.5';
+      }
+      // Reset file-info too
+      var fileName = workspace.querySelector('.file-name');
+      var fileSize = workspace.querySelector('.file-size');
+      if (fileName) fileName.textContent = '-';
+      if (fileSize) fileSize.textContent = '-';
+    });
+  }
+
+  function formatBytes(bytes) {
+    if (bytes === 0) return '0 Bytes';
+    var k = 1024;
+    var sizes = ['Bytes', 'KB', 'MB', 'GB'];
+    var i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+  }
+})();
+</script>
+</body>
 </html>

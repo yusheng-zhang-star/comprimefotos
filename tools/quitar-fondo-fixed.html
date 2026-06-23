@@ -1,348 +1,348 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="index, follow">
-  <title>Quitar fondo de fotos online gratis → Eliminar fondo con IA | ComprimeFotos</title>
-  <meta name="description" content="Quita el fondo de tus fotos online gratis. Elimina el fondo automáticamente con IA. Sin registro, sin marcas de agua, 100% en tu navegador.">
-  <meta name="keywords" content="quitar fondo de imagen gratis, eliminar fondo de foto online, sacar fondo a una imagen, removedor de fondo IA">
-  <link rel="canonical" href="https://comprimefotos.com/tools/quitar-fondo.html">
-  <meta name="theme-color" content="#ff6b4a">
-  <meta property="og:title" content="Quitar fondo de fotos online gratis → Eliminar fondo con IA">
-  <meta property="og:description" content="Quita el fondo de tus fotos gratis. Sin registro, 100% en tu navegador.">
-  <meta property="og:url" content="https://comprimefotos.com/tools/quitar-fondo.html">
-  <meta property="og:type" content="website">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#10b981">
-  <link rel="stylesheet" href="../css/style.css?v=2">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {"@type":"ListItem","position":1,"name":"Inicio","item":"https://comprimefotos.com/"},
-      {"@type":"ListItem","position":2,"name":"Quitar fondo"}
-    ]
-  }
-  </script>
-</head>
-<body>
-<header class="site-header">
-  <div class="container header-inner">
-    <a href="/" class="logo"><span class="logo-icon">📷</span><span class="logo-text">ComprimeFotos</span></a>
-    <nav class="main-nav">
-      <a href="/">Inicio</a>
-      <a href="/tools/comprimir-imagenes.html">Comprimir</a>
-      <a href="/tools/comprimir-imagenes-whatsapp.html">WhatsApp</a>
-      <a href="/tools/quitar-fondo.html" class="active">Quitar Fondo</a>
-      <a href="/blog/">Blog</a>
-      <a href="/about.html">Sobre Nosotros</a>
-    </nav>
-    <div class="header-actions">
-      <button class="mobile-menu-btn"  aria-label="Cambiar tema">☰</button>
-      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menú">☰</button>
-    </div>
-  </div>
-</header>
-
-<main class="tool-page">
-  <div class="container">
-    <nav class="breadcrumb">
-      <a href="/">Inicio</a> → <span>Quitar fondo</span>
-    </nav>
-
-    <div class="tool-page-header">
-      <h1>🎨 Quitar fondo de <span class="gradient-text">fotos</span></h1>
-      <p>Elimina el fondo de tus imágenes automáticamente. Gratis, sin registro, sin marcas de agua. Todo en tu navegador.</p>
-    </div>
-
-    <div class="tool-workspace" id="bgRemoverWorkspace">
-      <label for="fileInput" class="dropzone" id="dropzone">
-        <span class="dropzone-icon">📷</span>
-        <h3>Arrastra tu imagen aquí</h3>
-        <p>o haz clic para seleccionar</p>
-        <p style="font-size:0.8rem;color:var(--text-muted);margin-top:8px;">JPG, PNG, WebP → Sin límite de tamaño</p>
-        <input type="file" id="fileInput" accept="image/*" style="display:none">
-      </label>
-
-      <div class="preview-area" id="previewArea">
-        <div class="before-after-preview">
-          <div class="before-after-images">
-            <div class="before-after-item">
-              <img id="originalPreview" src="" alt="Original">
-              <div class="before-after-item-caption before">Original</div>
-            </div>
-            <div class="before-after-item">
-              <img id="resultPreview" src="" alt="Sin fondo">
-              <div class="before-after-item-caption after">Sin fondo</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="file-info">
-          <span><strong>Archivo:</strong> <span class="file-name">-</span></span>
-          <span><strong>Tamaño:</strong> <span class="file-size">-</span></span>
-        </div>
-
-        <div class="tool-controls">
-          <div class="control-row">
-            <label>Color de fondo:</label>
-            <select id="bgColorSelect" style="max-width:160px;">
-              <option value="transparent">Transparente</option>
-              <option value="white">Blanco</option>
-              <option value="black">Negro</option>
-              <option value="#ff6b4a">Naranja (marca)</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="tool-actions">
-          <button class="btn btn-primary" id="downloadBtn">📥 Descargar PNG</button>
-          <button class="btn btn-secondary" id="resetBtn">🔄 Nueva imagen</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="how-to-section">
-      <h2>Cómo quitar el fondo</h2>
-      <div class="how-to-steps">
-        <div class="how-to-step"><div class="step-number">1</div><h4>Sube tu foto</h4><p>Arrastra cualquier imagen con un fondo que quieras eliminar.</p></div>
-        <div class="how-to-step"><div class="step-number">2</div><h4>Quita el fondo</h4><p>Nuestra herramienta procesa la imagen y elimina el fondo automáticamente usando detección de bordes.</p></div>
-        <div class="how-to-step"><div class="step-number">3</div><h4>Elige el color</h4><p>Puedes dejar el fondo transparente o elegir un color de reemplazo.</p></div>
-        <div class="how-to-step"><div class="step-number">4</div><h4>Descarga</h4><p>Descarga tu imagen sin fondo en formato PNG con transparencia.</p></div>
-      </div>
-    </div>
-
-    <div class="guide-section">
-      <h2>¿Cómo funciona?</h2>
-      <div class="guide-block">
-        <p>Esta herramienta utiliza un algoritmo de detección de bordes basado en diferencias de color y contraste para identificar el sujeto principal de la imagen y separarlo del fondo. Es completamente automático y no requiere ningún tipo de entrenamiento o IA externa.</p>
-        <div class="tip"><strong>💡 Consejo:</strong> Para mejores resultados, usa imágenes donde el sujeto tenga buen contraste con el fondo. Fotos con fondos uniformes (paredes blancas, cielo azul) funcionan especialmente bien.</div>
-      </div>
-    </div>
-
-    <div class="faq-section">
-      <h2>Preguntas frecuentes</h2>
-      <div class="faq-item">
-        <button class="faq-question">¿Es realmente gratis? ¿Sin límites?</button>
-        <div class="faq-answer"><p>Sí, completamente gratis y sin límites. A diferencia de otras herramientas como Remove.bg, no cobramos por imagen ni tenemos límites diarios. Puedes usar la herramienta todas las veces que quieras.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">¿Mis imágenes se suben a algún servidor?</button>
-        <div class="faq-answer"><p>No, nunca. Todo el procesamiento ocurre en tu navegador con JavaScript. Tus imágenes nunca salen de tu dispositivo. 100% privado.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">¿Por qué el resultado tiene bordes imperfectos?</button>
-        <div class="faq-answer"><p>El algoritmo de detección de bordes funciona mejor con imágenes de alto contraste. Si el fondo y el sujeto tienen colores similares, los bordes pueden no ser perfectos. Para resultados profesionales, recomendamos imágenes con fondos uniformes y buen contraste.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">¿En qué formato se descarga?</button>
-        <div class="faq-answer"><p>La imagen se descarga en formato <strong>PNG</strong> con transparencia (canal alfa), que es el formato estándar para imágenes sin fondo. Si seleccionas un color de fondo sólido, también puedes descargar en JPG.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">¿Necesito registrarme?</button>
-        <div class="faq-answer"><p>No, para nada. No pedimos registro, email ni ningún dato personal. Solo subes tu imagen, la procesas y descargas el resultado.</p></div>
-      </div>
-    </div>
-
-    <div class="related-tools">
-      <h2>Herramientas relacionadas</h2>
-      <div class="related-tools-grid">
-        <a href="/tools/comprimir-imagenes.html" class="related-tool-card"><span class="tool-icon">🗜️</span><div class="tool-info"><strong>Comprimir imágenes</strong><span class="tool-desc">Reduce el peso de tus fotos</span></div><span class="tool-arrow">→</span></a>
-        <a href="/tools/imagen-a-texto.html" class="related-tool-card"><span class="tool-icon">📤</span><div class="tool-info"><strong>Imagen a texto (OCR)</strong><span class="tool-desc">Extrae texto de imágenes</span></div><span class="tool-arrow">→</span></a>
-        <a href="/tools/pdf-a-imagen.html" class="related-tool-card"><span class="tool-icon">📁</span><div class="tool-info"><strong>PDF a imagen</strong><span class="tool-desc">Convierte PDF a JPG/PNG</span></div><span class="tool-arrow">→</span></a>
-        <a href="/tools/hacer-collage.html" class="related-tool-card"><span class="tool-icon">📷</span><div class="tool-info"><strong>Hacer collage</strong><span class="tool-desc">Combina fotos en collage</span></div><span class="tool-arrow">→</span></a>
-      </div>
-    </div>
-  </div>
-</main>
-
-<footer class="site-footer"><div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand"><a href="/" class="logo"><span class="logo-icon">📷</span><span class="logo-text">ComprimeFotos</span></a><p>Herramientas gratuitas para comprimir y editar imágenes online.</p>
-          <a href="mailto:contact@comprimefotos.com" style="color: var(--accent); font-weight: 500; font-size: 0.95rem;">📧 contact@comprimefotos.com</a></div>
-      <div class="footer-links"><h4>Herramientas</h4><a href="/tools/comprimir-imagenes.html">Comprimir imágenes</a><a href="/tools/comprimir-imagenes-whatsapp.html">Comprimir para WhatsApp</a><a href="/tools/comprimir-pdf.html">Comprimir PDF</a><a href="/tools/quitar-fondo.html">Quitar fondo</a></div>
-      <div class="footer-links"><h4>Más herramientas</h4><a href="/tools/redimensionar-imagen.html">Redimensionar</a><a href="/tools/convertir-formato.html">Convertir formato</a><a href="/tools/poner-marca-de-agua.html">Marca de agua</a><a href="/tools/hacer-collage.html">Hacer collage</a></div>
-      <div class="footer-links"><h4>Legal</h4><a href="/about.html">Sobre nosotros</a><a href="/contacto">Contacto</a><a href="/privacy.html">Privacidad</a><a href="/terms.html">Términos</a><a href="/cookie-policy.html">Cookies</a><a href="/blog/">Blog</a></div>
-    </div>
-    <div class="footer-bottom"><p>&copy; 2026 ComprimeFotos.com | <a href="https://smartimgkit.com/" style="color: var(--accent); font-weight: 500;">English: SmartImgKit — Free Image Tools</a></p></div>
-  </div></footer>
-
-<div class="cookie-consent" id="cookieConsent">
-  <div class="cookie-consent-inner">
-    <div class="cookie-consent-text"><p>🍪 Usamos cookies esenciales. <a href="/cookie-policy.html">Más información</a>.</p></div>
-    <div class="cookie-consent-actions">
-      <button class="cookie-btn cookie-btn-decline" id="cookieDecline">Solo esenciales</button>
-      <button class="cookie-btn cookie-btn-accept" id="cookieAccept">Aceptar todas</button>
-    </div>
-  </div></div>
-<div class="toast" id="toast"></div>
-
-<script src="../js/main.js?v=2"></script>
-<script>
-(function() {
-  'use strict';
-
-  const workspace = document.getElementById('bgRemoverWorkspace');
-  const dropzone = document.getElementById('dropzone');
-  const fileInput = document.getElementById('fileInput');
-  const previewArea = document.getElementById('previewArea');
-  const originalPreview = document.getElementById('originalPreview');
-  const resultPreview = document.getElementById('resultPreview');
-  const bgColorSelect = document.getElementById('bgColorSelect');
-  const downloadBtn = document.getElementById('downloadBtn');
-  const resetBtn = document.getElementById('resetBtn');
-
-  let currentFile = null;
-  let resultBlobUrl = null;
-
-  workspace.addEventListener('file-selected', function(e) {
-    currentFile = e.detail.file;
-    processImage();
-  });
-
-  bgColorSelect.addEventListener('change', function() {
-    if (currentFile) processImage();
-  });
-
-  downloadBtn.addEventListener('click', function() {
-    if (!resultBlobUrl) return;
-    const a = document.createElement('a');
-    a.href = resultBlobUrl;
-    const bg = bgColorSelect.value;
-    a.download = (currentFile ? currentFile.name.replace(/\.[^.]+$/, '') : 'imagen') + '-sin-fondo' + (bg === 'transparent' ? '.png' : '.jpg');
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    showToast('✅Imagen descargada correctamente', 'success');
-  });
-
-  resetBtn.addEventListener('click', function() { resetTool(); });
-
-  function processImage() {
-    if (!currentFile) return;
-    const reader = new FileReader();
-    reader.onload = function(e) {
-      const img = new Image();
-      img.onload = function() {
-        originalPreview.src = e.target.result;
-        const canvas = document.createElement('canvas');
-        canvas.width = img.width;
-        canvas.height = img.height;
-        const ctx = canvas.getContext('2d');
-
-        // Algoritmo simple de detección de fondo por diferencia de color
-        // Dibujar imagen original
-        ctx.drawImage(img, 0, 0);
-        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-        const data = imageData.data;
-
-        // Analizar bordes para detectar color de fondo probable
-        const edgePixels = [];
-        const w = canvas.width, h = canvas.height;
-
-        // Muestrear píxeles de las esquinas y bordes
-        for (let y = 0; y < h; y += 3) {
-          for (let x = 0; x < w; x += 3) {
-            const isEdge = x < 5 || y < 5 || x > w - 6 || y > h - 6;
-            if (isEdge) {
-              const idx = (y * w + x) * 4;
-              edgePixels.push([data[idx], data[idx+1], data[idx+2]]);
-            }
-          }
-        }
-
-        // Calcular color promedio del borde (fondo)
-        let sumR = 0, sumG = 0, sumB = 0;
-        for (const p of edgePixels) { sumR += p[0]; sumG += p[1]; sumB += p[2]; }
-        const bgR = sumR / edgePixels.length;
-        const bgG = sumG / edgePixels.length;
-        const bgB = sumB / edgePixels.length;
-
-        const threshold = 45; // sensibilidad de detección
-
-        // Aplicar transparencia a píxeles similares al fondo
-        for (let i = 0; i < data.length; i += 4) {
-          const dr = Math.abs(data[i] - bgR);
-          const dg = Math.abs(data[i+1] - bgG);
-          const db = Math.abs(data[i+2] - bgB);
-          const dist = Math.sqrt(dr*dr + dg*dg + db*db);
-
-          if (dist < threshold) {
-            // Transición suave en los bordes
-            const alpha = Math.max(0, Math.min(255, ((dist / threshold) * 255)));
-            data[i+3] = alpha;
-          }
-        }
-
-        ctx.putImageData(imageData, 0, 0);
-
-        // Aplicar color de fondo seleccionado
-        const bgColor = bgColorSelect.value;
-        if (bgColor !== 'transparent') {
-          // Crear canvas final con color de fondo
-          const finalCanvas = document.createElement('canvas');
-          finalCanvas.width = canvas.width;
-          finalCanvas.height = canvas.height;
-          const fctx = finalCanvas.getContext('2d');
-          fctx.fillStyle = bgColor;
-          fctx.fillRect(0, 0, finalCanvas.width, finalCanvas.height);
-          fctx.drawImage(canvas, 0, 0);
-          canvas.width = finalCanvas.width;
-          canvas.height = finalCanvas.height;
-          ctx.drawImage(finalCanvas, 0, 0);
-        }
-
-        if (resultBlobUrl) URL.revokeObjectURL(resultBlobUrl);
-        const mimeType = bgColor === 'transparent' ? 'image/png' : 'image/jpeg';
-        canvas.toBlob(function(blob) {
-          resultBlobUrl = URL.createObjectURL(blob);
-          resultPreview.src = resultBlobUrl;
-          previewArea.classList.add('active');
-          dropzone.style.display = 'none';
-          document.querySelector('.file-name').textContent = currentFile.name;
-          document.querySelector('.file-size').textContent = formatFileSize(currentFile.size);
-        }, mimeType, 0.95);
-      };
-      img.src = e.target.result;
-    };
-    reader.readAsDataURL(currentFile);
-  }
-
-  function resetTool() {
-    currentFile = null;
-    if (resultBlobUrl) URL.revokeObjectURL(resultBlobUrl);
-    resultBlobUrl = null;
-    previewArea.classList.remove('active');
-    dropzone.style.display = 'block';
-    fileInput.value = '';
-    document.querySelector('.file-name').textContent = '-';
-    document.querySelector('.file-size').textContent = '-';
-  }
-
-  function formatFileSize(bytes) {
-    if (bytes === 0) return '0 Bytes';
-    const k = 1024;
-    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
-    const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
-  }
-
-  function showToast(msg, type) {
-    const toast = document.getElementById('toast');
-    if (!toast) return;
-    toast.textContent = msg;
-    toast.className = 'toast';
-    if (type) toast.classList.add(type);
-    toast.classList.add('visible');
-    setTimeout(function() { toast.classList.remove('visible'); }, 3000);
-  }
-})();
-</script>
-</body>
-</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Quitar fondo de fotos online gratis → Eliminar fondo con IA | ComprimeFotos</title>
+  <meta name="description" content="Quita el fondo de tus fotos online gratis. Elimina el fondo automáticamente con IA. Sin registro, sin marcas de agua, 100% en tu navegador.">
+  <meta name="keywords" content="quitar fondo de imagen gratis, eliminar fondo de foto online, sacar fondo a una imagen, removedor de fondo IA">
+  <link rel="canonical" href="https://comprimefotos.com/tools/quitar-fondo.html">
+  <meta name="theme-color" content="#ff6b4a">
+  <meta property="og:title" content="Quitar fondo de fotos online gratis → Eliminar fondo con IA">
+  <meta property="og:description" content="Quita el fondo de tus fotos gratis. Sin registro, 100% en tu navegador.">
+  <meta property="og:url" content="https://comprimefotos.com/tools/quitar-fondo.html">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#10b981">
+  <link rel="stylesheet" href="../css/style.css?v=2">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"Inicio","item":"https://comprimefotos.com/"},
+      {"@type":"ListItem","position":2,"name":"Quitar fondo"}
+    ]
+  }
+  </script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo"><span class="logo-icon">📷</span><span class="logo-text">ComprimeFotos</span></a>
+    <nav class="main-nav">
+      <a href="/">Inicio</a>
+      <a href="/tools/comprimir-imagenes.html">Comprimir</a>
+      <a href="/tools/comprimir-imagenes-whatsapp.html">WhatsApp</a>
+      <a href="/tools/quitar-fondo.html" class="active">Quitar Fondo</a>
+      <a href="/blog/">Blog</a>
+      <a href="/about.html">Sobre Nosotros</a>
+    </nav>
+    <div class="header-actions">
+      <button class="mobile-menu-btn"  aria-label="Cambiar tema">☰</button>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menú">☰</button>
+    </div>
+  </div>
+</header>
+
+<main class="tool-page">
+  <div class="container">
+    <nav class="breadcrumb">
+      <a href="/">Inicio</a> → <span>Quitar fondo</span>
+    </nav>
+
+    <div class="tool-page-header">
+      <h1>🎨 Quitar fondo de <span class="gradient-text">fotos</span></h1>
+      <p>Elimina el fondo de tus imágenes automáticamente. Gratis, sin registro, sin marcas de agua. Todo en tu navegador.</p>
+    </div>
+
+    <div class="tool-workspace" id="bgRemoverWorkspace">
+      <label for="fileInput" class="dropzone" id="dropzone">
+        <span class="dropzone-icon">📷</span>
+        <h3>Arrastra tu imagen aquí</h3>
+        <p>o haz clic para seleccionar</p>
+        <p style="font-size:0.8rem;color:var(--text-muted);margin-top:8px;">JPG, PNG, WebP → Sin límite de tamaño</p>
+        <input type="file" id="fileInput" accept="image/*" style="display:none">
+      </label>
+
+      <div class="preview-area" id="previewArea">
+        <div class="before-after-preview">
+          <div class="before-after-images">
+            <div class="before-after-item">
+              <img id="originalPreview" src="" alt="Original">
+              <div class="before-after-item-caption before">Original</div>
+            </div>
+            <div class="before-after-item">
+              <img id="resultPreview" src="" alt="Sin fondo">
+              <div class="before-after-item-caption after">Sin fondo</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="file-info">
+          <span><strong>Archivo:</strong> <span class="file-name">-</span></span>
+          <span><strong>Tamaño:</strong> <span class="file-size">-</span></span>
+        </div>
+
+        <div class="tool-controls">
+          <div class="control-row">
+            <label>Color de fondo:</label>
+            <select id="bgColorSelect" style="max-width:160px;">
+              <option value="transparent">Transparente</option>
+              <option value="white">Blanco</option>
+              <option value="black">Negro</option>
+              <option value="#ff6b4a">Naranja (marca)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="tool-actions">
+          <button class="btn btn-primary" id="downloadBtn">📥 Descargar PNG</button>
+          <button class="btn btn-secondary" id="resetBtn">🔄 Nueva imagen</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="how-to-section">
+      <h2>Cómo quitar el fondo</h2>
+      <div class="how-to-steps">
+        <div class="how-to-step"><div class="step-number">1</div><h4>Sube tu foto</h4><p>Arrastra cualquier imagen con un fondo que quieras eliminar.</p></div>
+        <div class="how-to-step"><div class="step-number">2</div><h4>Quita el fondo</h4><p>Nuestra herramienta procesa la imagen y elimina el fondo automáticamente usando detección de bordes.</p></div>
+        <div class="how-to-step"><div class="step-number">3</div><h4>Elige el color</h4><p>Puedes dejar el fondo transparente o elegir un color de reemplazo.</p></div>
+        <div class="how-to-step"><div class="step-number">4</div><h4>Descarga</h4><p>Descarga tu imagen sin fondo en formato PNG con transparencia.</p></div>
+      </div>
+    </div>
+
+    <div class="guide-section">
+      <h2>¿Cómo funciona?</h2>
+      <div class="guide-block">
+        <p>Esta herramienta utiliza un algoritmo de detección de bordes basado en diferencias de color y contraste para identificar el sujeto principal de la imagen y separarlo del fondo. Es completamente automático y no requiere ningún tipo de entrenamiento o IA externa.</p>
+        <div class="tip"><strong>💡 Consejo:</strong> Para mejores resultados, usa imágenes donde el sujeto tenga buen contraste con el fondo. Fotos con fondos uniformes (paredes blancas, cielo azul) funcionan especialmente bien.</div>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <h2>Preguntas frecuentes</h2>
+      <div class="faq-item">
+        <button class="faq-question">¿Es realmente gratis? ¿Sin límites?</button>
+        <div class="faq-answer"><p>Sí, completamente gratis y sin límites. A diferencia de otras herramientas como Remove.bg, no cobramos por imagen ni tenemos límites diarios. Puedes usar la herramienta todas las veces que quieras.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Mis imágenes se suben a algún servidor?</button>
+        <div class="faq-answer"><p>No, nunca. Todo el procesamiento ocurre en tu navegador con JavaScript. Tus imágenes nunca salen de tu dispositivo. 100% privado.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Por qué el resultado tiene bordes imperfectos?</button>
+        <div class="faq-answer"><p>El algoritmo de detección de bordes funciona mejor con imágenes de alto contraste. Si el fondo y el sujeto tienen colores similares, los bordes pueden no ser perfectos. Para resultados profesionales, recomendamos imágenes con fondos uniformes y buen contraste.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿En qué formato se descarga?</button>
+        <div class="faq-answer"><p>La imagen se descarga en formato <strong>PNG</strong> con transparencia (canal alfa), que es el formato estándar para imágenes sin fondo. Si seleccionas un color de fondo sólido, también puedes descargar en JPG.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Necesito registrarme?</button>
+        <div class="faq-answer"><p>No, para nada. No pedimos registro, email ni ningún dato personal. Solo subes tu imagen, la procesas y descargas el resultado.</p></div>
+      </div>
+    </div>
+
+    <div class="related-tools">
+      <h2>Herramientas relacionadas</h2>
+      <div class="related-tools-grid">
+        <a href="/tools/comprimir-imagenes.html" class="related-tool-card"><span class="tool-icon">🗜️</span><div class="tool-info"><strong>Comprimir imágenes</strong><span class="tool-desc">Reduce el peso de tus fotos</span></div><span class="tool-arrow">→</span></a>
+        <a href="/tools/imagen-a-texto.html" class="related-tool-card"><span class="tool-icon">📤</span><div class="tool-info"><strong>Imagen a texto (OCR)</strong><span class="tool-desc">Extrae texto de imágenes</span></div><span class="tool-arrow">→</span></a>
+        <a href="/tools/pdf-a-imagen.html" class="related-tool-card"><span class="tool-icon">📁</span><div class="tool-info"><strong>PDF a imagen</strong><span class="tool-desc">Convierte PDF a JPG/PNG</span></div><span class="tool-arrow">→</span></a>
+        <a href="/tools/hacer-collage.html" class="related-tool-card"><span class="tool-icon">📷</span><div class="tool-info"><strong>Hacer collage</strong><span class="tool-desc">Combina fotos en collage</span></div><span class="tool-arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer"><div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><a href="/" class="logo"><span class="logo-icon">📷</span><span class="logo-text">ComprimeFotos</span></a><p>Herramientas gratuitas para comprimir y editar imágenes online.</p>
+          <a href="mailto:contact@comprimefotos.com" style="color: var(--accent); font-weight: 500; font-size: 0.95rem;">📧 contact@comprimefotos.com</a></div>
+      <div class="footer-links"><h4>Herramientas</h4><a href="/tools/comprimir-imagenes.html">Comprimir imágenes</a><a href="/tools/comprimir-imagenes-whatsapp.html">Comprimir para WhatsApp</a><a href="/tools/comprimir-pdf.html">Comprimir PDF</a><a href="/tools/quitar-fondo.html">Quitar fondo</a></div>
+      <div class="footer-links"><h4>Más herramientas</h4><a href="/tools/redimensionar-imagen.html">Redimensionar</a><a href="/tools/convertir-formato.html">Convertir formato</a><a href="/tools/poner-marca-de-agua.html">Marca de agua</a><a href="/tools/hacer-collage.html">Hacer collage</a><a href="/tools/foto-carnet.html">Foto carnet</a><a href="/tools/anadir-texto-foto.html">Texto en foto</a><a href="/tools/fondo-blanco-producto.html">Fondo blanco producto</a><a href="/tools/filtros-para-fotos.html">Filtros para fotos</a><a href="/tools/restaurar-fotos-antiguas.html">Restaurar fotos</a></div>
+      <div class="footer-links"><h4>Legal</h4><a href="/about.html">Sobre nosotros</a><a href="/contacto">Contacto</a><a href="/privacy.html">Privacidad</a><a href="/terms.html">Términos</a><a href="/cookie-policy.html">Cookies</a><a href="/blog/">Blog</a></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2026 ComprimeFotos.com | <a href="https://smartimgkit.com/" style="color: var(--accent); font-weight: 500;">English: SmartImgKit — Free Image Tools</a></p></div>
+  </div></footer>
+
+<div class="cookie-consent" id="cookieConsent">
+  <div class="cookie-consent-inner">
+    <div class="cookie-consent-text"><p>🍪 Usamos cookies esenciales. <a href="/cookie-policy.html">Más información</a>.</p></div>
+    <div class="cookie-consent-actions">
+      <button class="cookie-btn cookie-btn-decline" id="cookieDecline">Solo esenciales</button>
+      <button class="cookie-btn cookie-btn-accept" id="cookieAccept">Aceptar todas</button>
+    </div>
+  </div></div>
+<div class="toast" id="toast"></div>
+
+<script src="../js/main.js?v=2"></script>
+<script>
+(function() {
+  'use strict';
+
+  const workspace = document.getElementById('bgRemoverWorkspace');
+  const dropzone = document.getElementById('dropzone');
+  const fileInput = document.getElementById('fileInput');
+  const previewArea = document.getElementById('previewArea');
+  const originalPreview = document.getElementById('originalPreview');
+  const resultPreview = document.getElementById('resultPreview');
+  const bgColorSelect = document.getElementById('bgColorSelect');
+  const downloadBtn = document.getElementById('downloadBtn');
+  const resetBtn = document.getElementById('resetBtn');
+
+  let currentFile = null;
+  let resultBlobUrl = null;
+
+  workspace.addEventListener('file-selected', function(e) {
+    currentFile = e.detail.file;
+    processImage();
+  });
+
+  bgColorSelect.addEventListener('change', function() {
+    if (currentFile) processImage();
+  });
+
+  downloadBtn.addEventListener('click', function() {
+    if (!resultBlobUrl) return;
+    const a = document.createElement('a');
+    a.href = resultBlobUrl;
+    const bg = bgColorSelect.value;
+    a.download = (currentFile ? currentFile.name.replace(/\.[^.]+$/, '') : 'imagen') + '-sin-fondo' + (bg === 'transparent' ? '.png' : '.jpg');
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    showToast('✅Imagen descargada correctamente', 'success');
+  });
+
+  resetBtn.addEventListener('click', function() { resetTool(); });
+
+  function processImage() {
+    if (!currentFile) return;
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const img = new Image();
+      img.onload = function() {
+        originalPreview.src = e.target.result;
+        const canvas = document.createElement('canvas');
+        canvas.width = img.width;
+        canvas.height = img.height;
+        const ctx = canvas.getContext('2d');
+
+        // Algoritmo simple de detección de fondo por diferencia de color
+        // Dibujar imagen original
+        ctx.drawImage(img, 0, 0);
+        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const data = imageData.data;
+
+        // Analizar bordes para detectar color de fondo probable
+        const edgePixels = [];
+        const w = canvas.width, h = canvas.height;
+
+        // Muestrear píxeles de las esquinas y bordes
+        for (let y = 0; y < h; y += 3) {
+          for (let x = 0; x < w; x += 3) {
+            const isEdge = x < 5 || y < 5 || x > w - 6 || y > h - 6;
+            if (isEdge) {
+              const idx = (y * w + x) * 4;
+              edgePixels.push([data[idx], data[idx+1], data[idx+2]]);
+            }
+          }
+        }
+
+        // Calcular color promedio del borde (fondo)
+        let sumR = 0, sumG = 0, sumB = 0;
+        for (const p of edgePixels) { sumR += p[0]; sumG += p[1]; sumB += p[2]; }
+        const bgR = sumR / edgePixels.length;
+        const bgG = sumG / edgePixels.length;
+        const bgB = sumB / edgePixels.length;
+
+        const threshold = 45; // sensibilidad de detección
+
+        // Aplicar transparencia a píxeles similares al fondo
+        for (let i = 0; i < data.length; i += 4) {
+          const dr = Math.abs(data[i] - bgR);
+          const dg = Math.abs(data[i+1] - bgG);
+          const db = Math.abs(data[i+2] - bgB);
+          const dist = Math.sqrt(dr*dr + dg*dg + db*db);
+
+          if (dist < threshold) {
+            // Transición suave en los bordes
+            const alpha = Math.max(0, Math.min(255, ((dist / threshold) * 255)));
+            data[i+3] = alpha;
+          }
+        }
+
+        ctx.putImageData(imageData, 0, 0);
+
+        // Aplicar color de fondo seleccionado
+        const bgColor = bgColorSelect.value;
+        if (bgColor !== 'transparent') {
+          // Crear canvas final con color de fondo
+          const finalCanvas = document.createElement('canvas');
+          finalCanvas.width = canvas.width;
+          finalCanvas.height = canvas.height;
+          const fctx = finalCanvas.getContext('2d');
+          fctx.fillStyle = bgColor;
+          fctx.fillRect(0, 0, finalCanvas.width, finalCanvas.height);
+          fctx.drawImage(canvas, 0, 0);
+          canvas.width = finalCanvas.width;
+          canvas.height = finalCanvas.height;
+          ctx.drawImage(finalCanvas, 0, 0);
+        }
+
+        if (resultBlobUrl) URL.revokeObjectURL(resultBlobUrl);
+        const mimeType = bgColor === 'transparent' ? 'image/png' : 'image/jpeg';
+        canvas.toBlob(function(blob) {
+          resultBlobUrl = URL.createObjectURL(blob);
+          resultPreview.src = resultBlobUrl;
+          previewArea.classList.add('active');
+          dropzone.style.display = 'none';
+          document.querySelector('.file-name').textContent = currentFile.name;
+          document.querySelector('.file-size').textContent = formatFileSize(currentFile.size);
+        }, mimeType, 0.95);
+      };
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(currentFile);
+  }
+
+  function resetTool() {
+    currentFile = null;
+    if (resultBlobUrl) URL.revokeObjectURL(resultBlobUrl);
+    resultBlobUrl = null;
+    previewArea.classList.remove('active');
+    dropzone.style.display = 'block';
+    fileInput.value = '';
+    document.querySelector('.file-name').textContent = '-';
+    document.querySelector('.file-size').textContent = '-';
+  }
+
+  function formatFileSize(bytes) {
+    if (bytes === 0) return '0 Bytes';
+    const k = 1024;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+  }
+
+  function showToast(msg, type) {
+    const toast = document.getElementById('toast');
+    if (!toast) return;
+    toast.textContent = msg;
+    toast.className = 'toast';
+    if (type) toast.classList.add(type);
+    toast.classList.add('visible');
+    setTimeout(function() { toast.classList.remove('visible'); }, 3000);
+  }
+})();
+</script>
+</body>
+</html>

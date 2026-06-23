@@ -1,0 +1,19 @@
+# Cloudflare Pages redirects for comprimefotos.com
+# Format: from to [status]
+
+# === 博客路径重定向 ===
+# /posts/ 目录页 → 博客首页
+/posts/ /blog/ 301
+
+# 已删除/不存在的博文 → 最相关内容
+/posts/comprimir-fotos-para-email/ /blog/como-comprimir-imagenes-para-whatsapp.html 301
+/posts/comprimir-fotos-para-email /blog/como-comprimir-imagenes-para-whatsapp.html 301
+
+# === 工具页别名（老 URL 保留） ===
+/tools/redimensionar-redes-sociales /tools/redimensionar-redes-sociales.html 301
+
+# === 其他常见 404 ===
+# /wordpress/ /2019/ 等 WordPress 扫描路径由 WAF R2 Block 规则处理，无需 _redirects
+
+# === Catch-all: 404 ===
+/* /404.html 404

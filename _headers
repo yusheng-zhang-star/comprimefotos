@@ -14,19 +14,19 @@
 # ── Homepage (clean URL root) ──
 /
   Cache-Control: public, max-age=0, must-revalidate
-  CDN-Cache-Control: public, max-age=3600
+  CDN-Cache-Control: public, max-age=43200
   Content-Type: text/html; charset=utf-8
 
 # ── Tool pages ──
 /tools/*
   Cache-Control: public, max-age=0, must-revalidate
-  CDN-Cache-Control: public, max-age=3600
+  CDN-Cache-Control: public, max-age=43200
   Content-Type: text/html; charset=utf-8
 
 # ── Blog pages ──
 /blog/*
   Cache-Control: public, max-age=0, must-revalidate
-  CDN-Cache-Control: public, max-age=3600
+  CDN-Cache-Control: public, max-age=43200
   Content-Type: text/html; charset=utf-8
 
 # ── Clean URL pages ──
@@ -34,59 +34,59 @@
 # Users visit /about, NOT /about.html — /*.html rule does NOT match clean URLs!
 /about
   Cache-Control: public, max-age=0, must-revalidate
-  CDN-Cache-Control: public, max-age=3600
+  CDN-Cache-Control: public, max-age=43200
   Content-Type: text/html; charset=utf-8
 /about.html
   Cache-Control: public, max-age=0, must-revalidate
-  CDN-Cache-Control: public, max-age=3600
+  CDN-Cache-Control: public, max-age=43200
   Content-Type: text/html; charset=utf-8
 /contact
   Cache-Control: public, max-age=0, must-revalidate
-  CDN-Cache-Control: public, max-age=3600
+  CDN-Cache-Control: public, max-age=43200
   Content-Type: text/html; charset=utf-8
 /contact.html
   Cache-Control: public, max-age=0, must-revalidate
-  CDN-Cache-Control: public, max-age=3600
+  CDN-Cache-Control: public, max-age=43200
   Content-Type: text/html; charset=utf-8
 /contacto
   Cache-Control: public, max-age=0, must-revalidate
-  CDN-Cache-Control: public, max-age=3600
+  CDN-Cache-Control: public, max-age=43200
   Content-Type: text/html; charset=utf-8
 /contacto.html
   Cache-Control: public, max-age=0, must-revalidate
-  CDN-Cache-Control: public, max-age=3600
+  CDN-Cache-Control: public, max-age=43200
   Content-Type: text/html; charset=utf-8
 /privacy
   Cache-Control: public, max-age=0, must-revalidate
-  CDN-Cache-Control: public, max-age=3600
+  CDN-Cache-Control: public, max-age=43200
   Content-Type: text/html; charset=utf-8
 /privacy.html
   Cache-Control: public, max-age=0, must-revalidate
-  CDN-Cache-Control: public, max-age=3600
+  CDN-Cache-Control: public, max-age=43200
   Content-Type: text/html; charset=utf-8
 /terms
   Cache-Control: public, max-age=0, must-revalidate
-  CDN-Cache-Control: public, max-age=3600
+  CDN-Cache-Control: public, max-age=43200
   Content-Type: text/html; charset=utf-8
 /terms.html
   Cache-Control: public, max-age=0, must-revalidate
-  CDN-Cache-Control: public, max-age=3600
+  CDN-Cache-Control: public, max-age=43200
   Content-Type: text/html; charset=utf-8
 /cookie-policy
   Cache-Control: public, max-age=0, must-revalidate
-  CDN-Cache-Control: public, max-age=3600
+  CDN-Cache-Control: public, max-age=43200
   Content-Type: text/html; charset=utf-8
 /cookie-policy.html
   Cache-Control: public, max-age=0, must-revalidate
-  CDN-Cache-Control: public, max-age=3600
+  CDN-Cache-Control: public, max-age=43200
   Content-Type: text/html; charset=utf-8
 /descargo
   Cache-Control: public, max-age=0, must-revalidate
-  CDN-Cache-Control: public, max-age=3600
+  CDN-Cache-Control: public, max-age=43200
   Content-Type: text/html; charset=utf-8
 /descargo.html
   Cache-Control: public, max-age=0, must-revalidate
-  CDN-Cache-Control: public, max-age=3600
+  CDN-Cache-Control: public, max-age=43200
   Content-Type: text/html; charset=utf-8
 
 # ── Sitemap: CDN cache 30min ──
@@ -141,3 +141,4 @@
 # ── Catch-all: NO headers ──
 # Cannot set ANY header here — merges with all paths above, breaking cache logic.
 # Files not matched by specific rules (ads.txt, google verification, etc.) use defaults.
+

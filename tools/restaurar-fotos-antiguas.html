@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Restaurar fotos antiguas online gratis — Reparar fotos viejas | ComprimeFotos</title>
+  <meta name="description" content="Restaura fotos antiguas online gratis. Repara fotos viejas dañadas: elimina arañazos, ruido y manchas. Mejora el contraste y color de tus fotos familiares. Sin registro, 100% en tu navegador.">
+  <meta name="keywords" content="restaurar fotos antiguas gratis, reparar fotos viejas online, eliminar arañazos de fotos, restaurar fotos dañadas, mejorar fotos antiguas, quitar manchas de fotos">
+  <link rel="canonical" href="https://comprimefotos.com/tools/restaurar-fotos-antiguas.html">
+  <meta name="theme-color" content="#1a6b52">
+  <meta property="og:title" content="Restaurar fotos antiguas online gratis — Reparar fotos viejas | ComprimeFotos">
+  <meta property="og:description" content="Restaura fotos antiguas dañadas online gratis. Elimina arañazos, ruido y manchas. Todo en tu navegador, sin subir nada.">
+  <meta property="og:url" content="https://comprimefotos.com/tools/restaurar-fotos-antiguas.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ComprimeFotos">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#1a6b52">
+  <link rel="stylesheet" href="../css/style.css?v=2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"Inicio","item":"https://comprimefotos.com/"},
+      {"@type":"ListItem","position":2,"name":"Restaurar fotos antiguas"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Restaurar fotos antiguas online gratis",
+    "url": "https://comprimefotos.com/tools/restaurar-fotos-antiguas.html",
+    "applicationCategory": "Multimedia",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires HTML5 Canvas",
+    "description": "Herramienta gratuita para restaurar fotos antiguas dañadas. Elimina arañazos, ruido y manchas con procesamiento directo en el navegador."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Cómo restaurar una foto antigua online",
+    "description": "Pasos para restaurar una foto antigua dañada usando herramientas de edición automáticas y manuales.",
+    "step": [
+      {"@type":"HowToStep","position":1,"name":"Sube tu foto antigua","text":"Arrastra la foto escaneada de tu álbum familiar o selecciónala desde tu dispositivo."},
+      {"@type":"HowToStep","position":2,"name":"Elige un preset","text":"Selecciona entre restauración automática, eliminar ruido, quitar arañazos o mejorar contraste."},
+      {"@type":"HowToStep","position":3,"name":"Ajusta manualmente","text":"Usa los deslizadores para afinar la reducción de ruido, contraste, enfoque y calidez."},
+      {"@type":"HowToStep","position":4,"name":"Descarga el resultado","text":"Descarga tu foto restaurada en JPG o PNG para conservarla o imprimirla."}
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo"><span class="logo-icon">🕰️</span><span class="logo-text">ComprimeFotos</span></a>
+    <nav class="main-nav">
+      <a href="/">Inicio</a>
+      <a href="/tools/comprimir-imagenes.html">Comprimir</a>
+      <a href="/tools/comprimir-imagenes-whatsapp.html">WhatsApp</a>
+      <a href="/tools/quitar-fondo.html">Quitar fondo</a>
+      <a href="/blog/">Blog</a>
+      <a href="/about.html">Sobre</a>
+    </nav>
+    <div class="header-actions">
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menú">☰</button>
+    </div>
+  </div>
+</header>
+
+<main class="tool-page">
+  <div class="container">
+    <nav class="breadcrumb">
+      <a href="/">Inicio</a> — <span>Restaurar fotos antiguas</span>
+    </nav>
+
+    <div class="tool-page-header">
+      <h1>🕰️ Restaurar fotos <span class="gradient-text">antiguas</span></h1>
+      <p>Repara fotos viejas dañadas al instante. Elimina arañazos, ruido, manchas y mejora el color de tus fotos familiares. Gratis, sin registro, todo en tu navegador.</p>
+    </div>
+
+    <div class="tool-workspace" id="restoreWorkspace">
+      <label for="fileInput" class="dropzone" id="dropzone">
+        <span class="dropzone-icon">🕰️</span>
+        <h3>Arrastra tu foto antigua aquí</h3>
+        <p>o haz clic para seleccionar</p>
+        <p style="font-size:0.8rem;color:var(--text-muted);margin-top:8px;">JPG, PNG, WebP — Fotos escaneadas o digitales</p>
+        <input type="file" id="fileInput" accept="image/*" style="display:none">
+      </label>
+
+      <div class="preview-area" id="previewArea">
+        <div class="before-after-preview">
+          <div class="before-after-images">
+            <div class="before-after-item">
+              <canvas id="originalCanvas" class="preview-img" style="width:100%;max-height:350px;object-fit:contain;"></canvas>
+              <div class="before-after-item-caption before">Original</div>
+            </div>
+            <div class="before-after-item">
+              <canvas id="resultCanvas" class="preview-img" style="width:100%;max-height:350px;object-fit:contain;"></canvas>
+              <div class="before-after-item-caption after">Restaurada</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="file-info">
+          <span><strong>Archivo:</strong> <span class="file-name" id="fileName">-</span></span>
+          <span><strong>Tamaño:</strong> <span class="file-size" id="fileSize">-</span></span>
+          <span><strong>Dimensiones:</strong> <span id="fileDims">-</span></span>
+        </div>
+
+        <div class="tool-controls">
+          <div style="margin-bottom:12px;">
+            <label style="font-size:0.85rem;font-weight:600;display:block;margin-bottom:6px;">Presets rápidos:</label>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;">
+              <button class="preset-btn" data-preset="auto">🤖 Restauración automática</button>
+              <button class="preset-btn" data-preset="noise">🔍 Eliminar ruido</button>
+              <button class="preset-btn" data-preset="scratch">✂️ Quitar arañazos</button>
+              <button class="preset-btn" data-preset="contrast">📈 Mejorar contraste</button>
+              <button class="preset-btn" data-preset="sharpen">🔎 Enfocar rostro</button>
+              <button class="preset-btn" data-preset="warm">🌅 Añadir calidez</button>
+            </div>
+          </div>
+
+          <div class="control-row">
+            <label>Eliminar ruido</label>
+            <input type="range" id="noiseSlider" min="0" max="100" value="0">
+            <span id="noiseVal" style="font-size:0.8rem;color:var(--text-muted);min-width:28px;">0</span>
+          </div>
+          <div class="control-row">
+            <label>Quitar arañazos</label>
+            <input type="range" id="scratchSlider" min="0" max="100" value="0">
+            <span id="scratchVal" style="font-size:0.8rem;color:var(--text-muted);min-width:28px;">0</span>
+          </div>
+          <div class="control-row">
+            <label>Mejorar contraste</label>
+            <input type="range" id="contrastSlider" min="0" max="100" value="0">
+            <span id="contrastVal" style="font-size:0.8rem;color:var(--text-muted);min-width:28px;">0</span>
+          </div>
+          <div class="control-row">
+            <label>Enfocar</label>
+            <input type="range" id="sharpenSlider" min="0" max="100" value="0">
+            <span id="sharpenVal" style="font-size:0.8rem;color:var(--text-muted);min-width:28px;">0</span>
+          </div>
+          <div class="control-row">
+            <label>Brillo</label>
+            <input type="range" id="brightSlider" min="-50" max="50" value="0">
+            <span id="brightVal" style="font-size:0.8rem;color:var(--text-muted);min-width:28px;">0</span>
+          </div>
+          <div class="control-row">
+            <label>Calidez</label>
+            <input type="range" id="warmSlider" min="0" max="100" value="0">
+            <span id="warmVal" style="font-size:0.8rem;color:var(--text-muted);min-width:28px;">0</span>
+          </div>
+        </div>
+
+        <div class="tool-actions">
+          <button class="btn btn-secondary btn-sm" id="toggleViewBtn">🔄 Ver original</button>
+          <select id="formatSelect" style="width:auto;max-width:100px;padding:7px 10px;font-size:0.82rem;">
+            <option value="image/jpeg">JPG</option>
+            <option value="image/png">PNG</option>
+          </select>
+          <button class="btn btn-primary" id="downloadBtn">📥 Descargar</button>
+          <button class="btn btn-secondary" id="resetBtn">🔄 Nueva imagen</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="how-to-section">
+      <h2>Cómo restaurar una foto antigua</h2>
+      <div class="how-to-steps">
+        <div class="how-to-step">
+          <div class="step-number">1</div>
+          <h4>Sube tu foto antigua</h4>
+          <p>Arrastra la foto escaneada de tu álbum familiar o selecciónala desde tu dispositivo. Aceptamos JPG, PNG y WebP.</p>
+        </div>
+        <div class="how-to-step">
+          <div class="step-number">2</div>
+          <h4>Elige un preset</h4>
+          <p>Selecciona entre restauración automática o ajustes específicos: eliminar ruido, quitar arañazos, mejorar contraste o enfocar.</p>
+        </div>
+        <div class="how-to-step">
+          <div class="step-number">3</div>
+          <h4>Ajusta manualmente</h4>
+          <p>Usa los deslizadores para afinar cada parámetro. Puedes combinar reducción de ruido con mejora de contraste y calidez.</p>
+        </div>
+        <div class="how-to-step">
+          <div class="step-number">4</div>
+          <h4>Descarga el resultado</h4>
+          <p>Descarga tu foto restaurada en JPG o PNG. Compártela con tu familia o imprímela para conservarla para siempre.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="guide-section">
+      <h2>Guía completa para restaurar fotos antiguas</h2>
+      <div class="guide-block">
+        <h3>📄 Cómo escanear fotos antiguas correctamente</h3>
+        <p>El primer paso para una buena restauración es un buen escaneado. Recomendamos usar un escáner plano (flatbed) en lugar de fotografiar la impresión con el móvil. Ajusta el escáner a <strong>600 DPI</strong> como mínimo — esto captura suficiente detalle para trabajar los arañazos y el grano sin perder información. Para fotos muy pequeñas (como las de carnet de los años 50), usa 1200 DPI.</p>
+        <p>Antes de escanear, limpia suavemente la superficie de la foto con un paño de microfibra seco para eliminar polvo superficial. Si la foto está doblada, coloca un peso ligero sobre ella unos minutos para aplanarla sin forzarla. Guarda el escaneado en PNG (sin compresión) o en JPG con calidad máxima. No uses compresión agresiva en el escaneado original — ya la reducirás después si es necesario.</p>
+      </div>
+      <div class="guide-block">
+        <h3>🩹 Tipos de daños comunes y cómo tratarlos</h3>
+        <p><strong>Arañazos y rayas:</strong> Son líneas finas de color claro u oscuro causadas por el roce de la superficie. Nuestra herramienta detecta píxeles que se desvían significativamente de sus vecinos y los reemplaza por el promedio de los píxeles circundantes. Usa el control "Quitar arañazos" entre 30 y 70 para la mayoría de los casos.</p>
+        <p><strong>Ruido y grano:</strong> Las fotos antiguas suelen tener textura granulada, especialmente las ampliaciones de revelado casero. El filtro de mediana (control "Eliminar ruido") suaviza estos patrones sin destruir bordes importantes. Para fotos con grano muy marcado, combina con el ajuste de enfoque para recuperar nitidez.</p>
+        <p><strong>Decoloración y dominantes de color:</strong> Con el tiempo, los pigmentos fotográficos se degradan y las fotos adquieren tonos amarillentos, magentas o verdosos. El control "Mejorar contraste" realiza una ecualización del histograma por canal, equilibrando los colores automáticamente. Si la foto tiene una dominante muy fuerte, ajusta también la calidez.</p>
+        <p><strong>Pliegues y dobleces:</strong> Las marcas de pliegue son más difíciles de eliminar porque afectan zonas amplias y alteran el brillo de forma gradual. Combina el control de contraste con el deslizador de brillo para homogeneizar las zonas afectadas. Para pliegues muy profundos, el filtro de arañazos también ayuda a suavizar los bordes del pliegue.</p>
+      </div>
+      <div class="guide-block">
+        <h3>🖼️ Restauración por tipo de foto</h3>
+        <p><strong>Fotos en blanco y negro:</strong> El proceso es más sencillo porque solo hay un canal de luminancia. Usa "Eliminar ruido" (20-40) seguido de "Mejorar contraste" (30-60). Ajusta el brillo si la foto está subexpuesta o sobreexpuesta. La calidez no aplica a blanco y negro puro — pero puedes dejarla en 0 y aplicar un virado suave con valores bajos (10-20) si quieres un tono sepia clásico.</p>
+        <p><strong>Fotos en color desvaídas:</strong> Son las que más se benefician de la restauración completa. Empieza con "Restauración automática" y luego ajusta: contraste (40-70), calidez (20-40) para corregir dominantes amarillas, y enfoque (10-30) para recuperar textura. Si la foto tiene zonas quemadas (muy claras), baja el brillo ligeramente.</p>
+        <p><strong>Fotos con manchas de humedad o moho:</strong> Las manchas orgánicas suelen tener bordes difusos. Aplica primero "Eliminar ruido" al 30-50 para difuminar las manchas pequeñas, luego "Mejorar contraste" al 40-60 para unificar el fondo. Si quedan manchas visibles, incrementa "Quitar arañazos" al 50-70 para detectarlas como píxeles anómalos.</p>
+      </div>
+      <div class="guide-block">
+        <h3>💾 Cómo preservar tus fotos restauradas</h3>
+        <p>Una vez restaurada tu foto, guárdala en dos formatos: PNG sin pérdida para el archivo maestro (conserva toda la calidad) y JPG al 90% para compartir por WhatsApp o redes sociales. Crea una carpeta digital por año o por álbum familiar, e incluye la fecha aproximada y los nombres de las personas en el nombre del archivo. Considera hacer una copia de seguridad en la nube (Google Fotos, iCloud, Dropbox) además de tu disco duro. Las fotos originales, aunque estén dañadas, consérvalas también — son parte de la historia familiar y pueden volver a escanearse en el futuro con mejores técnicas.</p>
+        <div class="tip"><strong>📌 Consejo:</strong> Escanea siempre al máximo DPI que permita tu escáner. Es mejor tener un archivo grande del que se puede reducir, que uno pequeño del que no se puede recuperar detalle. Los escáneres planos de gama media (desde unos 80€) ofrecen resultados excelentes para fotos familiares.</div>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <h2>Preguntas frecuentes</h2>
+      <div class="faq-item">
+        <button class="faq-question">¿Realmente funciona para restaurar fotos muy dañadas?</button>
+        <div class="faq-answer"><p>Sí, nuestra herramienta puede mejorar visiblemente fotos con arañazos, ruido, decoloración y falta de nitidez. Procesa la imagen píxel a píxel usando filtros matemáticos que suavizan imperfecciones y recuperan contraste. Para fotos extremadamente dañadas (rotas, con partes faltantes o decoloración extrema), los resultados pueden ser limitados, pero siempre se consigue una mejora apreciable.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Se pierde calidad al restaurar la foto?</button>
+        <div class="faq-answer"><p>No se pierde calidad porque trabajamos siempre sobre la imagen original cargada en el navegador. Los filtros aplicados son no destructivos: puedes ajustar los parámetros en cualquier momento y obtener un resultado diferente sin degradar la imagen base. Al descargar en PNG obtienes la máxima calidad; en JPG puedes elegir el nivel de compresión.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Puedo restaurar fotos en color y en blanco y negro?</button>
+        <div class="faq-answer"><p>Sí, la herramienta funciona con ambos tipos. Para fotos en blanco y negro, los ajustes de ruido, contraste y enfoque son especialmente efectivos. Los controles de calidez y brillo también aplican, permitiendo crear un tono sepia clásico si lo deseas. Las fotos en color desvaídas se benefician especialmente del ajuste de contraste y calidez.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Mis fotos se suben a algún servidor?</button>
+        <div class="faq-answer"><p>No, nunca. Todo el procesamiento ocurre en tu navegador usando elementos Canvas de HTML5. Tus fotos no salen de tu dispositivo. Esto significa que puedes restaurar fotos familiares privadas sin preocuparte por tu privacidad ni por la seguridad de tus imágenes.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Qué formatos de imagen están soportados?</button>
+        <div class="faq-answer"><p>Aceptamos JPG, PNG y WebP como imágenes de entrada. Puedes descargar el resultado en JPG (con compresión ajustable) o PNG (sin pérdida). WebP de salida no está disponible por ahora. No hay límite de tamaño de archivo ni de resolución.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Qué recomendaciones hay para escanear las fotos antes de restaurarlas?</button>
+        <div class="faq-answer"><p>Usa siempre un escáner plano a 600 DPI como mínimo. Limpia la superficie de la foto con un paño suave antes de escanear. Guarda el archivo en PNG o JPG con calidad máxima. Si la foto está arrugada, colócala bajo un peso ligero unas horas antes de escanear. No uses compresión ni redimensiones la imagen antes de subirla a la herramienta.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Puedo usar la herramienta en el móvil o tablet?</button>
+        <div class="faq-answer"><p>Sí, funciona en cualquier navegador moderno, incluyendo Chrome y Safari en iOS y Android. La interfaz se adapta a pantallas táctiles. Para mejores resultados, te recomendamos usar fotos escaneadas en lugar de fotografiadas con el móvil, ya que el escaneado captura mucho más detalle para trabajar.</p></div>
+      </div>
+    </div>
+
+    <div class="related-tools">
+      <h2>Herramientas relacionadas</h2>
+      <div class="related-grid">
+        <a href="/tools/foto-a-blanco-y-negro.html" class="related-card">
+          <span class="related-card-icon">⚫</span>
+          <div class="related-card-info">
+            <strong>Foto a blanco y negro</strong>
+            <span>Convierte fotos a escala de grises</span>
+          </div>
+        </a>
+        <a href="/tools/image-enhancer.html" class="related-card">
+          <span class="related-card-icon">✨</span>
+          <div class="related-card-info">
+            <strong>Mejorar imagen</strong>
+            <span>Ajusta brillo, contraste y saturación</span>
+          </div>
+        </a>
+        <a href="/tools/filtros-para-fotos.html" class="related-card">
+          <span class="related-card-icon">🎨</span>
+          <div class="related-card-info">
+            <strong>Filtros para fotos</strong>
+            <span>Aplica efectos y estilos visuales</span>
+          </div>
+        </a>
+        <a href="/tools/comprimir-imagenes.html" class="related-card">
+          <span class="related-card-icon">📝</span>
+          <div class="related-card-info">
+            <strong>Comprimir imágenes</strong>
+            <span>Reduce el peso de tus fotos restauradas</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo"><span class="logo-icon">🕰️</span><span class="logo-text">ComprimeFotos</span></a>
+        <p>Herramientas gratuitas para comprimir, editar y restaurar imágenes online. Todo el procesamiento se realiza en tu navegador: tus archivos nunca salen de tu dispositivo.</p>
+        <a href="mailto:contact@comprimefotos.com" style="color: var(--accent); font-weight: 500; font-size: 0.95rem;">📧 contact@comprimefotos.com</a>
+      </div>
+      <div class="footer-links">
+        <h4>Herramientas</h4>
+        <a href="/tools/comprimir-imagenes.html">Comprimir imágenes</a>
+        <a href="/tools/comprimir-imagenes-whatsapp.html">Comprimir para WhatsApp</a>
+        <a href="/tools/comprimir-pdf.html">Comprimir PDF</a>
+        <a href="/tools/quitar-fondo.html">Quitar fondo</a>
+        <a href="/tools/restaurar-fotos-antiguas.html">Restaurar fotos</a>
+      </div>
+      <div class="footer-links">
+        <h4>Más herramientas</h4>
+        <a href="/tools/redimensionar-imagen.html">Redimensionar</a>
+        <a href="/tools/convertir-formato.html">Convertir formato</a>
+        <a href="/tools/foto-a-blanco-y-negro.html">Blanco y negro</a>
+        <a href="/tools/hacer-collage.html">Hacer collage</a>
+        <a href="/tools/image-enhancer.html">Mejorar imagen</a>
+      </div>
+      <div class="footer-links">
+        <h4>Legal</h4>
+        <a href="/about.html">Sobre nosotros</a>
+        <a href="/contacto">Contacto</a>
+        <a href="/privacy.html">Política de privacidad</a>
+        <a href="/terms.html">Términos de uso</a>
+        <a href="/cookie-policy.html">Política de cookies</a>
+        <a href="/blog/">Blog</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 ComprimeFotos.com — Todos los derechos reservados.</p>
+      <p style="margin-top:4px;font-size:0.8rem;">Hecho con ❤️ para la comunidad hispanohablante. | <a href="https://smartimgkit.com/" style="color: var(--accent); font-weight: 500;">English: SmartImgKit — Free Image Tools</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="cookie-consent" id="cookieConsent">
+  <div class="cookie-consent-inner">
+    <div class="cookie-consent-text">
+      <p>🍻 Usamos cookies esenciales para el funcionamiento de la web. <a href="/cookie-policy.html">Más información</a>.</p>
+    </div>
+    <div class="cookie-consent-actions">
+      <button class="cookie-btn cookie-btn-decline" id="cookieDecline">Solo esenciales</button>
+      <button class="cookie-btn cookie-btn-accept" id="cookieAccept">Aceptar todas</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="../js/main.js?v=2"></script>
+
+<style>
+  .preset-btn {
+    padding: 7px 14px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 0.82rem;
+    font-weight: 500;
+    background: #fff;
+    color: var(--text);
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: var(--font-main);
+  }
+  .preset-btn:hover {
+    border-color: var(--accent);
+    background: var(--accent-bg);
+  }
+  .preset-btn.active {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+  }
+
+  .how-to-section { margin-top: 40px; }
+  .how-to-section h2 { font-size: 1.2rem; font-weight: 600; margin-bottom: 16px; }
+  .how-to-steps { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+  @media (max-width: 640px) { .how-to-steps { grid-template-columns: 1fr; } }
+  .how-to-step {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 16px 18px;
+    background: #fff;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+  }
+  .step-number {
+    width: 28px;
+    height: 28px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    margin-bottom: 4px;
+  }
+  .how-to-step h4 { font-size: 0.88rem; font-weight: 600; }
+  .how-to-step p { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; }
+
+  .gradient-text { color: var(--accent); }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 32px;
+  }
+  @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+  .footer-brand .logo { color: #e8e0d8 !important; margin-bottom: 10px; font-size: 1rem; }
+  .footer-brand p { line-height: 1.6; max-width: 320px; }
+  .footer-links h4 {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 14px;
+    color: #e8e0d8;
+  }
+  .footer-links a {
+    display: block;
+    color: #a09084;
+    margin-bottom: 8px;
+    transition: var(--transition);
+    text-decoration: none !important;
+  }
+  .footer-links a:hover { color: #e8e0d8; }
+</style>
+
+<script>
+(function() {
+  'use strict';
+
+  function showToast(msg, type) {
+    var t = document.getElementById('toast');
+    if (!t) return;
+    t.textContent = msg;
+    t.className = 'toast' + (type === 'success' ? ' success' : '');
+    t.classList.add('visible');
+    clearTimeout(t._hideTimer);
+    t._hideTimer = setTimeout(function(){ t.classList.remove('visible'); }, 3000);
+  }
+
+  var fileInput = document.getElementById('fileInput');
+  var dropzone = document.getElementById('dropzone');
+  var previewArea = document.getElementById('previewArea');
+  var origCanvas = document.getElementById('originalCanvas');
+  var resCanvas = document.getElementById('resultCanvas');
+  var fileNameEl = document.getElementById('fileName');
+  var fileSizeEl = document.getElementById('fileSize');
+  var fileDimsEl = document.getElementById('fileDims');
+  var downloadBtn = document.getElementById('downloadBtn');
+  var resetBtn = document.getElementById('resetBtn');
+  var toggleBtn = document.getElementById('toggleViewBtn');
+  var formatSel = document.getElementById('formatSelect');
+
+  var noiseS = document.getElementById('noiseSlider');
+  var scratchS = document.getElementById('scratchSlider');
+  var contrastS = document.getElementById('contrastSlider');
+  var sharpenS = document.getElementById('sharpenSlider');
+  var brightS = document.getElementById('brightSlider');
+  var warmS = document.getElementById('warmSlider');
+
+  var noiseV = document.getElementById('noiseVal');
+  var scratchV = document.getElementById('scratchVal');
+  var contrastV = document.getElementById('contrastVal');
+  var sharpenV = document.getElementById('sharpenVal');
+  var brightV = document.getElementById('brightVal');
+  var warmV = document.getElementById('warmVal');
+
+  var origCtx = origCanvas.getContext('2d');
+  var resCtx = resCanvas.getContext('2d');
+
+  var origImgData = null;
+  var origPixels = null;
+  var imgWidth = 0, imgHeight = 0;
+  var showingOriginal = false;
+  var imageLoaded = false;
+
+  // Dropzone events
+  dropzone.addEventListener('dragover', function(e) { e.preventDefault(); e.stopPropagation(); dropzone.classList.add('dragover'); });
+  dropzone.addEventListener('dragleave', function(e) { e.preventDefault(); e.stopPropagation(); dropzone.classList.remove('dragover'); });
+  dropzone.addEventListener('drop', function(e) {
+    e.preventDefault(); e.stopPropagation(); dropzone.classList.remove('dragover');
+    if (e
+    if (e.dataTransfer.files.length > 0) { handleFile(e.dataTransfer.files[0]); }
+  });
+  fileInput.addEventListener('change', function(e) {
+    if (e.target.files && e.target.files.length > 0) { handleFile(e.target.files[0]); }
+  });
+
+  // --- Slider update handlers ---
+  [noiseS, scratchS, contrastS, sharpenS, brightS, warmS].forEach(function(s) {
+    s.addEventListener('input', function() {
+      updateLabels();
+      clearPreset();
+      processImage();
+    });
+  });
+
+  function updateLabels() {
+    noiseV.textContent = noiseS.value;
+    scratchV.textContent = scratchS.value;
+    contrastV.textContent = contrastS.value;
+    sharpenV.textContent = sharpenS.value;
+    brightV.textContent = brightS.value;
+    warmV.textContent = warmS.value;
+  }
+
+  // --- Preset buttons ---
+  document.querySelectorAll('.preset-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var preset = btn.getAttribute('data-preset');
+      applyPreset(preset);
+    });
+  });
+
+  function clearPreset() {
+    document.querySelectorAll('.preset-btn').forEach(function(b) { b.classList.remove('active'); });
+  }
+
+  function applyPreset(preset) {
+    clearPreset();
+    document.querySelector('.preset-btn[data-preset="' + preset + '"]').classList.add('active');
+    switch (preset) {
+      case 'auto':
+        noiseS.value = 40; scratchS.value = 50; contrastS.value = 50; sharpenS.value = 30; brightS.value = 0; warmS.value = 30;
+        break;
+      case 'noise':
+        noiseS.value = 40; scratchS.value = 0; contrastS.value = 0; sharpenS.value = 0; brightS.value = 0; warmS.value = 0;
+        break;
+      case 'scratch':
+        noiseS.value = 0; scratchS.value = 60; contrastS.value = 0; sharpenS.value = 0; brightS.value = 0; warmS.value = 0;
+        break;
+      case 'contrast':
+        noiseS.value = 0; scratchS.value = 0; contrastS.value = 60; sharpenS.value = 0; brightS.value = 0; warmS.value = 0;
+        break;
+      case 'sharpen':
+        noiseS.value = 0; scratchS.value = 0; contrastS.value = 0; sharpenS.value = 50; brightS.value = 0; warmS.value = 0;
+        break;
+      case 'warm':
+        noiseS.value = 0; scratchS.value = 0; contrastS.value = 0; sharpenS.value = 0; brightS.value = 0; warmS.value = 60;
+        break;
+    }
+    updateLabels();
+    processImage();
+  }
+
+  // --- Handle file ---
+  function handleFile(file) {
+    if (!file.type.startsWith('image/')) { showToast('Por favor, selecciona una imagen v\u00e1lida.'); return; }
+    currentFile = file;
+    fileNameEl.textContent = file.name;
+    fileSizeEl.textContent = formatFileSize(file.size);
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      var img = new Image();
+      img.onload = function() {
+        imgWidth = img.naturalWidth;
+        imgHeight = img.naturalHeight;
+        fileDimsEl.textContent = imgWidth + ' x ' + imgHeight + ' px';
+        origCanvas.width = imgWidth;
+        origCanvas.height = imgHeight;
+        resCanvas.width = imgWidth;
+        resCanvas.height = imgHeight;
+        origCtx.drawImage(img, 0, 0);
+        origImgData = origCtx.getImageData(0, 0, imgWidth, imgHeight);
+        origPixels = new Uint8Array(origImgData.data);
+        previewArea.classList.add('active');
+        dropzone.style.display = 'none';
+        imageLoaded = true;
+        showingOriginal = false;
+        toggleBtn.textContent = '\ud83d\udd04 Ver original';
+        // Reset sliders
+        noiseS.value = 0; scratchS.value = 0; contrastS.value = 0; sharpenS.value = 0; brightS.value = 0; warmS.value = 0;
+        updateLabels();
+        clearPreset();
+        // Draw initial (just copy original)
+        var imgData = new ImageData(new Uint8ClampedArray(origPixels), imgWidth, imgHeight);
+        resCtx.putImageData(imgData, 0, 0);
+      };
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function formatFileSize(bytes) {
+    if (bytes < 1024) return bytes + ' B';
+    if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
+    return (bytes / 1048576).toFixed(1) + ' MB';
+  }
+
+  // --- Process image with all filters ---
+  function processImage() {
+    if (!imageLoaded || !origPixels) return;
+    var w = imgWidth, h = imgHeight;
+    var src = new Uint8Array(origPixels);
+    var dst = new Uint8ClampedArray(src);
+
+    // 1. Median filter (noise reduction)
+    var noiseVal = parseInt(noiseS.value);
+    if (noiseVal > 0) {
+      var kernelSize = 3 + Math.floor(noiseVal / 33) * 2; // 3, 5, or 7
+      dst = applyMedianFilter(dst, w, h, kernelSize);
+    }
+
+    // 2. Scratch removal (outlier detection)
+    var scratchVal = parseInt(scratchS.value);
+    if (scratchVal > 0) {
+      dst = applyScratchRemoval(dst, w, h, scratchVal);
+    }
+
+    // 3. Contrast enhancement (histogram stretch)
+    var contrastVal = parseInt(contrastS.value);
+    if (contrastVal > 0) {
+      dst = applyContrastEnhancement(dst, contrastVal);
+    }
+
+    // 4. Sharpen (unsharp mask)
+    var sharpenVal = parseInt(sharpenS.value);
+    if (sharpenVal > 0) {
+      dst = applySharpen(dst, w, h, sharpenVal);
+    }
+
+    // 5. Brightness
+    var brightVal = parseInt(brightS.value);
+    if (brightVal !== 0) {
+      dst = applyBrightness(dst, brightVal);
+    }
+
+    // 6. Warmth (sepia)
+    var warmVal = parseInt(warmS.value);
+    if (warmVal > 0) {
+      dst = applyWarmth(dst, warmVal);
+    }
+
+    if (showingOriginal) {
+      resCtx.putImageData(new ImageData(new Uint8ClampedArray(origPixels), w, h), 0, 0);
+    } else {
+      resCtx.putImageData(new ImageData(dst, w, h), 0, 0);
+    }
+  }
+
+  // --- Median Filter ---
+  function applyMedianFilter(src, w, h, k) {
+    var half = Math.floor(k / 2);
+    var dst = new Uint8ClampedArray(src.length);
+    for (var y = 0; y < h; y++) {
+      for (var x = 0; x < w; x++) {
+        var r = [], g = [], b = [];
+        for (var ky = -half; ky <= half; ky++) {
+          for (var kx = -half; kx <= half; kx++) {
+            var px = Math.min(w - 1, Math.max(0, x + kx));
+            var py = Math.min(h - 1, Math.max(0, y + ky));
+            var idx = (py * w + px) * 4;
+            r.push(src[idx]);
+            g.push(src[idx + 1]);
+            b.push(src[idx + 2]);
+          }
+        }
+        r.sort(function(a,b){return a-b;});
+        g.sort(function(a,b){return a-b;});
+        b.sort(function(a,b){return a-b;});
+        var mid = Math.floor(r.length / 2);
+        var di = (y * w + x) * 4;
+        dst[di] = r[mid];
+        dst[di + 1] = g[mid];
+        dst[di + 2] = b[mid];
+        dst[di + 3] = 255;
+      }
+    }
+    return dst;
+  }
+
+  // --- Scratch Removal (outlier detection) ---
+  function applyScratchRemoval(src, w, h, intensity) {
+    var threshold = 60 - intensity * 0.5; // 60 down to 10
+    var dst = new Uint8ClampedArray(src);
+    for (var y = 1; y < h - 1; y++) {
+      for (var x = 1; x < w - 1; x++) {
+        var di = (y * w + x) * 4;
+        // Compute avg of 8 neighbors
+        var sumR = 0, sumG = 0, sumB = 0;
+        for (var ky = -1; ky <= 1; ky++) {
+          for (var kx = -1; kx <= 1; kx++) {
+            if (ky === 0 && kx === 0) continue;
+            var ni = ((y + ky) * w + (x + kx)) * 4;
+            sumR += src[ni];
+            sumG += src[ni + 1];
+            sumB += src[ni + 2];
+          }
+        }
+        var avgR = sumR / 8, avgG = sumG / 8, avgB = sumB / 8;
+        var diff = Math.abs(src[di] - avgR) + Math.abs(src[di+1] - avgG) + Math.abs(src[di+2] - avgB);
+        if (diff > threshold * 3) {
+          dst[di] = avgR;
+          dst[di + 1] = avgG;
+          dst[di + 2] = avgB;
+        }
+      }
+    }
+    return dst;
+  }
+
+  // --- Contrast Enhancement (histogram stretch) ---
+  function applyContrastEnhancement(src, intensity) {
+    var factor = intensity / 100;
+    // Find min and max for each channel
+    var minR = 255, maxR = 0, minG = 255, maxG = 0, minB = 255, maxB = 0;
+    for (var i = 0; i < src.length; i += 4) {
+      if (src[i] < minR) minR = src[i];
+      if (src[i] > maxR) maxR = src[i];
+      if (src[i+1] < minG) minG = src[i+1];
+      if (src[i+1] > maxG) maxG = src[i+1];
+      if (src[i+2] < minB) minB = src[i+2];
+      if (src[i+2] > maxB) maxB = src[i+2];
+    }
+    var dst = new Uint8ClampedArray(src);
+    var rangeR = maxR - minR || 1;
+    var rangeG = maxG - minG || 1;
+    var rangeB = maxB - minB || 1;
+    for (var j = 0; j < dst.length; j += 4) {
+      var nr = (dst[j] - minR) / rangeR * 255;
+      var ng = (dst[j+1] - minG) / rangeG * 255;
+      var nb = (dst[j+2] - minB) / rangeB * 255;
+      // Blend original and stretched by intensity factor
+      dst[j] = dst[j] * (1 - factor) + nr * factor;
+      dst[j+1] = dst[j+1] * (1 - factor) + ng * factor;
+      dst[j+2] = dst[j+2] * (1 - factor) + nb * factor;
+    }
+    return dst;
+  }
+
+  // --- Sharpen (unsharp mask) ---
+  function applySharpen(src, w, h, intensity) {
+    var factor = intensity / 100 * 1.5;
+    // Simple Gaussian blur 3x3
+    var blurred = new Float64Array(src.length);
+    var kernel = [1,2,1,2,4,2,1,2,1];
+    var kSum = 16;
+    var half = 1;
+    for (var y = 0; y < h; y++) {
+      for (var x = 0; x < w; x++) {
+        var rs = 0, gs = 0, bs = 0;
+        for (var ky = -half; ky <= half; ky++) {
+          for (var kx = -half; kx <= half; kx++) {
+            var px = Math.min(w - 1, Math.max(0, x + kx));
+            var py = Math.min(h - 1, Math.max(0, y + ky));
+            var idx = (py * w + px) * 4;
+            var kVal = kernel[(ky+1)*3 + (kx+1)];
+            rs += src[idx] * kVal;
+            gs += src[idx+1] * kVal;
+            bs += src[idx+2] * kVal;
+          }
+        }
+        var di = (y * w + x) * 4;
+        blurred[di] = rs / kSum;
+        blurred[di+1] = gs / kSum;
+        blurred[di+2] = bs / kSum;
+      }
+    }
+    // Unsharp mask: original + factor * (original - blurred)
+    var dst = new Uint8ClampedArray(src);
+    for (var i = 0; i < dst.length; i += 4) {
+      dst[i] = Math.min(255, Math.max(0, dst[i] + factor * (dst[i] - blurred[i])));
+      dst[i+1] = Math.min(255, Math.max(0, dst[i+1] + factor * (dst[i+1] - blurred[i+1])));
+      dst[i+2] = Math.min(255, Math.max(0, dst[i+2] + factor * (dst[i+2] - blurred[i+2])));
+    }
+    return dst;
+  }
+
+  // --- Brightness ---
+  function applyBrightness(src, value) {
+    var dst = new Uint8ClampedArray(src);
+    for (var i = 0; i < dst.length; i += 4) {
+      dst[i] = Math.min(255, Math.max(0, dst[i] + value * 2.55));
+      dst[i+1] = Math.min(255, Math.max(0, dst[i+1] + value * 2.55));
+      dst[i+2] = Math.min(255, Math.max(0, dst[i+2] + value * 2.55));
+    }
+    return dst;
+  }
+
+  // --- Warmth (sepia with interpolation) ---
+  function applyWarmth(src, intensity) {
+    var factor = intensity / 100;
+    var dst = new Uint8ClampedArray(src);
+    for (var i = 0; i < dst.length; i += 4) {
+      var r = dst[i], g = dst[i+1], b = dst[i+2];
+      var sr = 0.393 * r + 0.769 * g + 0.189 * b;
+      var sg = 0.349 * r + 0.686 * g + 0.168 * b;
+      var sb = 0.272 * r + 0.534 * g + 0.131 * b;
+      sr = Math.min(255, Math.max(0, sr));
+      sg = Math.min(255, Math.max(0, sg));
+      sb = Math.min(255, Math.max(0, sb));
+      dst[i] = r * (1 - factor) + sr * factor;
+      dst[i+1] = g * (1 - factor) + sg * factor;
+      dst[i+2] = b * (1 - factor) + sb * factor;
+    }
+    return dst;
+  }
+
+  // --- Toggle before/after ---
+  toggleBtn.addEventListener('click', function() {
+    if (!imageLoaded) return;
+    showingOriginal = !showingOriginal;
+    toggleBtn.textContent = showingOriginal ? '\ud83d\udd04 Ver restaurada' : '\ud83d\udd04 Ver original';
+    processImage();
+  });
+
+  // --- Download ---
+  downloadBtn.addEventListener('click', function() {
+    if (!imageLoaded) { showToast('Primero sube una foto.'); return; }
+    var mimeType = formatSel.value;
+    var ext = mimeType === 'image/jpeg' ? 'jpg' : 'png';
+    var quality = mimeType === 'image/jpeg' ? 0.92 : undefined;
+    resCanvas.toBlob(function(blob) {
+      if (!blob) { showToast('Error al generar la imagen.'); return; }
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'foto_restaurada.' + ext;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(a.href);
+      showToast('Imagen descargada correctamente', 'success');
+    }, mimeType, quality);
+  });
+
+  // --- Reset ---
+  resetBtn.addEventListener('click', function() {
+    imageLoaded = false;
+    origPixels = null;
+    origImgData = null;
+    previewArea.classList.remove('active');
+    dropzone.style.display = '';
+    origCtx.clearRect(0, 0, origCanvas.width, origCanvas.height);
+    resCtx.clearRect(0, 0, resCanvas.width, resCanvas.height);
+    origCanvas.width = 0; origCanvas.height = 0;
+    resCanvas.width = 0; resCanvas.height = 0;
+    fileNameEl.textContent = '-';
+    fileSizeEl.textContent = '-';
+    fileDimsEl.textContent = '-';
+    noiseS.value = 0; scratchS.value = 0; contrastS.value = 0; sharpenS.value = 0; brightS.value = 0; warmS.value = 0;
+    updateLabels();
+    clearPreset();
+    showingOriginal = false;
+    toggleBtn.textContent = '\ud83d\udd04 Ver original';
+    fileInput.value = '';
+  });
+
+  // Expose processImage for slider events
+  window._restoreProcess = processImage;
+
+})();
+</script>
+</body>
+</html>

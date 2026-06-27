@@ -106,18 +106,18 @@
   Cache-Control: public, max-age=0, must-revalidate
   CDN-Cache-Control: public, max-age=1800
 
-# ── CSS: CDN cache 7d, browser 7d ──
-/css/*
+# ── CSS: CDN cache 7d, browser 7d (match all subpaths) ──
+/css/**
   Cache-Control: public, max-age=604800
   CDN-Cache-Control: public, max-age=604800
 
-# ── JS: CDN cache 7d, browser 7d ──
-/js/*
+# ── JS: CDN cache 7d, browser 7d (match all subpaths) ──
+/js/**
   Cache-Control: public, max-age=604800, immutable
   CDN-Cache-Control: public, max-age=604800
 
-# ── Images directory: 30d ──
-/images/*
+# ── Images directory: 30d (match all subpaths) ──
+/images/**
   Cache-Control: public, max-age=2592000, immutable
   CDN-Cache-Control: public, max-age=2592000
 

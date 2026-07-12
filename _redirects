@@ -6,11 +6,13 @@
 /posts/ /blog/ 301
 
 # 已删除/不存在的博文 → 最相关内容
-/posts/comprimir-fotos-para-email/ /blog/como-comprimir-imagenes-para-whatsapp.html 301
-/posts/comprimir-fotos-para-email /blog/como-comprimir-imagenes-para-whatsapp.html 301
+# 注意：目标必须用 clean URL（不带 .html），否则 CF Pages 会再做一次 308 重定向
+# 导致双重重定向链，Google 不收录
+/posts/comprimir-fotos-para-email/ /blog/como-comprimir-imagenes-para-whatsapp 301
+/posts/comprimir-fotos-para-email /blog/como-comprimir-imagenes-para-whatsapp 301
 
 # === 工具页别名（老 URL 保留） ===
-/tools/redimensionar-redes-sociales /tools/redimensionar-redes-sociales.html 301
+/tools/redimensionar-redes-sociales /tools/redimensionar-redes-sociales 301
 
 # === 其他常见 404 ===
 # /wordpress/ /2019/ 等 WordPress 扫描路径由 WAF R2 Block 规则处理，无需 _redirects

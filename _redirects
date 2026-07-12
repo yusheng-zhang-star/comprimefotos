@@ -11,8 +11,9 @@
 /posts/comprimir-fotos-para-email/ /blog/como-comprimir-imagenes-para-whatsapp 301
 /posts/comprimir-fotos-para-email /blog/como-comprimir-imagenes-para-whatsapp 301
 
-# === 工具页别名（老 URL 保留） ===
-/tools/redimensionar-redes-sociales /tools/redimensionar-redes-sociales 301
+# === 工具页别名（老 URL 保留）===
+# redimensionar-redes-sociales 工具页 CF Pages 会自动把 .html 转到 clean URL
+# 不要再写 _redirects 规则，否则会自循环（自引用）
 
 # === 其他常见 404 ===
 # /wordpress/ /2019/ 等 WordPress 扫描路径由 WAF R2 Block 规则处理，无需 _redirects

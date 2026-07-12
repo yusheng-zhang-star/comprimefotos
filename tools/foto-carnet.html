@@ -14,9 +14,9 @@
 <meta property="og:url" content="https://comprimefotos.com/tools/foto-carnet">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ComprimeFotos">
-<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="stylesheet" href="../css/style.css?v=2">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -59,7 +59,6 @@
 </script>
 
 <style>
-:root{--font-main:'DM Sans',sans-serif;--primary:#1a6b52;--primary-dark:#14533e;--accent:#c4664a;--bg-primary:#fff;--bg-secondary:#f7f5f0;--bg-tertiary:#efede7;--text-primary:#2d2d2d;--text-secondary:#666;--text-muted:#999;--border-color:#dcd8d0;--shadow:0 2px 8px rgba(0,0,0,.08);--shadow-lg:0 4px 16px rgba(0,0,0,.12)}
 *,::after,::before{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:var(--font-main);background:var(--bg-primary);color:var(--text-primary);line-height:1.6;min-height:100vh;-webkit-font-smoothing:antialiased}
@@ -68,127 +67,45 @@ img{max-width:100%;display:block}
 button{font-family:inherit;cursor:pointer;border:none;background:0 0;color:inherit}
 .container{max-width:1100px;margin:0 auto;padding:0 24px}
 @media(max-width:768px){.container{padding:0 16px}}
-.site-header{position:sticky;top:0;z-index:100;background:#fff;border-bottom:2px solid var(--primary)}
-.header-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
-.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.25rem;color:var(--primary)}
-.main-nav{display:flex;gap:24px}
-.main-nav a{color:var(--text-secondary);font-weight:500;font-size:.9rem;transition:color .2s}
-.main-nav a.active,.main-nav a:hover{color:var(--primary)}
-.mobile-menu-btn{display:none;font-size:1.5rem;color:var(--primary)}
-@media(max-width:768px){.main-nav{display:none}.mobile-menu-btn{display:flex}.main-nav.nav-open{display:flex;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:#fff;padding:16px 24px;border-bottom:2px solid var(--border-color);z-index:99}}
-.tool-page{padding:32px 0 60px}
-.tool-page-header{text-align:center;max-width:800px;margin:0 auto 32px}
-.tool-page-header h1{font-size:2rem;font-weight:700;color:var(--primary);margin-bottom:12px}
-.tool-page-header h1 span{color:var(--accent)}
-.tool-page-header p{color:var(--text-secondary);font-size:1rem;line-height:1.7}
-.breadcrumb{padding:12px 0;font-size:.85rem;color:var(--text-muted);margin-bottom:8px}
-.breadcrumb a{color:var(--primary)}
-.tool-workspace{background:var(--bg-secondary);border:2px solid var(--border-color);padding:24px;margin-bottom:32px}
-.dropzone{border:2px dashed var(--border-color);padding:32px 20px;text-align:center;cursor:pointer;transition:border-color .2s;background:var(--bg-primary)}
-.dropzone:hover,.dropzone.dragover{border-color:var(--primary)}
-.dropzone-icon{font-size:2.5rem;margin-bottom:8px}
-.dropzone h3{font-size:1rem;font-weight:600;color:var(--text-primary);margin-bottom:4px}
-.dropzone p{font-size:.82rem;color:var(--text-muted)}
 .foto-carnet-layout{display:flex;gap:20px;flex-wrap:wrap}
 .foto-carnet-sidebar{flex:0 0 300px;display:flex;flex-direction:column;gap:14px}
 .foto-carnet-canvas-area{flex:1;min-width:300px}
 @media(max-width:768px){.foto-carnet-layout{flex-direction:column}.foto-carnet-sidebar{flex:none;width:100%}}
-.preview-area{background:repeating-conic-gradient(#efede7 0% 25%,#fff 0% 50%) 50%/20px 20px;border:2px solid var(--border-color);padding:16px;display:flex;align-items:center;justify-content:center;min-height:420px;position:relative;overflow:hidden}
+.foto-carnet-layout{display:flex;gap:20px;flex-wrap:wrap}
+.foto-carnet-sidebar{flex:0 0 300px;display:flex;flex-direction:column;gap:14px}
+.foto-carnet-canvas-area{flex:1;min-width:300px}
+@media(max-width:768px){.foto-carnet-layout{flex-direction:column}.foto-carnet-sidebar{flex:none;width:100%}}
+.preview-area{background:repeating-conic-gradient(#efede7 0% 25%,#fff 0% 50%) 50%/20px 20px}
 .preview-area canvas{max-width:100%;max-height:65vh}
 .preview-area .placeholder-text{color:var(--text-muted);font-size:.9rem;text-align:center;padding:20px}
 .preview-area .placeholder-text .icon{font-size:3rem;margin-bottom:12px}
 .card{background:var(--bg-primary);border:2px solid var(--border-color);padding:14px}
 .card h3{font-size:.9rem;font-weight:600;margin-bottom:10px;color:var(--primary)}
-.tool-actions{display:flex;gap:8px;flex-wrap:wrap}
 .tool-actions .btn{flex:1;min-width:80px;justify-content:center}
-.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 24px;font-weight:600;font-size:.9rem;transition:all .2s;font-family:var(--font-main)}
-.btn-primary{background:var(--primary);color:#fff}
-.btn-primary:hover{background:var(--primary-dark)}
-.btn-secondary{background:var(--bg-tertiary);color:var(--text-primary);border:2px solid var(--border-color)}
-.btn-secondary:hover{background:var(--border-color)}
-.btn:disabled{opacity:.5;cursor:not-allowed}
 .bg-presets{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
-.bg-preset-btn{width:36px;height:36px;border:2px solid var(--border-color);cursor:pointer;transition:all .2s}
+.bg-preset-btn{width:36px;height:36px;border:2px solid var(--border-color);cursor:pointer;transition:all .2s;border-radius:6px;}
 .bg-preset-btn:hover{transform:scale(1.1)}
-.bg-preset-btn.active{border-color:var(--primary);outline:2px solid var(--primary);outline-offset:1px}
+.bg-preset-btn.active{border-color:var(--accent);outline:2px solid var(--accent);outline-offset:1px}
 .bg-preset-btn.white{background:#fff;border-color:#ccc}
 .bg-preset-btn.blue{background:#3b82f6}
 .bg-preset-btn.red{background:#ef4444}
 .bg-preset-btn.gray{background:#9ca3af}
 .bg-preset-btn.green{background:#22c55e}
 .custom-color-row{display:flex;align-items:center;gap:8px;margin-top:8px}
-.custom-color-row input[type=color]{width:36px;height:36px;border:2px solid var(--border-color);cursor:pointer;padding:0}
+.custom-color-row input[type=color]{width:36px;height:36px;border:2px solid var(--border-color);cursor:pointer;padding:0;border-radius:6px;}
 .country-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;max-height:280px;overflow-y:auto;padding-right:4px}
 .country-grid::-webkit-scrollbar{width:4px}
 .country-grid::-webkit-scrollbar-thumb{background:var(--border-color)}
-.country-btn{padding:6px 10px;border:2px solid var(--border-color);background:var(--bg-primary);color:var(--text-primary);cursor:pointer;font-size:.78rem;text-align:left;transition:all .2s;font-family:var(--font-main)}
-.country-btn:hover{border-color:var(--primary)}
-.country-btn.active{border-color:var(--primary);background:rgba(26,107,82,.08);font-weight:600}
-.size-detail{font-size:.75rem;color:var(--text-muted);margin-top:8px;padding:8px;background:var(--bg-tertiary)}
+.country-btn{padding:6px 10px;border:2px solid var(--border-color);background:var(--bg-primary);color:var(--text-primary);cursor:pointer;font-size:.78rem;text-align:left;transition:all .2s;font-family:var(--font-main);border-radius:6px;}
+.country-btn:hover{border-color:var(--accent)}
+.country-btn.active{border-color:var(--accent);background:rgba(255,107,74,.08);font-weight:600}
+.size-detail{font-size:.75rem;color:var(--text-muted);margin-top:8px;padding:8px;background:var(--bg-tertiary);border-radius:6px;}
 .size-detail strong{color:var(--text-primary)}
-.file-info{display:flex;align-items:center;gap:8px;margin-top:10px;font-size:.82rem;color:var(--text-secondary);flex-wrap:wrap}
-.file-info span{font-weight:600;color:var(--text-primary)}
 .progress-bar{width:100%;height:4px;background:var(--border-color);overflow:hidden;display:none;margin-top:8px}
-.progress-fill{height:100%;width:0%;background:var(--primary);transition:width .3s}
+.progress-fill{height:100%;width:0%;background:var(--accent);transition:width .3s}
 .status-msg{text-align:center;padding:6px;font-size:.82rem;color:var(--text-secondary)}
-.print-tips{margin-top:12px;padding:10px;background:var(--bg-tertiary);font-size:.82rem;color:var(--text-secondary);line-height:1.5}
-.print-tips strong{color:var(--primary)}
-.how-to-section{padding:40px 0}
-.how-to-section h2{font-size:1.6rem;font-weight:700;color:var(--primary);text-align:center;margin-bottom:32px}
-.how-to-steps{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px}
-.how-to-step{padding:20px;background:var(--bg-secondary);border:2px solid var(--border-color);text-align:center}
-.step-number{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;background:var(--primary);color:#fff;font-weight:700;font-size:1.1rem;margin-bottom:12px}
-.how-to-step h4{font-size:1rem;font-weight:600;color:var(--primary);margin-bottom:8px}
-.how-to-step p{font-size:.88rem;color:var(--text-secondary);line-height:1.6}
-.guide-section{padding:0 0 40px}
-.guide-section h2{font-size:1.6rem;font-weight:700;color:var(--primary);margin-bottom:24px}
-.guide-block{margin-bottom:28px}
-.guide-block h3{font-size:1.1rem;font-weight:600;color:var(--primary);margin-bottom:10px;padding-bottom:6px;border-bottom:2px solid var(--accent)}
-.guide-block p{font-size:.95rem;color:var(--text-secondary);line-height:1.7;margin-bottom:10px}
-.guide-block ol,.guide-block ul{padding-left:20px;margin-bottom:10px}
-.guide-block li{font-size:.95rem;color:var(--text-secondary);line-height:1.7;margin-bottom:6px}
-.guide-block li strong{color:var(--text-primary)}
-.guide-block .photo-checklist{list-style:none;padding-left:0}
-.guide-block .photo-checklist li{padding-left:24px;position:relative;margin-bottom:8px}
-.guide-block .photo-checklist li::before{content:'\2713';position:absolute;left:0;color:var(--primary);font-weight:700}
-.faq-section{padding:40px 0}
-.faq-section h2{font-size:1.6rem;font-weight:700;color:var(--primary);text-align:center;margin-bottom:24px}
-.faq-item{border:2px solid var(--border-color);margin-bottom:8px;background:var(--bg-primary)}
-.faq-question{display:block;width:100%;padding:14px 16px;text-align:left;font-size:.95rem;font-weight:600;color:var(--text-primary);background:var(--bg-secondary);cursor:pointer;font-family:var(--font-main);position:relative}
-.faq-question::after{content:'+';position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:1.2rem;transition:transform .2s;color:var(--primary)}
-.faq-item.open .faq-question::after{content:'-'}
-.faq-answer{max-height:0;overflow:hidden;padding:0 16px;transition:max-height .3s ease,padding .3s ease;font-size:.9rem;color:var(--text-secondary);line-height:1.7}
-.faq-item.open .faq-answer{max-height:400px;padding:14px 16px}
-.related-tools{padding:40px 0}
-.related-tools h2{font-size:1.6rem;font-weight:700;color:var(--primary);text-align:center;margin-bottom:24px}
-.related-tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
-.related-tool-card{display:flex;align-items:center;gap:12px;padding:14px;border:2px solid var(--border-color);background:var(--bg-primary);transition:all .2s}
-.related-tool-card:hover{border-color:var(--primary);background:var(--bg-secondary)}
-.tool-icon{font-size:1.6rem;flex-shrink:0}
-.tool-info{flex:1;min-width:0}
-.tool-info strong{display:block;font-size:.9rem;color:var(--text-primary);margin-bottom:2px}
-.tool-desc{font-size:.78rem;color:var(--text-secondary);display:block}
-.tool-arrow{font-size:1rem;color:var(--primary);font-weight:700;flex-shrink:0}
-.site-footer{background:var(--primary);color:#fff;padding:40px 0 20px}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:32px}
-@media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr}}
-.footer-brand .logo{color:#fff}
-.footer-brand p{color:rgba(255,255,255,.7);font-size:.88rem;margin-top:10px;max-width:280px}
-.footer-links h4{font-size:.9rem;font-weight:600;margin-bottom:12px;color:#fff}
-.footer-links a{display:block;font-size:.85rem;color:rgba(255,255,255,.7);margin-bottom:6px;transition:color .2s}
-.footer-links a:hover{color:#fff}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.2);padding-top:16px;text-align:center;font-size:.82rem;color:rgba(255,255,255,.6)}
-.cookie-consent{position:fixed;bottom:0;left:0;right:0;z-index:999;background:var(--primary);color:#fff;display:none}
-.cookie-consent.show{display:block}
-.cookie-consent-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 24px;max-width:1100px;margin:0 auto}
-.cookie-consent-text{font-size:.82rem;color:rgba(255,255,255,.85)}
-.cookie-consent-text a{color:#fff;text-decoration:underline}
-.cookie-consent-actions{display:flex;gap:8px;flex-shrink:0}
-.cookie-btn{padding:8px 16px;font-size:.82rem;font-weight:600;cursor:pointer;font-family:var(--font-main)}
-.cookie-btn-accept{background:#fff;color:var(--primary)}
-.cookie-btn-decline{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4)}
-.toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);z-index:1000;padding:10px 20px;font-size:.88rem;font-weight:500;background:var(--primary);color:#fff;opacity:0;transition:opacity .3s;pointer-events:none}
-.toast.visible{opacity:1}
+.print-tips{margin-top:12px;padding:10px;background:var(--bg-tertiary);font-size:.82rem;color:var(--text-secondary);line-height:1.5;border-radius:var(--radius-sm);}
+.print-tips strong{color:var(--accent)}
 .hidden{display:none!important}.text-center{text-align:center}.flex{display:flex}.gap-8{gap:8px}.mt-12{margin-top:12px}.mt-20{margin-top:20px}.mb-12{margin-bottom:12px}
 .file-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px}
 .spinner{display:inline-block;width:20px;height:20px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;animation:spin .6s linear infinite}
@@ -198,16 +115,16 @@ button{font-family:inherit;cursor:pointer;border:none;background:0 0;color:inher
 <body>
 <header class="site-header">
   <div class="container header-inner">
-    <a href="/" class="logo"><span class="logo-icon">&#128247;</span><span class="logo-text">ComprimeFotos</span></a>
+    <a href="/" class="logo"><span class="logo-icon">📷</span><span class="logo-text">ComprimeFotos</span></a>
     <nav class="main-nav">
       <a href="/">Inicio</a>
-      <a href="/tools/comprimir">Comprimir</a>
-      <a href="/tools/whatsapp">WhatsApp</a>
-      <a href="/tools/quitar-fondo">Quitar fondo</a>
+      <a href="/tools/comprimir-imagenes">Comprimir</a>
+      <a href="/tools/comprimir-imagenes-whatsapp">WhatsApp</a>
+      <a href="/tools/quitar-fondo">Quitar Fondo</a>
       <a href="/blog/">Blog</a>
-      <a href="/about">Sobre</a>
+      <a href="/about">Sobre Nosotros</a>
     </nav>
-    <button class="mobile-menu-btn" id="mobileMenuBtn">&#9776;</button>
+    <div class="header-actions"><button class="mobile-menu-btn" aria-label="Cambiar tema">🖼️</button><button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menú">☰</button></div>
   </div>
 </header>
 
@@ -453,31 +370,49 @@ button{font-family:inherit;cursor:pointer;border:none;background:0 0;color:inher
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="/" class="logo"><span class="logo-icon">&#128247;</span><span class="logo-text">ComprimeFotos</span></a>
-        <p>Herramientas gratuitas de imagen online que respetan tu privacidad.</p>
+        <a href="/" class="logo"><span class="logo-icon">📷</span><span class="logo-text">ComprimeFotos</span></a>
+        <p>Herramientas gratuitas para comprimir y editar imágenes online. Todo el procesamiento se realiza en tu navegador: tus archivos nunca salen de tu dispositivo.</p>
       </div>
       <div class="footer-links">
         <h4>Herramientas</h4>
-        <a href="/tools/comprimir">Comprimir im&aacute;genes</a>
+        <a href="/tools/comprimir-imagenes">Comprimir imágenes</a>
+        <a href="/tools/comprimir-imagenes-whatsapp">Comprimir para WhatsApp</a>
+        <a href="/tools/comprimir-pdf">Comprimir PDF</a>
         <a href="/tools/quitar-fondo">Quitar fondo</a>
-        <a href="/tools/redimensionar-imagen">Redimensionar</a>
-        <a href="/tools/foto-carnet">Foto carnet</a>
+        <a href="/tools/recortar-imagen">Recortar imagen</a>
+        <a href="/tools/pdf-a-imagen">PDF a imagen</a>
+        <a href="/tools/imagen-a-pdf">Imagen a PDF</a>
+        <a href="/tools/imagen-a-texto">Imagen a texto</a>
+        <a href="/tools/comprimir-video">Comprimir video</a>
       </div>
       <div class="footer-links">
-        <h4>M&aacute;s herramientas</h4>
-        <a href="/tools/whatsapp">WhatsApp</a>
+        <h4>Más herramientas</h4>
+        <a href="/tools/redimensionar-imagen">Redimensionar</a>
+        <a href="/tools/redimensionar-redes-sociales">Redes sociales</a>
+        <a href="/tools/convertir-formato">Convertir formato</a>
+        <a href="/tools/poner-marca-de-agua">Marca de agua</a>
+        <a href="/tools/hacer-collage">Hacer collage</a>
+        <a href="/tools/firma-electronica">Firma electrónica</a>
         <a href="/tools/foto-a-blanco-y-negro">Blanco y negro</a>
-        <a href="/blog/">Blog</a>
+        <a href="/tools/foto-carnet">Foto carnet</a>
+        <a href="/tools/anadir-texto-foto">Texto en foto</a>
+        <a href="/tools/fondo-blanco-producto">Fondo blanco producto</a>
+        <a href="/tools/filtros-para-fotos">Filtros para fotos</a>
+        <a href="/tools/restaurar-fotos-antiguas">Restaurar fotos</a>
       </div>
       <div class="footer-links">
         <h4>Legal</h4>
-        <a href="/privacidad">Pol&iacute;tica de privacidad</a>
-        <a href="/terminos">T&eacute;rminos de uso</a>
-        <a href="/cookies">Pol&iacute;tica de cookies</a>
+        <a href="/about">Sobre nosotros</a>
+        <a href="/contacto">Contacto</a>
+        <a href="/privacy">Política de privacidad</a>
+        <a href="/terms">Términos de uso</a>
+        <a href="/cookie-policy">Política de cookies</a>
+        <a href="/blog/">Blog</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 ComprimeFotos. Todos los derechos reservados.</p>
+      <p>&copy; 2026 ComprimeFotos.com — Todos los derechos reservados.</p>
+      <p style="margin-top: 4px; font-size: 0.8rem;">Hecho con ❤️ para la comunidad hispanohablante. | <a href="https://smartimgkit.com/" style="color: var(--accent); font-weight: 500;">English: SmartImgKit — Free Image Tools</a></p>
     </div>
   </div>
 </footer>
@@ -485,11 +420,11 @@ button{font-family:inherit;cursor:pointer;border:none;background:0 0;color:inher
 <div class="cookie-consent" id="cookieConsent">
   <div class="cookie-consent-inner">
     <div class="cookie-consent-text">
-      Usamos cookies para mejorar tu experiencia. Al continuar, aceptas nuestra <a href="/cookies">pol&iacute;tica de cookies</a>.
+      <p>🍪 Usamos cookies esenciales. <a href="/cookie-policy">Más información</a>.</p>
     </div>
     <div class="cookie-consent-actions">
-      <button class="cookie-btn cookie-btn-accept" id="cookieAccept">Aceptar</button>
-      <button class="cookie-btn cookie-btn-decline" id="cookieDecline">Rechazar</button>
+      <button class="cookie-btn cookie-btn-decline" id="cookieDecline">Solo esenciales</button>
+      <button class="cookie-btn cookie-btn-accept" id="cookieAccept">Aceptar todas</button>
     </div>
   </div>
 </div>
@@ -553,5 +488,6 @@ if(!localStorage.getItem("cookieConsent")){document.getElementById("cookieConsen
 document.getElementById("cookieAccept").onclick=function(){localStorage.setItem("cookieConsent","accepted");document.getElementById("cookieConsent").classList.remove("show")};
 document.getElementById("cookieDecline").onclick=function(){localStorage.setItem("cookieConsent","declined");document.getElementById("cookieConsent").classList.remove("show")};
 </script>
+
 </body>
 </html>

@@ -25,7 +25,7 @@
           <canvas id="signaturePad" width="400" height="200" style="width:100%;height:auto;border:2px solid var(--border-color);border-radius:8px;background:white;cursor:crosshair;touch-action:none;"></canvas>
           <div style="display:flex;gap:8px;margin-top:8px;">
             <button class="btn btn-secondary" id="clearSignatureBtn">🧹 Limpiar</button>
-            <button class="btn btn-secondary" id="undoStrokeBtn">— âç¬ Deshacer</button>
+            <button class="btn btn-secondary" id="undoStrokeBtn">↶ Deshacer</button>
           </div>
         </div>
         <div style="flex:1;min-width:200px;">
@@ -73,7 +73,7 @@
 </main>
 <footer class="site-footer"><div class="container"><div class="footer-grid">
   <div class="footer-brand"><a href="/" class="logo"><span class="logo-icon">📷</span><span class="logo-text">ComprimeFotos</span></a><p>Herramientas gratuitas para comprimir y editar imágenes online.</p>
-          <a href="mailto:contact@comprimefotos.com" style="color: var(--accent); font-weight: 500; font-size: 0.95rem;">📧 contact@comprimefotos.com</a></div>
+          <a href="/cdn-cgi/l/email-protection#b7d4d8d9c3d6d4c3f7d4d8dac7c5dedad2d1d8c3d8c499d4d8da" style="color: var(--accent); font-weight: 500; font-size: 0.95rem;">📧 contact@comprimefotos.com</a></div>
   <div class="footer-links"><h4>Herramientas</h4><a href="/tools/comprimir-imagenes">Comprimir imágenes</a><a href="/tools/comprimir-imagenes-whatsapp">Comprimir para WhatsApp</a><a href="/tools/comprimir-pdf">Comprimir PDF</a><a href="/tools/quitar-fondo">Quitar fondo</a></div>
   <div class="footer-links"><h4>Legal</h4><a href="/about">Sobre nosotros</a><a href="/contacto">Contacto</a><a href="/privacy">Privacidad</a><a href="/terms">Términos</a><a href="/cookie-policy">Cookies</a><a href="/blog/">Blog</a></div>
 </div><div class="footer-bottom"><p>&copy; 2026 ComprimeFotos.com | <a href="https://smartimgkit.com/" style="color: var(--accent); font-weight: 500;">English: SmartImgKit — Free Image Tools</a></p></div></div></footer>
@@ -176,7 +176,7 @@
 
   generateNameBtn.addEventListener('click', function() {
     const name = nameInput.value.trim();
-    if (!name) { showToast('📄 Escribe tu nombre primero', ''); return; }
+    if (!name) { showToast('⚠️ Escribe tu nombre primero', 'warning'); return; }
     const font = fontMap[fontSelect.value] || fontMap.cursive;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     strokes = [];
@@ -213,7 +213,7 @@
     for (let i = 0; i < imageData.data.length; i += 4) {
       if (imageData.data[i+3] > 0) { hasContent = true; break; }
     }
-    if (!hasContent) { showToast('📄 Dibuja o genera una firma primero', ''); return; }
+    if (!hasContent) { showToast('⚠️ Dibuja o genera una firma primero', 'warning'); return; }
 
     // Crear versión con fondo transparente
     const exportCanvas = document.createElement('canvas');
@@ -249,5 +249,6 @@
   }
 })();
 </script>
+
 </body>
 </html>

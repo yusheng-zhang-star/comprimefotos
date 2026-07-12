@@ -22,6 +22,8 @@
   <link rel="stylesheet" href="../css/style.css?v=2">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
 </head>
 <body>
 <header class="site-header">
@@ -95,7 +97,7 @@
       <div class="footer-brand">
         <a href="/" class="logo"><span class="logo-icon">📳</span><span class="logo-text">ComprimeFotos</span></a>
         <p>Herramientas gratuitas para comprimir y editar im&aacute;genes online. Todo el procesamiento se realiza en tu navegador: tus archivos nunca salen de tu dispositivo.</p>
-          <a href="mailto:contact@comprimefotos.com" style="color: var(--accent); font-weight: 500; font-size: 0.95rem;">&#x1f4e7; contact@comprimefotos.com</a>
+          <a href="/cdn-cgi/l/email-protection#abc8c4c5dfcac8dfebc8c4c6dbd9c2c6cecdc4dfc4d885c8c4c6" style="color: var(--accent); font-weight: 500; font-size: 0.95rem;">&#x1f4e7; contact@comprimefotos.com</a>
       </div>
       <div class="footer-links">
         <h4>Herramientas</h4>
@@ -144,5 +146,206 @@
 </div>
 <div class="toast" id="toast"></div>
 <script src="../js/main.js?v=2"></script>
+<script>
+(function() {
+  'use strict';
+  const workspace = document.getElementById('batchWorkspace');
+  const dropzone = document.getElementById('dropzone');
+  const fileInput = document.getElementById('fileInput');
+  const batchControls = document.getElementById('batchControls');
+  const fileList = document.getElementById('fileList');
+  const processAllBtn = document.getElementById('processAllBtn');
+  const downloadZipBtn = document.getElementById('downloadZipBtn');
+  const resetBtn = document.getElementById('resetBtn');
+  const batchQuality = document.getElementById('batchQuality');
+  const batchQualityValue = document.getElementById('batchQualityValue');
+  const batchFormat = document.getElementById('batchFormat');
+  const batchResize = document.getElementById('batchResize');
+
+  let files = [];
+  let processedBlobs = [];
+
+  batchQuality.addEventListener('input', function() { batchQualityValue.textContent = this.value + '%'; });
+
+  fileInput.addEventListener('change', function() {
+    if (!this.files || this.files.length === 0) return;
+    for (let i = 0; i < this.files.length; i++) addFile(this.files[i]);
+    renderList();
+  });
+
+  function addFile(file) {
+    if (!file.type.match(/^image\/(jpeg|png|webp)$/)) return;
+    files.push({ file: file, processed: null, status: 'pending', sizeOrig: file.size, sizeOut: 0 });
+  }
+
+  function renderList() {
+    if (files.length === 0) { batchControls.style.display = 'none'; return; }
+    batchControls.style.display = '';
+    fileList.innerHTML = '';
+    const wrap = document.createElement('div');
+    wrap.style.cssText = 'display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;';
+    files.forEach(function(entry, idx) {
+      const card = document.createElement('div');
+      card.style.cssText = 'border:1px solid var(--border-color);border-radius:8px;overflow:hidden;background:var(--bg-card);';
+      const row = document.createElement('div');
+      row.style.cssText = 'display:flex;gap:10px;padding:10px;align-items:center;';
+      const thumb = document.createElement('div');
+      thumb.style.cssText = 'width:56px;height:56px;border-radius:6px;background:var(--bg-secondary);flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--text-muted);';
+      thumb.textContent = '🖼️';
+      const timg = document.createElement('img');
+      timg.style.cssText = 'width:100%;height:100%;object-fit:cover;';
+      const reader = new FileReader();
+      reader.onload = function(e) { timg.src = e.target.result; thumb.innerHTML = ''; thumb.appendChild(timg); };
+      reader.readAsDataURL(entry.file);
+      const info = document.createElement('div');
+      info.style.cssText = 'flex:1;min-width:0;';
+      const nm = document.createElement('div');
+      nm.style.cssText = 'font-weight:600;font-size:0.85rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';
+      nm.textContent = entry.file.name;
+      const meta = document.createElement('div');
+      meta.style.cssText = 'font-size:0.75rem;color:var(--text-muted);margin-top:2px;';
+      const saved = entry.sizeOut > 0 ? ' — <span style="color:#10b981;font-weight:600;">↓ ' + Math.round((1 - entry.sizeOut / entry.sizeOrig) * 100) + '%</span>' : '';
+      meta.innerHTML = formatBytes(entry.sizeOrig) + (entry.status === 'done' ? ' → ' + formatBytes(entry.sizeOut) + saved : entry.status === 'processing' ? ' — <span style="color:var(--accent);">⏳ procesando...</span>' : entry.status === 'error' ? ' — <span style="color:#dc2626;">❌ error</span>' : '');
+      info.appendChild(nm); info.appendChild(meta);
+      const rm = document.createElement('button');
+      rm.textContent = '✕';
+      rm.style.cssText = 'background:transparent;border:none;color:var(--text-muted);cursor:pointer;font-size:1rem;padding:4px 8px;';
+      rm.title = 'Quitar';
+      rm.addEventListener('click', function() { files.splice(idx, 1); renderList(); });
+      row.appendChild(thumb); row.appendChild(info); row.appendChild(rm);
+      card.appendChild(row);
+      wrap.appendChild(card);
+    });
+    fileList.appendChild(wrap);
+  }
+
+  processAllBtn.addEventListener('click', function() {
+    if (files.length === 0) return;
+    processedBlobs = [];
+    const quality = parseInt(batchQuality.value) / 100;
+    const format = batchFormat.value;
+    const maxDim = batchResize.value === 'none' ? 0 : parseInt(batchResize.value);
+    processAllBtn.disabled = true;
+    processAllBtn.textContent = '⏳ Procesando...';
+    let i = 0;
+    function next() {
+      if (i >= files.length) {
+        processAllBtn.style.display = 'none';
+        downloadZipBtn.style.display = '';
+        showToast('✅ Procesadas ' + files.length + ' imágenes', 'success');
+        return;
+      }
+      const entry = files[i];
+      entry.status = 'processing';
+      renderList();
+      processOne(entry, quality, format, maxDim).then(function(b) {
+        entry.status = 'done';
+        entry.processed = b;
+        entry.sizeOut = b.size;
+        processedBlobs.push({ blob: b, name: buildName(entry.file.name, format) });
+        i++;
+        setTimeout(next, 10);
+      }).catch(function() {
+        entry.status = 'error';
+        i++;
+        setTimeout(next, 10);
+      });
+    }
+    next();
+  });
+
+  downloadZipBtn.addEventListener('click', function() {
+    if (processedBlobs.length === 0) return;
+    if (typeof JSZip === 'undefined') {
+      showToast('⚠️ JSZip no cargó, descargando individualmente...', 'warning');
+      processedBlobs.forEach(function(p, idx) { setTimeout(function() { dl(p); }, idx * 250); });
+      return;
+    }
+    showToast('🔄 Creando ZIP...', 'info');
+    const zip = new JSZip();
+    processedBlobs.forEach(function(p) { zip.file(p.name, p.blob); });
+    zip.generateAsync({ type: 'blob' }).then(function(zblob) {
+      const url = URL.createObjectURL(zblob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'lote_comprimido_' + Date.now() + '.zip';
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast('✅ ZIP descargado', 'success');
+    }).catch(function() { showToast('⚠️ Error creando ZIP', 'error'); });
+  });
+
+  resetBtn.addEventListener('click', function() {
+    files = []; processedBlobs = []; fileInput.value = '';
+    dropzone.style.display = '';
+    batchControls.style.display = 'none';
+    fileList.innerHTML = '';
+    processAllBtn.disabled = false;
+    processAllBtn.style.display = '';
+    processAllBtn.textContent = '▶ Procesar todas';
+    downloadZipBtn.style.display = 'none';
+  });
+
+  function processOne(entry, quality, format, maxDim) {
+    return new Promise(function(resolve, reject) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const img = new Image();
+        img.onload = function() {
+          let w = img.naturalWidth, h = img.naturalHeight;
+          if (maxDim > 0 && (w > maxDim || h > maxDim)) {
+            const r = Math.min(maxDim / w, maxDim / h);
+            w = Math.round(w * r); h = Math.round(h * r);
+          }
+          const canvas = document.createElement('canvas');
+          canvas.width = w; canvas.height = h;
+          const ctx = canvas.getContext('2d');
+          if (format !== 'png') { ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, w, h); }
+          ctx.drawImage(img, 0, 0, w, h);
+          const mime = format === 'png' ? 'image/png' : format === 'webp' ? 'image/webp' : 'image/jpeg';
+          const q = format === 'png' ? undefined : quality;
+          canvas.toBlob(function(blob) { blob ? resolve(blob) : reject(); }, mime, q);
+        };
+        img.onerror = reject;
+        img.src = e.target.result;
+      };
+      reader.onerror = reject;
+      reader.readAsDataURL(entry.file);
+    });
+  }
+
+  function buildName(origName, format) {
+    const base = origName.replace(/\.[^.]+$/, '');
+    const ext = format === 'png' ? 'png' : format === 'webp' ? 'webp' : 'jpg';
+    return base + '_comprimida.' + ext;
+  }
+
+  function dl(p) {
+    const url = URL.createObjectURL(p.blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = p.name;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  function formatBytes(b) {
+    if (!b) return '0 B';
+    const k = 1024;
+    const s = ['B','KB','MB','GB'];
+    const i = Math.floor(Math.log(b) / Math.log(k));
+    return parseFloat((b / Math.pow(k, i)).toFixed(2)) + ' ' + s[i];
+  }
+
+  function showToast(msg, type) {
+    const toast = document.getElementById('toast');
+    if (!toast) return;
+    toast.textContent = msg;
+    toast.className = 'toast';
+    if (type) toast.classList.add(type);
+    toast.classList.add('visible');
+    setTimeout(function() { toast.classList.remove('visible'); }, 3000);
+  }
+})();
+</script>
+
 </body>
 </html>

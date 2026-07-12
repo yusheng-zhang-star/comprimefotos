@@ -53,9 +53,9 @@
         <div style="margin-bottom:16px;">
           <label style="font-weight:600;font-size:0.9rem;display:block;margin-bottom:6px;">Presets para redes sociales</label>
           <div style="display:flex;flex-wrap:wrap;gap:8px;">
-            <button class="preset-btn" data-w="1080" data-h="1080">✂️² Instagram (1080èx1080)</button>
-            <button class="preset-btn" data-w="1200" data-h="675">✂️ Twitter (1200èx675)</button>
-            <button class="preset-btn" data-w="1200" data-h="630">✂️ Facebook (1200èx630)</button>
+            <button class="preset-btn" data-w="1080" data-h="1080">✂️² Instagram (1080×1080)</button>
+            <button class="preset-btn" data-w="1200" data-h="675">✂️ Twitter (1200×675)</button>
+            <button class="preset-btn" data-w="1200" data-h="630">✂️ Facebook (1200×630)</button>
             <button class="preset-btn" data-w="1280" data-h="720">YouTube (1280×720)</button>
           </div>
         </div>
@@ -94,7 +94,7 @@
 </main>
 <footer class="site-footer"><div class="container"><div class="footer-grid">
   <div class="footer-brand"><a href="/" class="logo"><span class="logo-icon">📷</span><span class="logo-text">ComprimeFotos</span></a><p>Herramientas gratuitas para comprimir y editar imágenes online.</p>
-          <a href="mailto:contact@comprimefotos.com" style="color: var(--accent); font-weight: 500; font-size: 0.95rem;">📧 contact@comprimefotos.com</a></div>
+          <a href="/cdn-cgi/l/email-protection#b3d0dcddc7d2d0c7f3d0dcdec3c1daded6d5dcc7dcc09dd0dcde" style="color: var(--accent); font-weight: 500; font-size: 0.95rem;">📧 contact@comprimefotos.com</a></div>
   <div class="footer-links"><h4>Herramientas</h4><a href="/tools/comprimir-imagenes">Comprimir imágenes</a><a href="/tools/comprimir-imagenes-whatsapp">Comprimir para WhatsApp</a><a href="/tools/comprimir-pdf">Comprimir PDF</a><a href="/tools/quitar-fondo">Quitar fondo</a></div>
   <div class="footer-links"><h4>Legal</h4><a href="/about">Sobre nosotros</a><a href="/contacto">Contacto</a><a href="/privacy">Privacidad</a><a href="/terms">Términos</a><a href="/cookie-policy">Cookies</a><a href="/blog/">Blog</a></div>
 </div><div class="footer-bottom"><p>&copy; 2026 ComprimeFotos.com | <a href="https://smartimgkit.com/" style="color: var(--accent); font-weight: 500;">English: SmartImgKit — Free Image Tools</a></p></div></div></footer>
@@ -145,7 +145,7 @@
     canvasOrig.height = origHeight * (canvasOrig.width / origWidth);
     origCtx.clearRect(0, 0, canvasOrig.width, canvasOrig.height);
     origCtx.drawImage(origImg, 0, 0, canvasOrig.width, canvasOrig.height);
-    originalDims.textContent = origWidth + ' èx ' + origHeight + ' px';
+    originalDims.textContent = origWidth + ' × ' + origHeight + ' px';
   }
 
   // --- Render resized result ---
@@ -157,7 +157,7 @@
     canvasRes.height = h * (canvasRes.width / w);
     resCtx.clearRect(0, 0, canvasRes.width, canvasRes.height);
     resCtx.drawImage(origImg, 0, 0, canvasRes.width, canvasRes.height);
-    newDims.textContent = w + ' èx ' + h + ' px';
+    newDims.textContent = w + ' × ' + h + ' px';
   }
 
   // --- Apply resize with aspect ratio ---
@@ -274,7 +274,7 @@
     if (file && file.type.startsWith('image/')) {
       loadImage(file);
     } else {
-      showToast('¿çç¬ Solo se aceptan imágenes', 'error');
+      showToast('⚠️ Solo se aceptan imágenes', 'error');
     }
   });
 
@@ -335,7 +335,7 @@
       widthInput.value = w;
       heightInput.value = h;
       if (origImg) renderResult();
-      showToast('🖼️ Preset aplicado: ' + w + 'èx' + h, 'success');
+      showToast('🖼️ Preset aplicado: ' + w + '×' + h, 'success');
     });
   });
 
@@ -347,5 +347,6 @@
 
 })();
 </script>
+
 </body>
 </html>

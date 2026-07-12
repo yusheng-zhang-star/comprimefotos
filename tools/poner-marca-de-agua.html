@@ -25,9 +25,9 @@
           <div style="flex:1;min-width:240px;"><div class="preview-container" style="text-align:center;"><span style="font-size:0.85rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:6px;">Vista previa</span><img id="previewImg" src="" alt="Preview" style="max-height:300px;border-radius:var(--radius-md);border:2px solid var(--border-color);"></div></div>
         </div>
         <div class="controls-panel" style="background:var(--bg-secondary);border-radius:var(--radius-md);padding:20px;margin-bottom:20px;border:1px solid var(--border-color);">
-          <h4 style="font-weight:600;margin-bottom:14px;">¿æ¬ç¬ Configurar marca de agua</h4>
+          <h4 style="font-weight:600;margin-bottom:14px;">⚙️ Configurar marca de agua</h4>
           <div style="display:flex;flex-direction:column;gap:14px;">
-            <div><label for="watermarkText" style="font-weight:600;font-size:0.9rem;display:block;margin-bottom:4px;">Texto de la marca de agua:</label><input type="text" id="watermarkText" value="æ¼ ComprimeFotos" style="width:100%;max-width:360px;padding:10px 14px;border-radius:var(--radius-sm);border:2px solid var(--border-color);background:var(--bg-card);color:var(--text-primary);font-family:var(--font-main);font-size:0.95rem;"></div>
+            <div><label for="watermarkText" style="font-weight:600;font-size:0.9rem;display:block;margin-bottom:4px;">Texto de la marca de agua:</label><input type="text" id="watermarkText" value="© ComprimeFotos" style="width:100%;max-width:360px;padding:10px 14px;border-radius:var(--radius-sm);border:2px solid var(--border-color);background:var(--bg-card);color:var(--text-primary);font-family:var(--font-main);font-size:0.95rem;"></div>
             <div style="display:flex;gap:20px;flex-wrap:wrap;">
               <div style="flex:1;min-width:160px;"><label for="opacitySlider" style="font-weight:600;font-size:0.9rem;display:block;margin-bottom:4px;">Opacidad: <span id="opacityValue">0.5</span></label><input type="range" id="opacitySlider" min="0.1" max="1" step="0.05" value="0.5" style="width:100%;"></div>
               <div style="flex:1;min-width:160px;"><label for="fontSizeSlider" style="font-weight:600;font-size:0.9rem;display:block;margin-bottom:4px;">Tamaño: <span id="fontSizeValue">36</span> px</label><input type="range" id="fontSizeSlider" min="16" max="120" step="2" value="36" style="width:100%;"></div>
@@ -77,7 +77,7 @@
 </main>
 <footer class="site-footer"><div class="container"><div class="footer-grid">
   <div class="footer-brand"><a href="/" class="logo"><span class="logo-icon">📷</span><span class="logo-text">ComprimeFotos</span></a><p>Herramientas gratuitas para comprimir y editar imágenes online.</p>
-          <a href="mailto:contact@comprimefotos.com" style="color: var(--accent); font-weight: 500; font-size: 0.95rem;">📧 contact@comprimefotos.com</a></div>
+          <a href="/cdn-cgi/l/email-protection#9bf8f4f5effaf8efdbf8f4f6ebe9f2f6fefdf4eff4e8b5f8f4f6" style="color: var(--accent); font-weight: 500; font-size: 0.95rem;">📧 contact@comprimefotos.com</a></div>
   <div class="footer-links"><h4>Herramientas</h4><a href="/tools/comprimir-imagenes">Comprimir imágenes</a><a href="/tools/comprimir-imagenes-whatsapp">Comprimir para WhatsApp</a><a href="/tools/comprimir-pdf">Comprimir PDF</a><a href="/tools/quitar-fondo">Quitar fondo</a></div>
   <div class="footer-links"><h4>Legal</h4><a href="/about">Sobre nosotros</a><a href="/contacto">Contacto</a><a href="/privacy">Privacidad</a><a href="/terms">Términos</a><a href="/cookie-policy">Cookies</a><a href="/blog/">Blog</a></div>
 </div><div class="footer-bottom"><p>&copy; 2026 ComprimeFotos.com | <a href="https://smartimgkit.com/" style="color: var(--accent); font-weight: 500;">English: SmartImgKit — Free Image Tools</a></p></div></div></footer>
@@ -135,7 +135,7 @@
       ctx.drawImage(img, 0, 0);
 
       // Apply watermark text
-      const text = watermarkText.value || 'æ¼ ComprimeFotos';
+      const text = watermarkText.value || '© ComprimeFotos';
       const opacity = parseFloat(opacitySlider.value);
       const fontSize = parseInt(fontSizeSlider.value);
       const position = positionSelect.value;
@@ -218,7 +218,7 @@
     dropzone.style.display = 'block';
     fileInput.value = '';
     document.querySelector('.file-name').textContent = '-';
-    watermarkText.value = 'æ¼ ComprimeFotos';
+    watermarkText.value = '© ComprimeFotos';
     opacitySlider.value = '0.5';
     opacityValue.textContent = '0.5';
     fontSizeSlider.value = '36';
@@ -237,5 +237,6 @@
   }
 })();
 </script>
+
 </body>
 </html>

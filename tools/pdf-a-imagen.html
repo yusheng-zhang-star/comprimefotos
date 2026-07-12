@@ -18,6 +18,13 @@
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#10b981">
   <link rel="stylesheet" href="../css/style.css?v=2">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+  <script>
+    if (typeof pdfjsLib !== 'undefined') {
+      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js';
+    }
+  </script>
 </head>
 <body>
 <header class="site-header">
@@ -90,7 +97,7 @@
 <footer class="site-footer"><div class="container">
     <div class="footer-grid">
       <div class="footer-brand"><a href="/" class="logo"><span class="logo-icon">📷</span><span class="logo-text">ComprimeFotos</span></a><p>Herramientas gratuitas para comprimir y editar imágenes online.</p>
-          <a href="mailto:contact@comprimefotos.com" style="color: var(--accent); font-weight: 500; font-size: 0.95rem;">📧 contact@comprimefotos.com</a></div>
+          <a href="/cdn-cgi/l/email-protection#e784888993868493a784888a97958e8a828188938894c984888a" style="color: var(--accent); font-weight: 500; font-size: 0.95rem;">📧 contact@comprimefotos.com</a></div>
       <div class="footer-links"><h4>Herramientas</h4><a href="/tools/comprimir-imagenes">Comprimir imágenes</a><a href="/tools/comprimir-imagenes-whatsapp">Comprimir para WhatsApp</a><a href="/tools/comprimir-pdf">Comprimir PDF</a><a href="/tools/quitar-fondo">Quitar fondo</a></div>
       <div class="footer-links"><h4>Legal</h4><a href="/about">Sobre nosotros</a><a href="/contacto">Contacto</a><a href="/privacy">Privacidad</a><a href="/terms">Términos</a><a href="/cookie-policy">Cookies</a><a href="/blog/">Blog</a></div>
     </div>
@@ -110,104 +117,153 @@
   const downloadAllBtn = document.getElementById('downloadAllBtn');
   const resetBtn = document.getElementById('resetBtn');
   const pageCount = document.getElementById('pageCount');
+  const SCALE = 2.0;
   let currentFile = null;
-  let pageImages = [];
+  let currentFileNameBase = '';
+  let renderedCanvases = [];
 
   workspace.addEventListener('file-selected', function(e) {
     currentFile = e.detail.file;
+    currentFileNameBase = currentFile.name.replace(/\.pdf$/i, '');
     processPDF();
   });
 
   downloadAllBtn.addEventListener('click', function() {
-    if (pageImages.length === 0) return;
-    // Descargar primera página individual (simplificado)
-    const first = pageImages[0];
-    const a = document.createElement('a');
-    a.href = first.url;
-    a.download = 'pagina-1.' + first.ext;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    showToast('✅ Imagen descargada', 'success');
+    if (renderedCanvases.length === 0) return;
+    if (typeof JSZip === 'undefined') {
+      showToast('⚠️ JSZip no cargó. Descargando páginas individualmente.', 'warning');
+      renderedCanvases.forEach(function(entry, idx) {
+        setTimeout(function() { downloadSingle(entry, idx + 1); }, idx * 300);
+      });
+      return;
+    }
+    showToast('🔄 Creando ZIP...', 'info');
+    const zip = new JSZip();
+    const folder = zip.folder(currentFileNameBase || 'pdf_pages');
+    let done = 0;
+    renderedCanvases.forEach(function(entry, idx) {
+      const num = String(idx + 1).padStart(3, '0');
+      entry.canvas.toBlob(function(blob) {
+        folder.file(currentFileNameBase + '_pagina_' + num + '.jpg', blob);
+        done++;
+        if (done === renderedCanvases.length) {
+          zip.generateAsync({ type: 'blob' }).then(function(zblob) {
+            const url = URL.createObjectURL(zblob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = currentFileNameBase + '_imagenes.zip';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            showToast('✅ ZIP descargado', 'success');
+          }).catch(function(err) {
+            console.error(err);
+            showToast('⚠️ Error creando ZIP', 'error');
+          });
+        }
+      }, 'image/jpeg', 0.92);
+    });
   });
 
   resetBtn.addEventListener('click', function() {
-    pageImages.forEach(function(p) { URL.revokeObjectURL(p.url); });
-    pageImages = [];
+    renderedCanvases.forEach(function(e) { if (e.blobUrl) URL.revokeObjectURL(e.blobUrl); });
+    renderedCanvases = [];
     currentFile = null;
     previewArea.classList.remove('active');
-    dropzone.style.display = 'block';
+    dropzone.style.display = '';
     fileInput.value = '';
     pdfPreview.innerHTML = '';
+    pageCount.textContent = '-';
+    const fn = document.querySelector('.file-name');
+    const fs = document.querySelector('.file-size');
+    if (fn) fn.textContent = '-';
+    if (fs) fs.textContent = '-';
   });
+
+  function downloadSingle(entry, pageNum) {
+    entry.canvas.toBlob(function(blob) {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = currentFileNameBase + '_pagina_' + String(pageNum).padStart(3, '0') + '.jpg';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }, 'image/jpeg', 0.92);
+  }
 
   function processPDF() {
     if (!currentFile) return;
+    if (typeof pdfjsLib === 'undefined') {
+      pdfPreview.innerHTML = '<p style="text-align:center;color:#c00;">⚠️ pdf.js no cargó. Revisa tu conexión y recarga la página.</p>';
+      showToast('⚠️ Error cargando PDF.js', 'error');
+      return;
+    }
+    pdfPreview.innerHTML = '<div class="spinner"></div><p style="text-align:center;margin-top:12px;color:var(--text-secondary)">Cargando PDF...</p>';
     const reader = new FileReader();
     reader.onload = function(e) {
-      const arrayBuffer = e.target.result;
-      const pdfData = new Uint8Array(arrayBuffer);
-      pdfPreview.innerHTML = '<div class="spinner"></div><p style="text-align:center;margin-top:12px;color:var(--text-secondary)">Procesando PDF...</p>';
-
-      // Renderizar usando canvas (simulación para PDFs con imágenes)
-      // En producción usar pdf.js
-      setTimeout(function() {
-        const baseName = currentFile.name.replace(/\.pdf$/i, '');
-        pageImages = [];
-
-        // Estimar número de páginas y generar vistas previas
-        // Como no tenemos pdf.js, mostramos una aproximación
-        const estimatedPages = Math.max(1, Math.floor(pdfData.length / 50000));
-        const pagesToShow = Math.min(estimatedPages, 10);
-        pageCount.textContent = estimatedPages;
-
-        let html = '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-top:16px;">';
-
-        for (let i = 0; i < pagesToShow; i++) {
-          const canvas = document.createElement('canvas');
-          canvas.width = 200;
-          canvas.height = 280;
-          const ctx = canvas.getContext('2d');
-          ctx.fillStyle = '#f5f0eb';
-          ctx.fillRect(0, 0, 200, 280);
-          ctx.fillStyle = '#999';
-          ctx.font = '14px Nunito, sans-serif';
-          ctx.textAlign = 'center';
-          ctx.fillText('🖼️ Página ' + (i+1), 100, 140);
-
-          canvas.toBlob(function(blob) {
-            const url = URL.createObjectURL(blob);
-            pageImages.push({ url: url, ext: 'png', index: pageImages.length });
-          });
-          html += '<div style="border:1px solid var(--border-color);border-radius:8px;overflow:hidden;text-align:center;"><canvas id="pdfPage_' + i + '" style="width:100%;display:block;"></canvas><div style="padding:6px;font-size:0.8rem;background:var(--bg-tertiary);color:var(--text-secondary);">Página ' + (i+1) + '</div></div>';
-        }
-        html += '</div>';
-
-        // Para páginas restantes
-        if (estimatedPages > pagesToShow) {
-          html += '<p style="text-align:center;color:var(--text-secondary);margin-top:16px;font-size:0.9rem;">... y ' + (estimatedPages - pagesToShow) + ' páginas más. Compatibilidad completa con <strong>pdf.js</strong> próximamente.</p>';
-        }
-
-        pdfPreview.innerHTML = html;
-        previewArea.classList.add('active');
-        dropzone.style.display = 'none';
+      pdfjsLib.getDocument({ data: new Uint8Array(e.target.result) }).promise.then(function(pdf) {
+        const total = pdf.numPages;
+        pageCount.textContent = total;
         document.querySelector('.file-name').textContent = currentFile.name;
         document.querySelector('.file-size').textContent = formatFileSize(currentFile.size);
-
-        // Dibujar en los canvas
-        for (let i = 0; i < pagesToShow; i++) {
-          const cvs = document.getElementById('pdfPage_' + i);
-          if (cvs) {
-            const ctx = cvs.getContext('2d');
-            ctx.fillStyle = '#f5f0eb';
-            ctx.fillRect(0, 0, cvs.width, cvs.height);
-            ctx.fillStyle = '#999';
-            ctx.font = '14px Nunito, sans-serif';
-            ctx.textAlign = 'center';
-            ctx.fillText('🖼️ Pág. ' + (i+1), cvs.width/2, cvs.height/2);
+        renderedCanvases = [];
+        const grid = document.createElement('div');
+        grid.style.cssText = 'display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-top:16px;';
+        pdfPreview.innerHTML = '';
+        pdfPreview.appendChild(grid);
+        let idx = 0;
+        function renderNext() {
+          if (idx >= total) {
+            previewArea.classList.add('active');
+            dropzone.style.display = 'none';
+            showToast('✅ PDF convertido (' + total + ' páginas)', 'success');
+            return;
           }
+          const pageNum = idx + 1;
+          pdf.getPage(pageNum).then(function(page) {
+            const viewport = page.getViewport({ scale: SCALE });
+            const canvas = document.createElement('canvas');
+            canvas.width = viewport.width;
+            canvas.height = viewport.height;
+            const ctx = canvas.getContext('2d');
+            return page.render({ canvasContext: ctx, viewport: viewport }).promise.then(function() {
+              const wrap = document.createElement('div');
+              wrap.style.cssText = 'border:1px solid var(--border-color);border-radius:8px;overflow:hidden;text-align:center;background:#fff;';
+              const thumb = document.createElement('canvas');
+              const tw = 240;
+              const th = Math.round(tw * (canvas.height / canvas.width));
+              thumb.width = tw;
+              thumb.height = th;
+              thumb.getContext('2d').drawImage(canvas, 0, 0, tw, th);
+              thumb.style.cssText = 'width:100%;display:block;cursor:pointer;';
+              const entry = { canvas: canvas, index: idx };
+              renderedCanvases.push(entry);
+              thumb.addEventListener('click', function() { downloadSingle(entry, pageNum); });
+              wrap.appendChild(thumb);
+              const info = document.createElement('div');
+              info.style.cssText = 'padding:8px;font-size:0.8rem;background:var(--bg-tertiary);color:var(--text-secondary);';
+              info.innerHTML = 'Página ' + pageNum + ' <span style="color:var(--accent);cursor:pointer;">(descargar)</span>';
+              info.addEventListener('click', function() { downloadSingle(entry, pageNum); });
+              wrap.appendChild(info);
+              grid.appendChild(wrap);
+              idx++;
+              setTimeout(renderNext, 10);
+            });
+          }).catch(function(err) {
+            console.error('Error render page ' + (idx + 1), err);
+            idx++;
+            setTimeout(renderNext, 10);
+          });
         }
-      }, 500);
+        renderNext();
+      }).catch(function(err) {
+        console.error(err);
+        pdfPreview.innerHTML = '<p style="text-align:center;color:#c00;">⚠️ Error leyendo el PDF. Archivo corrupto o protegido con contraseña.</p><p style="text-align:center;color:var(--text-secondary);font-size:0.85rem;margin-top:8px;">Detalles: ' + (err && err.message ? err.message : String(err)) + '</p>';
+        showToast('⚠️ PDF inválido o protegido', 'error');
+      });
     };
     reader.readAsArrayBuffer(currentFile);
   }
@@ -231,5 +287,6 @@
   }
 })();
 </script>
+
 </body>
 </html>

@@ -14,7 +14,20 @@ document.addEventListener('DOMContentLoaded', function() {
   initCookieConsent();
   initContactForm();
   initDropzones();
+  initEmailLinks();
 });
+
+/* ===== Email Links (CF obfuscation bypass) ===== */
+function initEmailLinks() {
+  document.querySelectorAll('.cf-email').forEach(function(link) {
+    try {
+      var email = atob(link.dataset.e);
+      link.href = 'mailto:' + email;
+      var textSpan = link.querySelector('.cf-email-text');
+      if (textSpan) textSpan.textContent = email;
+    } catch(e) {}
+  });
+}
 
 /* ===== Mobile Menu ===== */
 function initMobileMenu() {

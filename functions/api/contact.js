@@ -92,7 +92,7 @@ export async function onRequest(context) {
 
     // Log the response for debugging
     const respText = await resp.text();
-    console.error('FormSubmit error:', resp.status, respText.substring(0, 200));
+    void respText;
 
     return new Response(JSON.stringify({
       ok: false,
@@ -100,7 +100,7 @@ export async function onRequest(context) {
     }), { status: 500, headers: h });
 
   } catch (e) {
-    console.error('FormSubmit exception:', e.message);
+    void e;
     return new Response(JSON.stringify({
       ok: false,
       error: 'Error de conexion. Intenta de nuevo mas tarde.'

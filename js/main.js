@@ -1,11 +1,6 @@
 /**
  * ComprimeFotos.com — JavaScript principal (v2)
  * Funciones: Menú móvil, FAQ acordeón, consentimiento cookies, dropzone
- * 
- * DIFERENCIAS con smartimgkit:
- * - Sin theme toggle (solo modo claro)
- * - Sin localStorage para tema
- * - Sin sample-image-btn
  */
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -207,30 +202,15 @@ function initContactForm() {
     if (submitBtn) { submitBtn.textContent = 'Enviando...'; submitBtn.disabled = true; }
     if (status) { status.className = 'form-status'; status.textContent = ''; status.style.display = 'none'; }
 
-    // Build message body for FormSubmit
     var formData = new FormData(form);
-    var body = new URLSearchParams();
-    body.append('name', formData.get('name') || '');
-    body.append('email', formData.get('email') || '');
-    body.append('_subject', '[ComprimeFotos] ' + (formData.get('subject') || 'General'));
-    body.append('message', [
-      'Nombre: ' + (formData.get('name') || ''),
-      'Correo: ' + (formData.get('email') || ''),
-      'Asunto: ' + (formData.get('subject') || 'General'),
-      '',
-      '--- Mensaje ---',
-      formData.get('message') || '',
-      '',
-      '---',
-      'Enviado desde: https://comprimefotos.com/contacto'
-    ].join('\n'));
-    body.append('_captcha', 'false');
-    body.append('_template', 'table');
+    formData.append('_subject', '[ComprimeFotos] ' + (formData.get('subject') || 'General'));
+    formData.append('_captcha', 'false');
+    formData.append('_template', 'table');
 
-    fetch('https://formsubmit.co/ajax/d883d989bf68baafb5035a56d155b9ab', {
+    fetch('/api/contact', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: body.toString()
+      headers: { 'Accept': 'application/json' },
+      body: formData
     })
       .then(function(resp) {
         if (resp.ok) {

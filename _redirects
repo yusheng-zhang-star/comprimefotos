@@ -18,5 +18,10 @@
 # === 其他常见 404 ===
 # /wordpress/ /2019/ 等 WordPress 扫描路径由 WAF R2 Block 规则处理，无需 _redirects
 
+# === 重复/旧文件清理 ===
+/tools/quitar-fondo-fixed /tools/quitar-fondo 301
+/tools/quitar-fondo-fixed.html /tools/quitar-fondo 301
+/contact /contacto 301
+
 # === Catch-all: 404 ===
 /* /404.html 404

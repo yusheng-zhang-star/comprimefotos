@@ -18,4 +18,3 @@ Disallow: /.git/
 
 # Ruta del sitemap
 Sitemap: https://comprimefotos.com/sitemap.xml
-# deploy trigger 2026-06-26 16:45 CST

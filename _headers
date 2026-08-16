@@ -168,6 +168,11 @@
   Cache-Control: public, max-age=31536000, immutable
   CDN-Cache-Control: public, max-age=31536000
 
+# ── ads.txt: 1d ──
+/ads.txt
+  Cache-Control: public, max-age=86400
+  Content-Type: text/plain; charset=utf-8
+
 # ── Catch-all: NO headers ──
 # Cannot set ANY header here — merges with all paths above, breaking cache logic.
 # Files not matched by specific rules (ads.txt, google verification, etc.) use defaults.

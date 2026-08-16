@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es" data-theme="light" data-tool-id="foto-carnet">
 <head>
 <meta charset="UTF-8">
@@ -14,9 +14,10 @@
 <meta property="og:url" content="https://comprimefotos.com/tools/foto-carnet">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ComprimeFotos">
+<meta property="og:locale" content="es_ES">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="stylesheet" href="../css/style.css?v=2">
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -124,7 +125,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:0 0;color:inher
       <a href="/blog/">Blog</a>
       <a href="/about">Sobre Nosotros</a>
     </nav>
-    <div class="header-actions"><button class="mobile-menu-btn" aria-label="Cambiar tema">🖼️</button><button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menú">☰</button></div>
+    <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
   </div>
 </header>
 
@@ -432,6 +433,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:0 0;color:inher
 <div class="toast" id="toast"></div>
 
 <script src="../js/main.js?v=3"></script>
+<script src="../js/ads.js?v=2"></script>
 <script>
 // === ID Photo Standards ===
 const S = [
@@ -461,7 +463,7 @@ const S = [
 let origImg=null,processed=null,bgColor="#ffffff",selIdx=null,gen=false;
 const fi=document.getElementById("fileInput"),dz=document.getElementById("dropzone"),pc=document.getElementById("previewCanvas"),pb=document.getElementById("previewBox"),pt=document.getElementById("placeholderText"),cl=document.getElementById("countryList"),sd=document.getElementById("sizeDetail"),psl=document.getElementById("photoSizeLabel"),psm=document.getElementById("photoSizeMM"),gb=document.getElementById("generateBtn"),db=document.getElementById("downloadBtn"),rb=document.getElementById("resetBtn"),prb=document.getElementById("progressBar"),prf=document.getElementById("progressFill"),sm=document.getElementById("statusMsg"),cc=document.getElementById("customColor");
 // Init countries
-S.forEach((s,i)=>{let b=document.createElement("button");b.className="country-btn";b.textContent=s.c+" "+s.t;b.onclick=()=>{selIdx=i;document.querySelectorAll(".country-btn").forEach(x=>x.classList.remove("active"));b.classList.add("active");let x=S[i];if(x.t=="Custom"){sd.innerHTML='<strong>Custom</strong><br>W(mm): <input type="number" id="cw" min="10" max="200" value="35" style="width:55px"> H: <input type="number" id="ch" min="10" max="300" value="45" style="width:55px">';psm.textContent="Custom"}else{sd.innerHTML="<strong>"+x.c+" "+x.t+'</strong><br>'+x.w+"x"+x.h+" mm"+(x.n?" "+x.n:"");psm.textContent=x.w+"x"+x.h+" mm"}cc.value=x.bg||"#ffffff";bgColor=x.bg||"#ffffff";updBG(x.bg||"#ffffff");gb.disabled=!origImg;if(origImg)upV()}});cl.appendChild(b)});
+S.forEach((s,i)=>{let b=document.createElement("button");b.className="country-btn";b.textContent=s.c+" "+s.t;b.onclick=()=>{selIdx=i;document.querySelectorAll(".country-btn").forEach(x=>x.classList.remove("active"));b.classList.add("active");let x=S[i];if(x.t=="Custom"){sd.innerHTML='<strong>Custom</strong><br>W(mm): <input type="number" id="cw" min="10" max="200" value="35" style="width:55px"> H: <input type="number" id="ch" min="10" max="300" value="45" style="width:55px">';psm.textContent="Custom"}else{sd.innerHTML="<strong>"+x.c+" "+x.t+'</strong><br>'+x.w+"x"+x.h+" mm"+(x.n?" "+x.n:"");psm.textContent=x.w+"x"+x.h+" mm"}cc.value=x.bg||"#ffffff";bgColor=x.bg||"#ffffff";updBG(x.bg||"#ffffff");gb.disabled=!origImg;if(origImg)upV();cl.appendChild(b)}});
 function updBG(c){document.querySelectorAll(".bg-preset-btn").forEach(b=>b.classList.toggle("active",b.dataset.color===c))}
 document.querySelectorAll(".bg-preset-btn").forEach(b=>b.onclick=function(){bgColor=this.dataset.color;cc.value=bgColor;updBG(bgColor);if(origImg&&selIdx!==null)upV()});
 cc.oninput=function(){bgColor=this.value;updBG(bgColor);if(origImg&&selIdx!==null)upV()};
@@ -476,7 +478,7 @@ document.getElementById("fotoCarnetWorkspace").addEventListener("files-selected"
 function loadFile(f){if(!f.type.startsWith("image/")){showMsg("Solo se aceptan imágenes","red");return}let r=new FileReader();r.onload=function(e){let img=new Image();img.onload=function(){origImg=img;pt.style.display="none";pc.style.display="block";gb.disabled=selIdx===null;if(selIdx!==null)upV();showMsg("Foto cargada: "+img.width+"x"+img.height+"px","green")};img.src=e.target.result};r.readAsDataURL(f)}
 function getStd(){if(selIdx===null)return null;let s=S[selIdx];if(s.t=="Custom"){let cw=document.getElementById("cw"),ch=document.getElementById("ch");if(!cw||!ch)return null;let w=parseFloat(cw.value),h=parseFloat(ch.value);if(!w||!h)return null;return{w,h}}return s}
 function upV(){if(!origImg)return;let s=getStd();if(!s){psl.textContent="Selecciona un país";return}let a=s.w/s.h,mw=pb.clientWidth-32,mh=500,cw,ch;if(a>=1){cw=Math.min(mw,500);ch=cw/a}else{ch=Math.min(mh,500);cw=ch*a}pc.width=cw;pc.height=ch;let ctx=pc.getContext("2d");ctx.clearRect(0,0,cw,ch);let ia=origImg.width/origImg.height,dw,dh,dx,dy;if(ia>a){dh=ch;dw=ch*ia;dx=(cw-dw)/2;dy=0}else{dw=cw;dh=cw/ia;dx=0;dy=(ch-dh)/2}ctx.fillStyle=bgColor||"#fff";ctx.fillRect(0,0,cw,ch);ctx.drawImage(origImg,dx,dy,dw,dh);psl.textContent=s.w+"x"+s.h+" mm";psm.textContent=Math.round(s.w*11.811)+"x"+Math.round(s.h*11.811)+" px @300 DPI"}
-gb.onclick=async function(){if(gen||!origImg)return;gen=true;gb.disabled=true;gb.textContent="Procesando...";db.disabled=true;prb.style.display="block";prf.style.width="0%";try{showMsg("Cargando IA...","");prf.style.width="20%";let{removeBackground}=await import("https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.7.0/+esm");prf.style.width="40%";showMsg("Eliminando fondo...","");let tc=document.createElement("canvas");tc.width=origImg.width;tc.height=origImg.height;tc.getContext("2d").drawImage(origImg,0,0);let blob=await new Promise(r=>tc.toBlob(r,"image/png"));prf.style.width="60%";let rblob=await removeBackground(blob,{model:"small",output:{format:"image/png",quality:1}});prf.style.width="80%";showMsg("Componiendo...","");let rurl=URL.createObjectURL(rblob),rimg=new Image();await new Promise((res,rej)=>{rimg.onload=res;rimg.onerror=rej;rimg.src=rurl});let s=getStd();if(!s){showMsg("Selecciona un país","red");return}let dpi=11.811,tw=Math.round(s.w*dpi),th=Math.round(s.h*dpi),fc=document.createElement("canvas");fc.width=tw;fc.height=th;let fctx=fc.getContext("2d");fctx.fillStyle=bgColor||"#fff";fctx.fillRect(0,0,tw,th);let fa=rimg.width/rimg.height,ta=tw/th,dw,dh,dx,dy;if(fa>ta){dh=th;dw=dh*fa;dx=(tw-dw)/2;dy=0}else{dw=tw;dh=dw/fa;dx=0;dy=(th-dh)/2}fctx.drawImage(rimg,dx,dy,dw,dh);processed=fc;let bw=pb.clientWidth-32,bh=500,pw,ph;if(tw>th){pw=Math.min(bw,tw);ph=pw*th/tw}else{ph=Math.min(bh,th);pw=ph*tw/th}pc.width=pw;pc.height=ph;pc.getContext("2d").drawImage(fc,0,0,pw,ph);psl.textContent=s.w+"x"+s.h+" mm";psm.textContent=tw+"x"+th+" px @300 DPI";db.disabled=false;prf.style.width="100%";showMsg("Foto carnet generada!","green")}catch(e){console.error(e);showMsg("Error: "+(e.message||"Error al procesar"),"red");prf.style.width="0%"}finally{gen=false;gb.disabled=false;gb.textContent="Generar foto carnet";if(!origImg||selIdx===null)gb.disabled=true;setTimeout(()=>{prb.style.display="none"},2000)}}
+gb.onclick=async function(){if(gen||!origImg)return;gen=true;gb.disabled=true;gb.textContent="Procesando...";db.disabled=true;prb.style.display="block";prf.style.width="0%";try{showMsg("Cargando IA...","");prf.style.width="20%";let{removeBackground}=await import("https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.7.0/+esm");prf.style.width="40%";showMsg("Eliminando fondo...","");let tc=document.createElement("canvas");tc.width=origImg.width;tc.height=origImg.height;tc.getContext("2d").drawImage(origImg,0,0);let blob=await new Promise(r=>tc.toBlob(r,"image/png"));prf.style.width="60%";let rblob=await removeBackground(blob,{model:"small",output:{format:"image/png",quality:1}});prf.style.width="80%";showMsg("Componiendo...","");let rurl=URL.createObjectURL(rblob),rimg=new Image();await new Promise((res,rej)=>{rimg.onload=res;rimg.onerror=rej;rimg.src=rurl});let s=getStd();if(!s){showMsg("Selecciona un país","red");return}let dpi=11.811,tw=Math.round(s.w*dpi),th=Math.round(s.h*dpi),fc=document.createElement("canvas");fc.width=tw;fc.height=th;let fctx=fc.getContext("2d");fctx.fillStyle=bgColor||"#fff";fctx.fillRect(0,0,tw,th);let fa=rimg.width/rimg.height,ta=tw/th,dw,dh,dx,dy;if(fa>ta){dh=th;dw=dh*fa;dx=(tw-dw)/2;dy=0}else{dw=tw;dh=dw/fa;dx=0;dy=(th-dh)/2}fctx.drawImage(rimg,dx,dy,dw,dh);processed=fc;let bw=pb.clientWidth-32,bh=500,pw,ph;if(tw>th){pw=Math.min(bw,tw);ph=pw*th/tw}else{ph=Math.min(bh,th);pw=ph*tw/th}pc.width=pw;pc.height=ph;pc.getContext("2d").drawImage(fc,0,0,pw,ph);psl.textContent=s.w+"x"+s.h+" mm";psm.textContent=tw+"x"+th+" px @300 DPI";db.disabled=false;prf.style.width="100%";showMsg("Foto carnet generada!","green")}catch(e){showMsg("Error: "+(e.message||"Error al procesar"),"red");prf.style.width="0%"}finally{gen=false;gb.disabled=false;gb.textContent="Generar foto carnet";if(!origImg||selIdx===null)gb.disabled=true;setTimeout(()=>{prb.style.display="none"},2000)}}
 db.onclick=function(){if(!processed)return;let a=document.createElement("a"),s=getStd(),n=s?s.c.replace(/[^a-zA-Z0-9]/g,"_")+"_"+s.t.replace(/[^a-zA-Z0-9]/g,"_"):"foto_carnet";a.download=n+".png";a.href=processed.toDataURL("image/png");a.click();showMsg("Foto descargada!","green")};
 rb.onclick=function(){origImg=null;processed=null;selIdx=null;gen=false;pc.style.display="none";pt.style.display="block";psl.textContent="Sin foto cargada";psm.textContent="";gb.disabled=true;db.disabled=true;prb.style.display="none";prf.style.width="0%";showMsg("","");document.querySelectorAll(".country-btn").forEach(b=>b.classList.remove("active"));sd.innerHTML="Selecciona un país para ver dimensiones";fi.value=""};
 function showMsg(m,c){sm.textContent=m;sm.style.color=c||"var(--text-secondary)"}

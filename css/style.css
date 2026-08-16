@@ -99,7 +99,7 @@ h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 600; line-height
 }
 .main-nav a:hover { color: var(--text); background: var(--bg-section); }
 .main-nav a.active { color: var(--accent); background: var(--accent-bg); font-weight: 600; }
-.mobile-menu-btn { display: none; width: 36px; height: 36px; align-items: center; justify-content: center; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-size: 1.2rem; }
+.mobile-menu-btn { display: none; width: 44px; height: 44px; align-items: center; justify-content: center; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-size: 1.2rem; touch-action: manipulation; }
 
 @media (max-width: 768px) {
   .main-nav { display: none; }
@@ -110,7 +110,7 @@ h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 600; line-height
     background: #fff; border-bottom: 1px solid var(--border-light);
     padding: 12px; gap: 2px; z-index: 99;
   }
-  .main-nav.nav-open a { padding: 12px 14px; }
+  .main-nav.nav-open a { padding: 14px; min-height: 48px; display: flex; align-items: center; }
 }
 
 /* ===== Hero ===== */
@@ -171,7 +171,7 @@ h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 600; line-height
 .tool-list-icon { font-size: 1.3rem; flex-shrink: 0; }
 .tool-list-info { flex: 1; min-width: 0; }
 .tool-list-info h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 1px; }
-.tool-list-info p { font-size: 0.82rem; color: var(--text-secondary); }
+.tool-list-info p { font-size: 0.82rem; color: var(--text-secondary); overflow-wrap: break-word; }
 .tool-list-tag {
   flex-shrink: 0;
   padding: 3px 10px;
@@ -430,3 +430,53 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--a
 .flex-wrap { flex-wrap: wrap; }
 .justify-center { justify-content: center; }
 .file-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 8px; }
+
+/* ===== Mobile small screen fixes ===== */
+@media (max-width: 360px) {
+  .blog-grid { grid-template-columns: 1fr; }
+  .related-grid { grid-template-columns: 1fr; }
+  .feature-list { grid-template-columns: 1fr; }
+}
+
+/* ===== Adsterra Ad Slots ===== */
+.ad-slot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  text-align: center;
+}
+.ad-top {
+  margin: 12px auto 0;
+}
+.ad-top-desktop iframe {
+  width: 728px;
+  height: 90px;
+  border: 0;
+}
+.ad-top-mobile iframe {
+  width: 320px;
+  height: 50px;
+  border: 0;
+}
+.ad-content {
+  margin: 24px auto;
+}
+.ad-content iframe {
+  width: 300px;
+  height: 250px;
+  border: 0;
+}
+.ad-native {
+  margin: 20px auto 24px;
+  min-height: 1px;
+}
+.ad-native iframe {
+  max-width: 100%;
+}
+
+@media (max-width: 767px) {
+  .ad-content {
+    display: none !important;
+  }
+}

@@ -7,10 +7,10 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://comprimefotos.com/404</loc>
+    <loc>https://comprimefotos.com/descargo</loc>
     <lastmod>2026-06-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.1</priority>
+    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://comprimefotos.com/about</loc>
@@ -95,6 +95,30 @@
     <lastmod>2026-06-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://comprimefotos.com/tools/comprimir-video</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://comprimefotos.com/tools/recortar-imagen</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://comprimefotos.com/tools/redimensionar-redes-sociales</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://comprimefotos.com/tools/imagen-a-pdf</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://comprimefotos.com/tools/convertir-formato</loc>

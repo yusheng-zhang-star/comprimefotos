@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -11,9 +11,11 @@
   <meta name="theme-color" content="#1a6b52">
   <meta property="og:title" content="Fondo blanco para productos online gratis — Fotos para e-commerce | ComprimeFotos">
   <meta property="og:description" content="Pon fondo blanco a tus fotos de producto gratis con IA. Ideal para Mercado Libre, Amazon y e-commerce. Sin registro, 100% en tu navegador.">
-  <meta property="og:url" content="https://comprimefotos.com/tools/fondo-blanco-producto.html">
+  <meta property="og:url" content="https://comprimefotos.com/tools/fondo-blanco-producto">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://comprimefotos.com/og-fondo-blanco.jpg">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:image" content="https://comprimefotos.com/blog/images/paso-3-fondo-blanco.png">
+  <meta name="twitter:image" content="https://comprimefotos.com/blog/images/paso-3-fondo-blanco.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Fondo blanco para productos online gratis — Fotos para e-commerce">
   <meta name="twitter:description" content="Pon fondo blanco a tus fotos de producto gratis con IA. Resultados profesionales al instante.">
@@ -486,7 +488,9 @@
         <h4>Legal</h4>
         <a href="/about">Sobre nosotros</a>
         <a href="/contacto">Contacto</a>
-        <a href="/privacidad">Privacidad</a>
+        <a href="/privacy">Política de privacidad</a>
+        <a href="/terms">Términos de uso</a>
+        <a href="/cookie-policy">Política de cookies</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -497,7 +501,7 @@
 
 <div class="cookie-consent" id="cookieConsent">
   <div class="cookie-inner">
-    <p>Usamos cookies para mejorar tu experiencia. Al continuar, aceptas nuestra <a href="/privacidad">política de privacidad</a>.</p>
+    <p>Usamos cookies para mejorar tu experiencia. Al continuar, aceptas nuestra <a href="/privacy">política de privacidad</a>.</p>
     <div class="cookie-actions">
       <button class="cookie-btn cookie-btn-decline" id="cookieDecline">Rechazar</button>
       <button class="cookie-btn cookie-btn-accept" id="cookieAccept">Aceptar</button>
@@ -508,6 +512,7 @@
 <div class="toast" id="toast"></div>
 
 <script src="../js/main.js?v=3"></script>
+<script src="../js/ads.js?v=2"></script>
 <script type="module">
 // ===== Fondo Blanco para Productos - Tool Script =====
 import { removeBackground, getConfig } from 'https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.7.0/+esm';
@@ -646,7 +651,6 @@ processAllBtn.addEventListener('click', async () => {
       const processedUrl = await applyBgColor(resultBlob, bgColor);
       processedResults.set(img.id, { original: img.preview, processed: processedUrl, status: 'done' });
     } catch (err) {
-      console.error('Error processing:', img.file.name, err);
       processedResults.set(img.id, { original: img.preview, processed: null, status: 'error' });
     }
     completed++;
@@ -754,7 +758,6 @@ downloadZipBtn.addEventListener('click', async () => {
     URL.revokeObjectURL(a.href);
     showToast('📦 ZIP descargado correctamente.');
   } catch (err) {
-    console.error('ZIP error:', err);
     showToast('Error al generar el ZIP. Intenta de nuevo.');
   }
 });
@@ -775,7 +778,6 @@ document.querySelectorAll('.faq-question').forEach(btn => {
   });
 });
 
-console.log('Fondo blanco para productos — Herramienta lista 🛍️');
 </script>
 
 </body>

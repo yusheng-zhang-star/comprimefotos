@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="es">
 
@@ -18,17 +18,19 @@
 
   <link rel="canonical" href="https://comprimefotos.com/tools/comprimir-pdf">
 
-  <meta name="theme-color" content="#ff6b4a">
+  <meta name="theme-color" content="#1a6b52">
 
   <meta property="og:title" content="Comprimir PDF online gratis — Reduce el tamaño de tus PDF | ComprimeFotos">
 
   <meta property="og:description" content="Comprime tus documentos PDF online y gratis. Reduce el tamaño para enviar por email. Sin registro, sin marcas de agua.">
 
-  <meta property="og:url" content="https://comprimefotos.com/tools/comprimir-pdf.html">
+  <meta property="og:url" content="https://comprimefotos.com/tools/comprimir-pdf">
 
   <meta property="og:type" content="website">
 
   <meta property="og:site_name" content="ComprimeFotos">
+
+  <meta property="og:locale" content="es_ES">
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
@@ -42,7 +44,7 @@
 
   <link rel="stylesheet" href="../css/style.css?v=2">
 
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
 
   <script type="application/ld+json">
 
@@ -118,7 +120,6 @@
 
     <div class="header-actions">
 
-      <button class="mobile-menu-btn"  aria-label="Cambiar tema">🖼️</button>
 
       <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menú">☰</button>
 
@@ -254,9 +255,9 @@
 
 
 
-        <div id="pdfSimulationNotice" style="display:none;margin-top:16px;padding:12px 16px;border-radius:8px;background:rgba(255,107,74,0.08);border:1px solid rgba(255,107,74,0.2);font-size:0.9rem;">
+        <div id="pdfProcessingNotice" style="display:none;margin-top:16px;padding:12px 16px;border-radius:8px;background:rgba(255,107,74,0.08);border:1px solid rgba(255,107,74,0.2);font-size:0.9rem;">
 
-          <p style="color:var(--text-muted);margin:0;">⚠️ <strong>Nota:</strong> La compresión en el navegador aplica optimización al contenido de imágenes del PDF. Para documentos mayormente textuales, la reducción puede ser menor. Los resultados son simulados de forma proporcional a la calidad seleccionada.</p>
+          <p style="color:var(--text-muted);margin:0;">⚠️ <strong>Nota:</strong> La compresión en el navegador aplica optimización al contenido de imágenes del PDF. Para documentos mayormente textuales, la reducción puede ser menor.</p>
 
         </div>
 
@@ -497,6 +498,7 @@
 
 
 <script src="../js/main.js?v=3"></script>
+<script src="../js/ads.js?v=2"></script>
 
 <script>
 
@@ -528,7 +530,7 @@
 
   const pageCount = document.getElementById('pdfPageCount');
 
-  const simulationNotice = document.getElementById('pdfSimulationNotice');
+  const processingNotice = document.getElementById('pdfProcessingNotice');
 
 
 
@@ -640,7 +642,7 @@
 
       script.onerror = function() {
 
-        // Fallback: usar simulación sin pdf.js
+        // El CDN no está disponible; el usuario debe reintentar con otra red.
 
         reject(new Error('No se pudo cargar pdf.js'));
 
@@ -668,9 +670,7 @@
 
       } catch (e) {
 
-        // Si no se carga pdf.js, usar simulación
-
-        simulateCompression();
+        failCompression('No se pudo cargar el motor de procesamiento PDF. Comprueba tu conexión e inténtalo de nuevo.');
 
         return;
 
@@ -708,13 +708,7 @@
 
     } catch (e) {
 
-      console.warn('Error procesando PDF real, usando simulación:', e);
-
-      // Si falla el procesamiento real, mostrar el aviso y simular
-
-      simulationNotice.style.display = 'block';
-
-      simulateCompression();
+      failCompression('No se pudo procesar este PDF. El archivo puede estar dañado o protegido. Prueba con otro documento.');
 
     }
 
@@ -840,9 +834,9 @@
 
     if (savings < 5) {
 
-      simulationNotice.style.display = 'block';
+      processingNotice.style.display = 'block';
 
-      simulationNotice.querySelector('p').textContent = '⚠️ Este documento parece ser principalmente texto. La compresión mediante canvas reduce sobre todo el peso de imágenes incrustadas. Para PDFs textuales, otras técnicas como optimización de fuentes pueden ser más efectivas.';
+      processingNotice.querySelector('p').textContent = '⚠️ Este documento parece ser principalmente texto. La compresión mediante canvas reduce sobre todo el peso de imágenes incrustadas. Para PDFs textuales, otras técnicas como optimización de fuentes pueden ser más efectivas.';
 
     }
 
@@ -918,23 +912,13 @@
 
           } catch (e) {
 
-            console.warn('Error con jsPDF, usando simulación:', e);
-
-            simulateCompression();
-
-            resolve(null);
+            reject(new Error('No se pudo generar el PDF comprimido'));
 
           }
 
         }, function() {
 
-          // Si no se carga jsPDF, simular
-
-          console.warn('No se pudo cargar jsPDF, simulando compresión');
-
-          simulateCompression();
-
-          resolve(null);
+          reject(new Error('No se pudo cargar la librería de generación PDF'));
 
         });
 
@@ -966,107 +950,18 @@
 
 
 
-  function simulateCompression() {
-
-    if (!currentFile) return;
-
-
-
-    // Mostrar aviso de simulación
-
-    simulationNotice.style.display = 'block';
-
-
-
-    // Estimar páginas (aleatorio entre 1-20 basado en tamaño)
-
-    const estimatedPages = Math.max(1, Math.min(20, Math.round(currentFile.size / 50000)));
-
-    pdfPageCount = estimatedPages;
-
-
-
-    document.querySelector('.pdf-file-name').textContent = originalFileName;
-
-    document.querySelector('.pdf-file-size').textContent = formatFileSize(currentFile.size);
-
-    pageCount.textContent = '~' + estimatedPages + ' páginas (estimado)';
-
-    previewArea.classList.add('active');
-
-
-
-    const quality = parseInt(qualitySlider.value) / 100;
-
-
-
-    // Simular compresión proporcional a la calidad
-
-    // A menor calidad, mayor reducción
-
-    const reductionRatio = 0.2 + (1 - quality) * 0.6; // Entre 20% y 80% según calidad
-
-    const simulatedSize = Math.round(currentFile.size * reductionRatio);
-
-    const savings = ((currentFile.size - simulatedSize) / currentFile.size * 100).toFixed(1);
-
-
-
-    // Crear un blob simulado (realmente copia el original con modificación mínima)
-
-    // para permitir descarga
-
-    const reader = new FileReader();
-
-    reader.onload = function() {
-
-      const uint8 = new Uint8Array(reader.result);
-
-      // Añadir metadato mínimo para que sea descargable (básicamente copia)
-
-      if (compressedBlobUrl) {
-
-        URL.revokeObjectURL(compressedBlobUrl);
-
-      }
-
-
-
-      // Usar el archivo real pero renombrado para simular
-
-      compressedBlob = new Blob([uint8], { type: 'application/pdf' });
-
-      compressedBlobUrl = URL.createObjectURL(compressedBlob);
-
-
-
-      compressedSize.textContent = formatFileSize(simulatedSize);
-
-      savingsPercentage.textContent = '-' + savings + '%';
-
-      if (savings > 30) {
-
-        savingsPercentage.style.color = 'var(--success)';
-
-      } else if (savings > 10) {
-
-        savingsPercentage.style.color = 'var(--warning)';
-
-      } else {
-
-        savingsPercentage.style.color = 'var(--text-muted)';
-
-      }
-
-
-
-      downloadBtn.textContent = '📥 Descargar PDF comprimido';
-
-      downloadBtn.disabled = false;
-
-    };
-
-    reader.readAsArrayBuffer(currentFile);
+  function failCompression(message) {
+    if (compressedBlobUrl) {
+      URL.revokeObjectURL(compressedBlobUrl);
+      compressedBlobUrl = null;
+    }
+    compressedBlob = null;
+    compressedSize.textContent = '-';
+    savingsPercentage.textContent = '-';
+    downloadBtn.textContent = 'No disponible';
+    downloadBtn.disabled = true;
+    processingNotice.style.display = 'block';
+    processingNotice.querySelector('p').textContent = message;
 
   }
 
@@ -1102,7 +997,7 @@
 
     savingsPercentage.textContent = '-';
 
-    simulationNotice.style.display = 'none';
+    processingNotice.style.display = 'none';
 
     downloadBtn.textContent = '📥 Descargar PDF comprimido';
 

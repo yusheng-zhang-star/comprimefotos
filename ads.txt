@@ -1,0 +1,3 @@
+# ads.txt — ComprimeFotos
+# AdSense: 过审拿到 pub-ID 后取消下行注释并替换 X
+# google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0

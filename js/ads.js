@@ -1,3 +1,8 @@
+/**
+ * Adsterra Ad Loader — standard banner units only (no Native Banner).
+ * Banner slots are initialised sequentially with a small delay to
+ * avoid atOptions collisions between multiple banner units.
+ */
 (function () {
   'use strict';
 
@@ -20,9 +25,6 @@
     width: 300,
     height: 250
   };
-
-  var NATIVE_SCRIPT = 'https://pl30877358.effectivecpmnetwork.com/57435d4b523c13e446597283ae9d0849/invoke.js';
-  var NATIVE_CONTAINER = 'container-57435d4b523c13e446597283ae9d0849';
 
   function isMobile() {
     return mobileQuery ? mobileQuery.matches : false;
@@ -96,29 +98,33 @@
     loadAtOptionsAd(container, CONTENT_AD);
   }
 
-  function initNativeAd() {
+  function initFooterAd() {
     var footer = document.querySelector('.site-footer') || document.querySelector('footer');
     if (!footer) return;
 
     var container = document.createElement('div');
-    container.className = 'ad-slot ad-native';
+    container.className = 'ad-slot ad-footer';
+
+    if (isMobile()) {
+      container.classList.add('ad-top-mobile');
+    } else {
+      container.classList.add('ad-top-desktop');
+    }
+
     footer.before(container);
-
-    var adDiv = document.createElement('div');
-    adDiv.id = NATIVE_CONTAINER;
-    container.appendChild(adDiv);
-
-    var script = document.createElement('script');
-    script.async = true;
-    script.setAttribute('data-cfasync', 'false');
-    script.src = NATIVE_SCRIPT;
-    container.appendChild(script);
+    loadAtOptionsAd(container, isMobile() ? TOP_MOBILE : TOP_DESKTOP);
   }
 
   function init() {
-    initTopAd();
-    initContentAd();
-    initNativeAd();
+    var steps = [initTopAd, initContentAd, initFooterAd];
+    var index = 0;
+    function next() {
+      if (index >= steps.length) return;
+      try { steps[index](); } catch (e) {}
+      index += 1;
+      setTimeout(next, 150);
+    }
+    next();
   }
 
   if (document.readyState === 'loading') {

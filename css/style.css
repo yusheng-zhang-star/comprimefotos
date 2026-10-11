@@ -438,6 +438,30 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--a
   .feature-list { grid-template-columns: 1fr; }
 }
 
+/* ===== Global Blog Table Styles ===== */
+.blog-post-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.blog-post-content table th {
+  background: var(--accent);
+  color: white;
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+}
+.blog-post-content table td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+.blog-post-content table tr:nth-child(even) {
+  background: #f8f9fa;
+}
+
 /* ===== Adsterra Ad Slots ===== */
 .ad-slot {
   display: flex;

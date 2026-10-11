@@ -461,7 +461,14 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--a
 .blog-post-content table tr:nth-child(even) {
   background: #f8f9fa;
 }
-/* ===== Custom Comparison Table Styles ===== */
+/* ===== Custom Comparison Table Styles (Global) ===== */
+.comparison-table {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 24px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
 .comparison-row {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
@@ -472,7 +479,6 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--a
   background: var(--accent);
   color: white;
   font-weight: 600;
-  border-radius: 8px 8px 0 0;
 }
 .comparison-cell {
   padding: 14px 16px;

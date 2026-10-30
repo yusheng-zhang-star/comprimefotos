@@ -6,7 +6,7 @@ import urllib.request
 from pathlib import Path
 
 SITE_HOST = "comprimefotos.com"
-KEY = "comprimefotos2026indexnowkey7x4m2p8k"
+KEY = "comprimefotos2026indexnowkey9r5n3q7m"
 KEY_LOCATION = f"https://{SITE_HOST}/{KEY}.txt"
 SITEMAP_PATH = Path(__file__).parent / "sitemap.xml"
 

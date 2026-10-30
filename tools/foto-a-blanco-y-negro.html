@@ -68,31 +68,15 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "¿Se pierde calidad al convertir?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No, la conversión a blanco y negro no pierde calidad. De hecho, el archivo puede ser ligeramente más pequeño porque eliminamos la información de color."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Puedo convertir cualquier formato?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sí, aceptamos JPG, PNG, WebP y la mayoría de formatos de imagen. El resultado se descarga en JPG."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Puedo ajustar el contraste?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "La conversión usa un algoritmo de luminosidad estándar para mantener resultados uniformes. El control de contraste se puede realizar después con la herramienta de filtros o con tu editor de imágenes habitual."
-      }
-    }
-  ]
+      {"@type": "Question", "name": "¿Se pierde calidad al convertir?", "acceptedAnswer": {"@type": "Answer", "text": "Una pizca, por el re-codificado en JPG con calidad 95: en la práctica es imperceptible. La pérdida grande no es de nitidez sino de información: el color se descarta por completo y no hay forma de recuperarlo desde el archivo en blanco y negro."}},
+      {"@type": "Question", "name": "¿Puedo convertir cualquier formato?", "acceptedAnswer": {"@type": "Answer", "text": "De entrada, cualquier imagen que abra tu navegador: JPG, PNG o WebP. La salida es siempre JPG. Los archivos HEIC del iPhone suelen no abrirse en navegadores de escritorio, y los PNG con zonas transparentes salen con esas zonas en negro porque el JPG no admite transparencia."}},
+      {"@type": "Question", "name": "¿Puedo ajustar el contraste?", "acceptedAnswer": {"@type": "Answer", "text": "No: la conversión es de un clic, con la fórmula de luminancia fija y sin controles de contraste, brillo ni sepia. Si necesitas ajustar los tonos, hazlo antes con la herramienta de filtros y convierte después el resultado."}},
+      {"@type": "Question", "name": "¿Por qué dos colores distintos se ven igual en blanco y negro?", "acceptedAnswer": {"@type": "Answer", "text": "Porque la conversión no guarda el color sino la claridad. Dos colores con la misma luminancia —un rojo vivo y un verde intenso, por ejemplo— acaban en grises casi idénticos, aunque resulten muy diferentes a la vista en color. Es la pérdida característica del monocromo."}},
+      {"@type": "Question", "name": "¿El archivo en blanco y negro pesa menos?", "acceptedAnswer": {"@type": "Answer", "text": "No necesariamente: el formato JPG guarda internamente tres canales aunque el contenido sea gris, así que el peso se queda cerca del original. Si buscas reducir peso, usa el compresor con el control de calidad."}},
+      {"@type": "Question", "name": "¿Se puede recuperar el color después?", "acceptedAnswer": {"@type": "Answer", "text": "No. La conversión descarta la información de color de cada píxel, y no hay forma de reconstruirla desde el archivo en blanco y negro. Conserva siempre el original a color por separado si crees que podrás necesitarlo."}},
+      {"@type": "Question", "name": "¿Sale en sepia o en gris puro?", "acceptedAnswer": {"@type": "Answer", "text": "En gris puro, sin ningún tinte de color. El sepia es un virado marrón que aquí no se aplica; para ese efecto cálido de fotos antiguas hace falta una herramienta con controles de color."}},
+      {"@type": "Question", "name": "¿Mis fotos se suben a algún servidor?", "acceptedAnswer": {"@type": "Answer", "text": "No. La conversión es local: la imagen se procesa en la memoria del navegador y se descarga desde ahí. Nada viaja por la red salvo la propia página; lo puedes verificar en la pestaña Red de las herramientas de desarrollo."}}
+    ]
 }
 </script>
 </head>
@@ -136,13 +120,87 @@
         <div class="how-to-step"><div class="step-number">3</div><h4>Descarga</h4><p>Descarga tu foto en blanco y negro en alta calidad.</p></div>
       </div>
     </div>
-    <div class="faq-section">
-      <h2>Preguntas frecuentes</h2>
-      <div class="faq-item"><button class="faq-question">¿Se pierde calidad al convertir?</button><div class="faq-answer"><p>No, la conversión a blanco y negro no pierde calidad. De hecho, el archivo puede ser ligeramente más pequeño porque eliminamos la información de color.</p></div></div>
-      <div class="faq-item"><button class="faq-question">¿Puedo convertir cualquier formato?</button><div class="faq-answer"><p>Sí, aceptamos JPG, PNG, WebP y la mayoría de formatos de imagen. El resultado se descarga en JPG.</p></div></div>
-      <div class="faq-item"><button class="faq-question">¿Puedo ajustar el contraste?</button><div class="faq-answer"><p>La conversión usa un algoritmo de luminosidad estándar para mantener resultados uniformes. El control de contraste se puede realizar después con la herramienta de filtros o con tu editor de imágenes habitual.</p></div></div>
-    </div>
-    <div class="related-tools">
+    <div class="blog-post-content" style="margin-top:44px;">
+
+<h2>Cómo se convierte a blanco y negro</h2>
+
+<p>La conversión recorre los píxeles de la imagen y sustituye el color de cada uno por su <strong>luminancia</strong>, calculada con la fórmula clásica de pesos: 30 % del rojo, 59 % del verde y 11 % del azul. No es una media cualquiera: el ojo humano percibe el verde como mucho más claro que el rojo o el azul, y estos pesos reproducen esa sensibilidad. Un césped verde y un cielo azul de intensidad parecida no acaban en el mismo gris, que es lo que pasaría con una media simple.</p>
+
+<p>El resultado se descarga en JPG con calidad 95, con las mismas dimensiones del original y el sufijo «_blanco_y_negro» en el nombre. Todo ocurre en el navegador, sin subir la foto.</p>
+
+<h2>Por qué no basta con «quitar el color»</h2>
+
+<p>Convertir a blanco y negro es una traducción, y toda traducción pierde cosas. Lo que más se pierde es el <strong>contraste por color</strong>: dos objetos de colores distintos pero con la misma claridad acaban en un gris casi idéntico, y una foto que en color se leía bien en blanco y negro puede volverse plana. El caso típico: flores rojas sobre hojas verdes, o un balón naranja sobre el césped.</p>
+
+<p>A cambio, quitar el color revela otra cosa: la luz, la textura y la composición. Sin color que distraiga, lo que manda son las sombras, las líneas y los materiales. Por eso las mismas fotos no funcionan igual en los dos mundos.</p>
+
+<h2>Qué fotos lucen en blanco y negro (y cuáles no)</h2>
+
+<div class="compact-table">
+
+<div class="compact-row compact-header"><div class="compact-cell">Funciona bien</div><div class="compact-cell">Funciona mal</div></div>
+
+<div class="compact-row"><div class="compact-cell">Retratos: la piel y la mirada ganan protagonismo</div><div class="compact-cell">Comida: gran parte del apetito viene del color</div></div>
+
+<div class="compact-row"><div class="compact-cell">Arquitectura y geometría: líneas y volúmenes</div><div class="compact-cell">Atardeceres: el color es el argumento de la foto</div></div>
+
+<div class="compact-row"><div class="compact-cell">Texturas: piedra, madera, tejidos, agua</div><div class="compact-cell">Señales y códigos de color (semáforos, mapas)</div></div>
+
+<div class="compact-row"><div class="compact-cell">Luz dura: sombras marcadas, contraluz</div><div class="compact-cell">Fotos cuyo sujeto solo se distingue por el color</div></div>
+
+</div>
+
+<p>Si tu foto depende del color para contarse —y no es negociable que sea monocroma—, contrástalas antes ajustando tonos con la herramienta de <a href="/tools/filtros-para-fotos">filtros</a> y convierte después el resultado.</p>
+
+<h2>Lo que esta herramienta no tiene</h2>
+
+<p>Es una conversión de un clic con una sola fórmula, a propósito. No hay controles de contraste, brillo, grano de película ni virado sepia, y no convierte en dos pasos ni con máscaras. Si quieres tonos sepia (marrón cálido, típico de fotos antiguas) necesitas la variante de color: aquí el resultado es gris puro, sin tinte.</p>
+
+<p>Tampoco guarda el original: la información de color se descarta al convertir, y no hay vuelta atrás. Conserva siempre la foto a color por separado; el archivo en blanco y negro es una copia de la interpretación, no del original.</p>
+
+<h2>Si algo no funciona</h2>
+
+<ul>
+
+<li><strong>La foto ha quedado plana y sin contraste.</strong> Casi siempre es el caso «contraste por color»: el sujeto y el fondo tenían claridades parecidas y ahora son el mismo gris. Cambia de encuadre, busca un fondo más claro u oscuro, o ajusta el contraste antes de convertir.</li>
+
+<li><strong>Mi PNG con transparencia sale con fondo negro.</strong> El JPG de salida no admite transparencia, así que las zonas vacías se rellenan de oscuro. Rellena el fondo antes o exporta la imagen sin transparencia.</li>
+
+<li><strong>No se abre la foto del iPhone.</strong> Es HEIC, que la mayoría de navegadores de escritorio no decodifican. Conviértela a JPG en el propio teléfono.</li>
+
+<li><strong>El archivo no pesa menos.</strong> Es normal: el JPG guarda la imagen en un espacio de color interno con los tres canales aunque el contenido sea gris. El peso se parece al de la original; si necesitas reducirlo, pasa por el <a href="/tools/comprimir-imagenes">compresor</a>.</li>
+
+</ul>
+
+<h2>Privacidad</h2>
+
+<p>La conversión ocurre dentro del navegador: la foto se lee del disco, se transforma en memoria y se descarga desde ahí. No hay subida, ni servidor, ni copia en ninguna parte, y puedes comprobarlo en la pestaña Red de las herramientas de desarrollo mientras conviertes.</p>
+
+</div>
+
+<div class="faq-section">
+
+<h2>Preguntas frecuentes</h2>
+
+<div class="faq-item"><button class="faq-question">¿Se pierde calidad al convertir?</button><div class="faq-answer"><p>Una pizca, por el re-codificado en JPG con calidad 95: en la práctica es imperceptible. La pérdida grande no es de nitidez sino de información: el color se descarta por completo y no hay forma de recuperarlo desde el archivo en blanco y negro.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Puedo convertir cualquier formato?</button><div class="faq-answer"><p>De entrada, cualquier imagen que abra tu navegador: JPG, PNG o WebP. La salida es siempre JPG. Los archivos HEIC del iPhone suelen no abrirse en navegadores de escritorio, y los PNG con zonas transparentes salen con esas zonas en negro porque el JPG no admite transparencia.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Puedo ajustar el contraste?</button><div class="faq-answer"><p>No: la conversión es de un clic, con la fórmula de luminancia fija y sin controles de contraste, brillo ni sepia. Si necesitas ajustar los tonos, hazlo antes con la herramienta de filtros y convierte después el resultado.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Por qué dos colores distintos se ven igual en blanco y negro?</button><div class="faq-answer"><p>Porque la conversión no guarda el color sino la claridad. Dos colores con la misma luminancia —un rojo vivo y un verde intenso, por ejemplo— acaban en grises casi idénticos, aunque resulten muy diferentes a la vista en color. Es la pérdida característica del monocromo.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿El archivo en blanco y negro pesa menos?</button><div class="faq-answer"><p>No necesariamente: el formato JPG guarda internamente tres canales aunque el contenido sea gris, así que el peso se queda cerca del original. Si buscas reducir peso, usa el compresor con el control de calidad.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Se puede recuperar el color después?</button><div class="faq-answer"><p>No. La conversión descarta la información de color de cada píxel, y no hay forma de reconstruirla desde el archivo en blanco y negro. Conserva siempre el original a color por separado si crees que podrás necesitarlo.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Sale en sepia o en gris puro?</button><div class="faq-answer"><p>En gris puro, sin ningún tinte de color. El sepia es un virado marrón que aquí no se aplica; para ese efecto cálido de fotos antiguas hace falta una herramienta con controles de color.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Mis fotos se suben a algún servidor?</button><div class="faq-answer"><p>No. La conversión es local: la imagen se procesa en la memoria del navegador y se descarga desde ahí. Nada viaja por la red salvo la propia página; lo puedes verificar en la pestaña Red de las herramientas de desarrollo.</p></div></div>
+
+</div>
+
+<div class="related-tools">
       <h2>Herramientas relacionadas</h2>
       <div class="related-tools-grid">
         <a href="/tools/comprimir-imagenes" class="related-tool-card"><span class="tool-icon">📝</span><div class="tool-info"><strong>Comprimir imágenes</strong><span class="tool-desc">Reduce el peso</span></div><span class="tool-arrow">→</span></a>

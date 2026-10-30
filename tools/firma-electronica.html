@@ -50,39 +50,15 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "¿Esta firma tiene validez legal?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Esta herramienta genera una firma digitalizada (imagen de tu firma manuscrita). Para documentos que requieran validez legal, necesitarás una firma electrónica avanzada o cualificada según la normativa eIDAS. Esta herramienta es ideal para usos informales y documentos internos."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿En qué formato se descarga?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "La firma se descarga en formato PNG con fondo transparente, para que puedas insertarla fácilmente en documentos, PDFs e imágenes."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Puedo usar la firma en documentos PDF?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sí, puedes descargar la firma como PNG y luego insertarla en cualquier documento PDF usando un editor de PDF o insertándola como imagen."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Se guarda mi firma en algún servidor?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No, tu firma se genera y procesa completamente en tu navegador. Nunca se envía a ningún servidor. 100% privada."
-      }
-    }
-  ]
+      {"@type": "Question", "name": "¿Esta firma tiene validez legal?", "acceptedAnswer": {"@type": "Answer", "text": "Es una imagen de una firma: no es una firma electrónica avanzada ni cualificada, porque no lleva certificado digital ni cifrado. Funciona como una firma escaneada —vale para presupuestos, autorizaciones y acuerdos entre partes donde se acepte—, pero no sirve donde la ley exige firma electrónica con certificado, como trámites con administraciones o notaría."}},
+      {"@type": "Question", "name": "¿En qué formato se descarga?", "acceptedAnswer": {"@type": "Answer", "text": "PNG con fondo transparente: solo la tinta, sin recuadro blanco. Así puede colocarse sobre cualquier documento sin tapar lo que hay debajo, igual que un sello."}},
+      {"@type": "Question", "name": "¿Puedo usar la firma en documentos PDF?", "acceptedAnswer": {"@type": "Answer", "text": "Sí: la mayoría de lectores de PDF con función de firma permiten insertar una imagen. Sube este PNG y colócalo sobre la línea de firma. También funciona insertándola en Word o Google Docs."}},
+      {"@type": "Question", "name": "¿Se guarda mi firma en algún servidor?", "acceptedAnswer": {"@type": "Answer", "text": "No. Se dibuja y se exporta en tu navegador; no se sube ni se almacena en ningún sitio. Al cerrar la pestaña desaparece, y solo conserva el PNG que hayas descargado."}},
+      {"@type": "Question", "name": "¿Cómo inserto la firma en Word o en Google Docs?", "acceptedAnswer": {"@type": "Answer", "text": "En Word: Insertar → Imágenes → este dispositivo, y eliges el PNG; luego muévela sobre la línea de firma con ajuste de texto delante del texto. En Google Docs: Insertar → Imagen, y arrástrala a su sitio. Al ser transparente, no tapa la línea."}},
+      {"@type": "Question", "name": "¿Puedo cambiar el color o el grosor del trazo?", "acceptedAnswer": {"@type": "Answer", "text": "No son configurables: el trazo es oscuro y de 2,5 píxeles, imitando un bolígrafo sobre papel. Lo que sí controlas es el tamaño de tus trazos: firma grande en el lienzo y el resultado gana presencia al reducirse."}},
+      {"@type": "Question", "name": "¿La firma escrita con tipografía cuenta como mi firma?", "acceptedAnswer": {"@type": "Answer", "text": "Tiene exactamente el mismo valor legal que la dibujada: el de una imagen. En los dos casos lo que vale es el consentimiento del firmante, no la imagen en sí. La ventaja del modo texto es estética y de consistencia, no legal."}},
+      {"@type": "Question", "name": "¿Puedo guardar la firma para usarla otra vez más tarde?", "acceptedAnswer": {"@type": "Answer", "text": "La herramienta no guarda nada entre sesiones: al cerrar la pestaña, la firma desaparece. La forma de conservarla es descargar el PNG y guardarlo en tu equipo para reutilizarlo en los documentos."}}
+    ]
 }
 </script>
 </head>
@@ -134,14 +110,87 @@
         <div class="how-to-step"><div class="step-number">3</div><h4>Descarga</h4><p>Descarga tu firma como PNG con fondo transparente para usarla donde quieras.</p></div>
       </div>
     </div>
-    <div class="faq-section">
-      <h2>Preguntas frecuentes</h2>
-      <div class="faq-item"><button class="faq-question">¿Esta firma tiene validez legal?</button><div class="faq-answer"><p>Esta herramienta genera una firma digitalizada (imagen de tu firma manuscrita). Para documentos que requieran validez legal, necesitarás una firma electrónica avanzada o cualificada según la normativa eIDAS. Esta herramienta es ideal para usos informales y documentos internos.</p></div></div>
-      <div class="faq-item"><button class="faq-question">¿En qué formato se descarga?</button><div class="faq-answer"><p>La firma se descarga en formato PNG con fondo transparente, para que puedas insertarla fácilmente en documentos, PDFs e imágenes.</p></div></div>
-      <div class="faq-item"><button class="faq-question">¿Puedo usar la firma en documentos PDF?</button><div class="faq-answer"><p>Sí, puedes descargar la firma como PNG y luego insertarla en cualquier documento PDF usando un editor de PDF o insertándola como imagen.</p></div></div>
-      <div class="faq-item"><button class="faq-question">¿Se guarda mi firma en algún servidor?</button><div class="faq-answer"><p>No, tu firma se genera y procesa completamente en tu navegador. Nunca se envía a ningún servidor. 100% privada.</p></div></div>
-    </div>
-    <div class="related-tools">
+    <div class="blog-post-content" style="margin-top:44px;">
+
+<h2>Qué hace esta herramienta</h2>
+
+<p>Crea una imagen de tu firma de dos maneras: <strong>dibujándola</strong> con el ratón o con el dedo sobre el recuadro, o <strong>escribiendo tu nombre</strong> y dejando que una tipografía cursiva lo convierta en firma. El resultado se descarga como PNG con <strong>fondo transparente</strong>: la tinta queda sola, sin recuadro blanco, lista para colocar sobre cualquier documento y que se vea la línea de firma debajo.</p>
+
+<p>La tinta es fija — trazo oscuro de 2,5 píxeles — y hay botones para deshacer el último trazo o limpiar todo el recuadro y empezar de nuevo. Nada se guarda entre sesiones: si cierras la pestaña, la firma desaparece y tendrás que volver a hacerla (lo cual, para una firma, es más una garantía que un problema).</p>
+
+<h2>Dibujar o escribir: cuándo usar cada modo</h2>
+
+<p><strong>Modo dibujo</strong> es el más personal: se traza con el ratón o con el dedo en pantalla. Consejos para que salga bien: haz los trazos más grandes de lo que firmarías en papel y con movimiento continuo; el lienzo se escala, así que una firma grande sale con el grosor correcto al reducirse. Si usas el dedo, apoya la muñeca fuera de la pantalla y firma con la yema, no con la punta del uña.</p>
+
+<p><strong>Modo texto</strong> es el más limpio y repetible: escribes tu nombre, eliges entre varias tipografías cursivas y la herramienta lo compone centrado. El resultado es más uniforme que cualquier firma a mano y se ve profesional en facturas, presupuestos y correos. Su cara B: es idéntica en cada documento, y una firma repetible pierde parte del sentido de firmar; úsala cuando lo que buscas es presentación, no autenticación.</p>
+
+<h2>Cómo usar la firma después</h2>
+
+<ul>
+
+<li><strong>En Word o Google Docs:</strong> insertar → imagen, y colócala sobre la línea de firma. Al ser PNG transparente, no tapa la línea.</li>
+
+<li><strong>En un PDF:</strong> los lectores con función de firma (Acrobat, y la mayoría de alternativas gratuitas) permiten insertar una imagen como firma; sube este PNG.</li>
+
+<li><strong>En emails:</strong> puedes incrustarla al final como imagen, aunque conviene moderación: ocupa espacio y algunos lectores la bloquean.</li>
+
+</ul>
+
+<p>Guarda el PNG en un sitio que controles. Como no se guarda en ningún servidor, si pierdes el archivo tendrás que volver a firmarla.</p>
+
+<h2>Validez legal: qué es y qué no es</h2>
+
+<p>Seamos exactos, porque aquí hay mucho mito: esta herramienta genera <strong>una imagen</strong> de una firma. No es una firma electrónica avanzada ni cualificada: no hay certificado digital, ni criptografía, ni sello de tiempo, ni forma de demostrar quién puso la imagen.</p>
+
+<p>En la práctica eso significa dos cosas. Primera: para documentos donde aceptarías una copia escaneada de una firma manuscrita — contratos entre particulares, presupuestos, autorizaciones informales —, una imagen de firma suele funcionar igual, porque lo que sostiene el acuerdo es el consentimiento de las partes, y eso se prueba por otros medios (correos, pagos, comportamiento). Segunda: donde la ley exige firma electrónica con certificado — notaría, organismos públicos, escrituras, muchos trámites administrativos — esta imagen <strong>no sirve</strong>: ahí hace falta un certificado digital de los oficiales.</p>
+
+<p>Si te lo preguntan en un contexto serio, la respuesta honesta es: es el equivalente digital de firmar un papel y escanearlo. Ni más ni menos.</p>
+
+<h2>Si algo no funciona</h2>
+
+<ul>
+
+<li><strong>No puedo dibujar con el dedo.</strong> Comprueba que tocas dentro del recuadro; si la página se desplaza mientras firmas, intenta de nuevo — el lienzo bloquea el desplazamiento al trazar —.</li>
+
+<li><strong>La firma sale muy fina.</strong> El grosor es fijo: dibuja los trazos más grandes en el lienzo; al reducirse a tamaño real ganan presencia.</li>
+
+<li><strong>Me he equivocado en el último trazo.</strong> Botón de deshacer: elimina el trazo más reciente sin borrar el resto.</li>
+
+<li><strong>El PNG parece vacío.</strong> El fondo es transparente: si lo abres sobre un visor blanco, solo verás la tinta. Para comprobarlo, ábrelo sobre un fondo oscuro o insértalo en un documento.</li>
+
+<li><strong>Quiero cambiar el color o el grosor.</strong> No es configurable: la tinta es oscura y de 2,5 px, pensada para parecerse a un bolígrafo sobre papel.</li>
+
+</ul>
+
+<h2>Privacidad</h2>
+
+<p>La firma se dibuja y se exporta dentro del navegador: no se envía a ningún servidor ni se almacena en ninguna parte. Al cerrar la pestaña no queda rastro — ni aquí ni en tu disco, salvo el PNG que tú descargues —. Es el diseño correcto para algo tan personal como una firma.</p>
+
+</div>
+
+<div class="faq-section">
+
+<h2>Preguntas frecuentes</h2>
+
+<div class="faq-item"><button class="faq-question">¿Esta firma tiene validez legal?</button><div class="faq-answer"><p>Es una imagen de una firma: no es una firma electrónica avanzada ni cualificada, porque no lleva certificado digital ni cifrado. Funciona como una firma escaneada —vale para presupuestos, autorizaciones y acuerdos entre partes donde se acepte—, pero no sirve donde la ley exige firma electrónica con certificado, como trámites con administraciones o notaría.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿En qué formato se descarga?</button><div class="faq-answer"><p>PNG con fondo transparente: solo la tinta, sin recuadro blanco. Así puede colocarse sobre cualquier documento sin tapar lo que hay debajo, igual que un sello.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Puedo usar la firma en documentos PDF?</button><div class="faq-answer"><p>Sí: la mayoría de lectores de PDF con función de firma permiten insertar una imagen. Sube este PNG y colócalo sobre la línea de firma. También funciona insertándola en Word o Google Docs.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Se guarda mi firma en algún servidor?</button><div class="faq-answer"><p>No. Se dibuja y se exporta en tu navegador; no se sube ni se almacena en ningún sitio. Al cerrar la pestaña desaparece, y solo conserva el PNG que hayas descargado.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Cómo inserto la firma en Word o en Google Docs?</button><div class="faq-answer"><p>En Word: Insertar → Imágenes → este dispositivo, y eliges el PNG; luego muévela sobre la línea de firma con ajuste de texto delante del texto. En Google Docs: Insertar → Imagen, y arrástrala a su sitio. Al ser transparente, no tapa la línea.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Puedo cambiar el color o el grosor del trazo?</button><div class="faq-answer"><p>No son configurables: el trazo es oscuro y de 2,5 píxeles, imitando un bolígrafo sobre papel. Lo que sí controlas es el tamaño de tus trazos: firma grande en el lienzo y el resultado gana presencia al reducirse.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿La firma escrita con tipografía cuenta como mi firma?</button><div class="faq-answer"><p>Tiene exactamente el mismo valor legal que la dibujada: el de una imagen. En los dos casos lo que vale es el consentimiento del firmante, no la imagen en sí. La ventaja del modo texto es estética y de consistencia, no legal.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Puedo guardar la firma para usarla otra vez más tarde?</button><div class="faq-answer"><p>La herramienta no guarda nada entre sesiones: al cerrar la pestaña, la firma desaparece. La forma de conservarla es descargar el PNG y guardarlo en tu equipo para reutilizarlo en los documentos.</p></div></div>
+
+</div>
+
+<div class="related-tools">
       <h2>Herramientas relacionadas</h2>
       <div class="related-tools-grid">
         <a href="/tools/poner-marca-de-agua" class="related-tool-card"><span class="tool-icon">💧</span><div class="tool-info"><strong>Poner marca de agua</strong><span class="tool-desc">Protege tus fotos</span></div><span class="tool-arrow">→</span></a>

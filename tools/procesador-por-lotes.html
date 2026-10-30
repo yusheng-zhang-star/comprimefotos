@@ -70,31 +70,15 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "¿Cuántas imágenes puedo procesar a la vez?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Puedes procesar todas las que quieras, pero recomendamos no superar las 50 imágenes por lote para evitar problemas de memoria en el navegador."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Puedo redimensionar y comprimir a la vez?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sí, puedes redimensionar y comprimir al mismo tiempo. Es la forma más eficiente de optimizar muchas imágenes."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Las imágenes se suben a algún servidor?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No, todo el procesamiento ocurre localmente en tu navegador. Tus imágenes nunca salen de tu dispositivo."
-      }
-    }
-  ]
+      {"@type": "Question", "name": "¿Cuántas imágenes puedo procesar a la vez?", "acceptedAnswer": {"@type": "Answer", "text": "Las que quieras, aunque la recomendación práctica es no superar las 50 por tanda: el límite real es la memoria del navegador. Con fotos de móvil de 3–5 MB los 50 van bien; con archivos muy pesados, divide en tandas más pequeñas. Se procesan una detrás de otra justamente para no agotar la memoria."}},
+      {"@type": "Question", "name": "¿Puedo redimensionar y comprimir a la vez?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, y es lo habitual: eliges un tope de tamaño (por ejemplo, el lado más largo a 1600 px), el formato de salida y la calidad, y cada imagen del lote se reduce proporcionalmente y se re-codifica en un solo paso. Las fotos más pequeñas que el tope no se amplían."}},
+      {"@type": "Question", "name": "¿Las imágenes se suben a algún servidor?", "acceptedAnswer": {"@type": "Answer", "text": "No. Todo el lote se procesa en tu navegador: lectura, re-codificación y empaquetado del ZIP ocurren en tu dispositivo. La única descarga externa es la librería que crea el ZIP, nunca tus imágenes."}},
+      {"@type": "Question", "name": "¿Qué significa «Máx. 1600 px» exactamente?", "acceptedAnswer": {"@type": "Answer", "text": "Que el lado más largo de cada imagen quedará como máximo en 1600 píxeles, con el otro lado reducido en proporción. Una foto vertical de 4000 × 3000 pasa a 1600 × 1200; una horizontal de 3000 × 4000 pasa a 1200 × 1600. Las imágenes ya más pequeñas se quedan como están."}},
+      {"@type": "Question", "name": "¿Por qué mis PNG con transparencia salen con fondo blanco?", "acceptedAnswer": {"@type": "Answer", "text": "Porque has elegido JPG o WebP como formato de salida: ninguno de los dos admite transparencia, así que las zonas transparentes se rellenan de blanco. Si necesitas conservarla, la única salida que la mantiene es PNG."}},
+      {"@type": "Question", "name": "¿El ZIP conserva los nombres de archivo?", "acceptedAnswer": {"@type": "Answer", "text": "Sí: cada imagen mantiene su nombre original y solo cambia la extensión si has cambiado el formato de salida. La herramienta no renombra en serie ni reorganiza los archivos."}},
+      {"@type": "Question", "name": "¿Por qué se descargan de una en una en vez del ZIP?", "acceptedAnswer": {"@type": "Answer", "text": "El empaquetado usa una librería que se carga desde un CDN externo. Si un bloqueador de anuncios o una extensión la ha bloqueado, la herramienta detecta el fallo y descarga las imágenes individualmente, separadas por un cuarto de segundo. Permite el dominio de la librería en tu bloqueador para recuperar el ZIP."}},
+      {"@type": "Question", "name": "¿Puedo mezclar formatos distintos en el mismo lote?", "acceptedAnswer": {"@type": "Answer", "text": "En la entrada sí: puedes soltar juntos JPG, PNG y WebP. En la salida no: todas las imágenes del lote salen en el único formato que hayas elegido, aplicando a cada una la misma calidad y el mismo tope de redimensionado."}}
+    ]
 }
 </script>
 </head>
@@ -149,13 +133,97 @@
         <div class="how-to-step"><div class="step-number">3</div><h4>Procesa y descarga</h4><p>Procesa todas las imágenes y descárgalas juntas en un ZIP.</p></div>
       </div>
     </div>
-    <div class="faq-section">
-      <h2>Preguntas frecuentes</h2>
-      <div class="faq-item"><button class="faq-question">¿Cuántas imágenes puedo procesar a la vez?</button><div class="faq-answer"><p>Puedes procesar todas las que quieras, pero recomendamos no superar las 50 imágenes por lote para evitar problemas de memoria en el navegador.</p></div></div>
-      <div class="faq-item"><button class="faq-question">¿Puedo redimensionar y comprimir a la vez?</button><div class="faq-answer"><p>Sí, puedes redimensionar y comprimir al mismo tiempo. Es la forma más eficiente de optimizar muchas imágenes.</p></div></div>
-      <div class="faq-item"><button class="faq-question">¿Las imágenes se suben a algún servidor?</button><div class="faq-answer"><p>No, todo el procesamiento ocurre localmente en tu navegador. Tus imágenes nunca salen de tu dispositivo.</p></div></div>
-    </div>
-    <div class="related-tools">
+    <div class="blog-post-content" style="margin-top:44px;">
+
+<h2>Cómo funciona el procesamiento por lotes</h2>
+
+<p>Suelta todas las fotos de una vez y aparecerán como una lista con miniatura y peso de cada archivo. Puedes quitar cualquiera de la lista antes de procesar con su propia cruz. Ajustas calidad, formato y redimensionado una sola vez, y esa misma configuración se aplica a todas; el resultado se empaqueta en un ZIP listo para descargar.</p>
+
+<p>Hay una decisión de diseño que conviene conocer: las imágenes se procesan <strong>una detrás de otra</strong>, no todas a la vez. Es deliberado — procesar cincuenta fotos en paralelo agotaría la memoria del navegador y colgaría la pestaña —. En la lista verás el estado de cada una: en proceso, terminada con su ahorro de peso, o error. Nada sale de tu equipo en ningún momento.</p>
+
+<h2>Los tres ajustes, explicados</h2>
+
+<div class="compact-table">
+
+<div class="compact-row compact-header"><div class="compact-cell">Ajuste</div><div class="compact-cell">Qué hace</div><div class="compact-cell">Valor recomendado</div></div>
+
+<div class="compact-row"><div class="compact-cell">Calidad</div><div class="compact-cell">Nivel de compresión JPG/WebP; afecta al peso y al detalle</div><div class="compact-cell">80 para casi todo</div></div>
+
+<div class="compact-row"><div class="compact-cell">Formato salida</div><div class="compact-cell">Todas las imágenes salen en el mismo formato: JPG, PNG o WebP</div><div class="compact-cell">JPG para fotos, WebP para web</div></div>
+
+<div class="compact-row"><div class="compact-cell">Redimensionar</div><div class="compact-cell">Pone tope al lado más largo, manteniendo la proporción</div><div class="compact-cell">1600 px para WhatsApp, 1200 para web</div></div>
+
+</div>
+
+<p>El redimensionado merece precisión: «Máx. 1600 px» significa que <strong>el lado más largo</strong> de cada imagen quedará como máximo en 1600 píxeles, reduciendo el otro proporcionalmente. Si una foto ya es más pequeña que el tope, se queda exactamente igual — nunca se amplía —. Es la forma más cómoda de normalizar un lote de fotos de móvil de tamaños mezclados.</p>
+
+<p>Otro detalle honesto: si eliges JPG o WebP de salida, las zonas transparentes de los PNG se rellenan de blanco. Si tus imágenes tienen transparencia y quieres conservarla, la única salida que la respeta es PNG.</p>
+
+<h2>Flujos de trabajo típicos</h2>
+
+<ul>
+
+<li><strong>Fotos de móvil para enviar por WhatsApp:</strong> 1600 px + JPG + calidad 80. De una foto de 4 MB se pasa a unos 300–500 KB sin que se note en la pantalla del teléfono.</li>
+
+<li><strong>Imágenes para una web o tienda:</strong> 1200 px + WebP + calidad 80. Es la combinación que más peso ahorra manteniendo calidad de tienda.</li>
+
+<li><strong>Miniaturas o galerías grandes:</strong> 800 px + JPG + calidad 75. Cuando son cientos de imágenes pequeñas, cada KB cuenta.</li>
+
+<li><strong>Pasar fotos a PNG sin tocar nada más:</strong> formato PNG, sin redimensionar, calidad al máximo (el PNG no usa calidad, el deslizador no le afecta).</li>
+
+</ul>
+
+<h2>Lo que este lote no hace</h2>
+
+<ul>
+
+<li><strong>No admite ajustes distintos por archivo.</strong> La configuración es única para todo el lote; si necesitas calidades diferentes, separa en dos tandas.</li>
+
+<li><strong>No renombra en serie.</strong> Cada archivo conserva su nombre y solo cambia la extensión si cambias de formato. Para renombrar en masa hace falta otra herramienta.</li>
+
+<li><strong>No crea PDF ni añade marcas de agua.</strong> Para lo primero está <a href="/tools/imagen-a-pdf">Imagen a PDF</a>; para lo segundo, <a href="/tools/poner-marca-de-agua">poner marca de agua</a>.</li>
+
+<li><strong>No acepta HEIC ni GIF animado.</strong> La entrada es JPG, PNG y WebP.</li>
+
+</ul>
+
+<h2>Cuando el ZIP no se genera</h2>
+
+<p>El empaquetado usa una librería (JSZip) que se carga desde un CDN externo. Si un bloqueador de anuncios o una extensión de privacidad la bloquea, la herramienta lo detecta y <strong>descarga las imágenes de una en una</strong> automáticamente, con una separación de cuarto de segundo entre cada una. Es más engorroso pero el resultado es el mismo. Si quieres el ZIP, permite el dominio de la librería en tu bloqueador y repite la descarga.</p>
+
+<h2>¿Cuántas imágenes aguantan?</h2>
+
+<p>Técnicamente no hay un tope escrito; la recomendación práctica es <strong>no pasar de 50 por tanda</strong>. El límite real es la memoria del navegador: fotos de móvil de 3–5 MB aguantan sin problema los 50; si son escaneos de 30 MB, baja la tanda a 10 o 15. Si algo se cuelga a mitad, no se pierde nada: el navegador no ha tocado los originales, que siguen intactos en tu disco.</p>
+
+<h2>Privacidad</h2>
+
+<p>Ninguna imagen del lote sale de tu dispositivo. El procesamiento es local de principio a fin — lectura, re-codificación y empaquetado del ZIP ocurren en el navegador —. Solo se descarga desde internet la librería de compresión del ZIP, nunca tus fotos. Como en todas las herramientas del sitio, el resultado no lleva los datos EXIF del original: cámara, fecha y ubicación desaparecen al re-codificar.</p>
+
+</div>
+
+<div class="faq-section">
+
+<h2>Preguntas frecuentes</h2>
+
+<div class="faq-item"><button class="faq-question">¿Cuántas imágenes puedo procesar a la vez?</button><div class="faq-answer"><p>Las que quieras, aunque la recomendación práctica es no superar las 50 por tanda: el límite real es la memoria del navegador. Con fotos de móvil de 3–5 MB los 50 van bien; con archivos muy pesados, divide en tandas más pequeñas. Se procesan una detrás de otra justamente para no agotar la memoria.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Puedo redimensionar y comprimir a la vez?</button><div class="faq-answer"><p>Sí, y es lo habitual: eliges un tope de tamaño (por ejemplo, el lado más largo a 1600 px), el formato de salida y la calidad, y cada imagen del lote se reduce proporcionalmente y se re-codifica en un solo paso. Las fotos más pequeñas que el tope no se amplían.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Las imágenes se suben a algún servidor?</button><div class="faq-answer"><p>No. Todo el lote se procesa en tu navegador: lectura, re-codificación y empaquetado del ZIP ocurren en tu dispositivo. La única descarga externa es la librería que crea el ZIP, nunca tus imágenes.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Qué significa «Máx. 1600 px» exactamente?</button><div class="faq-answer"><p>Que el lado más largo de cada imagen quedará como máximo en 1600 píxeles, con el otro lado reducido en proporción. Una foto vertical de 4000 × 3000 pasa a 1600 × 1200; una horizontal de 3000 × 4000 pasa a 1200 × 1600. Las imágenes ya más pequeñas se quedan como están.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Por qué mis PNG con transparencia salen con fondo blanco?</button><div class="faq-answer"><p>Porque has elegido JPG o WebP como formato de salida: ninguno de los dos admite transparencia, así que las zonas transparentes se rellenan de blanco. Si necesitas conservarla, la única salida que la mantiene es PNG.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿El ZIP conserva los nombres de archivo?</button><div class="faq-answer"><p>Sí: cada imagen mantiene su nombre original y solo cambia la extensión si has cambiado el formato de salida. La herramienta no renombra en serie ni reorganiza los archivos.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Por qué se descargan de una en una en vez del ZIP?</button><div class="faq-answer"><p>El empaquetado usa una librería que se carga desde un CDN externo. Si un bloqueador de anuncios o una extensión la ha bloqueado, la herramienta detecta el fallo y descarga las imágenes individualmente, separadas por un cuarto de segundo. Permite el dominio de la librería en tu bloqueador para recuperar el ZIP.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Puedo mezclar formatos distintos en el mismo lote?</button><div class="faq-answer"><p>En la entrada sí: puedes soltar juntos JPG, PNG y WebP. En la salida no: todas las imágenes del lote salen en el único formato que hayas elegido, aplicando a cada una la misma calidad y el mismo tope de redimensionado.</p></div></div>
+
+</div>
+
+<div class="related-tools">
       <h2>Herramientas relacionadas</h2>
       <div class="related-tools-grid">
         <a href="/tools/comprimir-imagenes" class="related-tool-card"><span class="tool-icon">📝</span><div class="tool-info"><strong>Comprimir imágenes</strong><span class="tool-desc">Individual</span></div><span class="tool-arrow">→</span></a>

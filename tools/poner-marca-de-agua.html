@@ -50,47 +50,15 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "¿Qué es una marca de agua y para qué sirve?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Una marca de agua es un texto o logotipo que se superpone a una imagen para identificar al autor o propietario. Sirve para proteger tus fotos contra el uso no autorizado, promocionar tu marca y disuadir a quienes podrían copiar tu trabajo sin permiso."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Por qué se descarga en PNG y no en otro formato?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Descargamos en PNG porque este formato no comprime la imagen y conserva la transparencia de la marca de agua con la máxima calidad. Si descargaras en JPG, se perdería la suavidad de la marca y podría aparecer un fondo blanco no deseado."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Puedo usar un logo en lugar de texto?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "La herramienta está enfocada en marcas de agua con texto, que es la opción más rápida y estable. Si necesitas añadir un logotipo como imagen, puedes superponerlo de forma manual o usar otra herramienta de edición."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Qué opacidad me recomiendas?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Para proteger tus imágenes sin que la marca arruine la visualización, te recomendamos una opacidad entre 0.4 y 0.6. Si quieres que sea muy visible, usa 0.8 o más. Las marcas demasiado tenues (menos de 0.3) son fáciles de eliminar con herramientas de edición."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Mis imágenes se almacenan en sus servidores?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. Todo el procesamiento ocurre localmente en tu navegador. Tus imágenes nunca se suben a ningún servidor. La marca de agua se aplica directamente en tu dispositivo, garantizando tu privacidad total."
-      }
-    }
-  ]
+      {"@type": "Question", "name": "¿Qué es una marca de agua y para qué sirve?", "acceptedAnswer": {"@type": "Answer", "text": "Es un texto que se incrusta sobre la imagen —normalmente tu nombre, tu marca o tu web— para dejar claro quién es el autor y desincentivar el uso sin permiso. No blinda la foto: quien quiera puede recortarla o retocarla, pero cualquier uso que alguien haga de la imagen llevará tu firma encima."}},
+      {"@type": "Question", "name": "¿Por qué se descarga en PNG y no en otro formato?", "acceptedAnswer": {"@type": "Answer", "text": "El PNG conserva la imagen sin nueva pérdida de calidad y es el formato más seguro para una imagen que ya lleva el texto dibujado encima. Si necesitas JPG o WebP para pesar menos, pasa el resultado por el conversor de formato o el compresor."}},
+      {"@type": "Question", "name": "¿Puedo usar un logo en lugar de texto?", "acceptedAnswer": {"@type": "Answer", "text": "No. Esta herramienta dibuja solo texto en negrita con sombra; no admite subir una imagen de logo. Para superponer un logo con transparencia hace falta un editor con capas."}},
+      {"@type": "Question", "name": "¿Qué opacidad me recomiendas?", "acceptedAnswer": {"@type": "Answer", "text": "Entre 0,35 y 0,5 para la mayoría de casos: se lee con claridad sin arruinar la foto. Por debajo de 0,3 un recorte o un filtro la eliminan con facilidad; por encima de 0,7 la marca domina la imagen."}},
+      {"@type": "Question", "name": "¿Mis imágenes se almacenan en sus servidores?", "acceptedAnswer": {"@type": "Answer", "text": "No. La marca de agua se dibuja en tu navegador sobre la imagen que carga del disco: no hay subida, ni servidor, ni copia. Puedes comprobarlo en la pestaña Red de las herramientas de desarrollo."}},
+      {"@type": "Question", "name": "¿La marca de agua se puede quitar después?", "acceptedAnswer": {"@type": "Answer", "text": "Prácticamente no: el texto queda incrustado en los píxeles de la imagen, no como una capa ni un metadato. Por eso conviene aplicar siempre sobre una copia y conservar el original limpio por separado."}},
+      {"@type": "Question", "name": "¿Puedo poner la marca en el centro o repetida por toda la foto?", "acceptedAnswer": {"@type": "Answer", "text": "No. Las posiciones disponibles son las cuatro esquinas. El mosaico por toda la imagen —la opción más disuasoria frente a recortes— requiere un editor completo."}},
+      {"@type": "Question", "name": "¿La marca sale con la tipografía que yo elija?", "acceptedAnswer": {"@type": "Answer", "text": "No: el texto se dibuja siempre en la misma fuente, en negrita, color blanco y con sombra oscura. Puedes controlar el contenido del texto, su tamaño, la opacidad y la esquina, pero no la tipografía ni el color."}}
+    ]
 }
 </script>
 </head>
@@ -144,15 +112,117 @@
         <div class="how-to-step"><div class="step-number">3</div><h4>Descarga</h4><p>Guarda la imagen con tu marca de agua en PNG.</p></div>
       </div>
     </div>
-    <div class="faq-section">
-      <h2>Preguntas frecuentes</h2>
-      <div class="faq-item"><button class="faq-question">¿Qué es una marca de agua y para qué sirve?</button><div class="faq-answer"><p>Una marca de agua es un texto o logotipo que se superpone a una imagen para identificar al autor o propietario. Sirve para proteger tus fotos contra el uso no autorizado, promocionar tu marca y disuadir a quienes podrían copiar tu trabajo sin permiso.</p></div></div>
-      <div class="faq-item"><button class="faq-question">¿Por qué se descarga en PNG y no en otro formato?</button><div class="faq-answer"><p>Descargamos en PNG porque este formato no comprime la imagen y conserva la transparencia de la marca de agua con la máxima calidad. Si descargaras en JPG, se perdería la suavidad de la marca y podría aparecer un fondo blanco no deseado.</p></div></div>
-      <div class="faq-item"><button class="faq-question">¿Puedo usar un logo en lugar de texto?</button><div class="faq-answer"><p>La herramienta está enfocada en marcas de agua con texto, que es la opción más rápida y estable. Si necesitas añadir un logotipo como imagen, puedes superponerlo de forma manual o usar otra herramienta de edición.</p></div></div>
-      <div class="faq-item"><button class="faq-question">¿Qué opacidad me recomiendas?</button><div class="faq-answer"><p>Para proteger tus imágenes sin que la marca arruine la visualización, te recomendamos una opacidad entre 0.4 y 0.6. Si quieres que sea muy visible, usa 0.8 o más. Las marcas demasiado tenues (menos de 0.3) son fáciles de eliminar con herramientas de edición.</p></div></div>
-      <div class="faq-item"><button class="faq-question">¿Mis imágenes se almacenan en sus servidores?</button><div class="faq-answer"><p>No. Todo el procesamiento ocurre localmente en tu navegador. Tus imágenes nunca se suben a ningún servidor. La marca de agua se aplica directamente en tu dispositivo, garantizando tu privacidad total.</p></div></div>
-    </div>
-    <div class="related-tools">
+    <div class="blog-post-content" style="margin-top:44px;">
+
+<h2>Cómo se aplica la marca de agua</h2>
+
+<p>La herramienta dibuja tu texto sobre la imagen en el propio navegador: la foto se reproduce en un lienzo del tamaño original y encima se pinta el texto en blanco, con una sombra oscura sutil que lo separa del fondo. Cada cambio que haces — texto, tamaño, opacidad o esquina — vuelve a dibujar la vista previa al instante, así que lo que ves es exactamente lo que descargas.</p>
+
+<p>Tres detalles técnicos útiles:</p>
+
+<ul>
+
+<li><strong>La imagen no se reduce.</strong> El resultado mantiene los píxeles del original; la marca se dibuja encima a resolución completa.</li>
+
+<li><strong>El texto es blanco en negrita con sombra.</strong> Funciona sobre casi cualquier fondo porque la sombra oscura da contraste incluso sobre cielos claros, aunque en fondos muy blancos conviene bajar un poco la opacidad para que no desaparezca.</li>
+
+<li><strong>Se descarga en PNG.</strong> El archivo de salida es PNG aunque la entrada fuera JPG o WebP.</li>
+
+</ul>
+
+<h2>Los cuatro controles</h2>
+
+<div class="compact-table">
+
+<div class="compact-row compact-header"><div class="compact-cell">Control</div><div class="compact-cell">Qué hace</div><div class="compact-cell">Punto de partida</div></div>
+
+<div class="compact-row"><div class="compact-cell">Texto</div><div class="compact-cell">Lo que se dibuja; por defecto pone © ComprimeFotos</div><div class="compact-cell">© TuNombre o tu web</div></div>
+
+<div class="compact-row"><div class="compact-cell">Tamaño</div><div class="compact-cell">Altura de la letra en píxeles</div><div class="compact-cell">Depende del tamaño de la foto (ver abajo)</div></div>
+
+<div class="compact-row"><div class="compact-cell">Opacidad</div><div class="compact-cell">De 0 (invisible) a 1 (sólida)</div><div class="compact-cell">0,4 – 0,5</div></div>
+
+<div class="compact-row"><div class="compact-cell">Posición</div><div class="compact-cell">Una de las cuatro esquinas</div><div class="compact-cell">Abajo a la derecha</div></div>
+
+</div>
+
+<h2>El tamaño de fuente, en píxeles reales</h2>
+
+<p>El deslizador marca píxeles absolutos, no un porcentaje de la imagen: 36 px es un tamaño correcto para una foto de 1200 px de ancho, pero casi invisible en una foto de móvil de 4000 px. Una regla que funciona bien es que el texto ocupe entre un 3 % y un 5 % del ancho de la imagen:</p>
+
+<div class="compact-table">
+
+<div class="compact-row compact-header"><div class="compact-cell">Ancho de la foto</div><div class="compact-cell">Tamaño de fuente razonable</div></div>
+
+<div class="compact-row"><div class="compact-cell">800 px (web)</div><div class="compact-cell">24 – 40 px</div></div>
+
+<div class="compact-row"><div class="compact-cell">1200 – 1600 px</div><div class="compact-cell">40 – 70 px</div></div>
+
+<div class="compact-row"><div class="compact-cell">2000 – 3000 px</div><div class="compact-cell">70 – 130 px</div></div>
+
+<div class="compact-row"><div class="compact-cell">4000 px o más (móvil)</div><div class="compact-cell">130 – 220 px</div></div>
+
+</div>
+
+<p>Si la marca te parece pequeña en la vista previa, no la agrandes hasta el infinito: reduce primero la imagen con el <a href="/tools/redimensionar-imagen">redimensionador</a> y aplica después la marca sobre el tamaño final.</p>
+
+<h2>Opacidad y posición que funcionan</h2>
+
+<p>Para <strong>proteger sin arruinar</strong> la foto, la combinación habitual es opacidad entre 0,35 y 0,5 en una esquina inferior. Se ve con claridad quién es el autor, pero no roba la atención. Bajar de 0,3 la hace tan discreta que un recorte o un filtro la eliminan con facilidad; subir de 0,7 convierte la foto en un cartel.</p>
+
+<p>Sobre la esquina: la inferior derecha es la convención y la menos molesta para composiciones donde el sujeto está centrado. Si tu foto tiene el interés en esa esquina (un logo del producto, por ejemplo), usa la opuesta. Lo que no ofrece esta herramienta es la marca en el centro o en mosaico por toda la imagen, que es la opción más disuasoria frente a recortes — si la necesitas, hay que hacerlo con un editor completo —.</p>
+
+<h2>Qué protección ofrece (y qué no)</h2>
+
+<p>Ser honesto con esto evita disgustos: una marca de agua <strong>disuade del uso casual</strong>, pero no blinda la imagen. Quien quiera Quitarla puede recortar la esquina, clonar la zona o, con empeño, retocarla. Lo que sí consigue de forma práctica es que el uso no autorizado lleve tu nombre encima — mal para quien roba, bueno para ti —. Dos hábitos que valen más que cualquier marca: publica siempre versiones reducidas (1600 px sobran para web) y guarda los originales a resolución completa en privado.</p>
+
+<p>Un matiz técnico: al procesar aquí, la imagen final pierde los metadatos EXIF del original —cámara, fecha y GPS—, y la marca de agua va incrustada en los píxeles, no como metadato. No hay ninguna etiqueta oculta que la registre: lo que ves es lo que hay.</p>
+
+<h2>Si algo no funciona</h2>
+
+<ul>
+
+<li><strong>El texto no se ve.</strong> Fondo muy claro y opacidad baja. Sube la opacidad a 0,5 o cambia de esquina: la sombra ayuda, pero sobre un cielo blanco puro conviene que la marca sea más densa.</li>
+
+<li><strong>La marca sale diminuta.</strong> El tamaño está en píxeles absolutos: en fotos de móvil de 4000 px, 36 px es casi un punto. Súbelo a 130 o más.</li>
+
+<li><strong>Quiero poner mi logo, no texto.</strong> Esta herramienta solo dibuja texto. Para un logo sobre la foto hace falta un editor con capas.</li>
+
+<li><strong>El PNG final pesa mucho.</strong> Es lo esperable: PNG no comprime bien las fotos. Pasa el resultado por el <a href="/tools/comprimir-imagenes">compresor</a> o conviértelo a JPG con el <a href="/tools/convertir-formato">conversor</a>.</li>
+
+<li><strong>Tengo cincuenta fotos y no quiero hacerlas una a una.</strong> Este procesador trabaja con una imagen por vez; el procesador por lotes comprime y redimensiona en masa, pero no añade marcas de agua.</li>
+
+</ul>
+
+<h2>Privacidad</h2>
+
+<p>La foto con marca se genera en tu navegador: no hay subida ni servidor. El texto que escribas y la imagen se quedan en tu dispositivo, y puedes verificarlo en la pestaña Red de las herramientas de desarrollo, donde no aparecerá ninguna petición con tu foto.</p>
+
+</div>
+
+<div class="faq-section">
+
+<h2>Preguntas frecuentes</h2>
+
+<div class="faq-item"><button class="faq-question">¿Qué es una marca de agua y para qué sirve?</button><div class="faq-answer"><p>Es un texto que se incrusta sobre la imagen —normalmente tu nombre, tu marca o tu web— para dejar claro quién es el autor y desincentivar el uso sin permiso. No blinda la foto: quien quiera puede recortarla o retocarla, pero cualquier uso que alguien haga de la imagen llevará tu firma encima.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Por qué se descarga en PNG y no en otro formato?</button><div class="faq-answer"><p>El PNG conserva la imagen sin nueva pérdida de calidad y es el formato más seguro para una imagen que ya lleva el texto dibujado encima. Si necesitas JPG o WebP para pesar menos, pasa el resultado por el conversor de formato o el compresor.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Puedo usar un logo en lugar de texto?</button><div class="faq-answer"><p>No. Esta herramienta dibuja solo texto en negrita con sombra; no admite subir una imagen de logo. Para superponer un logo con transparencia hace falta un editor con capas.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Qué opacidad me recomiendas?</button><div class="faq-answer"><p>Entre 0,35 y 0,5 para la mayoría de casos: se lee con claridad sin arruinar la foto. Por debajo de 0,3 un recorte o un filtro la eliminan con facilidad; por encima de 0,7 la marca domina la imagen.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Mis imágenes se almacenan en sus servidores?</button><div class="faq-answer"><p>No. La marca de agua se dibuja en tu navegador sobre la imagen que carga del disco: no hay subida, ni servidor, ni copia. Puedes comprobarlo en la pestaña Red de las herramientas de desarrollo.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿La marca de agua se puede quitar después?</button><div class="faq-answer"><p>Prácticamente no: el texto queda incrustado en los píxeles de la imagen, no como una capa ni un metadato. Por eso conviene aplicar siempre sobre una copia y conservar el original limpio por separado.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Puedo poner la marca en el centro o repetida por toda la foto?</button><div class="faq-answer"><p>No. Las posiciones disponibles son las cuatro esquinas. El mosaico por toda la imagen —la opción más disuasoria frente a recortes— requiere un editor completo.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿La marca sale con la tipografía que yo elija?</button><div class="faq-answer"><p>No: el texto se dibuja siempre en la misma fuente, en negrita, color blanco y con sombra oscura. Puedes controlar el contenido del texto, su tamaño, la opacidad y la esquina, pero no la tipografía ni el color.</p></div></div>
+
+</div>
+
+<div class="related-tools">
       <h2>Herramientas relacionadas</h2>
       <div class="related-tools-grid">
         <a href="/tools/comprimir-imagenes" class="related-tool-card"><span class="tool-icon">🗜️</span><div class="tool-info"><strong>Comprimir imágenes</strong><span class="tool-desc">Reduce el peso de tus fotos</span></div><span class="tool-arrow">→</span></a>

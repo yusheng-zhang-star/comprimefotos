@@ -50,47 +50,14 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "¿Pierdo calidad al convertir el formato?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Depende del formato. Al convertir a PNG no pierdes calidad porque es sin pérdida. De PNG a JPG puede haber una compresión mínima, pero ajustamos los parámetros para que la calidad sea óptima. WebP ofrece buena compresión sin pérdida apreciable de calidad visual."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Qué formatos están disponibles?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Puedes convertir entre JPG, PNG y WebP. JPG es ideal para fotografías, PNG para imágenes con transparencia o texto, y WebP para un equilibrio óptimo entre calidad y peso de archivo."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Se procesa en la nube o en mi dispositivo?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Todo el procesamiento ocurre localmente en tu navegador. Tus imágenes nunca se suben a ningún servidor. La conversión es 100% privada y segura."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Hay límite de tamaño o cantidad?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "El límite es de 20 MB por imagen. No hay límite en la cantidad de imágenes que puedes convertir, pero cada una se procesa individualmente."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Qué formato me recomiendas para cada caso?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Para fotografías usa JPG (buena compresión). Si necesitas transparencia o texto nítido, usa PNG. Para páginas web donde quieras el mejor equilibrio calidad-peso, WebP es la mejor opción."
-      }
-    }
-  ]
+      {"@type": "Question", "name": "¿Convertir una imagen a JPG le baja la calidad?", "acceptedAnswer": {"@type": "Answer", "text": "Solo un poco y la primera vez: el JPG sale con calidad 92, prácticamente idéntico al original en pantalla. Lo que sí degrada es convertir varias veces en cadena, porque cada re-guardado con pérdida suma artefactos; si necesitas otro formato, parte siempre del archivo original."}},
+      {"@type": "Question", "name": "¿Qué diferencia hay entre PNG y JPG?", "acceptedAnswer": {"@type": "Answer", "text": "El JPG comprime con pérdida y es muy ligero con fotografías, pero no admite transparencia. El PNG es sin pérdida y conserva fondos transparentes y colores planos exactos, a cambio de archivos mucho más pesados con fotos. Fotografía a JPG, gráficos y transparencias a PNG."}},
+      {"@type": "Question", "name": "¿Se mantiene la transparencia al convertir a JPG?", "acceptedAnswer": {"@type": "Answer", "text": "No. El JPG no tiene canal alfa, así que las zonas transparentes se rellenan de blanco al convertir. Si necesitas conservar la transparencia, elige PNG o WebP como formato de salida."}},
+      {"@type": "Question", "name": "¿La conversión reduce el peso del archivo?", "acceptedAnswer": {"@type": "Answer", "text": "Depende del sentido: convertir una foto PNG a JPG suele ahorrar entre un 70 % y un 90 % de peso, y JPG a WebP también baja bastante. Al contrario, JPG a PNG casi siempre pesa más. Si tu objetivo es un peso concreto, mejor usar el compresor con control de calidad."}},
+      {"@type": "Question", "name": "¿Qué formatos acepta el conversor?", "acceptedAnswer": {"@type": "Answer", "text": "Entra cualquier imagen que abra tu navegador: JPG, PNG, WebP, GIF estático o BMP. Los formatos HEIC del iPhone y algunos AVIF dependen del navegador y suelen fallar en escritorio. La salida disponible es JPG, PNG o WebP."}},
+      {"@type": "Question", "name": "¿Se pierden los datos EXIF al convertir?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Al volver a codificar la imagen se eliminan los metadatos: modelo de cámara, fecha y coordenadas GPS. La orientación se conserva porque el navegador la aplica antes de dibujar. Útil antes de publicar fotos en anuncios o tiendas."}},
+      {"@type": "Question", "name": "¿Por qué el archivo convertido pesa más que el original?", "acceptedAnswer": {"@type": "Answer", "text": "Lo más habitual es haber convertido de JPG a PNG, un formato sin pérdida que no reduce las fotos. También pasa con capturas pequeñas convertidas a PNG con paletas de color amplias. La solución es salir en JPG o WebP."}}
+    ]
 }
 </script>
 </head>
@@ -132,15 +99,133 @@
         <div class="how-to-step"><div class="step-number">3</div><h4>Descarga</h4><p>Descarga tu imagen convertida al instante, sin calidad.</p></div>
       </div>
     </div>
-    <div class="faq-section">
-      <h2>Preguntas frecuentes</h2>
-      <div class="faq-item"><button class="faq-question">¿Pierdo calidad al convertir el formato?</button><div class="faq-answer"><p>Depende del formato. Al convertir a PNG no pierdes calidad porque es sin pérdida. De PNG a JPG puede haber una compresión mínima, pero ajustamos los parámetros para que la calidad sea óptima. WebP ofrece buena compresión sin pérdida apreciable de calidad visual.</p></div></div>
-      <div class="faq-item"><button class="faq-question">¿Qué formatos están disponibles?</button><div class="faq-answer"><p>Puedes convertir entre JPG, PNG y WebP. JPG es ideal para fotografías, PNG para imágenes con transparencia o texto, y WebP para un equilibrio óptimo entre calidad y peso de archivo.</p></div></div>
-      <div class="faq-item"><button class="faq-question">¿Se procesa en la nube o en mi dispositivo?</button><div class="faq-answer"><p>Todo el procesamiento ocurre localmente en tu navegador. Tus imágenes nunca se suben a ningún servidor. La conversión es 100% privada y segura.</p></div></div>
-      <div class="faq-item"><button class="faq-question">¿Hay límite de tamaño o cantidad?</button><div class="faq-answer"><p>El límite es de 20 MB por imagen. No hay límite en la cantidad de imágenes que puedes convertir, pero cada una se procesa individualmente.</p></div></div>
-      <div class="faq-item"><button class="faq-question">¿Qué formato me recomiendas para cada caso?</button><div class="faq-answer"><p>Para fotografías usa JPG (buena compresión). Si necesitas transparencia o texto nítido, usa PNG. Para páginas web donde quieras el mejor equilibrio calidad-peso, WebP es la mejor opción.</p></div></div>
-    </div>
-    <div class="related-tools">
+    <div class="blog-post-content" style="margin-top:44px;">
+
+<h2>Qué hace este conversor (y qué no hace)</h2>
+
+<p>El proceso es directo: la imagen se decodifica en el navegador, se dibuja sobre un lienzo con el mismo ancho y alto del original y se vuelve a guardar en el formato que elijas. Si sales a JPG o WebP, la codificación usa una calidad fija del 92 %; PNG es sin pérdida. El archivo se queda en tu dispositivo de principio a fin.</p>
+
+<p>Lo que <strong>no</strong> cambia al convertir:</p>
+
+<ul>
+
+<li><strong>Las dimensiones.</strong> Una imagen de 1200 × 800 píxeles sale con esos mismos píxeles. Si necesitas otro tamaño, usa <a href="/tools/redimensionar-imagen">Redimensionar imagen</a>.</li>
+
+<li><strong>El contenido.</strong> No hay recorte, giro, ni mejora de resolución. Convertir no arregla una foto borrosa ni agranda nada.</li>
+
+<li><strong>Los metadatos, que desaparecen.</strong> Al volver a codificar se pierden los datos EXIF (cámara, fecha, GPS). Es un efecto secundario que a veces interesa, otras no.</li>
+
+</ul>
+
+<p>Y una aclaración importante: convertir <em>puede</em> reducir el peso, pero no es su función. Si lo que buscas es un archivo más pequeño manteniendo el formato, el <a href="/tools/comprimir-imagenes">compresor</a> te da control fino sobre la calidad.</p>
+
+<h2>Qué formato elegir en cada caso</h2>
+
+<p>Los tres formatos de salida no compiten entre sí: cada uno resuelve un problema distinto.</p>
+
+<div class="compact-table">
+
+<div class="compact-row compact-header"><div class="compact-cell">Formato</div><div class="compact-cell">Elige cuando</div><div class="compact-cell">Ten en cuenta</div></div>
+
+<div class="compact-row"><div class="compact-cell">JPG</div><div class="compact-cell">Fotos con degradados y color; el formato más universal</div><div class="compact-cell">Sin transparencia; cada re-guardado pierde un poco de calidad</div></div>
+
+<div class="compact-row"><div class="compact-cell">PNG</div><div class="compact-cell">Logos, capturas, dibujo lineal, fondos transparentes</div><div class="compact-cell">Con fotos pesa mucho más que JPG; no admite niveles de calidad</div></div>
+
+<div class="compact-row"><div class="compact-cell">WebP</div><div class="compact-cell">Peso mínimo para web sin sacrificar transparencia</div><div class="compact-cell">Algunas aplicaciones y formularios antiguos aún no lo aceptan</div></div>
+
+</div>
+
+<p>Una regla rápida que casi nunca falla: <strong>lo que es fotografía va a JPG, lo que tiene bordes duros o fondo transparente va a PNG, y lo que va a una web va a WebP</strong>. Para trámites y formularios donde no estás seguro de qué aceptan, JPG es la apuesta segura.</p>
+
+<h2>La transparencia al pasar a JPG</h2>
+
+<p>El formato JPG no tiene canal alfa, así que las zonas transparentes tienen que convertirse en un color sólido. Aquí se rellenan de <strong>blanco</strong>, que es lo que esperan la mayoría de tiendas y plataformas al subir logos o fotos de producto.</p>
+
+<p>Si el fondo blanco no te sirve, tienes dos salidas: convertir a PNG o WebP, que sí conservan la transparencia, o rellenar el fondo con el color que quieras antes de convertir, con un editor. Lo que no puedes hacer es esperar que JPG «guarde» la transparencia para más tarde: una vez convertido, esa información ya no está en el archivo.</p>
+
+<h2>Conversiones que conviene evitar</h2>
+
+<p>Convertir siempre es posible, pero algunas combinaciones empeoran el resultado y conviene saber cuáles:</p>
+
+<ul>
+
+<li><strong>JPG a PNG.</strong> El archivo casi siempre pesa más y no ganas nada: la calidad ya estaba fijada al guardar el JPG original. Es la conversión que más sorpresas negativas produce.</li>
+
+<li><strong>Reconvertir en cadena.</strong> JPG a WebP a JPG a PNG: cada paso con pérdida suma artefactos. Si acabas necesitando otro formato, vuelve siempre al archivo original.</li>
+
+<li><strong>Fotos a PNG «porque es mejor calidad».</strong> Es un mito extendido: PNG no mejora la imagen, solo evita más pérdida, y el precio es un archivo de varios megabytes.</li>
+
+<li><strong>GIF animado a JPG.</strong> Solo se conserva el primer fotograma.</li>
+
+</ul>
+
+<p>En cambio, las conversiones que sí tienen sentido claro son: PNG de foto a JPG (se ahorra mucho peso), JPG a WebP (menos peso con calidad 92), PNG con transparencia a WebP (transparencia con menos peso) y cualquier formato raro a JPG o PNG para asegurar compatibilidad.</p>
+
+<h2>Compatibilidad según el destino</h2>
+
+<div class="compact-table">
+
+<div class="compact-row compact-header"><div class="compact-cell">Destino</div><div class="compact-cell">Lo más seguro</div><div class="compact-cell">Comentario</div></div>
+
+<div class="compact-row"><div class="compact-cell">Tiendas y marketplaces</div><div class="compact-cell">JPG, PNG</div><div class="compact-cell">Muchos aceptan WebP, pero algunos formularios de subida aún lo rechazan</div></div>
+
+<div class="compact-row"><div class="compact-cell">Redes sociales</div><div class="compact-cell">JPG</div><div class="compact-cell">Vuelven a comprimir al subir, así que no compensa ir a PNG</div></div>
+
+<div class="compact-row"><div class="compact-cell">Correo y mensajería</div><div class="compact-cell">JPG</div><div class="compact-cell">Se abre en cualquier dispositivo sin apps extra</div></div>
+
+<div class="compact-row"><div class="compact-cell">Impresión y revelado</div><div class="compact-cell">JPG</div><div class="compact-cell">Si el original era PNG, conviértelo sin subir más la calidad: ya está la que hay</div></div>
+
+<div class="compact-row"><div class="compact-cell">Tu propia web</div><div class="compact-cell">WebP</div><div class="compact-cell">Todos los navegadores actuales lo muestran</div></div>
+
+</div>
+
+<p>Como norma general: si el archivo lo va a abrir una persona desconocida en un dispositivo que no controlas, JPG o PNG. Si lo va a servir una página web, WebP.</p>
+
+<h2>Si algo no funciona</h2>
+
+<ul>
+
+<li><strong>El archivo convertido pesa más que el original.</strong> Casi seguro: venías de JPG y has ido a PNG. Vuelve a JPG o prueba WebP.</li>
+
+<li><strong>Mi logo ha salido con fondo blanco.</strong> Has convertido a JPG, y el JPG rellena la transparencia de blanco. Elige PNG o WebP para conservarla.</li>
+
+<li><strong>No se abre la imagen de mi iPhone.</strong> Es HEIC, que la mayoría de navegadores de escritorio no decodifican. Pasa antes por el app de fotos o guarda como JPG desde el móvil.</li>
+
+<li><strong>La calidad ha bajado un poco.</strong> Es el coste de re-codificar a JPG/WebP con calidad 92. En la primera conversión es prácticamente invisible; conviértelo cinco veces seguidas y sí se nota.</li>
+
+<li><strong>Archivo de más de 20 MB.</strong> El límite práctico del conversor; con fotos tan pesadas, reduce antes el tamaño.</li>
+
+</ul>
+
+<h2>Privacidad: el archivo no se mueve de tu equipo</h2>
+
+<p>La conversión ocurre dentro del navegador: no hay subida, ni servidor, ni cola de procesamiento. La imagen se lee del disco, se transforma en memoria y se descarga desde ahí. Si abres las herramientas de desarrollo y miras la pestaña Red mientras conviertes, no verás ninguna petición llevando tu imagen.</p>
+
+<p>Un detalle que suma: al re-codificar se eliminan los metadatos EXIF, incluidas las coordenadas GPS que los móviles graban por defecto. Si vas a publicar fotos de tu casa en un anuncio o fotos personales en una tienda, convertirlas antes deja el archivo limpio de ubicación y modelo de cámara.</p>
+
+</div>
+
+<div class="faq-section">
+
+<h2>Preguntas frecuentes</h2>
+
+<div class="faq-item"><button class="faq-question">¿Convertir una imagen a JPG le baja la calidad?</button><div class="faq-answer"><p>Solo un poco y la primera vez: el JPG sale con calidad 92, prácticamente idéntico al original en pantalla. Lo que sí degrada es convertir varias veces en cadena, porque cada re-guardado con pérdida suma artefactos; si necesitas otro formato, parte siempre del archivo original.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Qué diferencia hay entre PNG y JPG?</button><div class="faq-answer"><p>El JPG comprime con pérdida y es muy ligero con fotografías, pero no admite transparencia. El PNG es sin pérdida y conserva fondos transparentes y colores planos exactos, a cambio de archivos mucho más pesados con fotos. Fotografía a JPG, gráficos y transparencias a PNG.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Se mantiene la transparencia al convertir a JPG?</button><div class="faq-answer"><p>No. El JPG no tiene canal alfa, así que las zonas transparentes se rellenan de blanco al convertir. Si necesitas conservar la transparencia, elige PNG o WebP como formato de salida.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿La conversión reduce el peso del archivo?</button><div class="faq-answer"><p>Depende del sentido: convertir una foto PNG a JPG suele ahorrar entre un 70 % y un 90 % de peso, y JPG a WebP también baja bastante. Al contrario, JPG a PNG casi siempre pesa más. Si tu objetivo es un peso concreto, mejor usar el compresor con control de calidad.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Qué formatos acepta el conversor?</button><div class="faq-answer"><p>Entra cualquier imagen que abra tu navegador: JPG, PNG, WebP, GIF estático o BMP. Los formatos HEIC del iPhone y algunos AVIF dependen del navegador y suelen fallar en escritorio. La salida disponible es JPG, PNG o WebP.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Se pierden los datos EXIF al convertir?</button><div class="faq-answer"><p>Sí. Al volver a codificar la imagen se eliminan los metadatos: modelo de cámara, fecha y coordenadas GPS. La orientación se conserva porque el navegador la aplica antes de dibujar. Útil antes de publicar fotos en anuncios o tiendas.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Por qué el archivo convertido pesa más que el original?</button><div class="faq-answer"><p>Lo más habitual es haber convertido de JPG a PNG, un formato sin pérdida que no reduce las fotos. También pasa con capturas pequeñas convertidas a PNG con paletas de color amplias. La solución es salir en JPG o WebP.</p></div></div>
+
+</div>
+
+<div class="related-tools">
       <h2>Herramientas relacionadas</h2>
       <div class="related-tools-grid">
         <a href="/tools/comprimir-imagenes" class="related-tool-card"><span class="tool-icon">🗜️</span><div class="tool-info"><strong>Comprimir imágenes</strong><span class="tool-desc">Reduce el peso de tus fotos</span></div><span class="tool-arrow">→</span></a>

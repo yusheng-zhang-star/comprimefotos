@@ -50,31 +50,15 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "¿Cuántas fotos puedo usar?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Puedes usar entre 2 y 6 fotos por collage. Dependiendo de la plantilla que elijas, se distribuirán automáticamente."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Qué tamaño tiene el collage?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "El collage se genera a 1200x900 píxeles, ideal para compartir en redes sociales y WhatsApp."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Puedo ajustar el espaciado?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sí, usa el deslizador de espaciado para ajustar la separación entre fotos de 0 a 40 píxeles."
-      }
-    }
-  ]
+      {"@type": "Question", "name": "¿Cuántas fotos puedo usar?", "acceptedAnswer": {"@type": "Answer", "text": "Depende de la plantilla: de 2 a 6. Puedes subir más y se usarán en orden las que la plantilla necesite, o menos, en cuyo caso las celdas vacías quedan en blanco. No hay arrastre para reordenar: el orden es el de la subida."}},
+      {"@type": "Question", "name": "¿Qué tamaño tiene el collage?", "acceptedAnswer": {"@type": "Answer", "text": "Fijo: 1200 × 900 píxeles, apaisado, con calidad JPG 95. Es un tamaño cómodo para redes sociales, WhatsApp y web. No hay versión cuadrada ni otros tamaños; si necesitas otra proporción, recorta el resultado después."}},
+      {"@type": "Question", "name": "¿Puedo ajustar el espaciado?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, con un deslizador de 0 a 60 píxeles que separa las fotos entre sí y del borde. Con 0 quedan pegadas en mosaico; con 20–40 se crea ese aire de galería. El fondo del espaciado es siempre blanco."}},
+      {"@type": "Question", "name": "¿Mis fotos se deforman para encajar en las celdas?", "acceptedAnswer": {"@type": "Answer", "text": "No. Cada foto se recorta desde el centro hasta cubrir su celda, manteniendo la proporción: nunca se estira, pero los bordes que sobran se cortan. Si el sujeto no está centrado, recorta la foto antes de subirla."}},
+      {"@type": "Question", "name": "¿Puedo poner texto o títulos sobre el collage?", "acceptedAnswer": {"@type": "Answer", "text": "No: la herramienta solo ensambla fotos en las plantillas. Para añadir texto, pegatinas o marcos hace falta un editor con capas después de descargar el collage."}},
+      {"@type": "Question", "name": "¿Por qué el collage se ve borroso?", "acceptedAnswer": {"@type": "Answer", "text": "Casi siempre porque las fotos de partida eran pequeñas: cada celda mide unos 550–580 px de ancho y una miniatura de chat no tiene píxeles para llenarla. Usa las fotos originales, no las reenviadas por mensajería."}},
+      {"@type": "Question", "name": "¿Puedo reordenar las fotos o cambiarlas de celda?", "acceptedAnswer": {"@type": "Answer", "text": "No hay arrastrar y soltar dentro de la plantilla: el orden lo fija la subida. Si una foto ha quedado en la celda equivocada, quítala de la lista, añádela de nuevo en la posición correcta y regenera."}},
+      {"@type": "Question", "name": "¿Las fotos se suben a algún servidor?", "acceptedAnswer": {"@type": "Answer", "text": "No. Todo el collage se genera en tu navegador: lectura, recorte, composición y descarga ocurren en tu dispositivo. Nada de tus fotos viaja por la red."}}
+    ]
 }
 </script>
 </head>
@@ -131,13 +115,103 @@
         <div class="how-to-step"><div class="step-number">3</div><h4>Genera y descarga</h4><p>Haz clic en generar y descarga tu collage.</p></div>
       </div>
     </div>
-    <div class="faq-section">
-      <h2>Preguntas frecuentes</h2>
-      <div class="faq-item"><button class="faq-question">¿Cuántas fotos puedo usar?</button><div class="faq-answer"><p>Puedes usar entre 2 y 6 fotos por collage. Dependiendo de la plantilla que elijas, se distribuirán automáticamente.</p></div></div>
-      <div class="faq-item"><button class="faq-question">¿Qué tamaño tiene el collage?</button><div class="faq-answer"><p>El collage se genera a 1200x900 píxeles, ideal para compartir en redes sociales y WhatsApp.</p></div></div>
-      <div class="faq-item"><button class="faq-question">¿Puedo ajustar el espaciado?</button><div class="faq-answer"><p>Sí, usa el deslizador de espaciado para ajustar la separación entre fotos de 0 a 40 píxeles.</p></div></div>
-    </div>
-    <div class="related-tools">
+    <div class="blog-post-content" style="margin-top:44px;">
+
+<h2>Cómo se genera el collage</h2>
+
+<p>Suelta las fotos, elige una plantilla, ajusta el espaciado y el collage se compone sobre un lienzo fijo de <strong>1200 × 900 píxeles</strong> con fondo blanco. Cada foto se encaja en su celda recortándola desde el centro hasta llenarla — como el modo «cubrir» de las redes sociales —: se respeta la proporción de cada foto, así que nunca se deforma, aunque sí puede perderse borde si la foto y la celda tienen proporciones distintas. El resultado se descarga en JPG con calidad 95.</p>
+
+<p>El orden de las celdas es el orden en que subiste las fotos, y puedes quitar cualquiera de la lista antes de generar. Nada sale de tu navegador durante todo el proceso.</p>
+
+<h2>Las cinco plantillas</h2>
+
+<div class="compact-table">
+
+<div class="compact-row compact-header"><div class="compact-cell">Plantilla</div><div class="compact-cell">Fotos necesarias</div><div class="compact-cell">Va bien para</div></div>
+
+<div class="compact-row"><div class="compact-cell">2 fotos, rejilla</div><div class="compact-cell">2</div><div class="compact-cell">Antes y después, comparativas</div></div>
+
+<div class="compact-row"><div class="compact-cell">2 fotos, apiladas</div><div class="compact-cell">2</div><div class="compact-cell">Fotos horizontales una sobre otra</div></div>
+
+<div class="compact-row"><div class="compact-cell">3 fotos, fila</div><div class="compact-cell">3</div><div class="compact-cell">Secuencias: mismo sitio, tres momentos</div></div>
+
+<div class="compact-row"><div class="compact-cell">4 fotos, cuadrícula</div><div class="compact-cell">4</div><div class="compact-cell">Resumen de un día o de un producto</div></div>
+
+<div class="compact-row"><div class="compact-cell">6 fotos, 2×3</div><div class="compact-cell">6</div><div class="compact-cell">Galería compacta para redes</div></div>
+
+</div>
+
+<p>Si subes más fotos de las que usa la plantilla, se toman en orden y las sobrantes se quedan fuera; si subes menos, las celdas sin foto quedan en blanco — a veces es un recurso estético, pero si no lo buscas, sube justo las que pide la plantilla —.</p>
+
+<h2>El recorte: qué parte de tu foto se ve</h2>
+
+<p>El recorte es siempre <strong>desde el centro</strong>: la foto se reduce hasta que cubre la celda por completo y lo que sobra por los lados se corta. En la práctica: una foto vertical (de móvil) dentro de una celda apaisada pierde techo y suelo, y una foto horizontal en celda cuadrada pierde los costados.</p>
+
+<p>Dos formas de lidiar con esto sin pelearse con la herramienta: elige la plantilla cuyas celdas se parezcan a la proporción de tus fotos (para fotos verticales, las rejillas de 4 o 6 pierden menos que la fila de 3), o recorta tú antes las fotos para que el sujeto quede centrado. Lo que la herramienta no ofrece es arrastrar la foto dentro de la celda para elegir qué parte se corta.</p>
+
+<h2>Espaciado y fondo</h2>
+
+<p>El deslizador controla el espacio en píxeles entre fotos y hacia los bordes, de 0 a 60 px. Con 0 px las fotos se pegan formando un mosaico continuo; con 20–40 px aparece el aire tipo galería o póster. El fondo entre las fotos es siempre blanco: da limpieza y hace que las fotos respiren, pero no es configurable — ni color, ni textura, ni bordes redondeados —.</p>
+
+<h2>Límites que conviene conocer</h2>
+
+<ul>
+
+<li><strong>No hay texto, pegatinas ni marcos.</strong> Es puro ensamblado de fotos; para títulos sobre el collage hace falta un editor.</li>
+
+<li><strong>Las plantillas son fijas.</strong> No se puede arrastrar una foto a otra celda ni mezclar tamaños de celda; el orden lo marca la subida.</li>
+
+<li><strong>La salida es una sola:</strong> JPG de 1200 × 900 con calidad 95. No hay versión cuadrada para Instagram ni tamaños alternativos; para otra proporción, recorta después con el <a href="/tools/redimensionar-imagen">redimensionador</a>.</li>
+
+<li><strong>La resolución de tus fotos importa.</strong> Cada celda mide unos 550–580 px de ancho: con fotos de móvil o de cámara va sobrado; con miniaturas descargadas de un chat, el resultado se verá borroso porque la fuente no tiene píxeles de sobra.</li>
+
+<li><strong>HEIC no entra.</strong> Los archivos de iPhone sin convertir no se abren en la mayoría de navegadores de escritorio.</li>
+
+</ul>
+
+<h2>Si algo no funciona</h2>
+
+<ul>
+
+<li><strong>Aparecen celdas en blanco.</strong> Has puesto menos fotos de las que pide la plantilla. Añade las que faltan o cambia a una plantilla con menos huecos.</li>
+
+<li><strong>Las caras salen cortadas.</strong> El recorte central se lleva lo que sobra por los bordes: si el sujeto no está centrado en la foto, queda fuera. Recorta la foto antes para centrarlo.</li>
+
+<li><strong>El collage final se ve pixelado.</strong> Las fotos de origen eran demasiado pequeñas para las celdas. Usa las versiones originales, no las que te envió un chat.</li>
+
+<li><strong>Quiero un collage cuadrado para Instagram.</strong> La herramienta genera 1200 × 900 fijo. Cuadra el archivo después recortándolo o ampliándolo con el redimensionador.</li>
+
+</ul>
+
+<h2>Privacidad</h2>
+
+<p>Las fotos se leen del disco, se recortan y se componen dentro del navegador. No hay subida a ningún servidor ni copia en la nube: si abres la pestaña Red de las herramientas de desarrollo mientras generas el collage, no verás ninguna petición con tus imágenes.</p>
+
+</div>
+
+<div class="faq-section">
+
+<h2>Preguntas frecuentes</h2>
+
+<div class="faq-item"><button class="faq-question">¿Cuántas fotos puedo usar?</button><div class="faq-answer"><p>Depende de la plantilla: de 2 a 6. Puedes subir más y se usarán en orden las que la plantilla necesite, o menos, en cuyo caso las celdas vacías quedan en blanco. No hay arrastre para reordenar: el orden es el de la subida.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Qué tamaño tiene el collage?</button><div class="faq-answer"><p>Fijo: 1200 × 900 píxeles, apaisado, con calidad JPG 95. Es un tamaño cómodo para redes sociales, WhatsApp y web. No hay versión cuadrada ni otros tamaños; si necesitas otra proporción, recorta el resultado después.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Puedo ajustar el espaciado?</button><div class="faq-answer"><p>Sí, con un deslizador de 0 a 60 píxeles que separa las fotos entre sí y del borde. Con 0 quedan pegadas en mosaico; con 20–40 se crea ese aire de galería. El fondo del espaciado es siempre blanco.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Mis fotos se deforman para encajar en las celdas?</button><div class="faq-answer"><p>No. Cada foto se recorta desde el centro hasta cubrir su celda, manteniendo la proporción: nunca se estira, pero los bordes que sobran se cortan. Si el sujeto no está centrado, recorta la foto antes de subirla.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Puedo poner texto o títulos sobre el collage?</button><div class="faq-answer"><p>No: la herramienta solo ensambla fotos en las plantillas. Para añadir texto, pegatinas o marcos hace falta un editor con capas después de descargar el collage.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Por qué el collage se ve borroso?</button><div class="faq-answer"><p>Casi siempre porque las fotos de partida eran pequeñas: cada celda mide unos 550–580 px de ancho y una miniatura de chat no tiene píxeles para llenarla. Usa las fotos originales, no las reenviadas por mensajería.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Puedo reordenar las fotos o cambiarlas de celda?</button><div class="faq-answer"><p>No hay arrastrar y soltar dentro de la plantilla: el orden lo fija la subida. Si una foto ha quedado en la celda equivocada, quítala de la lista, añádela de nuevo en la posición correcta y regenera.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Las fotos se suben a algún servidor?</button><div class="faq-answer"><p>No. Todo el collage se genera en tu navegador: lectura, recorte, composición y descarga ocurren en tu dispositivo. Nada de tus fotos viaja por la red.</p></div></div>
+
+</div>
+
+<div class="related-tools">
       <h2>Herramientas relacionadas</h2>
       <div class="related-tools-grid">
         <a href="/tools/comprimir-imagenes" class="related-tool-card"><span class="tool-icon">🗜️</span><div class="tool-info"><strong>Comprimir imágenes</strong><span class="tool-desc">Reduce el peso de tus fotos</span></div><span class="tool-arrow">→</span></a>

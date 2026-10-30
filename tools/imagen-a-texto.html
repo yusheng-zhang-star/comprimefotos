@@ -50,31 +50,15 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "¿Qué idiomas reconoce?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Reconoce texto en español, inglés, francés, portugués, italiano, alemán y otros idiomas que usen alfabeto latino. El reconocimiento funciona mejor con texto impreso y digital."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Funciona con texto escrito a mano?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "El reconocimiento de texto manuscrito tiene una precisión limitada. Funciona mejor con texto impreso, capturas de pantalla y documentos escaneados con texto claro."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Mis imágenes se suben a la nube?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. Todo el procesamiento OCR ocurre localmente en tu navegador. Tus imágenes nunca salen de tu dispositivo."
-      }
-    }
-  ]
+      {"@type": "Question", "name": "¿Qué idiomas reconoce?", "acceptedAnswer": {"@type": "Answer", "text": "Español e inglés, ambos a la vez y sin selector de idiomas: el motor aplica los dos modelos sobre la imagen y elige lo que mejor encaja. Las tildes y signos de cada idioma están soportados. Otros idiomas no están disponibles en esta herramienta."}},
+      {"@type": "Question", "name": "¿Funciona con texto escrito a mano?", "acceptedAnswer": {"@type": "Answer", "text": "Con letra de molde clara y separada puede acertar. Con manuscrito corrido casi nunca: Tesseract está entrenado con texto impreso, no con caligrafía. Para notas a mano hacen falta motores de IA especializados que esta herramienta no usa."}},
+      {"@type": "Question", "name": "¿Mis imágenes se suben a la nube?", "acceptedAnswer": {"@type": "Answer", "text": "No. El OCR se ejecuta dentro de tu navegador: la imagen se procesa en tu dispositivo y no viaja a ningún servidor. Lo único que se descarga de internet es el motor y los modelos de idioma, la primera vez."}},
+      {"@type": "Question", "name": "¿Por qué la primera vez tarda tanto?", "acceptedAnswer": {"@type": "Answer", "text": "La primera ejecución descarga el motor de OCR y los modelos de español e inglés, unos 30 segundos con conexión normal. A partir de ahí quedan en la caché del navegador y las siguientes imágenes se reconocen mucho más rápido."}},
+      {"@type": "Question", "name": "¿Conserva columnas, tablas y el formato original?", "acceptedAnswer": {"@type": "Answer", "text": "No. La salida es texto plano línea a línea en orden de lectura: las columnas pueden quedar intercaladas y las tablas se convierten en filas de valores separados por espacios. Está pensado para copiar y corregir, no para replicar maquetación."}},
+      {"@type": "Question", "name": "¿Cómo consigo mejor resultado con una foto regular?", "acceptedAnswer": {"@type": "Answer", "text": "Cuatro palancas, por este orden: acércate o recorta para que el texto ocupe buena parte de la imagen, busca contraste (texto oscuro sobre fondo claro), endereza la foto y evita sombras sobre el texto. Si a ti te cuesta leerla, al OCR le es imposible."}},
+      {"@type": "Question", "name": "¿Acepta PDFs o varias imágenes a la vez?", "acceptedAnswer": {"@type": "Answer", "text": "No: una imagen por vez, en JPG, PNG o WebP. Si partes de un PDF, convierte antes sus páginas a imagen con PDF a imagen y procesa las que necesites una a una."}},
+      {"@type": "Question", "name": "¿Por qué confunde algunos caracteres, como la O y el 0?", "acceptedAnswer": {"@type": "Answer", "text": "Porque son visualmente casi idénticos y el motor decide sin avisar. Los números son la zona delicada: revisa siempre importes, fechas, teléfonos y códigos del resultado antes de darlos por buenos."}}
+    ]
 }
 </script>
 </head>
@@ -112,13 +96,89 @@
         <div class="how-to-step"><div class="step-number">3</div><h4>Copia el texto</h4><p>Revisa el texto extraído y cópialo al portapapeles con un clic.</p></div>
       </div>
     </div>
-    <div class="faq-section">
-      <h2>Preguntas frecuentes</h2>
-      <div class="faq-item"><button class="faq-question">¿Qué idiomas reconoce?</button><div class="faq-answer"><p>Reconoce texto en español, inglés, francés, portugués, italiano, alemán y otros idiomas que usen alfabeto latino. El reconocimiento funciona mejor con texto impreso y digital.</p></div></div>
-      <div class="faq-item"><button class="faq-question">¿Funciona con texto escrito a mano?</button><div class="faq-answer"><p>El reconocimiento de texto manuscrito tiene una precisión limitada. Funciona mejor con texto impreso, capturas de pantalla y documentos escaneados con texto claro.</p></div></div>
-      <div class="faq-item"><button class="faq-question">¿Mis imágenes se suben a la nube?</button><div class="faq-answer"><p>No. Todo el procesamiento OCR ocurre localmente en tu navegador. Tus imágenes nunca salen de tu dispositivo.</p></div></div>
-    </div>
-    <div class="related-tools">
+    <div class="blog-post-content" style="margin-top:44px;">
+
+<h2>Cómo funciona el OCR aquí</h2>
+
+<p>El reconocimiento usa Tesseract, el motor de OCR de código abierto, ejecutándose dentro de tu navegador. Al soltar la imagen, se carga el motor y los modelos de idioma — <strong>español e inglés a la vez</strong> — y el texto reconocido va apareciendo en el cuadro de resultado con su porcentaje de progreso. Al terminar, el botón de copiar se lleva el texto al portapapeles con un clic.</p>
+
+<p>Dos cosas que conviene saber de entrada: la primera vez tarda más (unos 30 segundos cargando el modelo de idioma); las siguientes van mucho más rápido porque ya está en la caché. Y el idioma está fijado a español + inglés: no hay selector de idiomas en esta herramienta.</p>
+
+<h2>Qué fotos dan buen resultado</h2>
+
+<p>El OCR acierta casi todo cuando la imagen se parece a un documento y falla cuando se parece a una foto tomada sin cuidado. La diferencia está en cuatro condiciones:</p>
+
+<ul>
+
+<li><strong>Nítida.</strong> El texto tiene que leerse tú también sin esfuerzo. Si a ti te cuesta, al OCR le resulta imposible.</li>
+
+<li><strong>Con contraste.</strong> Texto oscuro sobre fondo claro es el caso ideal. Texto gris sobre gris claro, o letra clara sobre fondo con estampado, se pierde.</li>
+
+<li><strong>Recta.</strong> El motor tolera ligera inclinación, pero una foto en ángulo o con curvatura (el lomo de un libro) desordena el resultado.</li>
+
+<li><strong>Del tamaño suficiente.</strong> Una captura de pantalla suele ser perfecta. Una foto sacada de lejos donde el párrafo ocupa un cuarto de la imagen, no: acércate o recorta primero.</li>
+
+</ul>
+
+<p>El mejor caso de todos es la captura de pantalla de un texto digital: nitidez perfecta, contraste perfecto, sin distorsión. El peor, un manuscrito a bolígrafo con poca luz.</p>
+
+<h2>Manuscritos: expectativas realistas</h2>
+
+<p>Ser claros: Tesseract está entrenado con <strong>texto impreso</strong>, no con caligrafía. Una letra de molde clara y separada puede salir; un manuscrito corrido, con enlaces entre letras y tamaños irregulares, casi nunca produce algo útil. Para notas escritas a mano hay motores especializados de IA que aquí no se usan.</p>
+
+<p>Con documentos impresos —facturas, contratos, pantallazos, páginas de libros, letras de canciones impresas— el acierto es alto en español e inglés, incluyendo tildes y signos de los dos idiomas.</p>
+
+<h2>Qué formato tiene el texto de salida</h2>
+
+<p>El resultado es <strong>texto plano, línea a línea</strong>, en el orden de lectura. No conserva columnas, tablas ni maquetación: un documento a dos columnas sale con las líneas intercaladas según cómo el motor las ha agrupado, y una tabla se convierte en filas de celdas separadas por espacios. Para pegar en un documento y corregir a mano va bien; para replicar el diseño original, no.</p>
+
+<p>Tampoco hay revisión ortográfica ni clasificación: si el motor duda entre caracteres parecidos (una «l» minúscula y una «I» mayúscula, la «O» y el cero), decide él y no avisa. Revisa siempre números de facturas, fechas y códigos antes de usarlos.</p>
+
+<h2>Si algo no funciona</h2>
+
+<ul>
+
+<li><strong>«No se detectó texto».</strong> O no lo hay, o la imagen no reúne las condiciones de nitidez y contraste. Mejora la foto: más luz, más cerca, sin inclinación, y vuelve a intentarlo.</li>
+
+<li><strong>«Tesseract.js no cargó».</strong> La librería se descarga desde un CDN: si una red corporativa, un firewall o un bloqueador la impide, el OCR no arranca. Prueba en otra red o desactiva el bloqueador para este sitio.</li>
+
+<li><strong>Se queda colgado con imágenes enormes.</strong> Con fotos de decenas de MB el navegador se ahoga antes de llegar al OCR. Usa una copia más ligera; el propio mensaje de error sugiere JPG por debajo de 5 MB.</li>
+
+<li><strong>El texto sale con caracteres raros.</strong> Suele ser foto en ángulo, texto pequeño o tipografía decorativa. Endereza la imagen y amplía el texto antes.</li>
+
+<li><strong>Tengo un PDF.</strong> Esta herramienta acepta imágenes. Convierte primero las páginas con <a href="/tools/pdf-a-imagen">PDF a imagen</a> y pásale el OCR a las páginas que te interesen.</li>
+
+</ul>
+
+<h2>Privacidad: la imagen no sale de tu equipo</h2>
+
+<p>El reconocimiento ocurre dentro del navegador: tu imagen <strong>no se sube a ningún servidor</strong>. Lo único que se descarga desde internet es el motor y los modelos de idioma, la primera vez que los usas. Puedes verificarlo en la pestaña Red: verás la descarga de las librerías al principio, pero ninguna petición llevando tu imagen mientras reconoce.</p>
+
+</div>
+
+<div class="faq-section">
+
+<h2>Preguntas frecuentes</h2>
+
+<div class="faq-item"><button class="faq-question">¿Qué idiomas reconoce?</button><div class="faq-answer"><p>Español e inglés, ambos a la vez y sin selector de idiomas: el motor aplica los dos modelos sobre la imagen y elige lo que mejor encaja. Las tildes y signos de cada idioma están soportados. Otros idiomas no están disponibles en esta herramienta.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Funciona con texto escrito a mano?</button><div class="faq-answer"><p>Con letra de molde clara y separada puede acertar. Con manuscrito corrido casi nunca: Tesseract está entrenado con texto impreso, no con caligrafía. Para notas a mano hacen falta motores de IA especializados que esta herramienta no usa.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Mis imágenes se suben a la nube?</button><div class="faq-answer"><p>No. El OCR se ejecuta dentro de tu navegador: la imagen se procesa en tu dispositivo y no viaja a ningún servidor. Lo único que se descarga de internet es el motor y los modelos de idioma, la primera vez.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Por qué la primera vez tarda tanto?</button><div class="faq-answer"><p>La primera ejecución descarga el motor de OCR y los modelos de español e inglés, unos 30 segundos con conexión normal. A partir de ahí quedan en la caché del navegador y las siguientes imágenes se reconocen mucho más rápido.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Conserva columnas, tablas y el formato original?</button><div class="faq-answer"><p>No. La salida es texto plano línea a línea en orden de lectura: las columnas pueden quedar intercaladas y las tablas se convierten en filas de valores separados por espacios. Está pensado para copiar y corregir, no para replicar maquetación.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Cómo consigo mejor resultado con una foto regular?</button><div class="faq-answer"><p>Cuatro palancas, por este orden: acércate o recorta para que el texto ocupe buena parte de la imagen, busca contraste (texto oscuro sobre fondo claro), endereza la foto y evita sombras sobre el texto. Si a ti te cuesta leerla, al OCR le es imposible.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Acepta PDFs o varias imágenes a la vez?</button><div class="faq-answer"><p>No: una imagen por vez, en JPG, PNG o WebP. Si partes de un PDF, convierte antes sus páginas a imagen con PDF a imagen y procesa las que necesites una a una.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Por qué confunde algunos caracteres, como la O y el 0?</button><div class="faq-answer"><p>Porque son visualmente casi idénticos y el motor decide sin avisar. Los números son la zona delicada: revisa siempre importes, fechas, teléfonos y códigos del resultado antes de darlos por buenos.</p></div></div>
+
+</div>
+
+<div class="related-tools">
       <h2>Herramientas relacionadas</h2>
       <div class="related-tools-grid">
         <a href="/tools/pdf-a-imagen" class="related-tool-card"><span class="tool-icon">📁</span><div class="tool-info"><strong>PDF a imagen</strong><span class="tool-desc">Convierte PDF a JPG/PNG</span></div><span class="tool-arrow">→</span></a>

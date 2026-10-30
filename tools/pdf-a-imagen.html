@@ -71,39 +71,15 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "¿Se convierte todo el PDF o solo una página?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Todas las páginas del PDF se convierten a imágenes. Cada página se procesa individualmente y puedes descargarlas una por una o todas juntas en un ZIP."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Qué calidad tienen las imágenes?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Las imágenes se generan a 150 DPI, suficiente para visualización en pantalla y uso general. Para impresión profesional, recomendamos usar software especializado."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Se sube mi PDF a algún servidor?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No, todo el procesamiento ocurre en tu navegador. Tu PDF nunca sale de tu dispositivo."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Hay límite de páginas?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No hay límite fijo, pero PDFs con más de 50 páginas pueden requerir más memoria de la disponible en tu navegador. Para documentos muy grandes, recomendamos procesarlos por partes."
-      }
-    }
-  ]
+      {"@type": "Question", "name": "¿Se convierte todo el PDF o solo una página?", "acceptedAnswer": {"@type": "Answer", "text": "Todo: la herramienta renderiza todas las páginas del documento y las muestra en una cuadrícula. Desde ahí puedes descargar una página concreta haciendo clic sobre ella, o todas juntas en un ZIP."}},
+      {"@type": "Question", "name": "¿Qué calidad tienen las imágenes?", "acceptedAnswer": {"@type": "Answer", "text": "Cada página se renderiza al doble de su tamaño natural, unos 144 ppp, y se guarda como JPG con calidad 92. Una página A4 sale a 1190 × 1684 píxeles: de sobra para pantallas, chat y web; algo por debajo de lo que pide una imprenta profesional."}},
+      {"@type": "Question", "name": "¿Se sube mi PDF a algún servidor?", "acceptedAnswer": {"@type": "Answer", "text": "No. El renderizado ocurre íntegramente en tu navegador con la librería PDF.js: el documento no sale de tu dispositivo. Solo se descargan las librerías de código, nunca tu archivo."}},
+      {"@type": "Question", "name": "¿Hay límite de páginas?", "acceptedAnswer": {"@type": "Answer", "text": "No hay un límite escrito, pero los PDFs de cientos de páginas consumen mucha memoria del navegador porque todas las páginas se mantienen en pantalla. Con documentos muy largos o scans pesados, conviene dividir el PDF en partes antes."}},
+      {"@type": "Question", "name": "¿Por qué las imágenes salen en JPG?", "acceptedAnswer": {"@type": "Answer", "text": "Porque para páginas de texto y fotos es el formato con mejor equilibrio entre peso y calidad: una página A4 ronda los 150–400 KB. El mismo contenido en PNG pesaría tres o cuatro veces más sin diferencia visible en pantalla."}},
+      {"@type": "Question", "name": "¿El texto del PDF se puede copiar desde la imagen?", "acceptedAnswer": {"@type": "Answer", "text": "No. Al convertir una página a imagen, el texto deja de ser texto: se vuelve parte del dibujo y no se puede seleccionar, copiar ni buscar. Para recuperar texto hace falta un OCR aparte, como la herramienta Imagen a texto."}},
+      {"@type": "Question", "name": "¿Funciona con PDFs protegidos con contraseña?", "acceptedAnswer": {"@type": "Answer", "text": "No. El conversor no puede abrir documentos con contraseña. La solución es abrirlo en tu lector de PDF, guardarlo de nuevo sin protección y convertir esa copia."}},
+      {"@type": "Question", "name": "¿Por qué no carga ninguna página o no se genera el ZIP?", "acceptedAnswer": {"@type": "Answer", "text": "Lo más probable es que un bloqueador de anuncios o una extensión de privacidad esté impidiendo descargar las librerías desde su CDN. Si la librería del ZIP falla, la herramienta pasa automáticamente a descargar las páginas de una en una."}}
+    ]
 }
 </script>
 </head>
@@ -150,14 +126,95 @@
         <div class="how-to-step"><div class="step-number">3</div><h4>Descarga</h4><p>Descarga las imágenes individualmente o todas juntas en un archivo ZIP.</p></div>
       </div>
     </div>
-    <div class="faq-section">
-      <h2>Preguntas frecuentes</h2>
-      <div class="faq-item"><button class="faq-question">¿Se convierte todo el PDF o solo una página?</button><div class="faq-answer"><p>Todas las páginas del PDF se convierten a imágenes. Cada página se procesa individualmente y puedes descargarlas una por una o todas juntas en un ZIP.</p></div></div>
-      <div class="faq-item"><button class="faq-question">¿Qué calidad tienen las imágenes?</button><div class="faq-answer"><p>Las imágenes se generan a 150 DPI, suficiente para visualización en pantalla y uso general. Para impresión profesional, recomendamos usar software especializado.</p></div></div>
-      <div class="faq-item"><button class="faq-question">¿Se sube mi PDF a algún servidor?</button><div class="faq-answer"><p>No, todo el procesamiento ocurre en tu navegador. Tu PDF nunca sale de tu dispositivo.</p></div></div>
-      <div class="faq-item"><button class="faq-question">¿Hay límite de páginas?</button><div class="faq-answer"><p>No hay límite fijo, pero PDFs con más de 50 páginas pueden requerir más memoria de la disponible en tu navegador. Para documentos muy grandes, recomendamos procesarlos por partes.</p></div></div>
-    </div>
-    <div class="related-tools">
+    <div class="blog-post-content" style="margin-top:44px;">
+
+<h2>Cómo convierte el PDF en imágenes</h2>
+
+<p>La conversión se hace con la librería PDF.js de Mozilla, renderizando cada página dentro del navegador. Cada página se dibuja al doble de su tamaño natural (escala 2) y se guarda como imagen JPG con calidad 92. Al terminar verás todas las páginas en una cuadrícula: puedes descargar una concreta haciendo clic sobre ella, o llevarlas todas en un ZIP.</p>
+
+<p>Los nombres son predecibles: si tu PDF se llama <em>informe.pdf</em>, las imágenes salen como <em>informe_pagina_001.jpg</em>, <em>informe_pagina_002.jpg</em>… y el ZIP como <em>informe_imagenes.zip</em>. El número de páginas que indica la herramienta lo saca del propio archivo, no lo estima.</p>
+
+<h2>Qué resolución vas a obtener</h2>
+
+<p>La escala fija es 2, lo que equivale a unos 144 puntos por pulgada (ppp) tomando como referencia el tamaño físico de la hoja. Es más de lo que necesita una pantalla y menos de lo que pide una imprenta:</p>
+
+<div class="compact-table">
+
+<div class="compact-row compact-header"><div class="compact-cell">Página</div><div class="compact-cell">Imagen resultante</div><div class="compact-cell">Sirve para</div></div>
+
+<div class="compact-row"><div class="compact-cell">A4 (595 × 842 pt)</div><div class="compact-cell">1190 × 1684 px</div><div class="compact-cell">Pantallas, WhatsApp, web, redes</div></div>
+
+<div class="compact-row"><div class="compact-cell">Carta (612 × 792 pt)</div><div class="compact-cell">1224 × 1584 px</div><div class="compact-cell">Pantallas y usos digitales</div></div>
+
+<div class="compact-row"><div class="compact-cell">A5 (420 × 595 pt)</div><div class="compact-cell">840 × 1190 px</div><div class="compact-cell">Miniaturas y vistas previas</div></div>
+
+</div>
+
+<p>Para imprimir en papel con calidad profesional se piden unos 300 ppp, y esta herramienta no permite subir la escala. Si el destino es imprenta, el resultado quedará algo por debajo; para todo lo demás — enviar por chat, publicar en web, incrustar en presentaciones — la resolución sobra.</p>
+
+<h2>Por qué JPG y no PNG</h2>
+
+<p>Las páginas renderizadas se guardan en JPG con calidad 92. Para la mayoría de PDFs (texto sobre fondo blanco, fotos incrustadas) es el equilibrio razonable: un JPG de una página A4 ronda los 150–400 KB, mientras que el mismo contenido en PNG puede multiplicar el peso por tres o cuatro sin diferencia visible. El matiz: en páginas con texto muy fino, el JPG puede dejar los bordes de las letras apenas menos nítidos que un PNG; a calidad 92, en pantalla normal no se aprecia.</p>
+
+<h2>Lo que NO conserva una imagen de una página</h2>
+
+<p>Convertir una página a imagen la «aplana»: deja de ser un documento y pasa a ser una foto del documento. Concretamente se pierde:</p>
+
+<ul>
+
+<li><strong>El texto seleccionable.</strong> La imagen no se puede copiar ni buscar; el OCR es otro proceso aparte.</li>
+
+<li><strong>Los hipervínculos.</strong> Los enlaces del PDF se ven pero ya no se pueden pulsar.</li>
+
+<li><strong>Los campos de formulario.</strong> Si el PDF era un formulario rellenable, la imagen muestra lo que había escrito, plano, sin campos.</li>
+
+<li><strong>La calidad vectorial.</strong> Logos y gráficos vectoriales pasan a píxeles; al ampliar mucho se pixelan igual que cualquier foto.</li>
+
+</ul>
+
+<h2>Cuando el PDF no carga</h2>
+
+<ul>
+
+<li><strong>PDF con contraseña.</strong> No está soportado: quita la protección antes (abiéndolo en tu lector y volviendo a guardarlo sin contraseña).</li>
+
+<li><strong>No aparece ninguna página.</strong> Puede que un bloqueador o una extensión esté impidiendo cargar la librería PDF.js desde su CDN. Desactívalo para este sitio y reintenta.</li>
+
+<li><strong>Se queda a medias en PDFs enormes.</strong> Las páginas se renderizan una a una con una pausa entre cada una para no agotar la memoria; con documentos de cientos de páginas de scans pesados, conviene dividir el PDF antes.</li>
+
+<li><strong>El ZIP no se genera.</strong> Mismo caso que la librería: si JSZip no carga desde el CDN, la herramienta descarga las páginas de una en una automáticamente.</li>
+
+</ul>
+
+<h2>Privacidad</h2>
+
+<p>El PDF se lee y se renderiza íntegramente en tu navegador: no se sube a ningún servidor ni se guarda copia en ningún sitio. Solo se descargan desde internet las dos librerías que hacen posible el trabajo (el motor de PDF y el empaquetador del ZIP); tu documento no viaja. Puedes comprobarlo en la pestaña Red de las herramientas de desarrollo.</p>
+
+</div>
+
+<div class="faq-section">
+
+<h2>Preguntas frecuentes</h2>
+
+<div class="faq-item"><button class="faq-question">¿Se convierte todo el PDF o solo una página?</button><div class="faq-answer"><p>Todo: la herramienta renderiza todas las páginas del documento y las muestra en una cuadrícula. Desde ahí puedes descargar una página concreta haciendo clic sobre ella, o todas juntas en un ZIP.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Qué calidad tienen las imágenes?</button><div class="faq-answer"><p>Cada página se renderiza al doble de su tamaño natural, unos 144 ppp, y se guarda como JPG con calidad 92. Una página A4 sale a 1190 × 1684 píxeles: de sobra para pantallas, chat y web; algo por debajo de lo que pide una imprenta profesional.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Se sube mi PDF a algún servidor?</button><div class="faq-answer"><p>No. El renderizado ocurre íntegramente en tu navegador con la librería PDF.js: el documento no sale de tu dispositivo. Solo se descargan las librerías de código, nunca tu archivo.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Hay límite de páginas?</button><div class="faq-answer"><p>No hay un límite escrito, pero los PDFs de cientos de páginas consumen mucha memoria del navegador porque todas las páginas se mantienen en pantalla. Con documentos muy largos o scans pesados, conviene dividir el PDF en partes antes.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Por qué las imágenes salen en JPG?</button><div class="faq-answer"><p>Porque para páginas de texto y fotos es el formato con mejor equilibrio entre peso y calidad: una página A4 ronda los 150–400 KB. El mismo contenido en PNG pesaría tres o cuatro veces más sin diferencia visible en pantalla.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿El texto del PDF se puede copiar desde la imagen?</button><div class="faq-answer"><p>No. Al convertir una página a imagen, el texto deja de ser texto: se vuelve parte del dibujo y no se puede seleccionar, copiar ni buscar. Para recuperar texto hace falta un OCR aparte, como la herramienta Imagen a texto.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Funciona con PDFs protegidos con contraseña?</button><div class="faq-answer"><p>No. El conversor no puede abrir documentos con contraseña. La solución es abrirlo en tu lector de PDF, guardarlo de nuevo sin protección y convertir esa copia.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Por qué no carga ninguna página o no se genera el ZIP?</button><div class="faq-answer"><p>Lo más probable es que un bloqueador de anuncios o una extensión de privacidad esté impidiendo descargar las librerías desde su CDN. Si la librería del ZIP falla, la herramienta pasa automáticamente a descargar las páginas de una en una.</p></div></div>
+
+</div>
+
+<div class="related-tools">
       <h2>Herramientas relacionadas</h2>
       <div class="related-tools-grid">
         <a href="/tools/comprimir-pdf" class="related-tool-card"><span class="tool-icon">📄</span><div class="tool-info"><strong>Comprimir PDF</strong><span class="tool-desc">Reduce el tamaño de tus PDF</span></div><span class="tool-arrow">→</span></a>

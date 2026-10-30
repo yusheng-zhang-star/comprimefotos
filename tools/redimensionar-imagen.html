@@ -51,47 +51,15 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "¿Se pierde calidad al redimensionar?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Al reducir el tamaño (hacer más pequeña) se pierden píxeles pero la calidad visual se mantiene bien. Al agrandar una imagen pequeña puede verse pixelada porque se están duplicando píxeles. Recomendamos siempre partir de una imagen de buena resolución."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Qué significa «Mantener proporción»?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Significa que la imagen se redimensiona sin deformarse: si cambias el ancho, el alto se ajusta automáticamente para mantener la relación de aspecto original. Así tu imagen no se ve estirada ni aplastada."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Qué formatos de imagen soporta?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Soporta JPG, PNG y WebP. La imagen redimensionada se descarga en el mismo formato que subiste (excepto WebP que se descarga como PNG por compatibilidad)."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Mis imágenes se guardan en algún servidor?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. Todo el procesamiento ocurre 100% en tu navegador. Tus imágenes nunca se suben a ningún servidor ni salen de tu dispositivo."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Cuál es el tamaño máximo permitido?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No hay un límite estricto, pero imágenes muy grandes (más de 10.000 píxeles de lado) pueden ralentizar el navegador. Para la mayoría de casos otos de redes sociales, web, etc.— funciona perfectamente."
-      }
-    }
-  ]
+      {"@type": "Question", "name": "¿Se pierde calidad al redimensionar?", "acceptedAnswer": {"@type": "Answer", "text": "Al reducir, apenas: el navegador promedia los píxeles y el resultado se ve nítido en pantalla. Al ampliar sí cambia la percepción: no se crea detalle nuevo, solo se interpolan los píxeles existentes, así que una foto ampliada se ve más grande pero no más nítida. El formato PNG no re-comprime con pérdida; JPG sí, con la calidad por defecto del navegador."}},
+      {"@type": "Question", "name": "¿Qué significa «Mantener proporción»?", "acceptedAnswer": {"@type": "Answer", "text": "Que el ancho y el alto cambian siempre en la misma relación que la imagen original. Con la casilla activada basta escribir uno de los dos valores y el otro se recalcula solo, evitando que la foto se estire o se aplaste."}},
+      {"@type": "Question", "name": "¿Qué formatos de imagen soporta?", "acceptedAnswer": {"@type": "Answer", "text": "Soporta JPG, PNG y WebP. La imagen redimensionada se descarga en el mismo formato que subiste, con una excepción por compatibilidad: los WebP se descargan como PNG. Los archivos HEIC del iPhone suelen no abrirse en navegadores de escritorio."}},
+      {"@type": "Question", "name": "¿Mis imágenes se guardan en algún servidor?", "acceptedAnswer": {"@type": "Answer", "text": "No. Todo el proceso ocurre en tu navegador: la imagen se lee del disco, se redibuja en memoria y se descarga desde ahí. No hay subida ni almacenamiento, y puedes verificarlo en la pestaña Red de las herramientas de desarrollo."}},
+      {"@type": "Question", "name": "¿Cuál es el tamaño máximo permitido?", "acceptedAnswer": {"@type": "Answer", "text": "No hay un límite fijo en el código: puedes escribir desde 1 píxel hasta varios miles. El tope real lo pone la memoria del navegador; con fotos de más de 50 MB o dimensiones extremas, la pestaña puede quedarse sin memoria, especialmente en móviles."}},
+      {"@type": "Question", "name": "¿Por qué mi foto se ha estirado al usar un preset?", "acceptedAnswer": {"@type": "Answer", "text": "Los presets aplican un tamaño exacto, como 1080 × 1080 o 1200 × 630. Si tu foto no tiene esa misma proporción, el reescalado la estira para encajar en el lienzo. Para no deformarla, escribe tú el ancho con «Mantener proporción» activado y recorta después si hace falta."}},
+      {"@type": "Question", "name": "¿Por qué mi WebP se descarga como PNG?", "acceptedAnswer": {"@type": "Answer", "text": "Es una decisión de compatibilidad: no todos los navegadores permiten descargar lienzo en WebP de forma fiable, así que la herramienta lo guarda como PNG. Si necesitas WebP u otro formato final, pasa el resultado por el conversor de formato."}},
+      {"@type": "Question", "name": "¿Reducir los píxeles baja el peso del archivo?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, y de forma notable: el peso depende de la superficie, no de la altura. Reducir ancho y alto a la mitad deja una cuarta parte de píxeles y suele ahorrar entre un 65 % y un 80 % de peso. Si aún pesa demasiado, pasa luego por el compresor con calidad 80."}}
+    ]
 }
 </script>
 </head>
@@ -142,7 +110,7 @@
         <div style="margin-bottom:16px;">
           <label style="font-weight:600;font-size:0.9rem;display:block;margin-bottom:6px;">Presets para redes sociales</label>
           <div style="display:flex;flex-wrap:wrap;gap:8px;">
-            <button class="preset-btn" data-w="1080" data-h="1080">✂️² Instagram (1080×1080)</button>
+            <button class="preset-btn" data-w="1080" data-h="1080">✂️ Instagram (1080×1080)</button>
             <button class="preset-btn" data-w="1200" data-h="675">✂️ Twitter (1200×675)</button>
             <button class="preset-btn" data-w="1200" data-h="630">✂️ Facebook (1200×630)</button>
             <button class="preset-btn" data-w="1280" data-h="720">YouTube (1280×720)</button>
@@ -162,15 +130,113 @@
         <div class="how-to-step"><div class="step-number">3</div><h4>Descarga el resultado</h4><p>Previsualiza el resultado y descarga tu imagen redimensionada con un clic.</p></div>
       </div>
     </div>
-    <div class="faq-section">
-      <h2>Preguntas frecuentes</h2>
-      <div class="faq-item"><button class="faq-question">¿Se pierde calidad al redimensionar?</button><div class="faq-answer"><p>Al reducir el tamaño (hacer más pequeña) se pierden píxeles pero la calidad visual se mantiene bien. Al agrandar una imagen pequeña puede verse pixelada porque se están duplicando píxeles. Recomendamos siempre partir de una imagen de buena resolución.</p></div></div>
-      <div class="faq-item"><button class="faq-question">¿Qué significa «Mantener proporción»?</button><div class="faq-answer"><p>Significa que la imagen se redimensiona sin deformarse: si cambias el ancho, el alto se ajusta automáticamente para mantener la relación de aspecto original. Así tu imagen no se ve estirada ni aplastada.</p></div></div>
-      <div class="faq-item"><button class="faq-question">¿Qué formatos de imagen soporta?</button><div class="faq-answer"><p>Soporta JPG, PNG y WebP. La imagen redimensionada se descarga en el mismo formato que subiste (excepto WebP que se descarga como PNG por compatibilidad).</p></div></div>
-      <div class="faq-item"><button class="faq-question">¿Mis imágenes se guardan en algún servidor?</button><div class="faq-answer"><p>No. Todo el procesamiento ocurre 100% en tu navegador. Tus imágenes nunca se suben a ningún servidor ni salen de tu dispositivo.</p></div></div>
-      <div class="faq-item"><button class="faq-question">¿Cuál es el tamaño máximo permitido?</button><div class="faq-answer"><p>No hay un límite estricto, pero imágenes muy grandes (más de 10.000 píxeles de lado) pueden ralentizar el navegador. Para la mayoría de casos otos de redes sociales, web, etc.— funciona perfectamente.</p></div></div>
-    </div>
-    <div class="related-tools">
+    <div class="blog-post-content" style="margin-top:44px;">
+
+<h2>Cómo redimensiona esta herramienta</h2>
+
+<p>Al soltar la foto, se decodifica en el navegador y se dibuja sobre un lienzo con las dimensiones que marques. El ancho y el alto salen rellenos con las medidas originales, así que si solo cambias uno de los dos valores con la casilla de proporción activada, el otro se recalcula solo para que la imagen no se deforme. El archivo resultante se descarga en el mismo formato que subiste, con una excepción: los WebP se descargan como PNG por compatibilidad.</p>
+
+<p>Detalles que conviene conocer:</p>
+
+<ul>
+
+<li><strong>Puedes escribir cualquier tamaño</strong>, desde 1 píxel hasta varios miles. No hay límite fijo en el código; el tope real es la memoria del navegador con imágenes muy grandes.</li>
+
+<li><strong>Los metadatos desaparecen.</strong> Al redibujar se pierden los datos EXIF, incluido el GPS.</li>
+
+<li><strong>El reescalado es directo.</strong> El navegador aplica su interpolación estándar en un solo paso. Para reducir a la mitad o menos, el resultado es limpio; no hay opciones de suavizado ni de enfoque posteriores.</li>
+
+</ul>
+
+<h2>Reducir y ampliar no son la misma operación</h2>
+
+<p><strong>Reducir</strong> casi siempre va bien: al tener menos píxeles, el navegador promedia y el resultado en pantalla se ve nítido. Solo en reducciones muy agresivas (por ejemplo, de 6000 px a 200 px) los detalles finos como texto pueden quedar pobres; si te pasa, reduce en dos pasos, pasando por un tamaño intermedio.</p>
+
+<p><strong>Ampliar</strong> hay que hacerlo con expectativas correctas: la herramienta no inventa detalle, interpola los píxeles que ya existen. Una foto de 800 × 600 puesta a 2400 × 1800 ocupará más y se verá más grande, pero igual de borrosa que vista con zoom. Si el objetivo es imprimir en grande o leer un texto pequeño que no existe en la foto, ampliar no lo soluciona.</p>
+
+<h2>Qué tamaño usar en cada destino</h2>
+
+<div class="compact-table">
+
+<div class="compact-row compact-header"><div class="compact-cell">Destino</div><div class="compact-cell">Tamaño habitual</div><div class="compact-cell">Nota</div></div>
+
+<div class="compact-row"><div class="compact-cell">Instagram post cuadrado</div><div class="compact-cell">1080 × 1080</div><div class="compact-cell">Preset disponible; vertical funciona 1080 × 1350</div></div>
+
+<div class="compact-row"><div class="compact-cell">Historias y reels</div><div class="compact-cell">1080 × 1920</div><div class="compact-cell">Proporción 9:16, no cubierta por los presets</div></div>
+
+<div class="compact-row"><div class="compact-cell">Facebook</div><div class="compact-cell">1200 × 630</div><div class="compact-cell">Preset disponible</div></div>
+
+<div class="compact-row"><div class="compact-cell">Twitter / X</div><div class="compact-cell">1200 × 675</div><div class="compact-cell">Preset disponible</div></div>
+
+<div class="compact-row"><div class="compact-cell">Miniatura de YouTube</div><div class="compact-cell">1280 × 720</div><div class="compact-cell">Preset disponible</div></div>
+
+<div class="compact-row"><div class="compact-cell">Web y tienda</div><div class="compact-cell">1200 – 1600 px de ancho</div><div class="compact-cell">Sobra para pantallas normales; menos píxeles = menos peso</div></div>
+
+</div>
+
+<p>Estas cifras son los valores que las plataformas aceptan de forma estable; las especificaciones concretas cambian de vez en cuando, así que si un formulario te da un número exacto, manda siempre ese.</p>
+
+<h2>Reducir píxeles también reduce el peso</h2>
+
+<p>El peso no baja de forma lineal: lo que cuenta es la superficie. Reducir el ancho y el alto a la mitad deja la imagen con una cuarta parte de píxeles, y el archivo suele acabar entre un 65 % y un 80 % más ligero. De 4000 px a 2000 px es la jugada típica para una foto de tienda: sigue viéndose perfecta en cualquier pantalla y pesa una fracción.</p>
+
+<p>Si después de redimensionar el archivo sigue pesando más de lo que necesitas, el siguiente paso es la calidad: pásalo por el <a href="/tools/comprimir-imagenes">compresor de imágenes</a> con la calidad en 80. Y si lo que quieres es el tamaño exacto de un preset concreto, aplícalo aquí y remata el peso después.</p>
+
+<h2>Evitar que la foto se deforme</h2>
+
+<p>La deformación aparece cuando el ancho y el alto no guardan la proporción original: la imagen se estira o se aplasta para llenar el lienzo. Dos precauciones lo evitan:</p>
+
+<ul>
+
+<li><strong>Deja activada «Mantener proporción»</strong> y cambia solo el ancho o solo el alto: el otro valor se ajusta solo.</li>
+
+<li><strong>Cuidado con los presets.</strong> Aplican el tamaño exacto del botón (1080 × 1080, 1200 × 630…). Si tu foto no tiene esa misma proporción, quedará estirada para encajar. Son útiles cuando la proporción ya coincide o cuando vas a recortar después; si no, escribe tú las medidas con la proporción bloqueada.</li>
+
+</ul>
+
+<h2>Si algo no funciona</h2>
+
+<ul>
+
+<li><strong>El PNG descargado pesa muchísimo.</strong> Normal: el PNG no comprime bien las fotografías. Si subiste un WebP, recuerda que aquí se descarga como PNG; convierte después a JPG o WebP con el <a href="/tools/convertir-formato">conversor de formato</a>.</li>
+
+<li><strong>La imagen sale deformada.</strong> Se aplicó un preset con proporción distinta a la de la foto, o se desactivó «Mantener proporción». Recarga la imagen y escribe tú las medidas.</li>
+
+<li><strong>No se abre la foto del móvil.</strong> Suele ser HEIC; los navegadores de escritorio no lo decodifican. Convierte a JPG en el propio teléfono antes de subir.</li>
+
+<li><strong>Se queda colgado con una foto gigante.</strong> Imágenes de decenas de megabytes agotan la memoria del navegador, sobre todo en móvil. Trabaja con una copia más pequeña.</li>
+
+</ul>
+
+<h2>Privacidad</h2>
+
+<p>La imagen se procesa entera dentro del navegador: no se sube a ningún servidor ni queda copia en ninguna parte. Puedes comprobarlo con la pestaña Red de las herramientas de desarrollo. Como efecto secundario, el archivo descargado ya no lleva los datos EXIF del original: cámara, fecha y ubicación desaparecen, algo útil antes de publicar fotos en anuncios o plataformas públicas.</p>
+
+</div>
+
+<div class="faq-section">
+
+<h2>Preguntas frecuentes</h2>
+
+<div class="faq-item"><button class="faq-question">¿Se pierde calidad al redimensionar?</button><div class="faq-answer"><p>Al reducir, apenas: el navegador promedia los píxeles y el resultado se ve nítido en pantalla. Al ampliar sí cambia la percepción: no se crea detalle nuevo, solo se interpolan los píxeles existentes, así que una foto ampliada se ve más grande pero no más nítida. El formato PNG no re-comprime con pérdida; JPG sí, con la calidad por defecto del navegador.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Qué significa «Mantener proporción»?</button><div class="faq-answer"><p>Que el ancho y el alto cambian siempre en la misma relación que la imagen original. Con la casilla activada basta escribir uno de los dos valores y el otro se recalcula solo, evitando que la foto se estire o se aplaste.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Qué formatos de imagen soporta?</button><div class="faq-answer"><p>Soporta JPG, PNG y WebP. La imagen redimensionada se descarga en el mismo formato que subiste, con una excepción por compatibilidad: los WebP se descargan como PNG. Los archivos HEIC del iPhone suelen no abrirse en navegadores de escritorio.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Mis imágenes se guardan en algún servidor?</button><div class="faq-answer"><p>No. Todo el proceso ocurre en tu navegador: la imagen se lee del disco, se redibuja en memoria y se descarga desde ahí. No hay subida ni almacenamiento, y puedes verificarlo en la pestaña Red de las herramientas de desarrollo.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Cuál es el tamaño máximo permitido?</button><div class="faq-answer"><p>No hay un límite fijo en el código: puedes escribir desde 1 píxel hasta varios miles. El tope real lo pone la memoria del navegador; con fotos de más de 50 MB o dimensiones extremas, la pestaña puede quedarse sin memoria, especialmente en móviles.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Por qué mi foto se ha estirado al usar un preset?</button><div class="faq-answer"><p>Los presets aplican un tamaño exacto, como 1080 × 1080 o 1200 × 630. Si tu foto no tiene esa misma proporción, el reescalado la estira para encajar en el lienzo. Para no deformarla, escribe tú el ancho con «Mantener proporción» activado y recorta después si hace falta.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Por qué mi WebP se descarga como PNG?</button><div class="faq-answer"><p>Es una decisión de compatibilidad: no todos los navegadores permiten descargar lienzo en WebP de forma fiable, así que la herramienta lo guarda como PNG. Si necesitas WebP u otro formato final, pasa el resultado por el conversor de formato.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Reducir los píxeles baja el peso del archivo?</button><div class="faq-answer"><p>Sí, y de forma notable: el peso depende de la superficie, no de la altura. Reducir ancho y alto a la mitad deja una cuarta parte de píxeles y suele ahorrar entre un 65 % y un 80 % de peso. Si aún pesa demasiado, pasa luego por el compresor con calidad 80.</p></div></div>
+
+</div>
+
+<div class="related-tools">
       <h2>Herramientas relacionadas</h2>
       <div class="related-tools-grid">
         <a href="/tools/comprimir-imagenes" class="related-tool-card"><span class="tool-icon">🗜️</span><div class="tool-info"><strong>Comprimir imágenes</strong><span class="tool-desc">Reduce el peso de tus fotos</span></div><span class="tool-arrow">→</span></a>

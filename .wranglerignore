@@ -9,4 +9,5 @@ promo/ffprobe*
 *.mp3
 *.wav
 ffmpeg*
-staging/
+staging
+staging/**

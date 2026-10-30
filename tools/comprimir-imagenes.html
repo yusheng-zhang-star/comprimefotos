@@ -49,11 +49,14 @@
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      {"@type": "Question", "name": "¿Comprimir una imagen reduce su calidad?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, la compresión con pérdida (lossy) reduce la calidad, pero con los ajustes adecuados (80% calidad) la pérdida es apenas perceptible para el ojo humano."}},
-      {"@type": "Question", "name": "¿Qué formato da el archivo más pequeño?", "acceptedAnswer": {"@type": "Answer", "text": "Normalmente WebP da los archivos más pequeños con la misma calidad, entre un 25-35% más pequeño que JPG."}},
-      {"@type": "Question", "name": "¿Mis imágenes se suben a algún servidor?", "acceptedAnswer": {"@type": "Answer", "text": "No, nunca. Todo el procesamiento ocurre en tu navegador usando JavaScript. Tus imágenes nunca salen de tu dispositivo."}},
-      {"@type": "Question", "name": "¿Cuál es el tamaño máximo de archivo?", "acceptedAnswer": {"@type": "Answer", "text": "El límite práctico es de unos 50 MB, aunque depende de la memoria disponible en tu navegador."}},
-      {"@type": "Question", "name": "¿Cómo bajar el peso de una imagen sin perder calidad?", "acceptedAnswer": {"@type": "Answer", "text": "Para bajar el peso de una imagen sin perder calidad, comprime en JPG o WebP con un nivel de calidad del 80%. Esto suele reducir el archivo entre un 60% y un 80% sin cambios visibles para el ojo humano. Con ComprimeFotos eliges el nivel de compresión y la imagen se procesa al instante en tu navegador, sin subirla a ningún servidor."}}
+      {"@type": "Question", "name": "¿Comprimir una imagen reduce su calidad?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, si eliges JPG o WebP: son formatos con pérdida, así que algo de información se descarta. Con el deslizador en 80 la diferencia no se aprecia en pantalla, y en la mayoría de fotos ni ampliando al 100 %. En PNG no se pierde nada, porque es un formato sin pérdida."}},
+      {"@type": "Question", "name": "¿Qué formato da el archivo más pequeño?", "acceptedAnswer": {"@type": "Answer", "text": "Para la misma calidad visual, WebP suele quedar entre un 25 % y un 35 % por debajo de JPG. Le sigue JPG. PNG casi siempre es el más pesado de los tres y solo compensa cuando necesitas transparencia."}},
+      {"@type": "Question", "name": "¿Mis imágenes se suben a algún servidor?", "acceptedAnswer": {"@type": "Answer", "text": "No. Todo ocurre en tu navegador con JavaScript: la imagen se lee del disco, se procesa en memoria y se descarga desde ahí. No hay subida ni almacenamiento, y puedes verificarlo en la pestaña Red de las herramientas de desarrollo."}},
+      {"@type": "Question", "name": "¿Cuál es el tamaño máximo de archivo?", "acceptedAnswer": {"@type": "Answer", "text": "No hay un límite fijo en el código. El tope real es la memoria del navegador: hasta unos 50 MB suele funcionar sin problemas; por encima, una foto muy grande puede bloquear la pestaña, sobre todo en móviles."}},
+      {"@type": "Question", "name": "¿Cómo bajar el peso de una imagen sin perder calidad?", "acceptedAnswer": {"@type": "Answer", "text": "Comprime en JPG o WebP con la calidad en 80: se reduce entre un 60 % y un 80 % del peso sin cambios visibles en pantalla. Si la foto tiene texto o líneas finas, sube a 85. Y si el archivo ya venía comprimido de un chat, la mejora será pequeña: no hay nada que recortar."}},
+      {"@type": "Question", "name": "¿Por qué una imagen PNG no baja de peso?", "acceptedAnswer": {"@type": "Answer", "text": "Porque el PNG es un formato sin pérdida y no admite un nivel de calidad: el deslizador no tiene efecto sobre él. Para reducir su peso de verdad hay que cambiar a JPG o WebP, y eso implica renunciar a la transparencia o aceptar algo de pérdida."}},
+      {"@type": "Question", "name": "¿Puedo dejar la imagen en 100 KB exactos?", "acceptedAnswer": {"@type": "Answer", "text": "No hay un campo para escribir el peso objetivo. El deslizador controla la calidad, así que se llega a una cifra concreta probando: empieza en 80, mira el tamaño resultante y ajusta de diez en diez hasta quedar por debajo del límite que te piden."}},
+      {"@type": "Question", "name": "¿Se borran los datos EXIF y la ubicación GPS?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Al volver a codificar la imagen se eliminan todos los metadatos: modelo de cámara, fecha y coordenadas GPS. La orientación se mantiene, porque el navegador la aplica antes de dibujar la imagen. Resulta útil antes de subir fotos a anuncios, tiendas o portales de empleo."}}
     ]
   }
   </script>
@@ -244,23 +247,151 @@
 
     </div>
 
-    <div class="faq-section">
+    <div class="blog-post-content" style="margin-top:44px;">
 
-      <h2>Preguntas frecuentes</h2>
+<h2>Qué hace este compresor por dentro (y qué no hace)</h2>
 
-      <div class="faq-item"><button class="faq-question">¿Comprimir una imagen reduce su calidad?</button><div class="faq-answer"><p>Sí, la compresión con pérdida (lossy) reduce la calidad, pero con los ajustes adecuados (80% calidad) la pérdida es apenas perceptible para el ojo humano.</p></div></div>
+<p>Cuando eliges una foto, la imagen no sale de tu ordenador. El navegador la decodifica en memoria, la vuelve a dibujar sobre un lienzo con el mismo ancho y alto del original y la vuelve a codificar en JPG, PNG o WebP con la calidad que marques en el deslizador. El ahorro que aparece bajo la vista previa es una resta real de bytes: peso del archivo original menos peso del archivo nuevo.</p>
 
-      <div class="faq-item"><button class="faq-question">¿Qué formato da el archivo más pequeño?</button><div class="faq-answer"><p>Normalmente <strong>WebP</strong> da los archivos más pequeños con la misma calidad, entre un 25-35% más pequeño que JPG.</p></div></div>
+<p>Eso significa tres cosas que conviene tener claras antes de usarlo:</p>
 
-      <div class="faq-item"><button class="faq-question">¿Mis imágenes se suben a algún servidor?</button><div class="faq-answer"><p><strong>No, nunca.</strong> Todo el procesamiento ocurre en tu navegador usando JavaScript. Tus imágenes nunca salen de tu dispositivo.</p></div></div>
+<ul>
 
-      <div class="faq-item"><button class="faq-question">¿Cuál es el tamaño máximo de archivo?</button><div class="faq-answer"><p>El límite práctico es de unos <strong>50 MB</strong>, aunque depende de la memoria disponible en tu navegador.</p></div></div>
+<li><strong>No cambia las dimensiones.</strong> Una foto de 4032 × 3024 píxeles sigue siendo de 4032 × 3024 píxeles. Si tu problema es que la imagen es demasiado grande en píxeles, comprimir no lo arregla: hay que redimensionar.</li>
 
-      <div class="faq-item"><button class="faq-question">¿Cómo bajar el peso de una imagen sin perder calidad?</button><div class="faq-answer"><p>Para bajar el peso de una imagen sin perder calidad, comprime en <strong>JPG o WebP</strong> con un nivel de calidad del <strong>80%</strong>. Esto suele reducir el archivo entre un <strong>60% y un 80%</strong> sin cambios visibles para el ojo humano. Con ComprimeFotos eliges el nivel de compresión y la imagen se procesa al instante en tu navegador, sin subirla a ningún servidor.</p></div></div>
+<li><strong>No recorta ni endereza.</strong> No hay recorte, ni rotación, ni enfoque. Solo recompresión.</li>
 
-    </div>
+<li><strong>Sí elimina los metadatos.</strong> Al volver a codificar se pierden los datos EXIF: modelo de cámara, fecha de la foto y coordenadas GPS. La orientación no se pierde, porque el navegador ya la ha aplicado al dibujar la imagen.</li>
 
-    <div class="related-tools">
+</ul>
+
+<p>De ahí sale una consecuencia práctica: cuanto menos comprimido esté el archivo original, más margen hay para bajar. Si la foto ya pasó por WhatsApp o por un chat, lo más probable es que venga muy comprimida y la ganancia sea pequeña, incluso nula.</p>
+
+<h2>Cuánto baja el peso en la práctica</h2>
+
+<p>Las cifras de la tabla son órdenes de magnitud medidos con el deslizador en 80 y salida JPG. No son una promesa: dos fotos del mismo tamaño pueden acabar en pesos muy distintos según el detalle que tengan. Una pared de ladrillos, la hierba o una tela con textura pesan mucho más que un cielo liso o un fondo de estudio.</p>
+
+<div class="compact-table">
+
+<div class="compact-row compact-header"><div class="compact-cell">Tipo de imagen</div><div class="compact-cell">Peso habitual</div><div class="compact-cell">Tras comprimir (80)</div></div>
+
+<div class="compact-row"><div class="compact-cell">Foto de móvil, 12 MP</div><div class="compact-cell">3 – 5 MB</div><div class="compact-cell">400 – 900 KB</div></div>
+
+<div class="compact-row"><div class="compact-cell">Foto de tienda, 2000 px</div><div class="compact-cell">1 – 2 MB</div><div class="compact-cell">180 – 350 KB</div></div>
+
+<div class="compact-row"><div class="compact-cell">Captura de pantalla PNG</div><div class="compact-cell">1 – 2 MB</div><div class="compact-cell">150 – 400 KB en JPG</div></div>
+
+<div class="compact-row"><div class="compact-cell">Foto ya enviada por WhatsApp</div><div class="compact-cell">120 – 300 KB</div><div class="compact-cell">90 – 250 KB</div></div>
+
+</div>
+
+<p>Fíjate en la última fila: cuando el archivo de partida ya viene comprimido, el porcentaje de ahorro se desploma. Es lo esperable, no un fallo de la herramienta.</p>
+
+<h2>Qué nivel de calidad elegir según el destino</h2>
+
+<p>El deslizador va de 10 a 100 y arranca en 80. Es el punto en el que la mayoría de fotos dejan de mostrar diferencias visibles en una pantalla normal, así que solo muévelo si tienes un motivo concreto.</p>
+
+<div class="compact-table">
+
+<div class="compact-row compact-header"><div class="compact-cell">Calidad</div><div class="compact-cell">Para qué</div><div class="compact-cell">Qué esperar</div></div>
+
+<div class="compact-row"><div class="compact-cell">90 – 95</div><div class="compact-cell">Archivo propio, catálogo, impresión</div><div class="compact-cell">Casi idéntico al original, pero el archivo ya baja bastante</div></div>
+
+<div class="compact-row"><div class="compact-cell">80 – 85</div><div class="compact-cell">Tienda online, Instagram, web</div><div class="compact-cell">Buen peso sin artefactos a tamaño real</div></div>
+
+<div class="compact-row"><div class="compact-cell">70 – 75</div><div class="compact-cell">WhatsApp, correo, foros, segunda mano</div><div class="compact-cell">Muy ligero; en pantalla de móvil no se nota</div></div>
+
+<div class="compact-row"><div class="compact-cell">50 – 60</div><div class="compact-cell">Miniaturas y vistas previas</div><div class="compact-cell">Aparecen bloques si se amplía</div></div>
+
+<div class="compact-row"><div class="compact-cell">Por debajo de 40</div><div class="compact-cell">No recomendado</div><div class="compact-cell">Texto ilegible y bordes sucios</div></div>
+
+</div>
+
+<p>Si la foto lleva texto pequeño —un cartel, un menú, una captura de documento— no bajes de 85 aunque el archivo pese más. La compresión castiga justo los bordes de las letras, y ahí se nota antes que en un paisaje.</p>
+
+<h2>Cómo dejar un archivo en un peso concreto</h2>
+
+<p>Esta herramienta no tiene un campo de peso objetivo: el deslizador controla la calidad, no los kilobytes. Aun así se llega a una cifra concreta en dos o tres intentos, que es lo que suele hacer falta cuando un formulario exige un máximo.</p>
+
+<ol>
+
+<li>Deja la calidad en 80 y mira el dato <strong>Tamaño comprimido</strong> que aparece bajo la vista previa.</li>
+
+<li>Si sigue por encima del tope, baja diez puntos y vuelve a mirar. Si sobra mucho, sube diez.</li>
+
+<li>Cuando estés cerca, ajusta de cinco en cinco hasta quedar por debajo del límite sin alejarte de él.</li>
+
+</ol>
+
+<p>Hay un caso en el que mover el deslizador apenas sirve: fotos con mucho ruido o muchísimo detalle fino, donde bajar de 80 a 50 recorta poco. Ahí es más rápido reducir primero los píxeles y comprimir después. Para eso está <a href="/tools/redimensionar-imagen">Redimensionar imagen</a>, y para lo contrario —cuando el peso no importa pero el número de archivos sí— el <a href="/tools/procesador-por-lotes">procesador por lotes</a>.</p>
+
+<h2>Límites que conviene conocer antes de usarlo</h2>
+
+<ul>
+
+<li><strong>El PNG no entiende de calidad.</strong> Es un formato sin pérdida: muevas el deslizador o no, el archivo sale igual. Y si partes de un JPG y guardas en PNG, lo normal es que el resultado pese más que el original. Usa PNG solo si necesitas transparencia o colores planos exactos.</li>
+
+<li><strong>Las transparencias se vuelven negras en JPG.</strong> El JPG no tiene canal alfa, así que un logo con fondo transparente sale con el fondo negro. En ese caso elige PNG o WebP.</li>
+
+<li><strong>El GIF animado pierde la animación.</strong> Solo se conserva el primer fotograma. Para moverte con animaciones hace falta una herramienta específica.</li>
+
+<li><strong>El HEIC del iPhone no se abre en la mayoría de navegadores de escritorio.</strong> Pasa antes por un conversor de formato.</li>
+
+<li><strong>De uno en uno.</strong> Aquí se procesa una imagen por vez; para veinte o cincuenta, usa el procesador por lotes.</li>
+
+<li><strong>No es un compresor de PDF.</strong> Si lo que pesa es el documento, esto no lo toca.</li>
+
+<li><strong>Archivos gigantes.</strong> No hay un tope fijo en el código: el límite real es la memoria del navegador. Por debajo de 50 MB suele ir bien; a partir de ahí, una foto de 100 MB puede dejar la pestaña colgada.</li>
+
+</ul>
+
+<h2>Si algo no funciona</h2>
+
+<ul>
+
+<li><strong>El peso no baja.</strong> Casi siempre es una de estas tres: el original ya venía comprimido, la salida está en PNG o la calidad sigue en 90 o más.</li>
+
+<li><strong>El archivo nuevo pesa más que el viejo.</strong> Normal al convertir JPG a PNG, o al subir la calidad a 100. Vuelve a JPG y baja a 80.</li>
+
+<li><strong>Aparece un fondo negro donde había transparencia.</strong> Estás exportando a JPG. Cambia el formato de salida.</li>
+
+<li><strong>La pestaña se queda pensando con una foto enorme.</strong> Cierra otras pestañas para liberar memoria y prueba con una copia más pequeña; si el móvil tiene poca RAM, hazlo en el ordenador.</li>
+
+<li><strong>No aparece la vista previa.</strong> El formato no lo abre tu navegador, algo típico con HEIC y con algunos AVIF. Convierte a JPG primero.</li>
+
+</ul>
+
+<h2>Privacidad: qué pasa con tus fotos</h2>
+
+<p>Nada sale de tu dispositivo. No hay subida, no hay servidor intermedio y no hay copia en la nube: el archivo se lee del disco, se procesa en memoria y se descarga desde el navegador. Puedes comprobarlo abriendo la pestaña Red de las herramientas de desarrollo mientras comprimes; no verás ninguna petición con la imagen dentro.</p>
+
+<p>Esto importa más de lo que parece. Al recomprimir se borran los datos EXIF, incluidas las coordenadas GPS que muchos móviles graban sin avisar. Si vas a publicar una foto en un anuncio de segunda mano, en una tienda o en un portal de empleo, comprimirla aquí tiene un efecto secundario útil: la foto deja de llevar la ubicación y el modelo de cámara incrustados.</p>
+
+</div>
+
+<div class="faq-section">
+
+<h2>Preguntas frecuentes</h2>
+
+<div class="faq-item"><button class="faq-question">¿Comprimir una imagen reduce su calidad?</button><div class="faq-answer"><p>Sí, si eliges JPG o WebP: son formatos con pérdida, así que algo de información se descarta. Con el deslizador en <strong>80</strong> la diferencia no se aprecia en pantalla, y en la mayoría de fotos ni ampliando al 100 %. En PNG no se pierde nada, porque es un formato sin pérdida.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Qué formato da el archivo más pequeño?</button><div class="faq-answer"><p>Para la misma calidad visual, <strong>WebP</strong> suele quedar entre un 25 % y un 35 % por debajo de JPG. Le sigue JPG. PNG casi siempre es el más pesado de los tres y solo compensa cuando necesitas transparencia.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Mis imágenes se suben a algún servidor?</button><div class="faq-answer"><p><strong>No.</strong> Todo ocurre en tu navegador con JavaScript: la imagen se lee del disco, se procesa en memoria y se descarga desde ahí. No hay subida ni almacenamiento, y puedes verificarlo en la pestaña Red de las herramientas de desarrollo.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Cuál es el tamaño máximo de archivo?</button><div class="faq-answer"><p>No hay un límite fijo en el código. El tope real es la memoria del navegador: hasta unos <strong>50 MB</strong> suele funcionar sin problemas; por encima, una foto muy grande puede bloquear la pestaña, sobre todo en móviles.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Cómo bajar el peso de una imagen sin perder calidad?</button><div class="faq-answer"><p>Comprime en JPG o WebP con la calidad en <strong>80</strong>: se reduce entre un <strong>60 % y un 80 %</strong> del peso sin cambios visibles en pantalla. Si la foto tiene texto o líneas finas, sube a 85. Y si el archivo ya venía comprimido de un chat, la mejora será pequeña: no hay nada que recortar.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Por qué una imagen PNG no baja de peso?</button><div class="faq-answer"><p>Porque el PNG es un formato sin pérdida y no admite un nivel de calidad: el deslizador no tiene efecto sobre él. Para reducir su peso de verdad hay que cambiar a JPG o WebP, y eso implica renunciar a la transparencia o aceptar algo de pérdida.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Puedo dejar la imagen en 100 KB exactos?</button><div class="faq-answer"><p>No hay un campo para escribir el peso objetivo. El deslizador controla la calidad, así que se llega a una cifra concreta probando: empieza en 80, mira el tamaño resultante y ajusta de diez en diez hasta quedar por debajo del límite que te piden.</p></div></div>
+
+<div class="faq-item"><button class="faq-question">¿Se borran los datos EXIF y la ubicación GPS?</button><div class="faq-answer"><p>Sí. Al volver a codificar la imagen se eliminan todos los metadatos: modelo de cámara, fecha y coordenadas GPS. La orientación se mantiene, porque el navegador la aplica antes de dibujar la imagen. Resulta útil antes de subir fotos a anuncios, tiendas o portales de empleo.</p></div></div>
+
+</div>
+
+<div class="related-tools">
 
       <h2>Herramientas relacionadas</h2>
 

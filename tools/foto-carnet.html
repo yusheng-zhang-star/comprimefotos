@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es" data-theme="light" data-tool-id="foto-carnet">
 <head>
 <meta charset="UTF-8">
@@ -54,7 +54,8 @@
     {"@type":"Question","name":"Mi foto se sube a algun servidor?","acceptedAnswer":{"@type":"Answer","text":"No. Todo el procesamiento es 100% local en tu navegador mediante WebAssembly."}},
     {"@type":"Question","name":"Puedo elegir el color de fondo?","acceptedAnswer":{"@type":"Answer","text":"Si. Puedes elegir entre blanco, azul, rojo, gris y verde, o usar un color personalizado."}},
     {"@type":"Question","name":"Puedo imprimir la foto carnet?","acceptedAnswer":{"@type":"Answer","text":"Si. La imagen se descarga en PNG a 300 DPI, lista para imprimir en cualquier kiosco de fotos."}},
-    {"@type":"Question","name":"Que hago si mi pais no aparece?","acceptedAnswer":{"@type":"Answer","text":"Selecciona Tamano personalizado e introduce las dimensiones exactas en milimetros."}}
+    {"@type":"Question","name":"Que hago si mi pais no aparece?","acceptedAnswer":{"@type":"Answer","text":"Selecciona Tamano personalizado e introduce las dimensiones exactas en milimetros."}},
+    {"@type":"Question","name":"Que es una foto tipo carnet y cuanto mide?","acceptedAnswer":{"@type":"Answer","text":"Una foto tipo carnet es una fotografia frontal tipo pasaporte, con fondo liso y expresion neutra. En Espana mide 32x26 mm para el DNI y 35x45 mm para el pasaporte; en Latinoamerica el estandar habitual es 35x45 mm, y en EE.UU. 51x51 mm. Nuestro generador crea tu foto tipo carnet con esas medidas oficiales en menos de un minuto, sin registro."}}
   ]
 }
 </script>
@@ -242,6 +243,12 @@ button{font-family:inherit;cursor:pointer;border:none;background:0 0;color:inher
       </div>
 
       <div class="guide-block">
+        <h3>&#128203; &iquest;Qu&eacute; tama&ntilde;o tiene una foto carnet?</h3>
+        <p>El tama&ntilde;o de una foto carnet depende del pa&iacute;s y del tipo de documento, pero la mayor&iacute;a de los est&aacute;ndares internacionales usan <strong>35&times;45 mm</strong> (pasaporte y visados) o <strong>32&times;26 mm</strong> (DNI espa&ntilde;ol y NIE). En EE.UU. se usa el tama&ntilde;o de <strong>51&times;51 mm</strong> (2&times;2 pulgadas), y en M&eacute;xico el pasaporte mide <strong>25&times;32 mm</strong>.</p>
+        <p>Antes de hacer la foto, confirma la medida exacta que exige la instituci&oacute;n, porque cada pa&iacute;s aplica su propio est&aacute;ndar. Con nuestro generador solo tienes que elegir el pa&iacute;s y la herramienta aplica autom&aacute;ticamente las dimensiones oficiales en mil&iacute;metros, lista para imprimir.</p>
+      </div>
+
+      <div class="guide-block">
         <h3>&#127758; Dimensiones oficiales por pa&iacute;s</h3>
         <p>Cada pa&iacute;s tiene requisitos espec&iacute;ficos. Estos son los m&aacute;s habituales:</p>
         <ul>
@@ -324,6 +331,11 @@ button{font-family:inherit;cursor:pointer;border:none;background:0 0;color:inher
         <button class="faq-question">¿Qu&eacute; hago si mi pa&iacute;s no aparece?</button>
         <div class="faq-answer">Selecciona "Tama&ntilde;o personalizado" e introduce las dimensiones exactas en mil&iacute;metros. La herramienta recortar&aacute; y generar&aacute; la foto.</div>
       </div>
+
+      <div class="faq-item">
+        <button class="faq-question">¿Qu&eacute; es una foto tipo carnet y cu&aacute;nto mide?</button>
+        <div class="faq-answer">Una foto tipo carnet es una fotograf&iacute;a frontal tipo pasaporte, con fondo liso y expresi&oacute;n neutra. En Espa&ntilde;a mide 32x26 mm para el DNI y 35x45 mm para el pasaporte; en Latinoam&eacute;rica el est&aacute;ndar habitual es 35x45 mm, y en EE.UU. 51x51 mm. Con nuestro generador obtienes tu foto tipo carnet con las medidas oficiales en menos de un minuto, sin registro.</div>
+      </div>
     </section>
 
     <section class="related-tools">
@@ -358,6 +370,14 @@ button{font-family:inherit;cursor:pointer;border:none;background:0 0;color:inher
           <div class="tool-info">
             <strong>Foto a blanco y negro</strong>
             <span class="tool-desc">Convierte tus fotos a escala de grises</span>
+          </div>
+          <span class="tool-arrow">→</span>
+        </a>
+        <a href="/tools/restaurar-fotos-antiguas" class="related-tool-card">
+          <span class="tool-icon">&nbsp;</span>
+          <div class="tool-info">
+            <strong>Restaurar fotos antiguas</strong>
+            <span class="tool-desc">Recupera fotos da&ntilde;adas con IA</span>
           </div>
           <span class="tool-arrow">→</span>
         </a>

@@ -1,0 +1,12 @@
+shorts_venv/
+node_modules/
+promo/*.exe
+promo/ffmpeg*
+promo/ffprobe*
+*.exe
+*.py
+*.mp4
+*.mp3
+*.wav
+ffmpeg*
+staging/

@@ -106,6 +106,10 @@
   Cache-Control: public, max-age=0, must-revalidate
   CDN-Cache-Control: public, max-age=1800
 
+# ── Staging: noindex, nofollow (未发布内容，随 deploy . 一起上传) ──
+/staging/*
+  X-Robots-Tag: noindex, nofollow
+
 # ── CSS: CDN cache 7d, browser 7d ──
 /css/*
   Cache-Control: public, max-age=604800

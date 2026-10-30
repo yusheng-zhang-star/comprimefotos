@@ -1,0 +1,52 @@
+# ComprimeFotos.com
+
+> ComprimeFotos is a free online image and PDF toolkit for Spanish- and Portuguese-speaking users (Spain, Latin America and Brazil). All tools process files directly in the browser: nothing is uploaded to a server, no registration is required, no watermark is added. Focus areas: image/PDF compression, background removal, format conversion and photo-size guides for regional requirements.
+
+## Tools
+
+- [Comprimir imágenes](https://comprimefotos.com/tools/comprimir-imagenes): Compress JPG, PNG and WebP images online without visible quality loss; 100% in-browser, no upload, no registration.
+- [Comprimir PDF](https://comprimefotos.com/tools/comprimir-pdf): Reduce PDF file size online while keeping text and image quality; works in the browser without account.
+- [Quitar fondo](https://comprimefotos.com/tools/quitar-fondo): Remove image backgrounds automatically and in-browser, with a free export without watermark.
+- [Imagen a PDF](https://comprimefotos.com/tools/imagen-a-pdf): Convert one or several images into a single PDF document online.
+- [Comprimir imágenes WhatsApp](https://comprimefotos.com/tools/comprimir-imagenes-whatsapp): Compress photos to WhatsApp-friendly sizes so they send fast without quality loss.
+- [Foto carnet](https://comprimefotos.com/tools/foto-carnet): Generate DNI / passport / visa photo sizes used in Spain and Latin America (3x4, 4x4, 2x2 and more).
+- [Redimensionar imagen](https://comprimefotos.com/tools/redimensionar-imagen): Resize images by pixels, percentage or preset sizes online.
+- [Redimensionar redes sociales](https://comprimefotos.com/tools/redimensionar-redes-sociales): Get ready-made image sizes for Instagram, Facebook, LinkedIn, X and YouTube.
+- [Convertir formato](https://comprimefotos.com/tools/convertir-formato): Convert images between JPG, PNG, WebP, HEIC and other formats in the browser.
+- [PDF a imagen](https://comprimefotos.com/tools/pdf-a-imagen): Convert PDF pages into JPG or PNG images online.
+- [Comprimir vídeo](https://comprimefotos.com/tools/comprimir-video): Reduce video file size online without losing visual quality.
+- [Imagen a texto](https://comprimefotos.com/tools/imagen-a-texto): Extract text from images with OCR in the browser.
+- [Fondo blanco producto](https://comprimefotos.com/tools/fondo-blanco-producto): Make a pure white product-photo background for e-commerce listings.
+- [Restaurar fotos antiguas](https://comprimefotos.com/tools/restaurar-fotos-antiguas): Restore old or damaged family photos online.
+- [Procesador por lotes](https://comprimefotos.com/tools/procesador-por-lotes): Compress, resize or convert many images at once.
+
+## Blog guides (AI-citable answers, with data and step-by-step instructions)
+
+- [Cómo comprimir PDF online gratis sin perder calidad](https://comprimefotos.com/blog/comprimir-pdf-online-gratis-guia): Full step-by-step guide: how PDF compression works, which settings keep quality, common mistakes and tool comparison.
+- [Comprimir PDF online gratis](https://comprimefotos.com/blog/comprimir-pdf-online-gratis): Quick guide to the ComprimeFotos PDF compressor: features, size limits, usage tips and troubleshooting when the file is still too heavy.
+- [Comprimir PDF gratis sin registro](https://comprimefotos.com/blog/comprimir-pdf-sin-registro-gratis): How to compress PDFs without creating an account; privacy approach, in-browser processing and common myths.
+- [Convertir HEIC a JPG gratis](https://comprimefotos.com/blog/convertir-heic-a-jpg-gratis): How to convert iPhone HEIC photos to JPG online for free; compatibility tips for Windows, Android and web uploads.
+- [Comprimir fotos para Instagram gratis](https://comprimefotos.com/blog/comprimir-fotos-para-instagram-gratis): Best image sizes and compression settings for Instagram posts, stories and reels without losing quality.
+- [Comprimir fotos para WhatsApp gratis](https://comprimefotos.com/blog/comprimir-fotos-para-whatsapp-gratis): Compress photos for WhatsApp: recommended sizes, quality settings and how to avoid heavy attachments.
+- [Comprimir imágenes sin perder calidad](https://comprimefotos.com/blog/comprimir-imagenes-sin-perder-calidad-gratis): Guide to compressing JPG/PNG/WebP images while keeping visual quality; explains formats, tools and best settings.
+- [Ampliar imagem sem perder qualidade grátis](https://comprimefotos.com/blog/ampliar-imagem-sem-perder-qualidade-gratis): (pt-BR) How to enlarge small images online up to 4x without blur; browser-based upscaling, formats and limitations.
+- [Como colocar fundo branco em foto de produto grátis](https://comprimefotos.com/blog/como-colocar-fundo-branco-foto-produto-gratis): (pt-BR) Step-by-step guide to put a pure white background on product photos for e-commerce listings in Brazil.
+- [Comprimir imagem sem perder qualidade grátis](https://comprimefotos.com/blog/comprimir-imagem-sem-perder-qualidade-gratis): (pt-BR) How to compress JPG/PNG/WebP images without losing quality; practical settings and file-size expectations.
+- [Converter PNG para JPG grátis](https://comprimefotos.com/blog/converter-png-para-jpg-gratis): (pt-BR) Convert PNG to JPG online for free; when the conversion makes sense and how to keep quality.
+- [Tamanho de foto para Mercado Livre](https://comprimefotos.com/blog/tamanho-foto-mercado-livre-2026): (pt-BR) Official Mercado Livre photo requirements for 2026: recommended resolution, gallery rules and listing best practices.
+- [Tamanho de imagem para Shopee Brasil](https://comprimefotos.com/blog/tamanho-imagem-shopee-brasil-2026): (pt-BR) Shopee Brasil image specs for 2026: main-photo resolution, format and listing optimization tips.
+- [Alternativas a iLovePDF](https://comprimefotos.com/blog/alternativas-ilovepdf): Comparison of free iLovePDF alternatives without limits or watermark, including ComprimeFotos.
+- [Comprimir imagen a 1 MB](https://comprimefotos.com/blog/comprimir-imagen-a-1-mb): How to compress an image to exactly 1 MB or less online, with practical settings per format.
+- [Comprimir imagen a 100 KB](https://comprimefotos.com/blog/comprimir-imagen-a-100-kb): How to reduce an image to 100 KB for forms, email and web uploads.
+- [Quitar fondo sin registro](https://comprimefotos.com/blog/quitar-fondo-sin-registro): Remove image backgrounds for free without signing up; in-browser processing explained.
+- [Cómo comprimir imágenes para WhatsApp](https://comprimefotos.com/blog/como-comprimir-imagenes-para-whatsapp): Compress photos for WhatsApp from phone or computer without losing quality.
+- [Guía completa de compresión de imágenes](https://comprimefotos.com/blog/guia-completa-compresion-imagenes): Complete compression guide: formats, quality/weight balance, and tools compared.
+- [Medidas de foto carnet en Latinoamérica](https://comprimefotos.com/blog/medidas-foto-carnet-latinoamerica): Official ID-photo sizes across Latin American countries.
+- [Foto carnet 3x4](https://comprimefotos.com/blog/tamano-foto-carnet-3x4): How to prepare a 3x4 ID photo online, common for Latin American documents.
+- [Requisitos foto carnet IMSS](https://comprimefotos.com/blog/requisitos-foto-carnet-imss): Mexico IMSS photo requirements: size, background and format rules.
+
+## Notes
+
+- All tools and guides follow a privacy-first approach: files never leave the user's browser.
+- Image sizes and requirements mentioned in the guides are cross-checked against platform documentation and regional standards (Mercado Livre, Shopee Brasil, IMSS, DNI) as of 2026.
+- Content language: Spanish (Spain/Latin America) and Brazilian Portuguese.

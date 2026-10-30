@@ -23,5 +23,8 @@
 /tools/quitar-fondo-fixed.html /tools/quitar-fondo 301
 /contact /contacto 301
 
+# === 主机名归一：www 全部 301 到 apex，避免双主机重复内容 ===
+https://www.comprimefotos.com/* https://comprimefotos.com/:splat 308
+
 # === Catch-all: 404 ===
 /* /404.html 404

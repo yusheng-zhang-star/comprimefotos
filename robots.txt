@@ -15,6 +15,7 @@ Disallow: /phpmyadmin/
 Disallow: /cpanel/
 Disallow: /.env
 Disallow: /.git/
+Disallow: /staging/
 
 # Ruta del sitemap
 Sitemap: https://comprimefotos.com/sitemap.xml

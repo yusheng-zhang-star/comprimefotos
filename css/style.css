@@ -502,6 +502,10 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--a
 }
 .ad-top {
   margin: 12px auto 0;
+  min-height: 90px;
+}
+.ad-top.ad-top-mobile {
+  min-height: 50px;
 }
 .ad-top-desktop iframe {
   width: 728px;
@@ -515,6 +519,7 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--a
 }
 .ad-content {
   margin: 24px auto;
+  min-height: 250px;
 }
 .ad-content iframe {
   width: 300px;
@@ -523,6 +528,10 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--a
 }
 .ad-footer {
   margin: 20px auto 24px;
+  min-height: 90px;
+}
+.ad-footer.ad-top-mobile {
+  min-height: 50px;
 }
 .ad-footer iframe {
   max-width: 100%;

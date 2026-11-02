@@ -42,7 +42,7 @@
 
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#10b981">
 
-  <link rel="stylesheet" href="../css/style.css?v=3">
+  <link rel="stylesheet" href="../css/style.css?v=4">
 
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
 
@@ -129,7 +129,7 @@
       "name": "¿Comprimir un PDF reduce su calidad visual?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Depende del contenido. Si tu PDF contiene principalmente imágenes, la compresión reducirá la calidad de esas imágenes (al igual que al comprimir un JPG). Para documentos con texto principalmente, la compresión no afecta la legibilidad. Con calidad 70% obtienes un buen equilibrio entre tamaño y calidad."
+        "text": "Depende del contenido y del nivel elegido. Las páginas se recodifican como imágenes JPEG: en PDFs con fotos y escaneos la pérdida es apenas visible a calidad 70% o superior, y en documentos de texto la letra sigue viéndose nítida aunque deje de ser seleccionable. Con calidad 100% la degradación visual es prácticamente imperceptible. Con calidad 70% obtienes un buen equilibrio entre tamaño y calidad."
       }
     },
     {
@@ -161,7 +161,31 @@
       "name": "¿Qué tan pequeño puedo hacer mi PDF?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "La reducción depende del contenido del PDF. Para documentos con muchas imágenes, puedes lograr reducciones del 40-70%. Para documentos principalmente textuales con pocas imágenes, la reducción suele ser del 10-30%. Te recomendamos probar diferentes niveles de calidad con el deslizador para encontrar el equilibrio perfecto."
+        "text": "La reducción depende del contenido del PDF. Para documentos con muchas imágenes, puedes lograr reducciones del 40-70%. Para documentos principalmente textuales con pocas imágenes, la reducción suele ser del 10-30%, y en casos extremos el resultado puede incluso pesar más que el original. Te recomendamos probar diferentes niveles de calidad con el deslizador para encontrar el equilibrio perfecto."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿El texto sigue siendo seleccionable después de comprimir?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. La compresión convierte cada página en una imagen dentro del PDF nuevo, así que el texto deja de poder seleccionarse, copiarse o buscarse con Ctrl+F. Visualmente se ve igual de nítido, pero si necesitas un PDF de texto indexable (por ejemplo, para tramites que exigen texto extraíble), guarda el original."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Se conservan los formularios rellenables y las firmas digitales?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Al rasterizar las páginas, los campos de formulario se aplanan (quedan como parte de la imagen, ya no se pueden rellenar) y las firmas digitales pierden su validez criptográfica porque el documento se reconstruye por completo. Para firmar o gestionar formularios, usa siempre el PDF original sin comprimir."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Por qué mi PDF de solo texto apenas se reduce?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Porque el texto vectorial de un PDF ya es extremadamente ligero: lo que pesa son las fuentes y la estructura, no los píxeles. Al convertir las páginas en imágenes, ese texto eficiente se sustituye por JPEG, que en documentos mayormente textuales puede ocupar lo mismo o más. Esta técnica está pensada para PDFs con imágenes y escaneos, que es donde la reducción es real."
       }
     }
   ]
@@ -386,6 +410,90 @@
 
 
 
+    <!-- Guide -->
+
+    <div class="guide-section">
+
+      <h2>Cómo funciona esta compresión de PDF</h2>
+
+      <div class="guide-block">
+
+        <p>Nada se sube a ningún servidor: la compresión entera ocurre dentro de tu navegador, y conviene entender cómo para elegir bien los ajustes. El proceso real tiene tres fases.</p>
+
+        <p><strong>1. Renderizado página a página.</strong> La herramienta carga tu PDF con la librería pdf.js y dibuja cada página en un lienzo (canvas), igual que haría el visor de tu navegador. La resolución de ese renderizado depende del deslizador de calidad: a calidad alta se renderiza hasta 1,5 veces la resolución original; a calidad baja, hasta la mitad.</p>
+
+        <p><strong>2. Recodificación JPEG.</strong> Cada página renderizada se comprime como imagen JPEG con el nivel de calidad que hayas elegido (el deslizador arranca en 70%). Aquí es donde se gana el espacio: las imágenes incrustadas en el PDF, que a menudo vienen sin comprimir o en formatos pesados, pasan a JPEG.</p>
+
+        <p><strong>3. Reconstrucción del documento.</strong> Las páginas comprimidas se vuelven a ensamblar en un PDF nuevo con jsPDF, respetando el tamaño y la orientación de cada página original. El resultado se descarga desde tu propio equipo.</p>
+
+        <div class="tip"><strong>⚠️ Importante — qué cambia en tu documento:</strong> como las páginas se convierten en imágenes, el texto deja de ser seleccionable y buscable, los campos de formulario rellenables se aplanan y las firmas digitales dejan de validarse. Para archivar y leer, no hay diferencia visible; si necesitas copiar texto o mantener firmas, usa el PDF original.</div>
+
+      </div>
+
+      <div class="guide-block">
+
+        <h3>Qué reducción esperar según tu PDF</h3>
+
+        <table>
+
+          <tr><th>Tipo de PDF</th><th>Reducción típica</th><th>Notas</th></tr>
+
+          <tr><td>Escaneo de documentos (son imágenes)</td><td>50–80%</td><td>El caso ideal: cada página ya era una imagen</td></tr>
+
+          <tr><td>Catálogo, dossier, portfolio con fotos</td><td>40–70%</td><td>Depende del tamaño y número de imágenes</td></tr>
+
+          <tr><td>Presentación exportada a PDF</td><td>30–60%</td><td>Los fondos a todo color se comprimen bien</td></tr>
+
+          <tr><td>Documento mixto (texto + fotos)</td><td>20–50%</td><td>El texto no reduce, las fotos sí</td></tr>
+
+          <tr><td>PDF solo de texto (contrato, tesis)</td><td>Baja o incluso crece</td><td>Rasterizar texto puede pesar más que el vectorial original</td></tr>
+
+        </table>
+
+        <p>La herramienta avisa automáticamente cuando detecta que tu documento es principalmente texto: en ese caso, comprimir con canvas no es la técnica adecuada y conviene probar antes de comprometerte con el resultado.</p>
+
+      </div>
+
+      <div class="guide-block">
+
+        <h3>Qué nivel de calidad elegir</h3>
+
+        <p><strong>50–60% — para enviar y ver en pantalla.</strong> Informes que van por correo o WhatsApp, materiales de clase, borradores. El texto sigue siendo legible con claridad y el archivo baja al mínimo práctico.</p>
+
+        <p><strong>70% — el equilibrio por defecto.</strong> El punto de partida de la herramienta: buena calidad visual con una reducción fuerte. Si no sabes qué elegir, quédate aquí.</p>
+
+        <p><strong>85–100% — para imprimir.</strong> Si el PDF va a imprenta o contiene fotos que se verán de cerca (un portfolio, un catálogo), la calidad alta conserva más detalle. La reducción será menor, pero el receptor no notará degradación.</p>
+
+        <p>El deslizador también controla la resolución de renderizado: por debajo del 60% las páginas se rasterizan a menos píxeles que el original, lo que reduce aún más el peso pero puede notarse en pantallas grandes. Si el PDF era un escaneo a 300 dpi, incluso el 50% suele seguir siendo legible.</p>
+
+      </div>
+
+      <div class="guide-block">
+
+        <h3>Situaciones frecuentes en España y Latinoamérica</h3>
+
+        <p><strong>«La sede electrónica no me acepta el PDF».</strong> Muchos portales de trámites (declaraciones, solicitud de ayudas, matrículas universitarias) imponen límites de 2, 5 o 10 MB por documento. Un escaneo de 25 MB se convierte aquí en algo subible en segundos, sin subir el documento a ninguna nube — relevante si el PDF contiene tu DNI, nóminas o datos bancarios.</p>
+
+        <p><strong>«El correo devuelve el adjunto».</strong> Gmail y Outlook aceptan hasta 25 MB por mensaje, pero muchos servidores corporativos y universitarios cortan en 10 MB o menos. Comprimir a calidad 70% suele dejar un dossier de 40 MB en torno a 8–12 MB.</p>
+
+        <p><strong>Enviar presupuestos y facturas por WhatsApp.</strong> WhatsApp Document permite hasta 2 GB, pero muchos contactos agradecen archivos ligeros que abren rápido con datos móviles. Un PDF comprimido pesa una fracción y se abre igual de bien.</p>
+
+      </div>
+
+      <div class="guide-block">
+
+        <h3>Límites honestos de esta herramienta</h3>
+
+        <p><strong>PDFs con contraseña no se procesan.</strong> La herramienta no puede abrir documentos cifrados ni eliminar restricciones. Desprotege el archivo con la contraseña original antes de comprimirlo.</p>
+
+        <p><strong>El límite práctico son unos 50 MB.</strong> No hay límite impuesto por la herramienta, pero el PDF completo se carga en la memoria del navegador: en equipos con poca RAM, documentos enormes pueden agotarla. Si te pasa, divide el PDF y comprímelo por partes.</p>
+
+        <p><strong>No es una compresión «sin pérdida».</strong> La calidad 100% vuelve a codificar las páginas como JPEG con calidad máxima: la pérdida visual es imperceptible, pero no es matemáticamente reversible. Guarda siempre el original antes de comprimir.</p>
+
+      </div>
+
+    </div>
+
     <!-- FAQ -->
 
     <div class="faq-section">
@@ -396,7 +504,7 @@
 
         <button class="faq-question">¿Comprimir un PDF reduce su calidad visual?</button>
 
-        <div class="faq-answer"><p>Depende del contenido. Si tu PDF contiene principalmente imágenes, la compresión reducirá la calidad de esas imágenes (al igual que al comprimir un JPG). Para documentos con texto principalmente, la compresión no afecta la legibilidad. Con calidad 70% obtienes un buen equilibrio entre tamaño y calidad.</p></div>
+        <div class="faq-answer"><p>Depende del contenido y del nivel elegido. Las páginas se recodifican como imágenes JPEG: en PDFs con fotos y escaneos la pérdida es apenas visible a calidad 70% o superior, y en documentos de texto la letra sigue viéndose nítida aunque deje de ser seleccionable. Con calidad 100% la degradación visual es prácticamente imperceptible. Con calidad 70% obtienes un buen equilibrio entre tamaño y calidad.</p></div>
 
       </div>
 
@@ -428,7 +536,31 @@
 
         <button class="faq-question">¿Qué tan pequeño puedo hacer mi PDF?</button>
 
-        <div class="faq-answer"><p>La reducción depende del contenido del PDF. Para documentos con muchas imágenes, puedes lograr reducciones del <strong>40-70%</strong>. Para documentos principalmente textuales con pocas imágenes, la reducción suele ser del <strong>10-30%</strong>. Te recomendamos probar diferentes niveles de calidad con el deslizador para encontrar el equilibrio perfecto.</p></div>
+        <div class="faq-answer"><p>La reducción depende del contenido del PDF. Para documentos con muchas imágenes, puedes lograr reducciones del <strong>40-70%</strong>. Para documentos principalmente textuales con pocas imágenes, la reducción suele ser del <strong>10-30%</strong>, y en casos extremos el resultado puede incluso pesar más que el original. Te recomendamos probar diferentes niveles de calidad con el deslizador para encontrar el equilibrio perfecto.</p></div>
+
+      </div>
+
+      <div class="faq-item">
+
+        <button class="faq-question">¿El texto sigue siendo seleccionable después de comprimir?</button>
+
+        <div class="faq-answer"><p>No. La compresión convierte cada página en una imagen dentro del PDF nuevo, así que el texto deja de poder seleccionarse, copiarse o buscarse con Ctrl+F. Visualmente se ve igual de nítido, pero si necesitas un PDF de texto indexable (por ejemplo, para tramites que exigen texto extraíble), guarda el original.</p></div>
+
+      </div>
+
+      <div class="faq-item">
+
+        <button class="faq-question">¿Se conservan los formularios rellenables y las firmas digitales?</button>
+
+        <div class="faq-answer"><p>No. Al rasterizar las páginas, los campos de formulario se aplanan (quedan como parte de la imagen, ya no se pueden rellenar) y las firmas digitales pierden su validez criptográfica porque el documento se reconstruye por completo. Para firmar o gestionar formularios, usa siempre el PDF original sin comprimir.</p></div>
+
+      </div>
+
+      <div class="faq-item">
+
+        <button class="faq-question">¿Por qué mi PDF de solo texto apenas se reduce?</button>
+
+        <div class="faq-answer"><p>Porque el texto vectorial de un PDF ya es extremadamente ligero: lo que pesa son las fuentes y la estructura, no los píxeles. Al convertir las páginas en imágenes, ese texto eficiente se sustituye por JPEG, que en documentos mayormente textuales puede ocupar lo mismo o más. Esta técnica está pensada para PDFs con imágenes y escaneos, que es donde la reducción es real.</p></div>
 
       </div>
 

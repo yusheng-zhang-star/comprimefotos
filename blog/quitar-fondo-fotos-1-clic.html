@@ -11,6 +11,7 @@
   <meta property="og:description" content="Elimina el fondo de tus fotos automáticamente, gratis y sin instalar nada. Resultado listo para usar en productos, currículums y redes sociales." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://comprimefotos.com/blog/quitar-fondo-fotos-1-clic" />
+  <meta property="og:image" content="https://comprimefotos.com/img/blog/quitar-fondo-1-clic.png" />
   <link rel="icon" href="/favicon.ico" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -44,6 +45,8 @@
     "headline": "Quitar Fondo a Fotos en 1 Clic Online Gratis",
     "description": "Elimina el fondo de cualquier foto online gratis en 1 clic, sin registro ni marca de agua.",
     "datePublished": "2026-10-14",
+    "dateModified": "2026-11-02",
+    "image": "https://comprimefotos.com/img/blog/quitar-fondo-1-clic.png",
     "author": { "@type": "Organization", "name": "ComprimeFotos" },
     "mainEntityOfPage": "https://comprimefotos.com/blog/quitar-fondo-fotos-1-clic"
   }
@@ -57,7 +60,8 @@
       { "@type": "Question", "name": "¿Cómo queda el fondo resultante?", "acceptedAnswer": { "@type": "Answer", "text": "El resultado es un PNG con fondo transparente, listo para poner sobre cualquier color o diseño. No tiene bordes borrosos ni marcas de agua." } },
       { "@type": "Question", "name": "¿Puedo usarlo para fotos de productos de tienda online?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, es la opción perfecta para conseguir el fondo blanco que piden marketplaces como Amazon, eBay o Vinted sin pagar un diseñador." } },
       { "@type": "Question", "name": "¿Mis fotos se suben a la nube?", "acceptedAnswer": { "@type": "Answer", "text": "Todo el procesado ocurre en tu navegador. Tus fotos nunca se envían a nuestros servidores, por lo que es 100% privado." } },
-      { "@type": "Question", "name": "¿Funciona con fotos de personas?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, detecta perfectamente los bordes de pelo y rostros, ideal para fotos de perfil de LinkedIn o currículums." } }
+      { "@type": "Question", "name": "¿Funciona con fotos de personas?", "acceptedAnswer": { "@type": "Answer", "text": "Funciona cuando la persona contrasta con un fondo uniforme: el recorte es automático por color, no por detección de figuras. Contra una pared lisa el resultado es limpio; en exteriores con fondo cargado, el recorte pierde precisión." } },
+      { "@type": "Question", "name": "¿Qué pasa si el fondo tiene degradado o sombras?", "acceptedAnswer": { "@type": "Answer", "text": "El algoritmo calcula un color promedio del fondo y elimina los píxeles parecidos a ese color. Con degradados fuertes, solo desaparece la parte del degradado cercana al promedio y quedan franjas. Fotografiar con luz pareja sobre fondo liso evita casi todos estos casos." } }
     ]
   }
   </script>
@@ -70,26 +74,38 @@
   <article>
     <h1>Quitar Fondo a Fotos en 1 Clic (Gratis, Sin Registro)</h1>
     <div class="meta">14 Octubre 2026 · 4 min de lectura</div>
-    <div class="dato-destacado">
-      La mayoría de las herramientas de pago que usan los diseñadores cuestan 9€ al mes para hacer exactamente lo que tú puedes hacer gratis aquí: quitar el fondo de cualquier foto en 2 segundos.
+    
+    <figure class="blog-figure" style="margin:24px 0;"><img src="/img/blog/quitar-fondo-fotos-1-clic.png" alt="Quitar Fondo a Fotos en 1 Clic (Gratis, Sin Registro)" width="1200" height="630" loading="lazy" decoding="async"></figure><div class="dato-destacado">
+      Lo que hacen las herramientas de suscripción por 9€ al mes, aquí lo haces gratis en un par de segundos. Eso sí: conviene saber antes qué tipo de foto da un recorte limpio y cuál no — te lo explicamos abajo, sin promesas de IA que luego no cumplen.
     </div>
     <p>¿Necesitas quitar el fondo de una foto de producto para ponerla en tu tienda online, de tu foto de perfil para LinkedIn, o de una foto antigua para ponerle un fondo nuevo? Antes esto requería abrir Photoshop y pasar 20 minutos recortando el borde a mano, sobre todo si tienes el pelo suelto o objetos con bordes irregulares.</p>
-    <p>Ahora puedes hacerlo automáticamente en un clic usando <a href="/tools/quitar-fondo">nuestra herramienta online para quitar fondos</a>, sin instalar nada en tu ordenador ni registrarte.</p>
-    <h2>Cómo funciona (más fácil de lo que crees)</h2>
-    <div class="checklist">
-      <li>Sube la foto que quieras editar: JPG, PNG o WEBP</li>
-      <li>La herramienta detecta automáticamente el sujeto principal y elimina el fondo</li>
-      <li>Descarga el PNG con fondo transparente, listo para usar</li>
-    </div>
-    <p>No tienes que hacer nada más. No tienes que pintar sobre la foto, no tienes que ajustar pinceles ni niveles de detección: el proceso es completamente automático y funciona bien incluso con fotos complejas.</p>
-    <h2>Los usos más comunes</h2>
+    <p>Ahora puedes hacerlo automáticamente en un clic usando <a href="/tools/quitar-fondo">nuestra herramienta online para quitar fondos</a>, sin instalar nada en tu ordenador ni registrarte. Pero antes de subir cualquier foto, dedica dos minutos a esta guía: saber cómo funciona el recorte te ahorra intentos fallidos.</p>
+    <h2>Qué hace exactamente la herramienta en ese «1 clic»</h2>
+    <p>Nada de magia: la herramienta analiza los píxeles de los bordes de tu foto, calcula el color promedio de esa zona (que normalmente es el fondo) y vuelve transparente cada píxel que se parece a ese color dentro de un margen de tolerancia. Es un cálculo matemático sobre el color, no un modelo que «entienda» qué es una persona o un zapato.</p>
+    <p>¿Por qué importa esta distinción? Porque el recorte será impecable cuando el fondo sea uniforme y contraste con el sujeto, y perderá precisión cuando el fondo sea una calle llena de cosas o una pared con sombras. Las herramientas de pago con IA de segmentación sí discriminan el sujeto en escenas complejas; esta no lo intenta — a cambio, corre en tu navegador, gratis y sin límite de fotos.</p>
+    <h2>Tres casos reales, paso a paso</h2>
     <ul>
-      <li><strong>Fotos de producto para ecommerce:</strong> Crea el fondo blanco limpio que piden Mercado Libre, Amazon o Vinted sin pagar un fotógrafo de producto.</li>
-      <li><strong>Fotos profesionales:</strong> Consigue una foto de perfil limpia para tu currículum, LinkedIn o página de empresa, sin el fondo desordenado de tu casa.</li>
-      <li><strong>Fotos divertidas:</strong> Quita el fondo a fotos de tus mascotas o amigos para crear stickers, memes o tarjetas personalizadas.</li>
-      <li><strong>Diseño gráfico:</strong> Tenemos varios usuarios que lo usan para quitar el fondo a iconos y elementos antes de montar sus diseños de flyers o redes sociales.</li>
+      <li><strong>Producto para Wallapop o Mercado Libre:</strong> apoya el objeto sobre un cartulino blanco junto a una ventana, fotografía dejando margen alrededor, quita el fondo y elige «Blanco» como color de reemplazo. Descargas un JPG limpio listo para el anuncio. Los anuncios con fondo uniforme transmiten confianza y suelen recibir más consultas.</li>
+      <li><strong>Foto de perfil para el currículum:</strong> retrátate contra una pared lisa (mejor si tu ropa contrasta), recorta y coloca el PNG transparente sobre un fondo gris claro en el editor donde lo vayas a usar. Evitas enseñar el desorden de tu habitación y la foto gana aspecto profesional al instante.</li>
+      <li><strong>Stickers y material de clase:</strong> recorta una mascota, un objeto o un dibujo, descarga el PNG transparente y pégalo en presentaciones, panfletos escolares o para hacer stickers personalizados. Como el resultado conserva la resolución original, se ve nítido incluso impreso.</li>
     </ul>
     <p>Un consejo que nadie te dice: después de quitar el fondo, si vas a subir la foto a una tienda online, recuerda <a href="/tools/comprimir-imagenes">comprimir el PNG resultante</a> para que no pese demasiado y tu página cargue rápido.</p>
+    <h2>Cuándo el clic único no basta</h2>
+    <p>Sé honesto contigo mismo al evaluar tu foto antes de empezar. El recorte automático encaja mal en tres situaciones: fondos con degradado (un atardecer, una pared que se oscurece hacia una esquina), fondos con muchos objetos distintos, y sujetos que comparten color con el fondo (camisa blanca sobre pared blanca). En esos casos el algoritmo elimina solo lo que coincide con el color promedio y el resultado queda a medias.</p>
+    <p>La solución no es técnica sino de toma: fotografía con luz pareja, deja un metro entre el sujeto y la pared, y elige un fondo que contraste. Con esos tres ajustes, el 95% de las fotos caseras dan un recorte limpio a la primera.</p>
+    <h2>El paso final que casi todos olvidan: el peso del PNG</h2>
+    <p>Un detalle que separa una publicación decente de una buena: los PNG con transparencia son pesados. Un recorte de producto de 2000 píxeles puede pesar 3-4 MB en PNG, y si lo subes así a tu tienda o a un catálogo, la página tarda más en cargar y los visitantes con datos móviles lo notan.</p>
+    <p>El remedio es de diez segundos: pasa el PNG por la <a href="/tools/comprimir-imagenes">herramienta de comprimir imágenes</a> antes de publicarlo. Con un PNG optimizado, la misma imagen pesa una fracción y se ve igual en pantalla. Si además vas a usar el recorte sobre un fondo blanco sólido (el caso típico de marketplace), descarga directamente en JPG desde el selector de color de la propia herramienta: el JPG pesa bastante menos que el PNG y al no haber transparencia no pierdes nada.</p>
+    <p>Y una nota de privacidad que casi nadie considera: el archivo que descargas se genera de cero en tu navegador, así que los datos EXIF de la foto original —incluidas las coordenadas GPS de donde la tomaste— no viajan con el resultado. Si publicas fotos tomadas en casa, ese detalle protege tu dirección sin que tengas que hacer nada.</p>
+    <h2>Preguntas frecuentes</h2>
+    <ul>
+      <li><strong>¿Es gratis quitar el fondo de una foto?</strong> Sí, no pagas nada ni necesitas tarjeta ni registro. Todas las funciones de recorte son gratuitas y sin límite diario.</li>
+      <li><strong>¿Cómo queda el fondo resultante?</strong> Obtienes un PNG con transparencia real, listo para poner sobre cualquier color o diseño, sin marcas de agua.</li>
+      <li><strong>¿Puedo usarlo para fotos de productos de tienda online?</strong> Sí: es la vía rápida para conseguir el fondo blanco que piden Amazon, eBay, Vinted o Mercado Libre sin pagar un diseñador.</li>
+      <li><strong>¿Mis fotos se suben a la nube?</strong> No. Todo el procesado ocurre en tu navegador; la foto nunca sale de tu dispositivo.</li>
+      <li><strong>¿Funciona con fotos de personas?</strong> Funciona cuando la persona contrasta con un fondo uniforme: el recorte es por color, no por detección de figuras. Contra una pared lisa queda limpio; con fondo cargado pierde precisión.</li>
+      <li><strong>¿Qué pasa si el fondo tiene degradado o sombras?</strong> Solo desaparece la parte del degradado cercana al color promedio y quedan franjas. Con luz pareja y fondo liso, el problema desaparece.</li>
+    </ul>
     <div class="cta-box">
       <h2>Prueba a quitar el fondo ahora</h2>
       <p>Sin registro, sin marca de agua, 100% privado. Tu foto nunca sale de tu navegador.</p>

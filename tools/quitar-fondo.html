@@ -10,9 +10,9 @@
 
   <meta name="robots" content="index, follow">
 
-  <title>Quitar fondo de fotos online gratis — Eliminar fondo con IA</title>
+  <title>Quitar fondo de fotos online gratis — Sin registro ni marcas de agua</title>
 
-  <meta name="description" content="Quita el fondo de tus fotos online gratis. Elimina el fondo automáticamente con IA. Sin registro, sin marcas de agua, 100% en tu navegador.">
+  <meta name="description" content="Quita el fondo de tus fotos online gratis. El recorte es automático y funciona mejor con fondos uniformes. Sin registro, sin marcas de agua, 100% en tu navegador.">
 
   <meta name="keywords" content="quitar fondo de imagen gratis, eliminar fondo de foto online, sacar fondo a una imagen, removedor de fondo IA">
 
@@ -20,7 +20,7 @@
 
   <meta name="theme-color" content="#1a6b52">
 
-  <meta property="og:title" content="Quitar fondo de fotos online gratis — Eliminar fondo con IA">
+  <meta property="og:title" content="Quitar fondo de fotos online gratis — Sin registro ni marcas de agua">
 
   <meta property="og:description" content="Quita el fondo de tus fotos gratis. Sin registro, 100% en tu navegador.">
 
@@ -42,7 +42,7 @@
 
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#10b981">
 
-  <link rel="stylesheet" href="../css/style.css?v=3">
+  <link rel="stylesheet" href="../css/style.css?v=4">
 
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
 
@@ -70,13 +70,13 @@
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Quitar fondo de fotos online gratis — Eliminar fondo con IA",
+    "name": "Quitar fondo de fotos online gratis — Sin registro ni marcas de agua",
     "url": "https://comprimefotos.com/tools/quitar-fondo",
     "applicationCategory": "MultimediaApplication",
     "operatingSystem": "Any",
     "browserRequirements": "Requiere JavaScript",
     "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
-    "description": "Quita el fondo de tus fotos online gratis. Elimina el fondo automáticamente con IA. Sin registro, sin marcas de agua, 100% en tu navegador."
+    "description": "Quita el fondo de tus fotos online gratis. El recorte es automático y funciona mejor con fondos uniformes. Sin registro, sin marcas de agua, 100% en tu navegador."
   }
   </script>
 <script type="application/ld+json">
@@ -95,7 +95,7 @@
       "@type": "HowToStep",
       "position": 2,
       "name": "Quita el fondo",
-      "text": "Nuestra herramienta procesa la imagen y elimina el fondo automáticamente usando detección de bordes."
+      "text": "La herramienta detecta el color del fondo a partir de los bordes del encuadre y vuelve transparentes los píxeles parecidos a ese color."
     },
     {
       "@type": "HowToStep",
@@ -155,6 +155,38 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "No, para nada. No pedimos registro, email ni ningún dato personal. Solo subes tu imagen, la procesas y descargas el resultado."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Usa inteligencia artificial?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Es un algoritmo de detección de color: muestrea los bordes del encuadre, calcula el color promedio del fondo y vuelve transparente cada píxel que se parece a ese color dentro de un umbral fijo. Funciona muy bien con fondos uniformes, pero no «entiende» qué es una persona o un producto, así que no esperes el recorte de una herramienta con modelo de segmentación."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Quita los datos EXIF de mi foto?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. El archivo que descargas se genera de cero dentro del navegador, y en esa recodificación no se copian los metadatos de la foto original: sin coordenadas GPS, sin modelo de cámara, sin fecha de captura."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Mantiene la resolución original?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, la imagen no se redimensiona: una foto de 4000×3000 sale a 4000×3000. El PNG transparente conserva todos los píxeles; si eliges un color sólido, el JPG se genera con calidad 95, visualmente indistinguible del original."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Funciona en el móvil?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, funciona en cualquier navegador moderno, también en Android e iPhone, porque todo el procesado es local. Ten en cuenta que las fotos de mucha resolución tardan unos segundos más en móviles antiguos: el procesado corre con la potencia de tu dispositivo, no de un servidor."
       }
     }
   ]
@@ -323,7 +355,7 @@
 
         <div class="how-to-step"><div class="step-number">1</div><h4>Sube tu foto</h4><p>Arrastra cualquier imagen con un fondo que quieras eliminar.</p></div>
 
-        <div class="how-to-step"><div class="step-number">2</div><h4>Quita el fondo</h4><p>Nuestra herramienta procesa la imagen y elimina el fondo automáticamente usando detección de bordes.</p></div>
+        <div class="how-to-step"><div class="step-number">2</div><h4>Quita el fondo</h4><p>La herramienta detecta el color del fondo a partir de los bordes del encuadre y vuelve transparentes los píxeles parecidos a ese color.</p></div>
 
         <div class="how-to-step"><div class="step-number">3</div><h4>Elige el color</h4><p>Puedes dejar el fondo transparente o elegir un color de reemplazo.</p></div>
 
@@ -337,13 +369,89 @@
 
     <div class="guide-section">
 
-      <h2>¿Cómo funciona?</h2>
+      <h2>¿Cómo funciona la eliminación de fondo?</h2>
 
       <div class="guide-block">
 
-        <p>Esta herramienta utiliza un algoritmo de detección de bordes basado en diferencias de color y contraste para identificar el sujeto principal de la imagen y separarlo del fondo. Es completamente automático y no requiere ningún tipo de entrenamiento o IA externa.</p>
+        <p>Para que sepas exactamente qué esperar antes de subir tu foto, aquí va el mecanismo real, sin marketing. La herramienta <strong>no usa inteligencia artificial ni redes neuronales</strong>: todo ocurre en tu navegador con un algoritmo de detección de color que funciona en tres pasos.</p>
+
+        <p><strong>1. Muestreo del fondo.</strong> Al cargar la imagen, el algoritmo recorre los píxeles situados en los bordes del encuadre (una franja de unos 5 píxeles alrededor de toda la foto) y calcula su color promedio. La lógica es simple: en la mayoría de fotos de producto y retratos, lo que toca los bordes es el fondo, no el sujeto.</p>
+
+        <p><strong>2. Comparación píxel a píxel.</strong> Cada píxel de la imagen se compara con ese color de fondo promedio usando la distancia euclidiana en el espacio RGB. Si la diferencia es menor que un umbral fijo de 45 puntos (sobre 441 máximos), el píxel se considera fondo.</p>
+
+        <p><strong>3. Transición suave.</strong> Los píxeles que están justo en el límite del umbral no se vuelven transparentes de golpe: su opacidad baja de forma proporcional a lo cerca que estén del color de fondo. Esto suaviza los bordes dentados y evita el efecto «sierra» típico de los recortes duros.</p>
+
+        <p>Como es un cálculo matemático directo sobre los píxeles, el procesado es prácticamente instantáneo incluso en fotos grandes, y funciona igual de bien la primera vez que la número cien.</p>
 
         <div class="tip"><strong>📄 Consejo:</strong> Para mejores resultados, usa imágenes donde el sujeto tenga buen contraste con el fondo. Fotos con fondos uniformes (paredes blancas, cielo azul) funcionan especialmente bien.</div>
+
+      </div>
+
+      <div class="guide-block">
+
+        <h3>Casos donde funciona bien y casos donde no</h3>
+
+        <p>Este algoritmo es honesto pero tiene límites claros. Esta tabla resume qué esperar según tu foto:</p>
+
+        <table>
+
+          <tr><th>Situación</th><th>Resultado esperado</th></tr>
+
+          <tr><td>Fondo uniforme (blanco, gris, pared lisa)</td><td>Muy buen recorte, bordes limpios</td></tr>
+
+          <tr><td>Producto sobre fondo liso (Wallapop, Mercado Libre)</td><td>Buen recorte directo para publicar</td></tr>
+
+          <tr><td>Persona contra cielo o pared de color sólido</td><td>Buen recorte; cuidado con el pelo suelto</td></tr>
+
+          <tr><td>Fondo degradado (atardecer, pared con sombra)</td><td>Parcial: se elimina la parte del degradado parecida al color promedio</td></tr>
+
+          <tr><td>Fondo con muchos elementos (calle, habitación llena)</td><td>Insuficiente: solo se eliminan los píxeles del color dominante del borde</td></tr>
+
+          <tr><td>Sujeto del mismo color que el fondo (camisa blanca sobre pared blanca)</td><td>El sujeto también pierde zonas: el algoritmo no distingue intención</td></tr>
+
+        </table>
+
+        <p>Si tu caso está en las últimas tres filas, la alternativa realista es un editor con selección manual (el lazo magnético de GIMP o Photoshop) o una herramienta de recorte con modelo de segmentación. Para fondos uniformes, esta herramienta te ahorra ese trabajo.</p>
+
+      </div>
+
+      <div class="guide-block">
+
+        <h3>Para qué la usa la gente realmente</h3>
+
+        <p><strong>Vender en mercados online.</strong> Wallapop, Mercado Libre y Milanuncios premian los anuncios con fotos limpias sobre fondo blanco. Fotografía el producto contra una pared o un cartulino liso, quita el fondo aquí, sustitúyelo por blanco con el selector de color y descarga. Todo el ciclo no llega a un minuto.</p>
+
+        <p><strong>Documentos y gestiones.</strong> Muchos trámites piden la foto sobre fondo liso: renovar el DNI o el pasaporte con una foto casera que no cumple el fondo, formularios de visados, fotos de carnet para el trabajo. Puedes limpiar el fondo y ponerlo en blanco o negro según lo que pida el formulario. (Si necesitas además las medidas exactas, la herramienta <a href="/tools/foto-carnet">foto carnet</a> genera los tamaños 3x4, 4x4 o 32×26 mm.)</p>
+
+        <p><strong>Presentaciones y materiales.</strong> Recortar un logo o una figura para pegarla sobre diapositivas, panfletos o imágenes de redes sociales: exporta en PNG con transparencia y el objeto se integra sobre cualquier fondo sin cuadro blanco alrededor.</p>
+
+      </div>
+
+      <div class="guide-block">
+
+        <h3>Qué obtienes al descargar</h3>
+
+        <p><strong>Resolución intacta.</strong> El recorte no reduce la imagen: si subes una foto de 4000×3000, el resultado sale a los mismos 4000×3000 píxeles. Nada se reescala ni se recorta del encuadre.</p>
+
+        <p><strong>Formato según tu elección de fondo.</strong> Con fondo transparente descargas un PNG con canal alfa, el formato estándar para imágenes sin fondo. Si eliges blanco, negro o el color de marca, el resultado se aplana y descarga como JPG con calidad 95, que pesa bastante menos que el PNG.</p>
+
+        <p><strong>Sin metadatos.</strong> El archivo descargado se genera de cero dentro del navegador, así que los datos EXIF de la foto original (coordenadas GPS, modelo de cámara, fecha) no viajan con el resultado. Si te preocupaba publicar fotos de tu casa con la ubicación incluida, aquí ese riesgo desaparece.</p>
+
+      </div>
+
+      <div class="guide-block">
+
+        <h3>Cinco trucos para un recorte mejor</h3>
+
+        <p><strong>1. Luz pareja sobre el fondo.</strong> Si el fondo tiene una zona en sombra y otra iluminada, el promedio de color se aleja de la realidad y deja franjas sin quitar. Una lámpara apuntada a la pared resuelve la mayoría de estos casos.</p>
+
+        <p><strong>2. Separa el sujeto del fondo.</strong> Un metro de distancia entre el objeto y la pared evita que la sombra del sujeto se confunda con el fondo.</p>
+
+        <p><strong>3. Evita que el sujeto toque los bordes.</strong> El color de fondo se calcula en los bordes del encuadre; si tu mano o el producto ocupan una esquina, ese píxel contamina el promedio. Deja un margen visible alrededor.</p>
+
+        <p><strong>4. Ropas y colores contrastados.</strong> Si vas a recortar una persona, que no vista justo el color de la pared: el algoritmo hace transparente todo lo que se parezca al fondo, sin saber qué es «persona».</p>
+
+        <p><strong>5. Prueba el color de reemplazo antes de descargar.</strong> Cambia entre transparente, blanco y negro con el selector: es instantáneo y te muestra si quedaron restos del fondo antes de comprometerte con la descarga.</p>
 
       </div>
 
@@ -392,6 +500,38 @@
         <button class="faq-question">¿Necesito registrarme?</button>
 
         <div class="faq-answer"><p>No, para nada. No pedimos registro, email ni ningún dato personal. Solo subes tu imagen, la procesas y descargas el resultado.</p></div>
+
+      </div>
+
+      <div class="faq-item">
+
+        <button class="faq-question">¿Usa inteligencia artificial?</button>
+
+        <div class="faq-answer"><p>No. Es un algoritmo de detección de color: muestrea los bordes del encuadre, calcula el color promedio del fondo y vuelve transparente cada píxel que se parece a ese color dentro de un umbral fijo. Funciona muy bien con fondos uniformes, pero no «entiende» qué es una persona o un producto, así que no esperes el recorte de una herramienta con modelo de segmentación.</p></div>
+
+      </div>
+
+      <div class="faq-item">
+
+        <button class="faq-question">¿Quita los datos EXIF de mi foto?</button>
+
+        <div class="faq-answer"><p>Sí. El archivo que descargas se genera de cero dentro del navegador, y en esa recodificación no se copian los metadatos de la foto original: sin coordenadas GPS, sin modelo de cámara, sin fecha de captura.</p></div>
+
+      </div>
+
+      <div class="faq-item">
+
+        <button class="faq-question">¿Mantiene la resolución original?</button>
+
+        <div class="faq-answer"><p>Sí, la imagen no se redimensiona: una foto de 4000×3000 sale a 4000×3000. El PNG transparente conserva todos los píxeles; si eliges un color sólido, el JPG se genera con calidad 95, visualmente indistinguible del original.</p></div>
+
+      </div>
+
+      <div class="faq-item">
+
+        <button class="faq-question">¿Funciona en el móvil?</button>
+
+        <div class="faq-answer"><p>Sí, funciona en cualquier navegador moderno, también en Android e iPhone, porque todo el procesado es local. Ten en cuenta que las fotos de mucha resolución tardan unos segundos más en móviles antiguos: el procesado corre con la potencia de tu dispositivo, no de un servidor.</p></div>
 
       </div>
 

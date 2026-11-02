@@ -28,3 +28,6 @@ https://www.comprimefotos.com/* https://comprimefotos.com/:splat 308
 
 # === Catch-all: 404 ===
 /* /404.html 404
+
+# 意图撞车合并 2026-11-02：heic 两篇保留 convertir-heic-a-jpg-gratis（新模板强页）
+/blog/heic-a-jpg-gratis /blog/convertir-heic-a-jpg-gratis 301

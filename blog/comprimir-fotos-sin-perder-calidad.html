@@ -187,6 +187,24 @@
         </tr>
       </table>
 
+      <h2>Qué hace exactamente nuestro compresor (y qué no toca)</h2>
+      <p>Para que sepas qué esperar antes de subir nada, esto es lo que ocurre dentro de la herramienta, sin letra pequeña: la foto se decodifica en tu navegador, se vuelve a codificar en el formato que elijas (JPG, WebP o PNG) con el nivel de calidad del deslizador, y se descarga el resultado. Nada viaja por la red: ni siquiera existe un botón de subida, porque no hay servidor que reciba el archivo.</p>
+      <ul>
+        <li><strong>Las dimensiones no cambian.</strong> Una foto de 4032×3024 píxeles sale con esos mismos píxeles. Si necesitas además reducir el tamaño en píxeles (por ejemplo, para una miniatura), usa primero la <a href="/tools/redimensionar-imagen">herramienta para redimensionar imágenes</a> y después comprime el resultado.</li>
+        <li><strong>El deslizador solo afecta a JPG y WebP.</strong> El PNG es un formato sin pérdida: no admite nivel de calidad, así que mover el deslizador no cambia su peso. Si partes de un JPG y lo guardas como PNG, lo normal es que pese más que el original.</li>
+        <li><strong>Los datos EXIF se eliminan.</strong> Al recodificar dentro del navegador, la foto sale sin los metadatos de la cámara: modelo, fecha exacta y, importante para privacidad, las coordenadas GPS donde se tomó. Para fotos de producto o de una vivienda que vas a publicar, esto es una ventaja; si necesitas conservar esa información, haz una copia del original antes.</li>
+        <li><strong>No hay procesamiento por lotes con ajustes distintos.</strong> Todas las imágenes de una misma tanda salen con el mismo nivel de calidad. Si una foto necesita 85 y otra 70, comprímelas por separado.</li>
+      </ul>
+
+      <h2>Cuatro errores típicos que sí restan calidad</h2>
+      <p>La mayoría de las fotos "destrozadas" que se ven por internet no lo están por comprimir, sino por comprimir mal. Estos son los cuatro fallos más comunes y cómo evitarlos:</p>
+      <ol>
+        <li><strong>Recomprimir una foto que ya estaba comprimida.</strong> Cada vez que abres un JPG, lo editas y lo guardas de nuevo, se acumula otra pasada de pérdida sobre la anterior (lo que se llama pérdida generacional). Si ya tienes una versión comprimida que te gusta, trabaja siempre desde el original, no desde la copia comprimida.</li>
+        <li><strong>Convertir a PNG "por si acaso".</strong> Es un error muy extendido: pensar que PNG siempre es mejor porque no pierde calidad. Para una foto corriente, un PNG puede pesar entre 5 y 10 veces más que el mismo JPG en calidad 80, sin ninguna mejora visible en pantalla.</li>
+        <li><strong>Juzgar el resultado en la vista previa reducida.</strong> Una imagen reducida al 25% en el navegador siempre parece perfecta. Compara siempre las dos versiones al 100%, alternando entre pestañas, y fíjate en zonas con texto pequeño, texturas repetidas (hierba, pelo, tejidos) y bordes muy contrastados: ahí es donde aparecen primero los artefactos.</li>
+        <li><strong>Comprimir la foto que va a imprimirse.</strong> Para pantalla, 75-80 va sobrado; para papel, los defectos que en el monitor pasan desapercibidos se notan. Las fotos destinadas a impresión merecen calidad 90-95, como apuntamos en la tabla.</li>
+      </ol>
+
       <h2 id="faq">Preguntas frecuentes</h2>
       <div class="faq-item"><button class="faq-question">¿Se puede comprimir una imagen sin perder nada de calidad?</button><div class="faq-answer"><p>Sí, pero solo con compresión sin pérdida (PNG, TIFF, o JPEG con calidad 100). El problema es que el peso no baja mucho. Para reducir de verdad, necesitas compresión con pérdida, y ahí siempre hay alguna pérdida, aunque sea invisible. La clave es que no se note a simple vista.</p></div></div>
       <div class="faq-item"><button class="faq-question">¿Qué calidad JPEG es la mejor para web?</button><div class="faq-answer"><p>Para la mayoría de webs, una calidad entre 70 y 80 es ideal. Baja el peso drásticamente y no se aprecian diferencias en pantallas normales. Si la imagen tiene mucho detalle fino, sube a 85. Nunca uses 100 porque el archivo pesa mucho más sin beneficio visible.</p></div></div>
